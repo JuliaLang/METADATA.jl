@@ -11,7 +11,7 @@ where each submodule is a package and all the packages have mutually
 compatible versions. You can have multiple different package repos that have
 independent collections of packages, somewhat like Python's virtualenv or
 Ruby's RMV. The default package repo location is `~/.julia` but you can
-specify a different location by setting the `JULIA_PACKAGES` environment
+specify a different location by setting the `JULIA_PKGDIR` environment
 variable.
 
 The package manager is declarative rather than imperative: you tell it what
@@ -135,3 +135,47 @@ and then want to call resolve() to update the installed packages to match.
 installed packages. Then does a resolve() to update the collection of
 installed packages to the latest and greatest set that satisfies the
 requirements in `REQUIRE` (which remain the same).
+
+### What a package's state means
+
+A submodule `pkg` of the package repo is considered to be a package if the
+file `METADATA/$pkg/url` exists. The package manager ignores everything
+besides `METADATA`, `REQUIRE` and packages. You can therefore create a new git
+repo in your package repo directory and work on it "unmolested" until you are
+ready to add it to `METADATA` and register it as a package.
+
+There are two dimensions to package state: off-branch vs. on-branch and clean
+vs. dirty. If the package has a "detached head" in git lingo, it is called
+"off-branch" whereas when it has an "attached head" it is called "on-branch".
+If any uncommitted git changes exist in a package, then it is dirty, otherwise
+it is clean. Accordingly, there are four possibly states a package can be in:
+
+1. off-branch and clean
+2. off-branch and dirty
+3. on-branch and clean
+4. on-branch and dirty
+
+Only when a package is in the first state -- off-branch and clean -- does the
+package manager fully manage it, automatically resolving the optimal package
+version and checking that version out for you. This is the normal state for
+packages installed by the package manager and many users will never have any
+need to have packages in any other state.
+
+If a package is dirty, it is always left alone by the package manager, under
+the assumption that you have modified its contents and do not want those
+changes clobbered. If a package is on-branch and clean, the package manager
+mostly leaves it alone, under the assumption that you are doing work on the
+package and manually managing its state. The only exception is that
+`Pkg.update()` will attempt to do a fast-forward-only `git pull` from the
+origin, automatically getting new commits from the remote as long as no
+merging is required. If a fast-forward pull isn't possible, the repo will be
+left in its current state. This way you can keep select packages in a
+"bleeding edge" state by checking out their master branch, yet still allow the
+package manager to update them for you.
+
+When a package is off-branch and at a version that is registered in
+`METADATA`, its requirements are determined by the registered metadata. The
+`$pkg/REQUIRE` file should generally match, but is ignored. If a package is
+on-branch or off-branch but at a version that is not registered, its
+requirements are instead determined by the `$pkg/REQUIRE` file (if it does not
+exist, the package is considered to have no requirements).
