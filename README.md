@@ -145,17 +145,17 @@ repo in your package repo directory and work on it "unmolested" until you are
 ready to add it to `METADATA` and register it as a package.
 
 There are two dimensions to package state: off-branch vs. on-branch and clean
-vs. dirty. If the package has a "detached head" in git lingo, it is called
-"off-branch" whereas when it has an "attached head" it is called "on-branch".
-If any uncommitted git changes exist in a package, then it is dirty, otherwise
-it is clean. Accordingly, there are four possibly states a package can be in:
+vs. dirty. If the package has a "detached head" in git lingo, it is
+"off-branch" whereas when it has an "attached head" it is "on-branch". If any
+uncommitted git changes exist in a package, then it is dirty, otherwise it is
+clean. Accordingly, there are four possibly states a package can be in:
 
 1. off-branch and clean
 2. off-branch and dirty
 3. on-branch and clean
 4. on-branch and dirty
 
-Only when a package is in the first state -- off-branch and clean -- does the
+Only when a package is in the first state – off-branch and clean – does the
 package manager fully manage it, automatically resolving the optimal package
 version and checking that version out for you. This is the normal state for
 packages installed by the package manager and many users will never have any
@@ -166,12 +166,12 @@ the assumption that you have modified its contents and do not want those
 changes clobbered. If a package is on-branch and clean, the package manager
 mostly leaves it alone, under the assumption that you are doing work on the
 package and manually managing its state. The only exception is that
-`Pkg.update()` will attempt to do a fast-forward-only `git pull` from the
+`Pkg.update()` will attempt to do a fast-forward-only git pull from the
 origin, automatically getting new commits from the remote as long as no
 merging is required. If a fast-forward pull isn't possible, the repo will be
 left in its current state. This way you can keep select packages in a
-"bleeding edge" state by checking out their master branch, yet still allow the
-package manager to update them for you.
+"bleeding edge" state by checking out their master branch (or any other
+branch), but the package manager will keep them up-to-date for you.
 
 When a package is off-branch and at a version that is registered in
 `METADATA`, its requirements are determined by the registered metadata. The
