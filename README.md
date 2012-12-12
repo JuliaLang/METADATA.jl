@@ -135,6 +135,10 @@ requirements in `REQUIRE` (which remain the same).
 
 ### Adding new packages
 
+#### Starting with an empty package
+
+This is appropriate if you haven't yet begun to develop the code for your package.
+
 `Pkg.new(name)`: Creates a skeleton for a new package with the name `name`
 in the local repository clone (located at `~/.julia` by default, elsewhere
 if the  environment variable `JULIA_PKGDIR` is set). This creates essential
@@ -143,6 +147,18 @@ files an directories and makes the package readily available;
 contain any code). The files and directories can be edited, and eventually
 pulled and pushed from and to a Git software repository.
 
+#### Recipe for packaging an existing repository
+
+If you have already been developing your package, but have not registered it as a package, the following steps should work:
+
+1. Make sure that your git repository is publicly available, with name Packagename.jl. If your public repository needs to be renamed, on your own machine be sure to change the `.git/config` file's url line to be consistent with the new name. If you did rename your repository, be sure to try a test commit before proceeding further.
+2. On your own machine, copy your git repository into your `.julia/` directory (or whichever local package repository you plan to use). The name of the new directory should be Packname, without the `.jl` extension.
+3. If you've previously been developing this package in a different directory, check your `~/.juliarc.jl` delete any references to this directory from `LOAD_PATH`. Failing to do this seems likely to lead to confusion.
+4. In your `.julia/Packagename` repository, make sure it has top-level directories `src/` and `test/`; all `.jl` files should be in these directories. Inside `src/`, create a file `Packagename.jl` (if you didn't already have one). This can be a standalone file, or it can simply `load` other files. Bonus points are awarded for a `doc/` directory.
+5. Make sure you have `README.md`, `LICENSE.txt`, and optionally `REQUIRE`.
+6. From within Julia, execute the command `Pkg.version("Packagename", v"0.0.0")`. This will  create a directory `.julia/METADATA/Packagename`, which is what you need to have your package registered.
+7. In `.julia/METADATA/Packagename`, create a file `url` that contains the *read-only* URL for your public repository. For example, git://github.com/mygithubaccount/Packagename.jl.git.
+8. Commit your changes to `.julia/METADATA`, push to your public `METADATA` repository, and submit a pull request.
 
 
 ### What a package's state means
@@ -188,3 +204,4 @@ When a package is off-branch and at a version that is registered in
 on-branch or off-branch but at a version that is not registered, its
 requirements are instead determined by the `$pkg/REQUIRE` file (if it does not
 exist, the package is considered to have no requirements).
+
