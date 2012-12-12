@@ -25,20 +25,19 @@ Gentoo's portage system.
 `METADATA` is a git submodule where metadata about packages is kept, pulled
 from some remote repository like https://github.com/JuliaLang/METADATA.jl.git,
 which is the default metadata repo. This is the only submodule in the package
-repo that is *not* a itself package (that would cause a bootstrapping issue).
+repo that is *not* itself a package (that would cause a bootstrapping issue).
 
 `REQUIRE` is a text file specifying the required packages and versions for the
 package repo. Each line specifies a set of required package versions in the
 format `pkg v1 v2 ...` where pkg is the name of a package and v1, v2, etc. are
-zero or more ascending version numbers in semver.org format. On a line by
+zero or more ascending version numbers in [semantic versioning](http://semver.org/) format. On a line by
 itself, `pkg` means any version; `pkg v1` means any version ≥ v1; `pkg v1 v2`
 means any version ≥ v1 and < v2; `pkg v1 v2 v3` means any version ≥ v1 and <
 v2 or ≥ v3; and so on. Blank lines are ignored and `#` begins a comment. You
 can maintain the `REQUIRE` file by hand but there are `Pkg.add` and `Pkg.rm`
 commands which will add and remove packages from the file and update packages
 afterwards. If there is more than one line for a given package in the
-`REQUIRE` file then all of those lines must be satisfied, so the version sets
-specifies are effectively intersected.
+`REQUIRE` file then all of those lines must be satisfied, so the version sets are effectively intersected.
 
 All *submodules* besides `METADATA` are packages. For example, if you have the
 foo package installed, there will be a git submodule at the path foo into
