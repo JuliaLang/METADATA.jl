@@ -25,20 +25,19 @@ Gentoo's portage system.
 `METADATA` is a git submodule where metadata about packages is kept, pulled
 from some remote repository like https://github.com/JuliaLang/METADATA.jl.git,
 which is the default metadata repo. This is the only submodule in the package
-repo that is *not* a itself package (that would cause a bootstrapping issue).
+repo that is *not* itself a package (that would cause a bootstrapping issue).
 
 `REQUIRE` is a text file specifying the required packages and versions for the
 package repo. Each line specifies a set of required package versions in the
 format `pkg v1 v2 ...` where pkg is the name of a package and v1, v2, etc. are
-zero or more ascending version numbers in semver.org format. On a line by
+zero or more ascending version numbers in [semantic versioning](http://semver.org/) format. On a line by
 itself, `pkg` means any version; `pkg v1` means any version ≥ v1; `pkg v1 v2`
 means any version ≥ v1 and < v2; `pkg v1 v2 v3` means any version ≥ v1 and <
 v2 or ≥ v3; and so on. Blank lines are ignored and `#` begins a comment. You
 can maintain the `REQUIRE` file by hand but there are `Pkg.add` and `Pkg.rm`
 commands which will add and remove packages from the file and update packages
 afterwards. If there is more than one line for a given package in the
-`REQUIRE` file then all of those lines must be satisfied, so the version sets
-specifies are effectively intersected.
+`REQUIRE` file then all of those lines must be satisfied, so the version sets are effectively intersected.
 
 All *submodules* besides `METADATA` are packages. For example, if you have the
 foo package installed, there will be a git submodule at the path foo into
@@ -71,10 +70,8 @@ through a remote repo stored on a server, e.g. at GitHub (mine is
 
 `Pkg.init([ meta ])`: meta is the URL to a metadata repo; the default one
 lives at https://github.com/JuliaLang/METADATA.jl.git and is the official
-registry of Julia packages. It's currently empty. One of the first orders of
-business is obviously creating some package repos and putting metadata about
-them in there so that people can automatically install them using the package
-manager.
+registry of Julia packages. It currently contains a set of selected
+packages ready to be installed automatically using the package manager.
 
 `Pkg.origin([ url ])`: get or set the remote origin URL that the package repo
 pushes to and pulls from. Without a URL argument, it returns the current value
@@ -135,6 +132,18 @@ and then want to call resolve() to update the installed packages to match.
 installed packages. Then does a resolve() to update the collection of
 installed packages to the latest and greatest set that satisfies the
 requirements in `REQUIRE` (which remain the same).
+
+### Adding new packages
+
+`Pkg.new(name)`: Creates a skeleton for a new package with the name `name`
+in the local repository clone (located at `~/.julia` by default, elsewhere
+if the  environment variable `JULIA_PKGDIR` is set). This creates essential
+files an directories and makes the package readily available;
+`require(name)` would load that new package (although initially it does not
+contain any code). The files and directories can be edited, and eventually
+pulled and pushed from and to a Git software repository.
+
+
 
 ### What a package's state means
 
