@@ -71,10 +71,8 @@ through a remote repo stored on a server, e.g. at GitHub (mine is
 
 `Pkg.init([ meta ])`: meta is the URL to a metadata repo; the default one
 lives at https://github.com/JuliaLang/METADATA.jl.git and is the official
-registry of Julia packages. It's currently empty. One of the first orders of
-business is obviously creating some package repos and putting metadata about
-them in there so that people can automatically install them using the package
-manager.
+registry of Julia packages. It currently contains a set of selected
+packages ready to be installed automatically using the package manager.
 
 `Pkg.origin([ url ])`: get or set the remote origin URL that the package repo
 pushes to and pulls from. Without a URL argument, it returns the current value
