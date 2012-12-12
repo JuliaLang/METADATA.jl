@@ -133,6 +133,18 @@ installed packages. Then does a resolve() to update the collection of
 installed packages to the latest and greatest set that satisfies the
 requirements in `REQUIRE` (which remain the same).
 
+### Adding new packages
+
+`Pkg.new(name)`: Creates a skeleton for a new package with the name `name`
+in the local repository clone (located at `~/.julia` by default, elsewhere
+if the  environment variable `JULIA_PKGDIR` is set). This creates essential
+files an directories and makes the package readily available;
+`require(name)` would load that new package (although initially it does not
+contain any code). The files and directories can be edited, and eventually
+pulled and pushed from and to a Git software repository.
+
+
+
 ### What a package's state means
 
 A submodule `pkg` of the package repo is considered to be a package if the
