@@ -10,7 +10,7 @@ install packages into a package repo which is a specially laid out git repo
 where each submodule is a package and all the packages have mutually
 compatible versions. You can have multiple different package repos that have
 independent collections of packages, somewhat like Python's virtualenv or
-Ruby's RMV. The default package repo location is `~/.julia` but you can
+Ruby's RVM. The default package repo location is `~/.julia` but you can
 specify a different location by setting the `JULIA_PKGDIR` environment
 variable.
 
