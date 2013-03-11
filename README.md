@@ -76,8 +76,8 @@ particular package version.
 
 ## Package Manager API
 
-The basic API consists of functions in the `Pkg` module, which can be loaded
-with `load("pkg.jl")`.
+The basic API consists of functions in the `Pkg` module, which is available
+from the REPL prompt.
 
 ### Creating & syncing package repos.
 
