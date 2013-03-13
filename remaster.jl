@@ -30,10 +30,10 @@ end
 
 run(`git add -u`)
 tree = readchomp(`git write-tree`)
+run(`git checkout -f master`)
+run(`git pull`)
 master = readchomp(`git rev-parse master`)
 devel = readchomp(`git rev-parse devel`)
 commit = readchomp(`echo Remaster merge` | `git commit-tree $tree -p $master -p $devel`)
-
-run(`git checkout -f master`)
 run(`git reset --hard $commit`)
 run(`git checkout devel`)
