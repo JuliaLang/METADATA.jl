@@ -9,11 +9,11 @@ readchomp(`git rev-parse --symbolic-full-name --abbrev-ref HEAD`) == "devel" ||
 success(`git diff --quiet HEAD`) ||
     error("git state not clean.")
 
-for pkg in each_line(`ls`)
+for pkg in eachline(`ls`)
     pkg = chomp(pkg)
     isdir(pkg) && isfile("$pkg/url") || continue
     vers = String[]
-    for ver in each_line(`ls $pkg/versions`)
+    for ver in eachline(`ls $pkg/versions`)
         ver = chomp(ver)
         ismatch(Base.VERSION_REGEX,ver) || continue
         push!(vers,ver)
