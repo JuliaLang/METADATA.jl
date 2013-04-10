@@ -1,6 +1,6 @@
 #!/usr/bin/env julia
 
-using Pkg.Metadata
+using Base.Pkg.Metadata
 
 const fixed = Version("julia",v"0.1")
 
