@@ -1,5 +1,5 @@
 julia 0.2-
 URLParse 0.0.0
-libCURL 0.0.0
+LibCURL 0.0.0
 LibExpat 0.0.0
 Zlib 0.0.0
