@@ -1,0 +1,8 @@
+julia 0.2-
+ArgParse
+Codecs
+Compose
+DataFrames
+Distributions
+Iterators
+JSON

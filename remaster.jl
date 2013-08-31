@@ -1,6 +1,7 @@
 #!/usr/bin/env julia
 
-using Base.Pkg.Metadata
+include(joinpath(JULIA_HOME,"../../base/pkg1.jl"))
+using Pkg1.Metadata
 
 const fixed = Version("julia",v"0.1")
 
