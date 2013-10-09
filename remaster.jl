@@ -21,7 +21,7 @@ for pkg in eachline(`ls`)
         isfile("$pkg/versions/$ver/requires") || continue
         reqs = parse_requires("$pkg/versions/$ver/requires")
         for r in reqs
-            if r.package == "julia" && !contains(r,fixed)
+            if r.package == "julia" && !in(fixed,r)
                 run(`rm -rf $pkg/versions/$ver`)
                 filter!(v->v!=ver,vers)
             end
