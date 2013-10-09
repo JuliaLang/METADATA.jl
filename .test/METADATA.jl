@@ -22,4 +22,4 @@ for (pkg, versions) in Pkg.Read.available()
     end
 end
 
-@assert Pkg.check_metadata()
+Pkg.Entry.check_metadata()
