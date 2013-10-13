@@ -1,0 +1,4 @@
+julia 0.2.0-
+URIParser
+@windows RPMmd
+@osx Homebrew
