@@ -1,0 +1,10 @@
+julia 0.2-
+ArgParse
+Codecs
+Compose
+DataFrames
+DateTime
+Distributions
+Iterators
+JSON
+Loess
