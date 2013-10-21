@@ -3,7 +3,7 @@ ArgParse
 Codecs
 Compose
 DataFrames
-DateTime
+Datetime
 Distributions
 Iterators
 JSON
