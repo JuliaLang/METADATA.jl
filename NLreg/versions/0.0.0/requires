@@ -1,0 +1,6 @@
+julia 0.2-
+DataFrames 0.3.6-
+NumericExtensions 0.2.15-
+Distributions 0.2.9-
+StatsBase 0.2.7-
+NLopt
