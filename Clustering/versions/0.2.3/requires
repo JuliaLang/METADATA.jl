@@ -1,4 +1,4 @@
 Distance
 julia 0.2.0-
 NumericExtensions
-Stats
+StatsBase
