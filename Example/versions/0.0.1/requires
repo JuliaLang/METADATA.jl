@@ -3,3 +3,4 @@
 # The format of the file is that ignore comments and blank lines, each line must have the form "pkg v1 v2..." where the zero or more version numbers in semantic version format [http://semver.org/] determine what intervals of versions of each package are required.
 # If no REQUIRE file is present, it means there are no requirements.
 # See README.md for more details.
+julia 0.2-
