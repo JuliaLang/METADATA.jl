@@ -1,4 +1,4 @@
-julia
+julia 0.2-
 Codecs
 HttpCommon
 Requests
