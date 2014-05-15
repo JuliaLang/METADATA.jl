@@ -1,0 +1,6 @@
+julia 0.2- 0.3-
+DataArrays
+StatsBase 0.3.8-
+GZip
+Blocks
+SortingAlgorithms
