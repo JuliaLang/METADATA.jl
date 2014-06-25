@@ -1,0 +1,7 @@
+Color
+Cartesian 0.1-
+julia 0.2-
+BinDeps
+@osx Homebrew
+SIUnits
+Zlib
