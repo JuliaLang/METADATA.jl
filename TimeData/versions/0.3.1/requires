@@ -1,0 +1,5 @@
+julia 0.3-
+DataArrays 0.1.11-
+DataFrames 0.5.6-
+Dates 0.0.2-
+TimeSeries 0.4.3-
