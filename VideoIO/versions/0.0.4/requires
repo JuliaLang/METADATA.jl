@@ -1,0 +1,7 @@
+julia v0.3-
+ZipFile
+BinDeps v0.3.4
+Images v0.4.4
+ImageView v0.1.3
+@osx Homebrew
+@linux Glob
