@@ -1,0 +1,15 @@
+julia 0.3-
+Codecs
+Color 0.3.4
+Compose 0.3.8
+Contour
+DataFrames 0.4.2
+DataStructures
+Datetime
+Distributions
+Hexagons
+Iterators 0.1.5
+JSON
+KernelDensity
+Loess
+StatsBase
