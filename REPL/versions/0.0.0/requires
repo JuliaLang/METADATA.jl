@@ -1,2 +1,2 @@
-julia 0.2-
-Readline
+julia 0.2- 0.3
+LineEdit

@@ -1,5 +1,0 @@
-# This file lists the packages and version ranges required by this package.
-# It is used by the yet-to-be-written package metadata generator to automatically determine metadata for this package in the registry of Julia packages, and when a package is in an attached head state, determines what the requirements of the package are considered to be.
-# The format of the file is that ignore comments and blank lines, each line must have the form "pkg v1 v2..." where the zero or more version numbers in semantic version format [http://semver.org/] determine what intervals of versions of each package are required.
-# If no REQUIRE file is present, it means there are no requirements.
-# See README.md for more details.

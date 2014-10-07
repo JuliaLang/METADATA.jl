@@ -1,6 +1,6 @@
 DataFrames
 Rmath
-Stats
+StatsBase
 Distributions
 Winston
 GLM

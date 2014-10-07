@@ -1,0 +1,4 @@
+julia 0.3-
+Reexport
+ArrayViews 0.4-
+StatsBase 0.6.3-

@@ -1,5 +1,5 @@
 julia 0.2-
-Stats
+StatsBase
 GZip
 Blocks
 SortingAlgorithms
