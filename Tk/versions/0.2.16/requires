@@ -1,0 +1,5 @@
+julia 0.2-
+Cairo
+Compat 0.0.2-
+BinDeps 0.2.2-
+@windows WinRPM
