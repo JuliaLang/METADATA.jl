@@ -17,8 +17,34 @@ for (pkg, versions) in Pkg.Read.available()
         @assert m2 != nothing "Invalid github url pattern $url for package $(pkg). Should satisfy $gh_path_reg_git"
         user=m2.captures[1]
         repo=m2.captures[2]
-        sha1_file = "METADATA/$pkg/versions/$(maxv)/sha1"
-        @assert isfile(sha1_file)
+
+        for (ver, avail) in versions
+            #Check that all sha1 files have the correct version hashes
+            sha1_file = Pkg.dir() * "/METADATA/$pkg/versions/$ver/sha1"
+            @assert isfile(sha1_file) "Not a file: $sha1_file"
+            sha1fromfile = open(sha1_file) do f
+                readchomp(f)
+            end
+            @assert sha1fromfile == avail.sha1
+        end
+
+        #Traverse the 'versions' directory and make sure that we understand its contents
+	#The only allowed subdirectories must be semvers and the only allowed
+        #files within are 'sha1' and 'requires'
+        #
+        #Ref: #2040
+        verinfodir = Pkg.dir() * "/METADATA/$pkg/versions"
+        for verdir in readdir(verinfodir)
+            if VersionNumber(verdir) in keys(versions)
+               for filename in readdir(verinfodir * "/" * verdir)
+                   if !(filename=="sha1" || filename=="requires")
+                       error("Unknown file $verinfodir/$verdir/$filename encountered. Valid filenames are 'sha1' and 'requires'.")
+                   end
+               end
+            else
+                error("v$verdir of $pkg is not configured correctly. Check that METADATA/$pkg/versions/$verdir/sha1 exists.")
+            end
+        end
     end
 end
 
