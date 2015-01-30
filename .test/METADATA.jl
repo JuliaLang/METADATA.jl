@@ -20,7 +20,7 @@ for (pkg, versions) in Pkg.Read.available()
 
         for (ver, avail) in versions
             #Check that all sha1 files have the correct version hashes
-            sha1_file = Pkg.dir() * "/METADATA/$pkg/versions/$ver/sha1"
+            sha1_file = "METADATA/$pkg/versions/$ver/sha1"
             @assert isfile(sha1_file) "Not a file: $sha1_file"
             sha1fromfile = open(sha1_file) do f
                 readchomp(f)
@@ -33,7 +33,7 @@ for (pkg, versions) in Pkg.Read.available()
         #files within are 'sha1' and 'requires'
         #
         #Ref: #2040
-        verinfodir = Pkg.dir() * "/METADATA/$pkg/versions"
+        verinfodir = "METADATA/$pkg/versions"
         for verdir in readdir(verinfodir)
             if VersionNumber(verdir) in keys(versions)
                for filename in readdir(verinfodir * "/" * verdir)
