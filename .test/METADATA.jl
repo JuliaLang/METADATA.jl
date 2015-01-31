@@ -3,7 +3,9 @@ const gh_path_reg_git=r"^/(.*)?/(.*)?.git$"
 
 for (pkg, versions) in Pkg.Read.available()
     url = (Pkg.Read.url(pkg))
-    maxv = sort([keys(versions)...])[end]
+    versions = sort([keys(versions)...])
+    @assert length(versions) > 0 "Package $pkg has no tagged versions."
+    maxv = versions[end]
     m=match(url_reg, url)
     @assert  m != null  "Invalid url $url for package $(pkg). Should satisfy $url_reg"
     host=m.captures[4]
@@ -54,6 +56,7 @@ for (pkg, versions) in Pkg.Read.available()
         
         sha1_file = "METADATA/$pkg/versions/$(maxv)/sha1"
         @assert isfile(sha1_file)
+        
     end
 end
 
