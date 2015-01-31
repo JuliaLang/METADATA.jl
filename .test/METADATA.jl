@@ -14,7 +14,7 @@ for (pkg, versions) in Pkg.Read.available()
     @assert ismatch(r"git", scheme) "Invalid url scheme $scheme for package $(pkg). Should be 'git' "
     if ismatch(r"github\.com", host)
         m2 = match(gh_path_reg_git, path)
-        @assert m2 != nothing "Invalid github url pattern $url for package $(pkg). Should satisfy $gh_path_reg_git"
+        @assert m2 != nothing "Invalid GitHub url pattern $url for package $(pkg). Should satisfy $gh_path_reg_git"
         user=m2.captures[1]
         repo=m2.captures[2]
 
@@ -45,6 +45,12 @@ for (pkg, versions) in Pkg.Read.available()
                 error("v$verdir of $pkg is not configured correctly. Check that METADATA/$pkg/versions/$verdir/sha1 exists.")
             end
         end
+        
+        @assert !endswith(pkg, ".jl") "Package name $pkg should not end in .jl"
+        @assert endswith(repo, ".jl") "Repository name $repo does not end in .jl"
+        
+        sha1_file = "METADATA/$pkg/versions/$(maxv)/sha1"
+        @assert isfile(sha1_file)
     end
 end
 
