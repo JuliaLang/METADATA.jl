@@ -1,6 +1,4 @@
-julia 0.3.4
+Color
 BinDeps
-Blosc
-Compat
 @osx Homebrew
 @windows WinRPM
