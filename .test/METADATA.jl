@@ -1,4 +1,4 @@
-if VERSION < v"0.4"
+if VERSION < v"0.4-"
     startswith = beginswith
 end
 
@@ -7,9 +7,45 @@ const gh_path_reg_git=r"^/(.*)?/(.*)?.git$"
 
 const minjuliaver = v"0.3.0" #Oldest Julia version allowed to be registered
 const minpkgver = v"0.0.1"   #Oldest package version allowed to be registered
+
 print_list_3582 = false # set this to true to generate the list of grandfathered
                         # packages permitted under Issue #3582
 list_3582 = Any[]
+
+#Issue 2064 - check that all listed packages at at least one tagged version
+#2064## Uncomment the #2064# code blocks to generate the list of grandfathered
+#2064## packages permitted
+for pkg in readdir("METADATA")
+    startswith(pkg, ".") && continue
+    isfile(joinpath("METADATA", pkg)) && continue
+    pkg in [
+        "AuditoryFilters",
+        "CorpusTools",
+        "Elemental",
+        "ErrorFreeTransforms",
+        "Evapotranspiration",
+        "GtkSourceWidget",
+        "HiRedis",
+        "KrylovMethods",
+        "KyotoCabinet",
+        "LatexPrint",
+        "MachO",
+        "MathLink",
+        "Mimi",
+        "ObjectiveC",
+        "OffsetArrays",
+        "Processing",
+        "RaggedArrays",
+        "RationalExtensions",
+        "SignedDistanceFields",
+        "SolveBio",
+        "SortPerf",
+    ] && continue
+    if !("versions" in readdir(joinpath("METADATA", pkg)))
+        #2064#println("        \"", pkg, "\","); continue
+        error("Package $pkg has no tagged versions")
+    end
+end
 
 for (pkg, versions) in Pkg.Read.available()
     url = (Pkg.Read.url(pkg))
