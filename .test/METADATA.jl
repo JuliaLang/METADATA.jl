@@ -45,9 +45,12 @@ for (pkg, versions) in Pkg.Read.available()
                 error("v$verdir of $pkg is not configured correctly. Check that METADATA/$pkg/versions/$verdir/sha1 exists.")
             end
         end
-        
-        @assert !endswith(pkg, ".jl") "Package name $pkg should not end in .jl"
-        @assert endswith(repo, ".jl") "Repository name $repo does not end in .jl"
+
+        #TODO Replace warnings with assertions below once packages in Issue #2057 have been addressed.
+        !endswith(pkg, ".jl") || warn("Package name $pkg should not end in .jl")
+        endswith(repo, ".jl") || warn("Repository name $repo does not end in .jl")
+        #@assert !endswith(pkg, ".jl") "Package name $pkg should not end in .jl"
+        #@assert endswith(repo, ".jl") "Repository name $repo does not end in .jl"
         
         sha1_file = "METADATA/$pkg/versions/$(maxv)/sha1"
         @assert isfile(sha1_file)
