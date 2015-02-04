@@ -36,7 +36,7 @@ for (pkg, versions) in Pkg.Read.available()
         #Ref: #2040
         verinfodir = "METADATA/$pkg/versions"
         for verdir in readdir(verinfodir)
-            if VersionNumber(verdir) in keys(versions)
+            if convert(VersionNumber, verdir) in keys(versions)
                for filename in readdir(verinfodir * "/" * verdir)
                    if !(filename=="sha1" || filename=="requires")
                        error("Unknown file $verinfodir/$verdir/$filename encountered. Valid filenames are 'sha1' and 'requires'.")
