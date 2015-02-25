@@ -1,0 +1,4 @@
+julia 0.3-
+PyCall 0.7.3-
+PyPlot 1.5.1-
+SymPy 0.2.22-

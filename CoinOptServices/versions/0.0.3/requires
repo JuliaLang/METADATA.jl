@@ -1,0 +1,10 @@
+julia 0.3
+Compat
+Clp
+Cbc
+Ipopt
+LightXML
+BinDeps
+MathProgBase
+@osx Homebrew
+@windows WinRPM
