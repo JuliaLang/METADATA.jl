@@ -1,0 +1,5 @@
+Color
+BinDeps
+Graphics 0.1
+@osx Homebrew
+@windows WinRPM
