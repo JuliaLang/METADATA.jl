@@ -1,0 +1,5 @@
+julia 0.3.6-
+StatsBase 0.6.11+
+Distributions
+GLM
+Reexport
