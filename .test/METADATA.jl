@@ -29,11 +29,9 @@ for (pkg, versions) in Pkg.Read.available()
             @assert sha1fromfile == avail.sha1
         end
 
-        #TODO Replace warnings with assertions below once packages in Issue #2057 have been addressed.
-        if !(pkg in ["PEGParser", "CompressedSensing"]) #Legacy package
-            @assert !endswith(pkg, ".jl") "Package name $pkg should not end in .jl"
-            @assert endswith(repo, ".jl") "Repository name $repo does not end in .jl"
-        end
+        #Issue #2057 - naming convention check
+        @assert !endswith(pkg, ".jl") "Package name $pkg should not end in .jl"
+        @assert endswith(repo, ".jl") "Repository name $repo does not end in .jl"
 
         sha1_file = joinpath("METADATA", pkg, "versions", string(maxv), "sha1")
         @assert isfile(sha1_file) "File not found: $sha1_file"
@@ -41,6 +39,7 @@ for (pkg, versions) in Pkg.Read.available()
     end
 end
 
+println("Checking that all entries in METADATA are recognized packages...")
 #Scan all entries in METADATA for possibly unrecognized packages
 const pkgs = [pkg for (pkg, versions) in Pkg.Read.available()]
 for pkg in readdir("METADATA")
@@ -74,4 +73,5 @@ for pkg in readdir("METADATA")
     end
 end
 
-Pkg.Entry.check_metadata()
+println("Verifying METADATA...")
+@time Pkg.Entry.check_metadata()
