@@ -1,0 +1,4 @@
+julia 0.3
+URIParser
+SHA
+Compat 0.3.6
