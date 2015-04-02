@@ -1,0 +1,6 @@
+Compat 0.3.5
+Color
+BinDeps
+Graphics 0.1
+@osx Homebrew
+@windows WinRPM
