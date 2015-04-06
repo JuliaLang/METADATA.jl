@@ -1,0 +1,7 @@
+julia 0.3
+Compat 0.3.5
+Images 0.4
+Color
+Tk
+Winston
+Graphics 0.1
