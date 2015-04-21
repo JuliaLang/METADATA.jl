@@ -1,0 +1,5 @@
+julia 0.3
+Compat
+Reexport
+ArrayViews 0.6.0
+EmpiricalRisks 0.2.1
