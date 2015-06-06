@@ -2,5 +2,5 @@ julia 0.3-
 Calendar
 Codecs
 LibExpat
-HTTPClient
+HTTPClient 0.1.4
 
