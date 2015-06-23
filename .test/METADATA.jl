@@ -74,4 +74,4 @@ for pkg in readdir("METADATA")
 end
 
 println("Verifying METADATA...")
-@time Pkg.Entry.check_metadata()
+Pkg.Entry.check_metadata()
