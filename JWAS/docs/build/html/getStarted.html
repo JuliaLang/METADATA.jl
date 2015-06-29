@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Get Started &mdash; GenSel.jl 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="GenSel.jl 0.0.1 documentation" href="index.html" />
+    <link rel="next" title="Models" href="Model.html" />
+    <link rel="prev" title="Why GenSel.jl?" href="about.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Model.html" title="Models"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="about.html" title="Why GenSel.jl?"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">GenSel.jl 0.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="get-started">
+<h1>Get Started<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h1>
+<p>An example to run BayesB:</p>
+<blockquote>
+<div><blockquote>
+<div><p>using GenSel</p>
+<p>myOption=Dict()
+myOption[&#8220;run&#8221;]          = &#8220;BayesB&#8221;
+myOption[&#8220;seed&#8221;]         = 10
+myOption[&#8220;chainLength&#8221;]  = 2000
+myOption[&#8220;probFixed&#8221;]    = 0.5
+myOption[&#8220;estimatePi&#8221;]   = &#8220;no&#8221;
+myOption[&#8220;dfEffectVar&#8221;]  = 4
+myOption[&#8220;nuRes&#8221;]        = 4
+myOption[&#8220;varGenotypic&#8221;] = 1
+myOption[&#8220;varResidual&#8221;]  = 1</p>
+<dl class="docutils">
+<dt>parm=GenSelOptions(myOption[&#8220;run&#8221;],</dt>
+<dd>myOption[&#8220;seed&#8221;],
+myOption[&#8220;chainLength&#8221;],
+myOption[&#8220;probFixed&#8221;],
+myOption[&#8220;estimatePi&#8221;],
+myOption[&#8220;dfEffectVar&#8221;],
+myOption[&#8220;nuRes&#8221;],
+myOption[&#8220;varGenotypic&#8221;],
+myOption[&#8220;varResidual&#8221;])</dd>
+</dl>
+</div></blockquote>
+<p>output = runGenSel(parm,X,y,C,Rinv)</p>
+</div></blockquote>
+<p>To read in X, y,</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="about.html"
+                        title="previous chapter">Why GenSel.jl?</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Model.html"
+                        title="next chapter">Models</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/getStarted.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Model.html" title="Models"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="about.html" title="Why GenSel.jl?"
+             >previous</a> |</li>
+        <li><a href="index.html">GenSel.jl 0.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, GS.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
