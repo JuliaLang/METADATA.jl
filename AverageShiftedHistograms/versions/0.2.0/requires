@@ -1,0 +1,9 @@
+julia v0.3
+Docile
+SmoothingKernels
+Compat
+FactCheck
+StatsBase
+TextPlots
+Reexport
+Requires
