@@ -1,0 +1,5 @@
+julia 0.3
+JSON
+Requests
+LightGraphs 0.2
+Compat
