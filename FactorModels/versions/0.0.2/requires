@@ -1,0 +1,7 @@
+julia 0.3.4-
+DataArrays
+GLM
+Gadfly
+DimensionalityReduction
+Distributions
+LARS

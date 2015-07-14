@@ -1,0 +1,11 @@
+julia 0.3-
+Distributions 0.5-
+Grid 0.3-
+Optim
+DSP
+HDF5
+MAT
+FactCheck
+DataStructures
+Compat
+Graphs

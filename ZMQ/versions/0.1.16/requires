@@ -1,0 +1,4 @@
+BinDeps 0.2.1-
+@osx Homebrew
+Compat 0.2
+@windows WinRPM

@@ -1,0 +1,4 @@
+julia 0.3
+PyCall
+Docile 0.4
+Requires

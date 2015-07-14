@@ -1,0 +1,12 @@
+julia 0.3-
+ImmutableArrays
+Images
+Reactive
+Mustache
+GLFW
+GLAbstraction
+ModernGL
+GLWindow
+GLText
+Quaternions
+Compat

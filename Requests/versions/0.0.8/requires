@@ -1,0 +1,8 @@
+julia 0.2-
+HttpCommon
+HttpParser
+URIParser
+GnuTLS
+Codecs
+JSON
+Compat
