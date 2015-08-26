@@ -1,0 +1,7 @@
+julia 0.3
+FactCheck
+HDF5
+JLD
+Blosc
+FunctionalData
+Compat
