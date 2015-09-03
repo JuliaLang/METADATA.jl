@@ -1,4 +1,4 @@
-julia 0.2-
+julia 0.2- 0.5
 HttpCommon 0.0.3-
 HttpServer 0.0.4-
 Meddle 0.0.3-
