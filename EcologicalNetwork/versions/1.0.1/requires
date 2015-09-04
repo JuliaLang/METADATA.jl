@@ -1,0 +1,5 @@
+julia 0.3
+StatsBase
+Cairo
+Lexicon
+Logging
