@@ -1,0 +1,14 @@
+julia 0.3
+Distributions
+Docile
+DualNumbers
+ForwardDiff 0.0.2
+JuMP
+MathProgBase
+NLsolve
+Optim
+ReverseDiffSparse
+
+# If not using julia 0.4, you may also want to check out the currentely
+# unregistered v0.0.3 of ForwardDiff.jl, which includes the capability to
+# compute Hessians involving the lgamma() function.
