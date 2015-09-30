@@ -393,7 +393,7 @@ for (pkg, versions) in Pkg.Read.available()
                     for line in eachline(f)
                         if startswith(line, "julia")
                             tokens = split(line)
-                            @assert length(tokens)>1 "$requires_file: oldest allowed julia version not specified (>= $minjuliver needed)"
+                            @assert length(tokens)>1 "$requires_file: oldest allowed julia version not specified (>= $minjuliaver needed)"
                             juliaver = convert(VersionNumber, tokens[2])
                             @assert juliaver ≥ minjuliaver "$requires_file: oldest allowed julia version $juliaver too old (>= $minjuliaver needed)"
                             hasjuliaver = true
