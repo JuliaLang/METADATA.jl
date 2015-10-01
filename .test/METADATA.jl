@@ -22,7 +22,7 @@ for (pkg, versions) in Pkg.Read.available()
     path=m.captures[5]
     @assert path!=nothing "Invalid url $url for package $(pkg). Cannot extract path"
     scheme=m.captures[2]
-    @assert ismatch(r"git", scheme) "Invalid url scheme $scheme for package $(pkg). Should be 'git' "
+    @assert ismatch(r"https", scheme) "Invalid url scheme $scheme for package $(pkg). Should be 'https' "
     if ismatch(r"github\.com", host)
         m2 = match(gh_path_reg_git, path)
         @assert m2 != nothing "Invalid GitHub url pattern $url for package $(pkg). Should satisfy $gh_path_reg_git"
