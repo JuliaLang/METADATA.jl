@@ -1,6 +1,6 @@
 language: julia
 julia:
-    - release
+    - 0.4
 sudo: false # use a docker worker for hopefully faster queue times
 notifications:
     email: false
