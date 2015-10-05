@@ -1,0 +1,8 @@
+julia 0.3 0.5-
+Compat
+Distributions
+StatsBase
+Dates
+TimeSeries 0.5.11
+NLopt
+Optim
