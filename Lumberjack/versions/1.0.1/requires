@@ -1,0 +1,6 @@
+julia 0.3
+
+Compat
+UUID # required for Julia 0.3, not used if running with Julia 0.4
+JSON
+Dates
