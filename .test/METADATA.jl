@@ -47,37 +47,57 @@ for pkg in readdir("METADATA")
 end
 
 for (pkg, versions) in Pkg.Read.available()
-    url = (Pkg.Read.url(pkg))
-    @assert length(versions) > 0 "Package $pkg has no tagged versions."
-    maxv = sort([keys(versions)...])[end]
-    m=match(url_reg, url)
-    @assert  m != null  "Invalid url $url for package $(pkg). Should satisfy $url_reg"
-    host=m.captures[4]
-    @assert  host!=nothing "Invalid url $url for package $(pkg). Cannot extract host"
-    path=m.captures[5]
-    @assert path!=nothing "Invalid url $url for package $(pkg). Cannot extract path"
-    scheme=m.captures[2]
-    @assert ismatch(r"git", scheme) "Invalid url scheme $scheme for package $(pkg). Should be 'git' "
+    url = Pkg.Read.url(pkg)
+    if length(versions) <= 0
+        error("Package $pkg has no tagged versions.")
+    end
+    maxv = sort(collect(keys(versions)))[end]
+    m = match(url_reg, url)
+    if m === nothing || length(m.captures) < 5
+        error("Invalid url $url for package $pkg. Should satisfy $url_reg")
+    end
+    host = m.captures[4]
+    if host === nothing
+        error("Invalid url $url for package $pkg. Cannot extract host")
+    end
+    path = m.captures[5]
+    if path === nothing
+        error("Invalid url $url for package $pkg. Cannot extract path")
+    end
+    scheme = m.captures[2]
+    if !(ismatch(r"git", scheme) || ismatch(r"https", scheme))
+        error("Invalid url scheme $scheme for package $pkg. Should be 'git' or 'https'")
+    end
     if ismatch(r"github\.com", host)
         m2 = match(gh_path_reg_git, path)
-        @assert m2 != nothing "Invalid GitHub url pattern $url for package $(pkg). Should satisfy $gh_path_reg_git"
-        user=m2.captures[1]
-        repo=m2.captures[2]
+        if m2 == nothing
+            error("Invalid GitHub url pattern $url for package $pkg. Should satisfy $gh_path_reg_git")
+        end
+        user = m2.captures[1]
+        repo = m2.captures[2]
 
         for (ver, avail) in versions
-            #Check that all sha1 files have the correct version hashes
+            # Check that all sha1 files have the correct version hashes
             sha1_file = joinpath("METADATA", pkg, "versions", string(ver), "sha1")
-            @assert isfile(sha1_file) "Not a file: $sha1_file"
+            if !isfile(sha1_file)
+                error("Not a file: $sha1_file")
+            end
             sha1fromfile = open(readchomp, sha1_file)
             @assert sha1fromfile == avail.sha1
         end
 
         #Issue #2057 - naming convention check
-        @assert !endswith(pkg, ".jl") "Package name $pkg should not end in .jl"
-        @assert endswith(repo, ".jl") "Repository name $repo does not end in .jl"
+        if endswith(pkg, ".jl")
+            error("Package name $pkg should not end in .jl")
+        end
+        if !endswith(repo, ".jl")
+            error("Repository name $repo does not end in .jl")
+        end
 
         sha1_file = joinpath("METADATA", pkg, "versions", string(maxv), "sha1")
-        @assert isfile(sha1_file) "File not found: $sha1_file"
+        if !isfile(sha1_file)
+            error("File not found: $sha1_file")
+        end
 
         #Issue #3582 - check that newest version of a package is at least minpkgver
         #and furthermore has a requires file listing a minimum Julia version
@@ -409,22 +429,31 @@ for (pkg, versions) in Pkg.Read.available()
             ("kNN", v"0.0.0"), #324
             ))
             try
-                @assert maxv >= minpkgver "$pkg: version $maxv no longer allowed (>= $minpkgver needed)"
-
+                if maxv < minpkgver
+                    error("$pkg: version $maxv no longer allowed (>= $minpkgver needed)")
+                end
                 requires_file = joinpath("METADATA", pkg, "versions", string(maxv), "requires")
-                @assert isfile(requires_file) "File not found: $requires_file"
+                if !isfile(requires_file)
+                    error("File not found: $requires_file")
+                end
                 open(requires_file) do f
                     hasjuliaver = false
                     for line in eachline(f)
                         if startswith(line, "julia")
                             tokens = split(line)
-                            @assert length(tokens)>1 "$requires_file: oldest allowed julia version not specified (>= $minjuliaver needed)"
+                            if length(tokens) <= 1
+                                error("$requires_file: oldest allowed julia version not specified (>= $minjuliaver needed)")
+                            end
                             juliaver = convert(VersionNumber, tokens[2])
-                            @assert juliaver ≥ minjuliaver "$requires_file: oldest allowed julia version $juliaver too old (>= $minjuliaver needed)"
+                            if juliaver < minjuliaver
+                                error("$requires_file: oldest allowed julia version $juliaver too old (>= $minjuliaver needed)")
+                            end
                             hasjuliaver = true
                         end
                     end
-                    @assert hasjuliaver "$requires_file: no julia entry (>= $minjuliaver needed)"
+                    if !hasjuliaver
+                        error("$requires_file: no julia entry (>= $minjuliaver needed)")
+                    end
                 end
             catch err
                 if print_list_3582
@@ -444,9 +473,11 @@ if print_list_3582
     end
 end
 
-println("Checking that all entries in METADATA are recognized packages...")
+info("Checking that all entries in METADATA are recognized packages...")
+
 #Scan all entries in METADATA for possibly unrecognized packages
 const pkgs = [pkg for (pkg, versions) in Pkg.Read.available()]
+
 for pkg in readdir("METADATA")
     #Traverse the 'versions' directory and make sure that we understand its contents
     #The only allowed subdirectories must be semvers and the only allowed
@@ -478,5 +509,5 @@ for pkg in readdir("METADATA")
     end
 end
 
-println("Verifying METADATA...")
+info("Verifying METADATA...")
 Pkg.Entry.check_metadata()
