@@ -1,0 +1,4 @@
+julia 0.4-
+
+# Only required for building
+@windows LightXML
