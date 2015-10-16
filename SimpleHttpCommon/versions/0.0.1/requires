@@ -1,0 +1,9 @@
+julia 0.3
+Dates
+Compat
+StreamReader
+SimpleHttpIO
+HttpCommon
+DataStructures
+FactCheck
+Iterators
