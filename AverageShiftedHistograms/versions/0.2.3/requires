@@ -1,0 +1,8 @@
+julia 0.4-
+
+StatsBase
+UnicodePlots
+Distributions
+Plots
+Reexport
+OnlineStats
