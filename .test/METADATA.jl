@@ -5,6 +5,7 @@ end
 const url_reg = r"^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
 const gh_path_reg_git=r"^/(.*)?/(.*)?.git$"
 
+const releasejuliaver = v"0.4" #Current release version of Julia
 const minjuliaver = v"0.3.0" #Oldest Julia version allowed to be registered
 const minpkgver = v"0.0.1"   #Oldest package version allowed to be registered
 
@@ -425,6 +426,11 @@ for (pkg, versions) in Pkg.Read.available()
                             juliaver = convert(VersionNumber, tokens[2])
                             if juliaver < minjuliaver
                                 error("$requires_file: oldest allowed julia version $juliaver too old (>= $minjuliaver needed)")
+                            end
+                            if (juliaver < releasejuliaver && juliaver.patch==0 &&
+                                (juliaver.prerelease != () || juliaver.build != ()))
+                                #No prereleases older than current release allowed
+                                error("$requires_file: prerelease $juliaver not allowed (>= $releasejuliaver needed)")
                             end
                             hasjuliaver = true
                         end
