@@ -1,0 +1,6 @@
+julia 0.4
+DSP
+Distributions 0.5
+LightGraphs
+Optim
+Grid
