@@ -1,0 +1,4 @@
+julia 0.4
+FixedPointNumbers 0.1
+Images
+FileIO
