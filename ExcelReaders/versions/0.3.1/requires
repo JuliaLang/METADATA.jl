@@ -1,0 +1,7 @@
+julia 0.3
+Compat
+DataArrays
+DataFrames
+Dates
+PyCall 1.1
+Conda
