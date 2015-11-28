@@ -5,6 +5,6 @@ Cbc
 Ipopt
 LightXML 0.2
 BinDeps
-MathProgBase
+MathProgBase 0.3 0.4
 @osx Homebrew
 @windows WinRPM
