@@ -1,4 +1,4 @@
-julia 0.3
-Distributions 0.6.2
-DataArrays 0.2.7
-DataFrames 0.5.12
+julia 0.4
+Distributions
+DataArrays
+DataFrames
