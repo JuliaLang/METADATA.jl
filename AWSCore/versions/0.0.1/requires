@@ -1,7 +1,7 @@
 julia 0.4
 Retry
 SymDict
-LightXML
+XMLDict
 JSON
 IniFile
 URIParser 0.1.2
