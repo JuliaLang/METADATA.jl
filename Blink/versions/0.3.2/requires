@@ -1,0 +1,11 @@
+julia 0.4
+WebSockets
+HttpServer
+Lazy
+JSON
+Requires
+Reexport
+Mustache
+MacroTools
+Mux
+BinDeps
