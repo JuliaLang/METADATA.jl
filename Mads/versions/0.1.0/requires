@@ -1,0 +1,25 @@
+julia 0.4-
+Anasol
+R3Function
+MPTools
+BIGUQ
+Lora 0.4.4
+HDF5
+Optim
+NLopt
+BlackBoxOptim
+Distributions
+DataStructures
+ForwardDiff
+ODE
+Sundials
+ProgressMeter
+LightXML
+Conda
+PyCall
+PyPlot
+YAML
+JSON
+JLD
+Gadfly
+DataFrames
