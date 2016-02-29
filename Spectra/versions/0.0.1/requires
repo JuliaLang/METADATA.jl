@@ -2,6 +2,4 @@ julia 0.4
 PyPlot
 JuMP
 Ipopt
-Gadfly
-Cairo
 
