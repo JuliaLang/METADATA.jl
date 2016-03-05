@@ -1,0 +1,11 @@
+julia 0.4
+DataFrames
+Distributions
+ForwardDiff
+JLD
+Optim
+GaussianMixtures
+Grid
+FITSIO
+WCS
+SloanDigitalSkySurvey 0.1.0
