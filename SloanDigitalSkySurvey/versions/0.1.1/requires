@@ -1,0 +1,7 @@
+julia 0.4
+FITSIO
+ForwardDiff
+Optim 0.4.4 0.4.5-
+WCS 0.1.1
+DataFrames
+Grid
