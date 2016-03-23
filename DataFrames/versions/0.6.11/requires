@@ -1,0 +1,8 @@
+julia 0.4
+DataArrays 0.2.15
+StatsBase v0.8.0
+GZip
+SortingAlgorithms
+Reexport
+Compat 0.7.12
+Docile
