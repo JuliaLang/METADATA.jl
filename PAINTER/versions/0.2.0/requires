@@ -1,0 +1,7 @@
+julia 0.3
+NFFT
+Wavelets
+OIFITS
+HDF5
+JLD
+OptimPack
