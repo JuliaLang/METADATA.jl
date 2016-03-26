@@ -1,0 +1,4 @@
+julia 0.4
+DataArrays 0.2.10
+Compat
+Lint
