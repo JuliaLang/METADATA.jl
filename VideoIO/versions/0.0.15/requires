@@ -1,4 +1,4 @@
-julia v0.3
+julia v0.4
 Compat
 ZipFile
 BinDeps v0.3.4
