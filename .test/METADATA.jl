@@ -5,15 +5,15 @@ end
 const url_reg = r"^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
 const gh_path_reg_git=r"^/(.*)?/(.*)?.git$"
 
-const releasejuliaver = v"0.4" #Current release version of Julia
-const minjuliaver = v"0.3.0" #Oldest Julia version allowed to be registered
-const minpkgver = v"0.0.1"   #Oldest package version allowed to be registered
+const releasejuliaver = v"0.4" # Current release version of Julia
+const minjuliaver = v"0.3.0" # Oldest Julia version allowed to be registered
+const minpkgver = v"0.0.1"   # Oldest package version allowed to be registered
 
 print_list_3582 = false # set this to true to generate the list of grandfathered
                         # packages permitted under Issue #3582
 list_3582 = Any[]
 
-#Issue 2064 - check that all listed packages at at least one tagged version
+# Issue 2064 - check that all listed packages have at least one tagged version
 #2064## Uncomment the #2064# code blocks to generate the list of grandfathered
 #2064## packages permitted
 for pkg in readdir("METADATA")
@@ -43,12 +43,55 @@ for pkg in readdir("METADATA")
     end
 end
 
+# return julia version requirement for pkg, version
+# if check is true, throw errors for metadata policy violations
+function juliaver_in_require(pkg, version; check=true)
+    requires_file = joinpath("METADATA", pkg, "versions", string(version), "requires")
+    if !isfile(requires_file)
+        if check
+            error("File not found: $requires_file")
+        else
+            return v"0.0.0"
+        end
+    end
+    open(requires_file) do f
+        juliaver = v"0.0.0"
+        hasjuliaver = false
+        for line in eachline(f)
+            if startswith(line, "julia")
+                tokens = split(line)
+                if length(tokens) <= 1
+                    if check
+                        error("$requires_file: oldest allowed julia version not specified (>= $minjuliaver needed)")
+                    end
+                else
+                    juliaver = max(juliaver, convert(VersionNumber, tokens[2]))
+                    hasjuliaver = true
+                end
+                if check && juliaver < minjuliaver
+                    error("$requires_file: oldest allowed julia version $juliaver too old (>= $minjuliaver needed)")
+                end
+                if check && (juliaver < releasejuliaver && juliaver.patch==0 &&
+                        (juliaver.prerelease != () || juliaver.build != ()))
+                    # No prereleases older than current release allowed
+                    error("$requires_file: prerelease $juliaver not allowed (>= $releasejuliaver needed)")
+                end
+            end
+        end
+        if check && !hasjuliaver
+            error("$requires_file: no julia entry (>= $minjuliaver needed)")
+        end
+        return juliaver
+    end
+end
+
 for (pkg, versions) in Pkg.Read.available()
     url = Pkg.Read.url(pkg)
     if length(versions) <= 0
         error("Package $pkg has no tagged versions.")
     end
-    maxv = sort(collect(keys(versions)))[end]
+    sortedversions = sort(collect(keys(versions)))
+    maxv = sortedversions[end]
     m = match(url_reg, url)
     if m === nothing || length(m.captures) < 5
         error("Invalid url $url for package $pkg. Should satisfy $url_reg")
@@ -96,10 +139,10 @@ for (pkg, versions) in Pkg.Read.available()
             error("File not found: $sha1_file")
         end
 
-        #Issue #3582 - check that newest version of a package is at least minpkgver
-        #and furthermore has a requires file listing a minimum Julia version
-        #that is at least minjuliaver
-        if print_list_3582 || !((pkg, maxv) in ( #List of grandfathered packages
+        # Issue #3582 - check that newest version of a package is at least minpkgver
+        # and furthermore has a requires file listing a minimum Julia version
+        # that is at least minjuliaver
+        if print_list_3582 || !((pkg, maxv) in ( # List of grandfathered packages
             ("ASCIIPlots", v"0.0.3"),
             ("ActiveAppearanceModels", v"0.1.2"),
             ("AnsiColor", v"0.0.2"),
@@ -395,33 +438,22 @@ for (pkg, versions) in Pkg.Read.available()
                 if maxv < minpkgver
                     error("$pkg: version $maxv no longer allowed (>= $minpkgver needed)")
                 end
-                requires_file = joinpath("METADATA", pkg, "versions", string(maxv), "requires")
-                if !isfile(requires_file)
-                    error("File not found: $requires_file")
-                end
-                open(requires_file) do f
-                    hasjuliaver = false
-                    for line in eachline(f)
-                        if startswith(line, "julia")
-                            tokens = split(line)
-                            if length(tokens) <= 1
-                                error("$requires_file: oldest allowed julia version not specified (>= $minjuliaver needed)")
-                            end
-                            juliaver = convert(VersionNumber, tokens[2])
-                            if juliaver < minjuliaver
-                                error("$requires_file: oldest allowed julia version $juliaver too old (>= $minjuliaver needed)")
-                            end
-                            if (juliaver < releasejuliaver && juliaver.patch==0 &&
-                                (juliaver.prerelease != () || juliaver.build != ()))
-                                #No prereleases older than current release allowed
-                                error("$requires_file: prerelease $juliaver not allowed (>= $releasejuliaver needed)")
-                            end
-                            hasjuliaver = true
-                        end
-                    end
-                    if !hasjuliaver
-                        error("$requires_file: no julia entry (>= $minjuliaver needed)")
-                    end
+                juliaver = juliaver_in_require(pkg, maxv; check=true)
+                # check if minimum minor julia version has changed within the same
+                # minor package version (requirements below julia 0.3.0- get a pass)
+                same_minor = ver->(ver.major==maxv.major && ver.minor==maxv.minor &&
+                    v"0.3.0-" <= juliaver_in_require(pkg, ver; check=false) < juliaver)
+                ind_same_minor = findfirst(same_minor, sortedversions)
+                ind_same_minor == 0 && continue
+                first_same_minor = sortedversions[ind_same_minor]
+                juliaver_prev = juliaver_in_require(pkg, first_same_minor; check=false)
+                if juliaver.major == juliaver_prev.major && juliaver.minor > juliaver_prev.minor
+                    nextminor = VersionNumber(maxv.major, maxv.minor+1, 0)
+                    error("New tag $maxv of package $pkg requires julia $juliaver, ",
+                        "but version $first_same_minor of $pkg requires julia ",
+                        "$juliaver_prev. Use a new minor package version when support ",
+                        "for an old version of Julia is dropped. Re-tag the package ",
+                        "as $nextminor using `Pkg.tag(\"$pkg\", :minor)`.")
                 end
             catch err
                 if print_list_3582
@@ -443,17 +475,17 @@ end
 
 info("Checking that all entries in METADATA are recognized packages...")
 
-#Scan all entries in METADATA for possibly unrecognized packages
+# Scan all entries in METADATA for possibly unrecognized packages
 const pkgs = [pkg for (pkg, versions) in Pkg.Read.available()]
 
 for pkg in readdir("METADATA")
-    #Traverse the 'versions' directory and make sure that we understand its contents
-    #The only allowed subdirectories must be semvers and the only allowed
-    #files within are 'sha1' and 'requires'
+    # Traverse the 'versions' directory and make sure that we understand its contents
+    # The only allowed subdirectories must be semvers and the only allowed
+    # files within are 'sha1' and 'requires'
     #
-    #Ref: #2040
+    # Ref: #2040
     verinfodir = joinpath("METADATA", pkg, "versions")
-    isdir(verinfodir) || continue #Some packages are registered but have no tagged versions. See #2064
+    isdir(verinfodir) || continue # Some packages are registered but have no tagged versions. See #2064
 
     for verdir in readdir(verinfodir)
         version = try
