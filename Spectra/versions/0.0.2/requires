@@ -1,0 +1,10 @@
+julia 0.4
+IJulia
+PyPlot
+JuMP
+Ipopt
+StatsBase
+Dierckx
+Distributions
+JLD
+LsqFit
