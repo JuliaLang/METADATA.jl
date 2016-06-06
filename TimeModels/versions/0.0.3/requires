@@ -5,4 +5,4 @@ StatsBase
 Dates
 TimeSeries 0.5.11
 NLopt
-Optim
+Optim 0.0 0.5
