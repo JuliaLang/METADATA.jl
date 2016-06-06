@@ -1,7 +1,7 @@
 julia 0.3
 Distributions 0.5
 Grid 0.3
-Optim
+Optim 0.0 0.5
 DSP
 HDF5
 MAT

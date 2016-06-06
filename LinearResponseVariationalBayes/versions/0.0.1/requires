@@ -6,7 +6,7 @@ ForwardDiff 0.0.2
 JuMP
 MathProgBase
 NLsolve
-Optim
+Optim 0.0 0.5
 ReverseDiffSparse
 
 # If not using julia 0.4, you may also want to check out the currentely

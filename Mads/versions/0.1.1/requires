@@ -5,7 +5,7 @@ MetaProgTools
 BIGUQ
 Lora 0.4.4
 HDF5
-Optim
+Optim 0.0 0.5
 BlackBoxOptim
 Distributions
 DataStructures

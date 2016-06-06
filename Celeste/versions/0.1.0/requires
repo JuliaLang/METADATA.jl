@@ -5,7 +5,7 @@ Distributions
 DocOpt
 ForwardDiff
 JLD
-Optim
+Optim 0.0 0.5
 GaussianMixtures
 FITSIO
 WCS
