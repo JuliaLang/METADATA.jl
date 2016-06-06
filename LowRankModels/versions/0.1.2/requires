@@ -2,7 +2,7 @@ julia 0.4
 DataFrames
 StatsBase
 ArrayViews
-Optim
+Optim 0.0 0.5
 Roots
 NMF
 Compat
