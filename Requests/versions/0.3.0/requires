@@ -4,6 +4,6 @@ HttpParser
 URIParser
 GnuTLS
 Codecs
-JSON
+JSON 0.0 0.6
 Compat
 Zlib
