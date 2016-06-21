@@ -1,6 +1,6 @@
 julia 0.4.1
 BinDeps
-CSV
+CSV 0.0.8
 DataStreams
 DataFrames
 NullableArrays
