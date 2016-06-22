@@ -1,9 +1,7 @@
-julia 0.4.1
-SQLite
-CSV
-DataStreams
-DataFrames
+julia 0.4
+Compat
 NullableArrays
-WeakRefStrings
+DataStreams
+CSV
+SQLite
 DecFP
-
