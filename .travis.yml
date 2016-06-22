@@ -1,10 +1,13 @@
 language: julia
 julia:
-    - 0.4
+    - nightly
 sudo: false # use a docker worker for hopefully faster queue times
 notifications:
     email: false
 script:
     - cd ..
-    - ln -s METADATA.jl METADATA
+    - ln -s $PWD/METADATA.jl METADATA
+    - mkdir -p ~/.julia/v0.5 ~/.julia/v0.6
+    - ln -s $PWD/METADATA.jl ~/.julia/v0.5/METADATA
+    - ln -s $PWD/METADATA.jl ~/.julia/v0.6/METADATA # future proof a little
     - julia METADATA/.test/METADATA.jl
