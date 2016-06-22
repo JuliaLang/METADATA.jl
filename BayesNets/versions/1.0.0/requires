@@ -1,0 +1,9 @@
+julia 0.4
+Distributions
+Discretizers
+Iterators
+LightGraphs
+DataFrames
+TikzGraphs
+LightXML
+Reexport
