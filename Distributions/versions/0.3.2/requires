@@ -1,3 +1,4 @@
 julia 0.3-
 NumericExtensions 0.4-
 StatsBase 0.3-
+StatsFuns 0.0.0 0.3.0
