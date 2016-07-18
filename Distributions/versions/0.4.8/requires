@@ -1,6 +1,5 @@
-julia 0.3-
+julia 0.3- 0.3
 ArrayViews 0.4.3-
 PDMats 0.1.3- 0.4
 Sampling
 StatsBase 0.5-
-StatsFuns 0.0.0 0.3.0
