@@ -157,6 +157,7 @@ for (pkg, versions) in Pkg.Read.available()
             ("Bebop", v"0.0.1"),
             ("Benchmark", v"0.1.0"),
             ("BenchmarkLite", v"0.1.2"),
+            ("BinDeps", v"0.3.22"),
             ("Bio", v"0.1.0"),
             ("BioSeq", v"0.4.0"),
             ("Biryani", v"0.2.0"),
