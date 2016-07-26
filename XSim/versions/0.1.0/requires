@@ -1,4 +1,4 @@
 julia 0.4
 DataFrames
 Distributions
-JWAS
+JWAS 0.1-
