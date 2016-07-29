@@ -1,3 +1,7 @@
+if VERSION < v"0.4-"
+    startswith = beginswith
+end
+
 const url_reg = r"^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
 const gh_path_reg_git=r"^/(.*)?/(.*)?.git$"
 
@@ -501,7 +505,10 @@ for pkg in readdir("METADATA")
 end
 
 info("Verifying METADATA...")
-run(setenv(`git checkout -b makegithappy`, dir="METADATA"))
-Pkg.add("PkgDev")
-import PkgDev
-PkgDev.Entry.check_metadata()
+if isdefined(Pkg.Entry, :check_metadata)
+    Pkg.Entry.check_metadata()
+else
+    Pkg.add("PkgDev")
+    import PkgDev
+    PkgDev.Entry.check_metadata()
+end
