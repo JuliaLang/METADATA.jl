@@ -1,0 +1,4 @@
+julia 0.4
+Compat
+CoordinateTransformations 0.2.0
+FixedSizeArrays
