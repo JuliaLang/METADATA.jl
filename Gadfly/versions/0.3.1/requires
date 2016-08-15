@@ -1,7 +1,7 @@
 julia 0.2-
 Codecs
 Color
-Contour
+Contour 0.0.0 0.2-
 Compose 0.3.0
 DataFrames 0.4.2
 DataStructures
