@@ -346,6 +346,7 @@ for (pkg, versions) in Pkg.Read.available()
             ("PicoSAT", v"0.1.0"),
             ("Playground", v"0.0.5"),
             ("Polynomial", v"0.1.1"),
+            ("Polynomials", v"0.0.6"),
             ("ProjectTemplate", v"0.0.1"),
             ("PropertyGraph", v"0.1.0"),
             ("Push", v"0.0.1"),
