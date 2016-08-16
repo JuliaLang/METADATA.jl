@@ -1,4 +1,4 @@
 julia 0.4
 Compat 0.8
 FixedSizeArrays 0.2.2
-Rotations
+Rotations 0.1.0 0.2+
