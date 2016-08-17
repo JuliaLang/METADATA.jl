@@ -1,0 +1,9 @@
+julia 0.3
+DataFrames
+StatsBase
+ArrayViews
+Optim
+Roots
+NMF
+Compat
+ScikitLearnBase 0.0.4
