@@ -1,0 +1,4 @@
+julia 0.4
+DataFrames
+NullableArrays
+WeakRefStrings 0.1.2
