@@ -1,0 +1,6 @@
+julia 0.4
+DataFrames
+DataArrays
+FileIO
+GZip
+Compat
