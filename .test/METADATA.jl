@@ -84,64 +84,10 @@ function juliaver_in_require(pkg, version; check=true)
     end
 end
 
-for (pkg, versions) in Pkg.Read.available()
-    url = Pkg.Read.url(pkg)
-    if length(versions) <= 0
-        error("Package $pkg has no tagged versions.")
-    end
-    sortedversions = sort(collect(keys(versions)))
-    maxv = sortedversions[end]
-    m = match(url_reg, url)
-    if m === nothing || length(m.captures) < 5
-        error("Invalid url $url for package $pkg. Should satisfy $url_reg")
-    end
-    host = m.captures[4]
-    if host === nothing
-        error("Invalid url $url for package $pkg. Cannot extract host")
-    end
-    path = m.captures[5]
-    if path === nothing
-        error("Invalid url $url for package $pkg. Cannot extract path")
-    end
-    scheme = m.captures[2]
-    if !(ismatch(r"git", scheme) || ismatch(r"https", scheme))
-        error("Invalid url scheme $scheme for package $pkg. Should be 'git' or 'https'")
-    end
-    if ismatch(r"github\.com", host)
-        m2 = match(gh_path_reg_git, path)
-        if m2 == nothing
-            error("Invalid GitHub url pattern $url for package $pkg. Should satisfy $gh_path_reg_git")
-        end
-        user = m2.captures[1]
-        repo = m2.captures[2]
-
-        for (ver, avail) in versions
-            # Check that all sha1 files have the correct version hashes
-            sha1_file = joinpath("METADATA", pkg, "versions", string(ver), "sha1")
-            if !isfile(sha1_file)
-                error("Not a file: $sha1_file")
-            end
-            sha1fromfile = open(readchomp, sha1_file)
-            @assert sha1fromfile == avail.sha1
-        end
-
-        #Issue #2057 - naming convention check
-        if endswith(pkg, ".jl")
-            error("Package name $pkg should not end in .jl")
-        end
-        if !endswith(repo, ".jl")
-            error("Repository name $repo does not end in .jl")
-        end
-
-        sha1_file = joinpath("METADATA", pkg, "versions", string(maxv), "sha1")
-        if !isfile(sha1_file)
-            error("File not found: $sha1_file")
-        end
-
-        # Issue #3582 - check that newest version of a package is at least minpkgver
-        # and furthermore has a requires file listing a minimum Julia version
-        # that is at least minjuliaver
-        if print_list_3582 || !((pkg, maxv) in ( # List of grandfathered packages
+# Issue #3582 - check that all versions of a package newer than the grandfathered
+# list below are at least minpkgver and furthermore have a requires file listing
+# a minimum Julia version that is at least minjuliaver
+maxver_list_3582 = Dict([ # List of grandfathered packages
             ("ASCIIPlots", v"0.0.3"),
             ("ActiveAppearanceModels", v"0.1.2"),
             ("AnsiColor", v"0.0.2"),
@@ -429,31 +375,97 @@ for (pkg, versions) in Pkg.Read.available()
             ("ZChop", v"0.0.2"),
             ("ZVSimulator", v"0.0.0"),
             ("kNN", v"0.0.0"),
-            ))
+            ])
+
+for (pkg, versions) in Pkg.Read.available()
+    # Issue #2057 - naming convention check
+    if endswith(pkg, ".jl")
+        error("Package name $pkg should not end in .jl")
+    end
+    url = Pkg.Read.url(pkg)
+    if length(versions) <= 0
+        error("Package $pkg has no tagged versions.")
+    end
+    sortedversions = sort(collect(keys(versions)))
+    maxver = sortedversions[end]
+
+    m = match(url_reg, url)
+    if m === nothing || length(m.captures) < 5
+        error("Invalid url $url for package $pkg. Should satisfy $url_reg")
+    end
+    host = m.captures[4]
+    if host === nothing
+        error("Invalid url $url for package $pkg. Cannot extract host")
+    end
+    path = m.captures[5]
+    if path === nothing
+        error("Invalid url $url for package $pkg. Cannot extract path")
+    end
+    scheme = m.captures[2]
+    if !(ismatch(r"git", scheme) || ismatch(r"https", scheme))
+        error("Invalid url scheme $scheme for package $pkg. Should be 'git' or 'https'")
+    end
+    if ismatch(r"github\.com", host)
+        m2 = match(gh_path_reg_git, path)
+        if m2 == nothing
+            error("Invalid GitHub url pattern $url for package $pkg. Should satisfy $gh_path_reg_git")
+        end
+        user = m2.captures[1]
+        repo = m2.captures[2]
+
+        # Issue #2057 - naming convention check
+        if !endswith(repo, ".jl")
+            error("Repository name $repo does not end in .jl")
+        end
+    end
+
+    for (ver, avail) in versions
+        # Check that all sha1 files have the correct version hashes
+        sha1_file = joinpath("METADATA", pkg, "versions", string(ver), "sha1")
+        if !isfile(sha1_file)
+            error("File not found: $sha1_file")
+        end
+        sha1fromfile = open(readchomp, sha1_file)
+        @assert sha1fromfile == avail.sha1
+
+        # Issue #3582 - check that all versions of a package newer than the grandfathered
+        # list below are at least minpkgver and furthermore have a requires file listing
+        # a minimum Julia version that is at least minjuliaver
+        if print_list_3582 || !haskey(maxver_list_3582, pkg) || (ver > maxver_list_3582[pkg])
             try
-                if maxv < minpkgver
-                    error("$pkg: version $maxv no longer allowed (>= $minpkgver needed)")
+                if ver < minpkgver
+                    error("$pkg: version $ver no longer allowed (>= $minpkgver needed)")
                 end
-                juliaver = juliaver_in_require(pkg, maxv; check=true)
-                # check if minimum minor julia version has changed within the same
-                # minor package version (requirements below julia 0.3.0- get a pass)
-                same_minor = ver->(ver.major==maxv.major && ver.minor==maxv.minor &&
-                    v"0.3.0-" <= juliaver_in_require(pkg, ver; check=false) < juliaver)
-                ind_same_minor = findfirst(same_minor, sortedversions)
-                ind_same_minor == 0 && continue
-                first_same_minor = sortedversions[ind_same_minor]
-                juliaver_prev = juliaver_in_require(pkg, first_same_minor; check=false)
-                if juliaver.major == juliaver_prev.major && juliaver.minor > juliaver_prev.minor
-                    nextminor = VersionNumber(maxv.major, maxv.minor+1, 0)
-                    error("New tag $maxv of package $pkg requires julia $juliaver, ",
-                        "but version $first_same_minor of $pkg requires julia ",
-                        "$juliaver_prev. Use a new minor package version when support ",
-                        "for an old version of Julia is dropped. Re-tag the package ",
-                        "as $nextminor using `Pkg.tag(\"$pkg\", :minor)`.")
+                # run with check=true for all versions more recent than grandfathered list
+                juliaver = juliaver_in_require(pkg, ver; check=true)
+                if ver == maxver
+                    # check if minimum minor julia version has changed within the same
+                    # minor package version (only check this for latest tag, it's okay
+                    # for tags in old minor series to have too-high minimum requirements)
+                    majmin(x::VersionNumber) = VersionNumber(x.major, x.minor, 0)
+                    same_minor(x::VersionNumber) = (majmin(x) == majmin(ver) &&
+                        juliaver_in_require(pkg, x; check=false) < juliaver)
+                    ind_same_minor = findfirst(same_minor, sortedversions)
+                    ind_same_minor == 0 && continue
+                    first_same_minor = sortedversions[ind_same_minor]
+                    juliaver_prev = juliaver_in_require(pkg, first_same_minor; check=false)
+                    if majmin(juliaver) > majmin(juliaver_prev)
+                        nextminor = VersionNumber(ver.major, ver.minor+1, 0)
+                        error("New tag $ver of package $pkg requires julia $juliaver, ",
+                            "but version $first_same_minor of $pkg requires julia ",
+                            "$juliaver_prev. Use a new minor package version when support ",
+                            "for an old version of Julia is dropped. Re-tag the package ",
+                            "as $nextminor using `Pkg.tag(\"$pkg\", :minor)`.")
+                    end
                 end
             catch err
                 if print_list_3582
-                    push!(list_3582, (pkg, maxv))
+                    if isempty(list_3582) || list_3582[end][1] != pkg
+                        push!(list_3582, (pkg, ver))
+                    else
+                        maxv = max(list_3582[end][2], ver)
+                        list_3582[end] = (pkg, maxv)
+                    end
                 else
                     rethrow(err)
                 end
