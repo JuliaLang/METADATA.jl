@@ -192,7 +192,7 @@ if print_list_3582
 maxver_list_3582 = Dict([ # List of grandfathered packages""")
         for npkg in 1:length(list_3582)
             pkg, maxv = list_3582[npkg]
-            println(f, """            ("$pkg", v"$maxv"),""")
+            println(f, """    ("$pkg", v"$maxv"),""")
         end
         println(f, "    ])")
     end
