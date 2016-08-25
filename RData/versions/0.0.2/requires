@@ -1,0 +1,6 @@
+julia 0.4
+DataFrames 0.7
+DataArrays 0.3
+FileIO 0.1
+GZip 0.2
+Compat 0.8
