@@ -1,0 +1,5 @@
+julia 0.5-
+Mamba 0.10
+Gadfly 0.4.3
+BinDeps 0.4.3
+@osx Homebrew
