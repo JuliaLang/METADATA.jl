@@ -1,0 +1,5 @@
+julia 0.4
+MathProgBase
+ODE
+@osx Homebrew
+@windows WinRPM
