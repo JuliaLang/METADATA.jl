@@ -6,8 +6,13 @@ const url_reg = r"^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
 const gh_path_reg_git=r"^/(.*)?/(.*)?.git$"
 
 const releasejuliaver = v"0.4" # Current release version of Julia
-const minjuliaver = v"0.3.0" # Oldest Julia version allowed to be registered
+const minjuliaver = v"0.4.0" # Oldest Julia version allowed to be registered
 const minpkgver = v"0.0.1"   # Oldest package version allowed to be registered
+
+print_list_3582 = false # set this to true to generate the list of grandfathered
+                        # packages permitted under Issue #3582
+list_3582 = Any[]
+include("list_3582.jl")
 
 # Issue 2064 - check that all listed packages have at least one tagged version
 #2064## Uncomment the #2064# code blocks to generate the list of grandfathered
@@ -37,11 +42,6 @@ for pkg in readdir("METADATA")
         error("Package $pkg has no tagged versions")
     end
 end
-
-print_list_3582 = false # set this to true to generate the list of grandfathered
-                        # packages permitted under Issue #3582
-list_3582 = Any[]
-include("list_3582.jl")
 
 # return julia version requirement for pkg, version
 # if check is true, throw errors for metadata policy violations
