@@ -2,5 +2,3 @@ julia 0.4
 MathProgBase
 ODE
 Ipopt
-@osx Homebrew
-@windows WinRPM
