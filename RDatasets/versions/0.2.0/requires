@@ -3,3 +3,4 @@ DataFrames
 Reexport
 Compat
 RData
+FileIO
