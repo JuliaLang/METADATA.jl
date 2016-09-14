@@ -1,4 +1,4 @@
 julia 0.4
-AWS
+AWS 0.0 0.2
 JSON
 HTTPClient
