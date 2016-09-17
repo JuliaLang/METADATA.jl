@@ -268,7 +268,7 @@ maxver_list_3582 = Dict([ # List of grandfathered packages
     ("GtkUtilities", v"0.0.7"),
     ("Gumbo", v"0.1.2"),
     ("Gurobi", v"0.1.31"),
-    ("HDF5", v"0.6.5"),
+    ("HDF5", v"0.6.6"),
     ("HDFS", v"0.1.0"),
     ("HTTP", v"0.0.2"),
     ("HTTPClient", v"0.1.6"),
