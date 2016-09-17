@@ -74,7 +74,7 @@ maxver_list_3582 = Dict([ # List of grandfathered packages
     ("CURAND", v"0.0.4"),
     ("CUSOLVER", v"0.0.1"),
     ("CUSPARSE", v"0.3.1"),
-    ("Cairo", v"0.2.34"),
+    ("Cairo", v"0.2.35"),
     ("Calculus", v"0.1.15"),
     ("Calendar", v"0.4.3"),
     ("Cartesian", v"0.3.0"),
