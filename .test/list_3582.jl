@@ -109,7 +109,7 @@ maxver_list_3582 = Dict([ # List of grandfathered packages
     ("CompilerOptions", v"0.1.0"),
     ("Compose", v"0.3.18"),
     ("CompressedSensing", v"0.0.2"),
-    ("Conda", v"0.2.3"),
+    ("Conda", v"0.2.5"),
     ("ConfParser", v"0.0.7"),
     ("ConfidenceWeighted", v"0.0.2"),
     ("ConjugatePriors", v"0.1.2"),
