@@ -1,0 +1,4 @@
+julia 0.4.1
+DataStreams 0.0.14
+DataFrames
+WeakRefStrings 0.1.3
