@@ -3,3 +3,4 @@ Requests
 DataFrames
 DataStructures
 DocStringExtensions
+Compat 0.7.9
