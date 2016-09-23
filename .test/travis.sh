@@ -4,7 +4,7 @@ cd $(dirname $0)/..
 git checkout -b localbranch
 cd ..
 ln -s $PWD/METADATA.jl METADATA
-for ver in 0.4 0.5; do # add 0.6 once nightly is 0.6-dev
+for ver in 0.4 0.5 0.6; do
   mkdir -p ~/.julia/v$ver julia-$ver
   ln -s $PWD/METADATA.jl ~/.julia/v$ver/METADATA
   if [ $ver = 0.6 ]; then
@@ -18,6 +18,6 @@ for ver in 0.4 0.5; do # add 0.6 once nightly is 0.6-dev
     touch success-$ver &
 done
 wait
-if ! [ -e success-0.4 -a -e success-0.5 ]; then # add success-0.6 once nightly is 0.6-dev
+if ! [ -e success-0.4 -a -e success-0.5 ]; then # add success-0.6 once there are any 0.6-only package versions
   exit 1
 fi
