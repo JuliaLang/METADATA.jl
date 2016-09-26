@@ -1,29 +1,65 @@
-using JSON
-
-const PR_NUM = ENV["TRAVIS_PULL_REQUEST"]
 const BUILD_DIR = ENV["TRAVIS_BUILD_DIR"]
-const API_URL = "https://api.github.com/repos/JuliaLang/METADATA.jl"
-const CURL_URL = "$API_URL/pulls/$PR_NUM/files?per_page=100"
 
-# Get files modified in the PR from the GitHub API
-changes = JSON.parse(readchomp(`curl "$CURL_URL"`))
+function get_remote_tags(url)
+    ls = readchomp(`git ls-remote --tags -q $url`)
+    lines = split(ls, "\n")
+    n = length(lines)
 
-# If all went well, `changes` will be an array, or a dict without that key
-if typeof(changes) <: Dict && haskey(changes, "message")
-    msg = changes["message"]
-    error("GitHub API gave result \"$msg\" from `$CURL_URL` GET request")
+    tags = Vector{VersionNumber}(n)
+    shas = Vector{AbstractString}(n)
+    peel = Vector{Bool}(n)
+
+    for (i, line) in enumerate(lines)
+        sha, tag = split(line, "\trefs/tags/")
+
+        peeled = endswith(tag, "^{}")
+        peeled && (tag = tag[1:end-3])
+
+        tags[i] = VersionNumber(tag)
+        shas[i] = sha
+        peel[i] = peeled
+    end
+
+    remotetags = Dict{VersionNumber,AbstractString}()
+
+    for tag in unique(tags)
+        ispeeled = map((t, p) -> t == tag && p, tags, peel)
+
+        sha = if count(identity, ispeeled) == 1
+            shas[ispeeled]
+        elseif count(t -> t == tag, tags) == 1
+            shas[findfirst(tags, tag)]
+        else
+            error("Upstream tag $tag is possibly malformed")
+        end
+
+        push!(remotetags, tag => first(sha))
+    end
+
+    return remotetags
 end
+
+function get_local_tags(dir)
+    localtags = Dict{VersionNumber,AbstractString}()
+    for v in readdir(joinpath(dir, "versions"))
+        sha = readchomp(joinpath(dir, "versions", v, "sha1"))
+        push!(localtags, VersionNumber(v) => sha)
+    end
+    return localtags
+end
+
+# Get files modified in the PR as a diff against origin
+changed = split(readchomp(`git -C $BUILD_DIR diff --name-only origin/metadata-v2 HEAD`), "\n")
 
 const RGX = r"^[^/]+/versions/([\d.]+)"
 
 # Get the associated package and version for each affected file
-modified = Dict() # package => [versions...]
-for diff in changes
-    fname = diff["filename"]
-    pkg = split(fname, "/")[1]
+modified = Dict{AbstractString,Vector{VersionNumber}}() # package => [versions...]
+for file in changed
+    pkg = split(file, "/")[1]
     # Only look at changes to tagged versions
-    if isdir(joinpath(BUILD_DIR, pkg)) && pkg != ".test" && ismatch(RGX, fname)
-        v = VersionNumber(match(RGX, fname).captures[1])
+    if isdir(joinpath(BUILD_DIR, pkg)) && pkg != ".test" && ismatch(RGX, file)
+        v = VersionNumber(match(RGX, file).captures[1])
         if haskey(modified, pkg)
             in(v, modified[pkg]) || push!(modified[pkg], v)
         else
@@ -37,37 +73,12 @@ for pkg in keys(modified)
     dir = joinpath(BUILD_DIR, pkg)
 
     remote_url = readchomp(joinpath(dir, "url"))
-    lines = split(readchomp(`git ls-remote --tags -q $remote_url`), "\n")
 
-    # We want the peeled tag if it's there, otherwise we'll take what we can get
-    remotetags = Dict()
-    _rmt = Array{Any,2}(length(lines), 3)
-    for (i, line) in enumerate(lines)
-        sha, _tag = split(line, "\trefs/tags/")
-        if endswith(_tag, "^{}")
-            _tag = _tag[1:end-3]
-            peeled = true
-        else
-            peeled = false
-        end
-        tag = VersionNumber(_tag)
-        _rmt[i,:] = [tag, sha, peeled]
-    end
-    for t in unique(_rmt[:,1])
-        if any(_rmt[_rmt[:,1] .== t, 3]) # any peeled
-            push!(remotetags, t => _rmt[(_rmt[:,1] .== t) & _rmt[:,3], 2])
-        else
-            push!(remotetags, t => _rmt[_rmt[:,1] .== t, 2])
-        end
-    end
+    remotetags = get_remote_tags(remote_url)
+    localtags = get_local_tags(dir)
 
-    localtags = Dict(map(readdir(joinpath(dir, "versions"))) do v
-        sha = readchomp(joinpath(dir, "versions", v, "sha1"))
-        VersionNumber(v) => sha
-    end)
-
-    notpushed = setdiff(localtags, remotetags)
-    getmad = intersect(modified[pkg], map(first, notpushed))
+    notpushed = setdiff(keys(localtags), keys(remotetags))
+    getmad = intersect(modified[pkg], notpushed)
 
     if isempty(notpushed)
         # Tags match, so we can compare SHAs 1-1
