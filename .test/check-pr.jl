@@ -50,7 +50,7 @@ for pkg in keys(modified)
     end)
 
     notpushed = setdiff(localtags, remotetags)
-    getmad = intersect(modified[pkg], notpushed)
+    getmad = intersect(modified[pkg], map(first, notpushed))
 
     if isempty(notpushed)
         # Tags match, so we can compare SHAs 1-1
