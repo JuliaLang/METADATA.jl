@@ -37,12 +37,29 @@ for pkg in keys(modified)
     dir = joinpath(BUILD_DIR, pkg)
 
     remote_url = readchomp(joinpath(dir, "url"))
-    lines = split(readchomp(`git ls-remote --tags --refs -q $remote_url`), "\n")
+    lines = split(readchomp(`git ls-remote --tags -q $remote_url`), "\n")
 
-    remotetags = Dict(map(lines) do s
-        t = split(s, "\t")
-        VersionNumber(t[2][11:end]) => t[1]
-    end)
+    # We want the peeled tag if it's there, otherwise we'll take what we can get
+    remotetags = Dict()
+    _rmt = Array{Any,2}(length(lines), 3)
+    for (i, line) in enumerate(lines)
+        sha, _tag = split(line, "\trefs/tags/")
+        if endswith(_tag, "^{}")
+            _tag = _tag[1:end-3]
+            peeled = true
+        else
+            peeled = false
+        end
+        tag = VersionNumber(_tag)
+        _rmt[i,:] = [tag, sha, peeled]
+    end
+    for t in unique(_rmt[:,1])
+        if any(_rmt[_rmt[:,1] .== t, 3]) # any peeled
+            push!(remotetags, t => _rmt[(_rmt[:,1] .== t) & _rmt[:,3], 2])
+        else
+            push!(remotetags, t => _rmt[_rmt[:,1] .== t, 2])
+        end
+    end
 
     localtags = Dict(map(readdir(joinpath(dir, "versions"))) do v
         sha = readchomp(joinpath(dir, "versions", v, "sha1"))
@@ -64,7 +81,7 @@ for pkg in keys(modified)
     elseif !isempty(getmad) # just those added in this PR
         msg = string("The following tags for $pkg have not been pushed to upstream ",
                      "repository: ", join(getmad, ", "), ".\nTo fix this, navigate to ",
-                     "the package directory and run `git push --follow-tags`.")
+                     "the package directory and run `git push --tags`.")
         error(msg)
     end
 end
