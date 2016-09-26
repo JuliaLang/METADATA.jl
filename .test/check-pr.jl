@@ -14,12 +14,16 @@ if typeof(changes) <: Dict && haskey(changes, "message")
     error("GitHub API gave result \"$msg\" from `$CURL_URL` GET request")
 end
 
+const RGX = r"^[^/]+/versions/([\d.]+)"
+
 # Get the associated package and version for each affected file
 modified = Dict() # package => [versions...]
 for diff in changes
-    pkg = split(diff["filename"], "/")[1]
-    if isdir(joinpath(BUILD_DIR, pkg)) && pkg != ".test"
-        v = VersionNumber(match(r"^[^/]+/versions/([\d.]+)", diff["filename"]).captures[1])
+    fname = diff["filename"]
+    pkg = split(fname, "/")[1]
+    # Only look at changes to tagged versions
+    if isdir(joinpath(BUILD_DIR, pkg)) && pkg != ".test" && ismatch(RGX, fname)
+        v = VersionNumber(match(RGX, fname).captures[1])
         if haskey(modified, pkg)
             in(v, modified[pkg]) || push!(modified[pkg], v)
         else
