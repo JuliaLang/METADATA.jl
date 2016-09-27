@@ -12,7 +12,8 @@ for ver in 0.4 0.5 0.6; do
   else
     url="julialang/bin/linux/x64/$ver/julia-$ver-latest-linux-x86_64"
   fi
-  curl -L --retry 5 https://s3.amazonaws.com/$url.tar.gz | \
+  curl -A "Travis-CI for METADATA tests $(curl --version | head -n 1)" \
+    -L --retry 5 https://s3.amazonaws.com/$url.tar.gz | \
     tar -C julia-$ver --strip-components=1 -xzf - && \
     julia-$ver/bin/julia -e 'versioninfo(); include("METADATA/.test/METADATA.jl")' && \
     touch success-$ver &
