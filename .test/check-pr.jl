@@ -33,7 +33,7 @@ function get_remote_tags(url)
             error("Upstream tag $tag is possibly malformed")
         end
 
-        push!(remotetags, tag => first(sha))
+        push!(remotetags, tag => sha)
     end
 
     return remotetags
