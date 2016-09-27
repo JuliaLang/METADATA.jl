@@ -234,7 +234,7 @@ for pkg in readdir("METADATA")
     end
 end
 
-if false #haskey(ENV, "TRAVIS_PULL_REQUEST") && ENV["TRAVIS_PULL_REQUEST"] != "false"
+if haskey(ENV, "TRAVIS_PULL_REQUEST") && ENV["TRAVIS_PULL_REQUEST"] != "false"
     info("Checking repository tags...")
     include("check-pr.jl")
 end
