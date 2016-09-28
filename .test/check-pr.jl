@@ -92,7 +92,9 @@ for pkg in keys(modified)
     elseif !isempty(getmad) # just those added in this PR
         msg = string("The following tags for $pkg have not been pushed to upstream ",
                      "repository: ", join(getmad, ", "), ".\nTo fix this, navigate to ",
-                     "the package directory and run `git push --tags`.")
+                     "the package directory and run `git push --tags`.\nAfterward, ",
+                     "close then reopen your METADATA pull request to restart the ",
+                     "Travis CI build.")
         error(msg)
     end
 end
