@@ -5,7 +5,7 @@ git checkout -b localbranch
 cd ..
 ln -s $PWD/METADATA.jl METADATA
 for ver in 0.4 0.5 0.6; do
-  mkdir -p ~/.julia/v$ver julia-$ver
+  mkdir -p ~/.julia/v$ver/.cache julia-$ver
   ln -s $PWD/METADATA.jl ~/.julia/v$ver/METADATA
   if [ $ver = 0.6 ]; then
     url="julianightlies/bin/linux/x64/julia-latest-linux64"
