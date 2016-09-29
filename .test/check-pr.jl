@@ -3,6 +3,17 @@ const BUILD_DIR = ENV["TRAVIS_BUILD_DIR"]
 function get_remote_tags(url)
     ls = readchomp(`git ls-remote --tags -q $url`)
     lines = split(ls, "\n")
+
+    filter!(lines) do line
+        m = match(r"^\w+\trefs/tags/([^\^]+)(\^{})?$", line)
+        if m === nothing
+            return false
+        else
+            tag = m.captures[1]
+            return ismatch(Base.VERSION_REGEX, tag)
+        end
+    end
+
     n = length(lines)
 
     tags = Vector{VersionNumber}(n)
