@@ -93,10 +93,11 @@ for pkg in keys(modified)
 
     if isempty(notpushed)
         # Tags match, so we can compare SHAs 1-1
-        for tag in keys(localtags)
+        for tag in modified[pkg]
             if localtags[tag] != remotetags[tag]
                 msg = string("The commit SHA for $pkg $tag does not match between METADATA ",
-                             "and the upstream package repository.")
+                             "and the upstream package repository.\nMETADATA SHA: ",
+                             localtags[tag], "\nUpstream SHA: ", remotetags[tag])
                 error(msg)
             end
         end
