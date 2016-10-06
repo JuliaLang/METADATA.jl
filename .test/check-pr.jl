@@ -3,6 +3,17 @@ const BUILD_DIR = ENV["TRAVIS_BUILD_DIR"]
 function get_remote_tags(url)
     ls = readchomp(`git ls-remote --tags -q $url`)
     lines = split(ls, "\n")
+
+    filter!(lines) do line
+        m = match(r"^\w+\trefs/tags/([^\^]+)(\^{})?$", line)
+        if m === nothing
+            return false
+        else
+            tag = m.captures[1]
+            return ismatch(Base.VERSION_REGEX, tag)
+        end
+    end
+
     n = length(lines)
 
     tags = Vector{VersionNumber}(n)
@@ -82,10 +93,11 @@ for pkg in keys(modified)
 
     if isempty(notpushed)
         # Tags match, so we can compare SHAs 1-1
-        for tag in keys(localtags)
+        for tag in modified[pkg]
             if localtags[tag] != remotetags[tag]
                 msg = string("The commit SHA for $pkg $tag does not match between METADATA ",
-                             "and the upstream package repository.")
+                             "and the upstream package repository.\nMETADATA SHA: ",
+                             localtags[tag], "\nUpstream SHA: ", remotetags[tag])
                 error(msg)
             end
         end
