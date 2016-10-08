@@ -246,7 +246,7 @@ maxver_list_3582 = Dict([ # List of grandfathered packages
     ("GeoStats", v"0.0.2"),
     ("GeoStatsImages", v"0.0.2"),
     ("Geodesy", v"0.0.1"),
-    ("GeometricalPredicates", v"0.0.5"),
+    ("GeometricalPredicates", v"0.0.6"),
     ("GeometryTypes", v"0.0.3"),
     ("GetC", v"1.1.1"),
     ("Gettext", v"0.1.0"),
