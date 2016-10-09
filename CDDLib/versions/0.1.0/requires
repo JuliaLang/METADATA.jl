@@ -1,5 +1,5 @@
 julia 0.5
 BinDeps
 MathProgBase
-Polyhedra
+Polyhedra 0.1
 @windows WinRPM
