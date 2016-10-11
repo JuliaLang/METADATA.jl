@@ -1,0 +1,7 @@
+julia 0.5
+IndirectArrays
+FixedPointNumbers
+Colors
+ColorVectorSpace 0.1.11
+ImageCore
+ImageAxes
