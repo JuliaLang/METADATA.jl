@@ -1,0 +1,7 @@
+julia 0.4
+Requests
+LightXML
+HttpCommon
+JSON
+DataFrames
+Formatting
