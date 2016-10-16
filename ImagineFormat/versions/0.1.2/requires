@@ -1,0 +1,5 @@
+julia 0.4
+Images
+FileIO
+SIUnits
+Compat 0.7.16
