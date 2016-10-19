@@ -5,7 +5,7 @@ function get_remote_tags(url)
     lines = split(ls, "\n")
 
     filter!(lines) do line
-        m = match(r"^\w+\trefs/tags/([^\^]+)(\^{})?$", line)
+        m = match(r"^\w+\trefs/tags/(v[^\^]+)(\^{})?$", line)
         if m === nothing
             return false
         else
