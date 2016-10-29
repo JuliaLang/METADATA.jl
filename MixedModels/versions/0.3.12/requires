@@ -3,3 +3,4 @@ DataFrames 0.5-
 Distributions
 NLopt 0.1-
 PDMats 0.2.3-
+StatsBase 0 0.8.0

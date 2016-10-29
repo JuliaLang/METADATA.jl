@@ -1,0 +1,6 @@
+julia 0.3
+DataStructures
+Distributions
+DataFrames
+Docile
+Compat

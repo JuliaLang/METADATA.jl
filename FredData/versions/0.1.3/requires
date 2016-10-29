@@ -1,0 +1,5 @@
+julia 0.4
+DataFrames
+JSON
+Requests
+Compat 0.7.9

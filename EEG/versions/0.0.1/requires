@@ -1,0 +1,16 @@
+julia 0.3
+AWS
+DSP # Requires master for filter coeffients to be exported
+BDF
+DataFrames
+SIUnits # Requires master
+ProgressMeter
+Distributions
+MAT
+NumericExtensions
+Distances
+Logging
+Docile
+Winston
+Gadfly
+Synchrony

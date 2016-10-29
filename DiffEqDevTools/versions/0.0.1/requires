@@ -1,0 +1,6 @@
+julia 0.5
+RecipesBase 0.1.0
+DiffEqBase
+StochasticDiffEq
+OrdinaryDiffEq
+FiniteElementDiffEq

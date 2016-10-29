@@ -1,0 +1,11 @@
+julia 0.4.1
+ArgParse 0.3.0
+DataStreams 0.0.6 0.0.7
+Gumbo 0.2.0
+Requests 0.3.8
+LightXML 0.2.1
+HttpCommon 0.2.6
+BaseTestNext 0.2.1
+SQLite 0.3.3
+ZipFile 0.2.6
+XMLconvert 0.0.1

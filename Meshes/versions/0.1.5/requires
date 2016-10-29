@@ -1,0 +1,7 @@
+julia 0.3
+ImmutableArrays
+DataStructures
+ZipFile
+LightXML
+JSON
+Compat

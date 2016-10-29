@@ -1,0 +1,10 @@
+julia 0.4
+Compat
+Distributions
+Discretizers
+Iterators
+LightGraphs
+DataFrames
+TikzGraphs
+LightXML
+Reexport

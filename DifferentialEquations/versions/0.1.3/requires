@@ -1,0 +1,8 @@
+julia 0.4
+Parameters
+GrowableArrays
+ChunkedArrays
+EllipsisNotation
+IterativeSolvers
+GenericSVD
+Plots

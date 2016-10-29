@@ -1,0 +1,7 @@
+julia 0.4
+BinDeps
+Devectorize
+SampledSignals
+RingBuffers
+@osx Homebrew
+@windows WinRPM

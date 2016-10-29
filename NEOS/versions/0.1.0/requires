@@ -1,0 +1,6 @@
+julia 0.4
+Codecs
+LightXML
+MathProgBase 0.4 0.6
+Requests
+Libz

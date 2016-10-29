@@ -1,0 +1,8 @@
+julia 0.4
+BinDeps
+Compat
+DataStreams 0.0.1 0.0.13
+NullableArrays
+CSV
+@osx Homebrew
+@windows WinRPM

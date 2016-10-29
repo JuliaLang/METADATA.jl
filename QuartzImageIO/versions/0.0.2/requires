@@ -1,0 +1,7 @@
+julia 0.3
+Images
+Colors
+ColorVectorSpace
+FixedPointNumbers
+Compat
+FileIO

@@ -1,5 +1,5 @@
 julia 0.4-
-Gadfly
+Gadfly 0.3.16 0.3.17
 Compose
 Colors
 Gtk

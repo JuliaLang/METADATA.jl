@@ -1,0 +1,5 @@
+julia 0.4
+TensorOperations
+Distributions
+ProgressMeter
+FactCheck

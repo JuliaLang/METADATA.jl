@@ -1,0 +1,6 @@
+julia 0.4-
+SHA 0.0 0.2
+FactCheck
+Reexport
+FunctionalData
+MultivariateStats
