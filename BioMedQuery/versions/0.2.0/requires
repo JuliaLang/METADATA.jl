@@ -12,3 +12,4 @@ XMLconvert 0.0.1
 MySQL 0.0.2
 DataFrames 0.8.3
 NullableArrays 0.0.8
+DataStructures 0.4.6
