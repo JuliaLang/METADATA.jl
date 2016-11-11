@@ -2,7 +2,7 @@ julia 0.3-
 Codecs
 Color
 Compose 0.3.6
-Contour
+Contour 0.0.0 0.2-
 DataFrames 0.4.2
 DataStructures
 Datetime

@@ -3,9 +3,9 @@ Compat
 DataFrames
 Distributions
 DocOpt
-ForwardDiff
+ForwardDiff 0.0 0.2
 JLD
-Optim
+Optim 0.0 0.5
 GaussianMixtures
 FITSIO
 WCS

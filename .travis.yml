@@ -1,10 +1,6 @@
-language: julia
-julia:
-    - 0.4
+language: generic
 sudo: false # use a docker worker for hopefully faster queue times
 notifications:
     email: false
 script:
-    - cd ..
-    - ln -s METADATA.jl METADATA
-    - julia METADATA/.test/METADATA.jl
+    - sh .test/travis.sh

@@ -2,4 +2,4 @@ julia 0.4
 Compat
 NullableArrays
 Libz
-DataStreams
+DataStreams 0.0.1 0.0.13

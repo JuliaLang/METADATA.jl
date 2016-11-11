@@ -1,0 +1,9 @@
+julia 0.4.1
+BinDeps
+CSV 0.0.8
+DataStreams 0.0.1 0.0.13
+DataFrames
+NullableArrays
+WeakRefStrings
+@osx Homebrew
+@windows WinRPM

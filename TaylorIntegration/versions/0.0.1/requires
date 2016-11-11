@@ -1,0 +1,4 @@
+julia 0.4
+TaylorSeries 0.2.0
+FactCheck 0.4.2
+Compat 0.9.1

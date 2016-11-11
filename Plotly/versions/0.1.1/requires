@@ -1,0 +1,6 @@
+julia 0.4
+Requests 0.3.5
+JSON
+PlotlyJS 0.2.0
+Compat 0.7.20
+Reexport

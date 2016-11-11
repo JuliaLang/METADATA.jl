@@ -1,0 +1,7 @@
+julia 0.4
+FlatBuffers
+DataStreams 0.0.1 0.0.13
+DataFrames
+NullableArrays
+WeakRefStrings
+CategoricalArrays 0.0.1 0.0.5
