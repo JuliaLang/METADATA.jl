@@ -1,4 +1,4 @@
-julia 0.4
+julia 0.5
 DataFrames 0.4
 Distributions 0.2.0
 StatsBase 0.3
