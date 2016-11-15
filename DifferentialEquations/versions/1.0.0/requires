@@ -1,0 +1,12 @@
+julia 0.5
+Reexport
+DiffEqBase
+StochasticDiffEq
+FiniteElementDiffEq
+DiffEqDevTools
+OrdinaryDiffEq
+AlgebraicDiffEq
+StokesDiffEq
+DiffEqParamEstim
+DiffEqSensitivity
+Sundials
