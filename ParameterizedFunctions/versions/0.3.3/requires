@@ -1,0 +1,4 @@
+julia 0.5
+SymEngine 0.1.2
+DataStructures 0.4.6
+DiffEqBase 0.2.0
