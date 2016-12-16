@@ -1,0 +1,7 @@
+julia 0.5
+ParameterizedFunctions 0.2.0
+DiffEqBase
+StochasticDiffEq
+FiniteElementDiffEq
+AlgebraicDiffEq
+JLD 0.6.5

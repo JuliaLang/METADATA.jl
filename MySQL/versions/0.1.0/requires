@@ -1,0 +1,4 @@
+julia 0.4
+DataFrames
+Compat 0.8.0
+ConfParser
