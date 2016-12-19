@@ -1,0 +1,5 @@
+julia 0.5
+PyPlot 2.2.4
+PyCall 1.7.2
+Reexport 0.0.3
+Pandas 0.3.0
