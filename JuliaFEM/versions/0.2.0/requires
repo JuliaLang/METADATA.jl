@@ -1,0 +1,11 @@
+julia 0.5 
+BaseTestNext
+ForwardDiff
+LightXML
+HDF5
+JLD
+Compat
+DataFrames
+Formatting
+Logging
+NLsolve
