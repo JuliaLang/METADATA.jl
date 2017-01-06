@@ -1,0 +1,13 @@
+julia 0.5
+LibSndFile
+DSP
+SampledSignals
+Reactive
+Lazy
+DataStructures
+Colors
+ArgParse
+FileIO
+PyCall
+Conda
+Juno
