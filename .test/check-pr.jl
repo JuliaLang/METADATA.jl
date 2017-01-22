@@ -102,6 +102,11 @@ for pkg in keys(modified)
             end
         end
     elseif !isempty(getmad) # just those added in this PR
+        if getmad == [v"0.0.0"]
+            # since this version is no longer allowed for new tags, it can only happen when
+            # modifying bounds for old packages, in which case don't worry about the tags
+            continue
+        end
         msg = string("The following tags for $pkg have not been pushed to upstream ",
                      "repository: ", join(getmad, ", "), ".\nTo fix this, navigate to ",
                      "the package directory and run `git push --tags`.\nAfterward, ",
