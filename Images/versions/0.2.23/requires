@@ -4,3 +4,4 @@ Cartesian 0.1-
 julia 0.2-
 BinDeps
 @osx Homebrew
+FixedPointNumbers 0.0- 0.3
