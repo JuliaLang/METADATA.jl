@@ -1,0 +1,7 @@
+julia 0.4
+DataArrays 0.3.4
+StatsBase 0.8.3
+GZip
+SortingAlgorithms
+Reexport
+Compat 0.8.4

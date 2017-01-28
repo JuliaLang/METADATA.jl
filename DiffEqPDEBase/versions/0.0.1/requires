@@ -1,0 +1,4 @@
+julia 0.5
+RecipesBase
+VectorizedRoutines
+ChunkedArrays

@@ -23,7 +23,7 @@ tofix = []
             println()
             warn("$pkg unexpected status: $req")
         end
-    else
+    elseif isdir(Pkg.dir("METADATA", pkg)) && pkg != ".test" && pkg != ".git"
         println()
         println("No url file for $pkg")
     end
