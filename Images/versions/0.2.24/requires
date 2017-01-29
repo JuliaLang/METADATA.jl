@@ -6,3 +6,4 @@ BinDeps
 @osx Homebrew
 Units
 Zlib
+FixedPointNumbers 0.0- 0.3
