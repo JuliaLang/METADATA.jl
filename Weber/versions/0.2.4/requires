@@ -1,0 +1,14 @@
+julia 0.5
+DSP
+SampledSignals
+Lazy
+DataStructures
+Colors
+ArgParse
+FileIO
+PyCall
+Conda
+Juno
+Images
+LibSndFile
+@osx Homebrew
