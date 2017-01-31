@@ -1,0 +1,12 @@
+julia 0.5
+
+ModernGL
+GLAbstraction
+GLFW
+Reactive
+GeometryTypes
+Compat 0.7.15
+ColorTypes
+FixedPointNumbers
+FixedSizeArrays
+FileIO

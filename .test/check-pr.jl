@@ -60,13 +60,28 @@ function get_local_tags(dir)
 end
 
 # Get files modified in the PR as a diff against origin
-changed = split(readchomp(`git -C $BUILD_DIR diff --name-only origin/metadata-v2 HEAD`), "\n")
+diff_list(x) = split(readchomp(`git -C $BUILD_DIR diff --name-only
+    --diff-filter=$x origin/metadata-v2 HEAD`), "\n")
+
+changed = diff_list("CDMRTUXB")
+for file in changed
+    if endswith(file, "sha1")
+        # policy 8, do not modify existing published tag sha1's
+        error(string("Do not modify existing published tag sha1 files (policy 8).\n",
+                     "Ask for an exception if absolutely necessary, but tag commits\n",
+                     "should be immutable once published for reproducibility."))
+    end
+end
+
+# Get files added in the PR as a diff against origin
+# (only check tags match for newly-added files)
+added = diff_list("A")
 
 const RGX = r"^[^/]+/versions/([\d.]+)"
 
 # Get the associated package and version for each affected file
 modified = Dict{AbstractString,Vector{VersionNumber}}() # package => [versions...]
-for file in changed
+for file in added
     pkg = split(file, "/")[1]
     # Only look at changes to tagged versions
     if isdir(joinpath(BUILD_DIR, pkg)) && pkg != ".test" && ismatch(RGX, file)

@@ -1,0 +1,6 @@
+BinDeps
+julia 0.5
+Compat 0.7.15
+@osx Homebrew 0.4.0
+NLPModels 0.1.0
+JSON 0.8.0

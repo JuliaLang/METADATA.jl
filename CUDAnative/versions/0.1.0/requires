@@ -1,0 +1,3 @@
+julia 0.6-
+CUDAdrv 0.2
+LLVM 0.2
