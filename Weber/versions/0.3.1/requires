@@ -1,0 +1,17 @@
+julia 0.5
+DSP
+SampledSignals
+FixedPointNumbers
+Lazy
+DataStructures
+Colors
+ArgParse
+FileIO
+PyCall
+Conda
+Juno
+Images
+LibSndFile
+MacroTools
+Distributions
+@osx Homebrew
