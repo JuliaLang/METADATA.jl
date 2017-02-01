@@ -5,3 +5,4 @@ IterativeSolvers
 PyPlot
 Atom
 NLsolve
+OrdinaryDiffEq 0.0.0 1.1.0

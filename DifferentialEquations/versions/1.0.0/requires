@@ -4,7 +4,7 @@ DiffEqBase
 StochasticDiffEq
 FiniteElementDiffEq
 DiffEqDevTools
-OrdinaryDiffEq
+OrdinaryDiffEq 0.0.0 1.1.0
 AlgebraicDiffEq
 StokesDiffEq
 DiffEqParamEstim
