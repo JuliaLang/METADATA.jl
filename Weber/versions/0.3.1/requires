@@ -1,7 +1,7 @@
 julia 0.5
 DSP
 SampledSignals
-FixedPointNumbers
+FixedPointNumbers 0.3.0
 Lazy
 DataStructures
 Colors
@@ -10,7 +10,7 @@ FileIO
 PyCall
 Conda
 Juno
-Images
+Images 0.6.0
 LibSndFile
 MacroTools
 Distributions
