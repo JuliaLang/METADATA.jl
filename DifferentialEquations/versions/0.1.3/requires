@@ -1,4 +1,4 @@
-julia 0.4
+julia 0.4 0.4
 Parameters
 GrowableArrays
 ChunkedArrays
@@ -6,5 +6,3 @@ EllipsisNotation
 IterativeSolvers
 GenericSVD
 Plots
-OrdinaryDiffEq 0.0.0 1.1.0
-StochasticDiffEq 0.0.0 0.5.0
