@@ -4,3 +4,4 @@ Compat
 FactCheck 0.3
 Polynomials
 ForwardDiff 0.0 0.2
+CRlibm 0.0 0.4
