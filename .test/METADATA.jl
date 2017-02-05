@@ -164,7 +164,7 @@ for (pkg, versions) in Pkg.Read.available()
                             "but version $first_same_minor of $pkg requires julia ",
                             "$juliaver_prev. Use a new minor package version when support ",
                             "for an old version of Julia is dropped. Re-tag the package ",
-                            "as $nextminor using `Pkg.tag(\"$pkg\", :minor)`.")
+                            "as $nextminor using `PkgDev.tag(\"$pkg\", :minor)`.")
                     end
                 end
             catch err
