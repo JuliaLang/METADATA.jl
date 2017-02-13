@@ -1,0 +1,27 @@
+julia 0.5
+Anasol
+BIGUQ
+AffineInvariantMCMC
+GeostatInversion
+MetaProgTools
+ReusableFunctions
+RobustPmap
+Conda 0.4
+PyCall 1.8
+PyPlot 2.2
+Gadfly
+Images
+YAML
+JSON
+JLD
+ProgressMeter
+Distributions
+DataStructures
+DataFrames
+StatsBase
+ODE
+Klara 0.7
+Optim 0.7
+BlackBoxOptim
+Documenter 0.8.10
+Compat 0.8

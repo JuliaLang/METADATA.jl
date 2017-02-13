@@ -1,0 +1,7 @@
+julia 0.5
+Distributions
+Optim 0.5.0
+StatsBase
+Cubature 1.2.0
+StatsFuns
+Yeppp
