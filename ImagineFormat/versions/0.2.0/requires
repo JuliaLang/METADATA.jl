@@ -1,0 +1,7 @@
+julia 0.5
+AxisArrays
+ImageMetadata 0.1.1
+FixedPointNumbers 0.3.0
+FileIO
+Unitful
+Ranges
