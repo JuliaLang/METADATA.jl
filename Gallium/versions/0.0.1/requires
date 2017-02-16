@@ -1,7 +1,7 @@
 julia 0.5-
 TerminalUI
-DWARF
-ELF
-MachO
+DWARF 0.0.1 0.0.2
+ELF 0.0.1 0.0.2
+MachO 0.0.1 0.0.2
 ASTInterpreter
 AbstractTrees

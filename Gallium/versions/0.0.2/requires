@@ -1,8 +1,8 @@
 julia 0.5-
 TerminalUI
-DWARF
+DWARF 0.0.2 0.0.3
 ObjFileBase
-ELF
-MachO
+ELF 0.0.2 0.0.3
+MachO 0.0.2 0.0.3
 ASTInterpreter
 AbstractTrees
