@@ -1,4 +1,5 @@
 Color
 Grid 0.2.4-
 Cartesian 0.1-
-julia 0.2-
+julia 0.2- 0.5
+FixedPointNumbers 0.0- 0.3

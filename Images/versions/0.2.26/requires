@@ -1,7 +1,8 @@
 Color
 Cartesian 0.1-
-julia 0.2-
+julia 0.2- 0.5
 BinDeps
 @osx Homebrew
 Units
 Zlib
+FixedPointNumbers 0.0- 0.3
