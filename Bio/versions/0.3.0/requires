@@ -3,7 +3,7 @@ BufferedStreams 0.1
 Colors
 Compat
 IndexableBitVectors 0.1.1
-IntervalTrees
+IntervalTrees 0.1 0.1.1
 Iterators
 Libz 0.2
 LightGraphs
