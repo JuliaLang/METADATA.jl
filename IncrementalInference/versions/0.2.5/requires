@@ -1,0 +1,9 @@
+julia 0.5
+Graphs 0.7.1
+GraphViz
+Gadfly
+Colors
+NLsolve
+Optim
+Distributions
+KernelDensityEstimate 0.2.1
