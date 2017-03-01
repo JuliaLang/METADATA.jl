@@ -4,3 +4,4 @@ notifications:
     email: false
 script:
     - sh .test/travis.sh
+    - sh .test/ci.sh
