@@ -3,4 +3,4 @@ StatsBase
 Distributions
 Optim
 Interpolations
-Compat
+Compat 0.7.0
