@@ -1,6 +1,6 @@
 julia 0.5
 BinDeps
 MathProgBase
-Polyhedra 0.1.3
+Polyhedra 0.1.3 0.1.4
 @windows WinRPM
 @osx Homebrew
