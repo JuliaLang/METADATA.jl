@@ -1,7 +1,7 @@
 julia 0.5
 DiffEqBase 0.4.0
 IterativeSolvers 0.2.2
-Parameters 0.5.0
+Parameters 0.5.0 0.7.0
 RecipesBase 0.1.0
 GenericSVD 0.0.2
 ForwardDiff 0.2.4

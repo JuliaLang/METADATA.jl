@@ -1,4 +1,4 @@
 julia 0.5
-Parameters 0.5.0
+Parameters 0.5.0 0.7.0
 Sundials 0.3.0
 DiffEqBase
