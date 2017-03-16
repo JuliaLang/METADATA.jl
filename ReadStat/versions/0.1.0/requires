@@ -1,0 +1,7 @@
+julia 0.5
+DataArrays
+NullableArrays
+DataFrames
+DataTables
+BinDeps
+@windows WinRPM
