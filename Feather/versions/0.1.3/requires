@@ -1,5 +1,5 @@
 julia 0.4
-FlatBuffers 0.1.1
+FlatBuffers 0.1.1 0.2.0
 DataStreams 0.0.10 0.0.13
 DataFrames
 NullableArrays
