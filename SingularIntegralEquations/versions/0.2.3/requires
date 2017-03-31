@@ -1,0 +1,6 @@
+julia 0.5
+ApproxFun 0.6
+BandedMatrices 0.2.2
+Compat 0.18
+DualNumbers 0.2.3
+RecipesBase 0.1
