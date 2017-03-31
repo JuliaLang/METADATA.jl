@@ -1,29 +1,49 @@
 #!/usr/bin/env julia
 # script to populate test dependencies of registered packages
 
-using JLD
+# wrapper type around Pkg.Types.Available that displays in a round-trippable way
+immutable ReprRequire
+    avail::Pkg.Types.Available
+end
+function Base.show(io::IO, r::ReprRequire)
+    if isempty(r.avail.requires)
+        print(io, "Pkg.Types.Available(\"", r.avail.sha1, "\",Dict())")
+    else
+        println(io, "Pkg.Types.Available(\"", r.avail.sha1,
+            "\",Pkg.Reqs.parse(IOBuffer(\"")
+        Pkg.Reqs.write(io, r.avail.requires)
+        print(io, "\")))")
+    end
+end
 
+# utilities for saving Dicts from Pkg.Read.available() in text format and
+# sorted by key, translating back and forth between Dict and array of Pair
+pairarray(d::Dict) = Pair[k => pairarray(d[k]) for k in sort!(collect(keys(d)))]
+pairarray(avail::Pkg.Types.Available) = ReprRequire(avail)
+pairarray(d) = d
+todict(a::Array{Pair}) = Dict(Pair[p.first => todict(p.second) for p in a])
+todict(r::ReprRequire) = r.avail
+todict(d) = d
+
+# standard dependencies from REQUIRE, already saved in METADATA
 stdreqs = cd(Pkg.dir()) do
     Pkg.Read.available()
 end
 
-cd(Pkg.dir("METADATA")) do
-    empty_pkg() = Dict{VersionNumber, Pkg.Types.Available}()
-    empty_version(sha) = Pkg.Types.Available(sha, Dict{String, Pkg.Types.VersionSet}())
+testreqs = cd(Pkg.dir("METADATA")) do
+    empty_version(sha) = Pkg.Types.Available(sha, Dict())
 
-    if isfile(".test/testreqs.jld")
-        # load testreqs and metadata_sha_old from existing saved jld file, if any
-        testreqs, metadata_sha_old = load(".test/testreqs.jld", "testreqs", "metadata_sha")
+    if isfile(Pkg.dir("METADATA",".test","testreqs_saved.jl"))
+        # load testreqs from existing saved jl file, if any
+        testreqs = include(Pkg.dir("METADATA",".test","testreqs_saved.jl"))
     else
         testreqs = Dict{String, Dict{VersionNumber, Pkg.Types.Available}}()
-        metadata_sha_old = ""
     end
-    metadata_sha = readchomp(`git rev-parse HEAD`)
 
     ghpkgs = String[]
     nonghpkgs = String[]
     for pkg in keys(stdreqs)
-        haskey(testreqs, pkg) || (testreqs[pkg] = empty_pkg())
+        haskey(testreqs, pkg) || (testreqs[pkg] = Dict())
         if ismatch(Pkg.Cache.GITHUB_REGEX, Pkg.Read.url(pkg))
             push!(ghpkgs, pkg)
         else
@@ -100,7 +120,9 @@ cd(Pkg.dir("METADATA")) do
         isdir("$pkg-tmp") && rm("$pkg-tmp", recursive=true)
     end
 
-    # save testreqs and metadata_sha to jld file
-    save(".test/testreqs.jld", "testreqs", testreqs, "metadata_sha", metadata_sha)
-    return stdreqs, testreqs
+    open(Pkg.dir("METADATA",".test","testreqs_saved.jl"), "w") do f
+        println(f, replace(replace(replace(replace(repr(pairarray(testreqs)),
+            ",", ",\n"), "Pair[", "Dict("), "],", "),"), "]]", "))"))
+    end
+    return testreqs
 end
