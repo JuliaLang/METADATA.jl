@@ -9,7 +9,22 @@ JSON.lower(avail::Pkg.Types.Available) =
 # translate from String=>Tuple{String,String} to VersionNumber=>Pkg.Types.Available
 versavail(va) = VersionNumber(first(va)) =>
     Pkg.Types.Available(last(va)[1], Pkg.Reqs.parse(IOBuffer(last(va)[2])))
-pkgvers(pv) = first(pv) => map(versavail, last(pv))
+
+# wrapper around a Dict that iterates over keys in sorted order
+immutable SortedDictWrapper{K,V} <: Associative{K,V}
+    d::Dict{K,V}
+    sortedkeys::Vector{K}
+end
+SortedDictWrapper(d) = SortedDictWrapper(d, sort!(collect(keys(d))))
+Base.length(sd::SortedDictWrapper) = length(sd.d)
+Base.eltype(sd::SortedDictWrapper) = eltype(sd.d)
+Base.get(sd::SortedDictWrapper, key, default) = get(sd.d, key, default)
+Base.start(sd::SortedDictWrapper) = 1
+function Base.next(sd::SortedDictWrapper, i)
+    key = sd.sortedkeys[i]
+    (key => sd.d[key], i+1)
+end
+Base.done(sd::SortedDictWrapper, i) = (i == length(sd.sortedkeys)+1)
 
 # standard dependencies from REQUIRE, already saved in METADATA
 stdreqs = cd(Pkg.dir()) do
@@ -21,7 +36,8 @@ testreqs = cd(Pkg.dir("METADATA")) do
 
     if isfile(Pkg.dir("METADATA",".test","testreqs.json"))
         # load testreqs from existing saved json file, if any
-        testreqs = map(pkgvers, JSON.parsefile(Pkg.dir("METADATA",".test","testreqs.json")))
+        testreqs = map(pv -> first(pv) => map(versavail, last(pv)),
+            JSON.parsefile(Pkg.dir("METADATA",".test","testreqs.json")))
     else
         testreqs = Dict{String, Dict{VersionNumber, Pkg.Types.Available}}()
     end
@@ -106,8 +122,9 @@ testreqs = cd(Pkg.dir("METADATA")) do
         isdir("$pkg-tmp") && rm("$pkg-tmp", recursive=true)
     end
 
+    sortversions = map(pv -> first(pv) => SortedDictWrapper(last(pv)), testreqs)
     open(Pkg.dir("METADATA",".test","testreqs.json"), "w") do f
-        JSON.print(f, testreqs, 1)
+        JSON.print(f, SortedDictWrapper(sortversions), 1)
     end
     return testreqs
 end
