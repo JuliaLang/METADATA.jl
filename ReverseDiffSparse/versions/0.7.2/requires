@@ -1,5 +1,6 @@
 julia 0.5
 Calculus
+Lazy
 DataStructures
 MathProgBase
 NaNMath 0.2.1
