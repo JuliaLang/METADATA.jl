@@ -1,29 +1,15 @@
 #!/usr/bin/env julia
 # script to populate test dependencies of registered packages
 
-# wrapper type around Pkg.Types.Available that displays in a round-trippable way
-immutable ReprRequire
-    avail::Pkg.Types.Available
-end
-function Base.show(io::IO, r::ReprRequire)
-    if isempty(r.avail.requires)
-        print(io, "Pkg.Types.Available(\"", r.avail.sha1, "\",Dict())")
-    else
-        println(io, "Pkg.Types.Available(\"", r.avail.sha1,
-            "\",Pkg.Reqs.parse(IOBuffer(\"")
-        Pkg.Reqs.write(io, r.avail.requires)
-        print(io, "\")))")
-    end
-end
+using JSON
 
-# utilities for saving Dicts from Pkg.Read.available() in text format and
-# sorted by key, translating back and forth between Dict and array of Pair
-pairarray(d::Dict) = Pair[k => pairarray(d[k]) for k in sort!(collect(keys(d)))]
-pairarray(avail::Pkg.Types.Available) = ReprRequire(avail)
-pairarray(d) = d
-todict(a::Array{Pair}) = Dict(Pair[p.first => todict(p.second) for p in a])
-todict(r::ReprRequire) = r.avail
-todict(d) = d
+# little bit of type piracy here to output Pkg.Types.Available compactly
+JSON.lower(avail::Pkg.Types.Available) =
+    (avail.sha1, sprint(io -> Pkg.Reqs.write(io, avail.requires)))
+# translate from String=>Tuple{String,String} to VersionNumber=>Pkg.Types.Available
+versavail(va) = VersionNumber(first(va)) =>
+    Pkg.Types.Available(last(va)[1], Pkg.Reqs.parse(IOBuffer(last(va)[2])))
+pkgvers(pv) = first(pv) => map(versavail, last(pv))
 
 # standard dependencies from REQUIRE, already saved in METADATA
 stdreqs = cd(Pkg.dir()) do
@@ -33,9 +19,9 @@ end
 testreqs = cd(Pkg.dir("METADATA")) do
     empty_version(sha) = Pkg.Types.Available(sha, Dict())
 
-    if isfile(Pkg.dir("METADATA",".test","testreqs_saved.jl"))
-        # load testreqs from existing saved jl file, if any
-        testreqs = include(Pkg.dir("METADATA",".test","testreqs_saved.jl"))
+    if isfile(Pkg.dir("METADATA",".test","testreqs.json"))
+        # load testreqs from existing saved json file, if any
+        testreqs = map(pkgvers, JSON.parsefile(Pkg.dir("METADATA",".test","testreqs.json")))
     else
         testreqs = Dict{String, Dict{VersionNumber, Pkg.Types.Available}}()
     end
@@ -120,9 +106,8 @@ testreqs = cd(Pkg.dir("METADATA")) do
         isdir("$pkg-tmp") && rm("$pkg-tmp", recursive=true)
     end
 
-    open(Pkg.dir("METADATA",".test","testreqs_saved.jl"), "w") do f
-        println(f, replace(replace(replace(replace(repr(pairarray(testreqs)),
-            ",", ",\n"), "Pair[", "Dict("), "],", "),"), "]]", "))"))
+    open(Pkg.dir("METADATA",".test","testreqs.json"), "w") do f
+        JSON.print(f, testreqs, 1)
     end
     return testreqs
 end
