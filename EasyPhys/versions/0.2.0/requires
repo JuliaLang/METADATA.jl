@@ -1,0 +1,7 @@
+julia 0.5
+LsqFit 0.2
+PyCall 1.7
+PyPlot 2.2
+DataFrames 0.8
+DataArrays 0.3.8
+Compat 0.17
