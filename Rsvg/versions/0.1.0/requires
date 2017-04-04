@@ -1,0 +1,7 @@
+julia 0.4
+Gtk 0.8.6
+Cairo 0.2.30
+BinDeps 0.3.9
+Compat 0.7.19
+@osx Homebrew
+@windows WinRPM
