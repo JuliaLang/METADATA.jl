@@ -2,7 +2,7 @@
 set -e
 cd $(dirname $0)/..
 BUILD_DIR=$PWD
-[ -z "$CI_TMP_DIR" ] && CI_TMP_DIR=$BUILD_DIR.tmp
+[ -z "$CI_TMP_DIR" ] && CI_TMP_DIR=$PWD/..
 [ -z "$JULIA_PKGDIR" ] && JULIA_PKGDIR=$HOME/.julia
 export BUILD_DIR JULIA_PKGDIR
 
