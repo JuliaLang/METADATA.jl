@@ -1,4 +1,4 @@
-const BUILD_DIR = ENV["TRAVIS_BUILD_DIR"]
+const BUILD_DIR = ENV["BUILD_DIR"]
 
 function get_remote_tags(url)
     ls = readchomp(`git ls-remote --tags -q $url`)
@@ -60,8 +60,9 @@ function get_local_tags(dir)
 end
 
 # Get files modified in the PR as a diff against origin
+# Note: origin/HEAD is equivalent to origin/metadata-v2 in the JuliaLang/METADATA.jl repo
 diff_list(x) = split(readchomp(`git -C $BUILD_DIR diff --name-only
-    --diff-filter=$x origin/metadata-v2 HEAD`), "\n")
+    --diff-filter=$x origin/HEAD HEAD`), "\n")
 
 changed = diff_list("CDMRTUXB")
 for file in changed
@@ -121,7 +122,7 @@ for pkg in keys(modified)
                      "repository: ", join(getmad, ", "), ".\nTo fix this, navigate to ",
                      "the package directory and run `git push --tags`.\nAfterward, ",
                      "close then reopen your METADATA pull request to restart the ",
-                     "Travis CI build.")
+                     "$(ENV["CI_NAME"]) build.")
         error(msg)
     end
 end
