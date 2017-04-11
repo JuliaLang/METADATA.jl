@@ -60,7 +60,7 @@ function get_local_tags(dir)
 end
 
 # Get files modified in the PR as a diff against origin
-# Note: origin/HEAD is equivalent to origin/metadata-v2 in in the JuliaLang/METADATA.jl repo
+# Note: origin/HEAD is equivalent to origin/metadata-v2 in the JuliaLang/METADATA.jl repo
 diff_list(x) = split(readchomp(`git -C $BUILD_DIR diff --name-only
     --diff-filter=$x origin/HEAD HEAD`), "\n")
 
