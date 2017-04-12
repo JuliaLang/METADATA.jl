@@ -1,4 +1,4 @@
 julia 0.5
-Compat 0.8.4
+Compat 0.17
 Distances
 Iterators
