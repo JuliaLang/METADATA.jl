@@ -1,7 +1,11 @@
 const BUILD_DIR = ENV["BUILD_DIR"]
 
 function get_remote_tags(url)
-    ls = readchomp(`git ls-remote --tags -q $url`)
+    ls = try
+        readchomp(`git ls-remote --tags -q $url`)
+    catch
+        error("The specified URL does not correspond to a valid Git repository")
+    end
     lines = split(ls, "\n")
 
     filter!(lines) do line
