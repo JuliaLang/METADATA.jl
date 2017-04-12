@@ -1,5 +1,5 @@
 julia 0.5
 Distributions
-DifferentialEquations 1.7.0
+DifferentialEquations 1.5.0
 JSON
 JLD
