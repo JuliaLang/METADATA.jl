@@ -4,4 +4,4 @@ ColorTypes 0.1
 Images     0.4
 Interpolations   0.3
 PyPlot     2.0
-Compat     0.9
+Compat     0.7.16
