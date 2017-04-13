@@ -1,0 +1,13 @@
+julia 0.6-
+Compat 0.18.0
+DataFrames
+DataStructures 0.5.2
+Distributions
+FITSIO 0.8.4
+DiffBase 0.0.3
+ForwardDiff 0.3.4 0.5
+ReverseDiff 0.1.1 0.2
+JLD 0.6.0
+Optim 0.7.4
+StaticArrays 0.1.4
+WCS 0.1.3
