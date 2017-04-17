@@ -1,0 +1,11 @@
+julia 0.3
+SimpleHttpCommon
+Compat
+Nettle
+Codecs
+WebSockets
+GnuTLS
+WebSockets
+DataStructures
+Match
+JSON
