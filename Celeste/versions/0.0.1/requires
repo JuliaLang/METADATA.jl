@@ -1,0 +1,11 @@
+DataFrames
+Distributions
+DualNumbers
+FITSIO
+ForwardDiff # Currently only required for testing.
+JLD
+Optim
+GaussianMixtures
+Grid
+SloanDigitalSkySurvey
+WCSLIB
