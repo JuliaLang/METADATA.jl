@@ -1,7 +1,7 @@
 julia 0.5
 
 ModernGL
-GLAbstraction
+GLAbstraction 0.3.1
 GLFW
 Reactive
 GeometryTypes
