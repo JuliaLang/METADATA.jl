@@ -12,10 +12,10 @@ git checkout -b localbranch
 
 mkdir -p $CI_TMP_DIR
 cd $CI_TMP_DIR
-for ver in 0.4 0.5 0.6; do
+for ver in 0.4 0.5 0.6; do # add nightly once that is a different VERSION.minor than 0.6
   mkdir -p $JULIA_PKGDIR/v$ver/.cache julia-$ver
   ln -s $BUILD_DIR $JULIA_PKGDIR/v$ver/METADATA
-  if [ $ver = 0.6 ]; then
+  if [ $ver = "nightly" ]; then
     url="julianightlies/bin/linux/x64/julia-latest-linux64"
   else
     url="julialang/bin/linux/x64/$ver/julia-$ver-latest-linux-x86_64"
@@ -27,6 +27,6 @@ for ver in 0.4 0.5 0.6; do
     touch success-$ver &
 done
 wait
-if ! [ -e success-0.4 -a -e success-0.5 ]; then # add success-0.6 once there are any 0.6-only package versions
+if ! [ -e success-0.4 -a -e success-0.5 -a -e success-0.6 ]; then # nightly allowed to fail
   exit 1
 fi
