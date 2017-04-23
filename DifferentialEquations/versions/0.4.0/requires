@@ -10,3 +10,4 @@ InplaceOps 0.0.5
 SIUnits 0.0.6
 OrdinaryDiffEq 0.0.0 1.2.0
 StochasticDiffEq 0.0.0 1.0.0
+DiffEqBase 0.0.0 0.15.0

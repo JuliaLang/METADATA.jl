@@ -1,0 +1,8 @@
+julia 0.5
+Distances  0.1.1
+StatsBase 0.7.1
+DataArrays
+DataFrames 0.6
+LeastSquaresOptim 0.2.0
+Reexport
+FixedEffectModels 0.3.1

@@ -1,6 +1,6 @@
 julia 0.5
 OrdinaryDiffEq
 LsqFit
-DiffEqBase
+DiffEqBase 0.0.0 0.14.0
 LossFunctions
 RecursiveArrayTools

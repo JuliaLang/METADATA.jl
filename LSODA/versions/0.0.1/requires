@@ -2,4 +2,4 @@ julia 0.5
 BinDeps 0.4.3
 Compat 0.9.0
 Parameters 0.5.0
-DiffEqBase
+DiffEqBase 0.0.0 0.15.0

@@ -1,30 +1,28 @@
-using Requests, URIParser, ProgressMeter
+#!/usr/bin/env julia
+# Script to check if registered packages have changed url's
+
+using Requests, URIParser
 fix = true && !("--dry-run" in ARGS)
 tofix = []
-@showprogress for pkg in readdir(Pkg.dir("METADATA"))
+asyncmap(readdir(Pkg.dir("METADATA"))) do pkg
     urlfile = Pkg.dir("METADATA", pkg, "url")
     if isfile(urlfile)
         url = readchomp(urlfile)
         req = get(replace(replace(url, "git://", "https://"),
             ".jl.git", ".jl"); allow_redirects = false)
         if !(endswith(url, "/$pkg.jl.git") #= || endswith(url, "/$pkg.jl") =# )
-            println()
             warn("Unexpected end of url for $pkg: $url")
         end
         if statuscode(req) == 404
-            println()
             info("$pkg Not Found")
             push!(tofix, (pkg, urlfile, url, req))
         elseif statuscode(req) == 301
-            println()
             info("$pkg relocated from $url to $(req.headers["Location"])")
             push!(tofix, (pkg, urlfile, url, req))
         elseif statuscode(req) != 200
-            println()
             warn("$pkg unexpected status: $req")
         end
     elseif isdir(Pkg.dir("METADATA", pkg)) && pkg != ".test" && pkg != ".git"
-        println()
         println("No url file for $pkg")
     end
 end
