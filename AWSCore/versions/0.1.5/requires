@@ -1,6 +1,6 @@
 julia 0.5
 Retry
-SymDict
+SymDict 0.1.2
 XMLDict
 JSON
 IniFile

@@ -8,7 +8,7 @@ InfoZIP
 DataStructures
 Glob
 JSON
-SymDict
+SymDict 0.1.2
 Nettle
 FNVHash
 Primes

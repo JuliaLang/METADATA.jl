@@ -1,4 +1,4 @@
 julia 0.5
 AWSCore 0.1
-SymDict
+SymDict 0.1.2
 Retry
