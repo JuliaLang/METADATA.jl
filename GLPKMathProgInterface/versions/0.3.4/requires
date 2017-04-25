@@ -1,0 +1,4 @@
+julia 0.5
+GLPK 0.2.8
+MathProgBase 0.5 0.7
+Compat 0.17.0
