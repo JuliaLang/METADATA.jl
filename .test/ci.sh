@@ -12,14 +12,15 @@ git checkout -b localbranch
 
 mkdir -p $CI_TMP_DIR
 cd $CI_TMP_DIR
-for ver in 0.4 0.5 0.6; do # add nightly once that is a different VERSION.minor than 0.6
-  mkdir -p $JULIA_PKGDIR/v$ver/.cache julia-$ver
-  ln -s $BUILD_DIR $JULIA_PKGDIR/v$ver/METADATA
+for ver in 0.4 0.5 nightly; do # add 0.6 back after rc1
   if [ $ver = "nightly" ]; then
     url="julianightlies/bin/linux/x64/julia-latest-linux64"
+    ver=0.6 # fixme once release-0.6 branches
   else
     url="julialang/bin/linux/x64/$ver/julia-$ver-latest-linux-x86_64"
   fi
+  mkdir -p $JULIA_PKGDIR/v$ver/.cache julia-$ver
+  ln -s $BUILD_DIR $JULIA_PKGDIR/v$ver/METADATA
   curl -A "$CI_NAME for METADATA tests $(curl --version | head -n 1)" \
     -L --retry 5 https://s3.amazonaws.com/$url.tar.gz | \
     tar -C julia-$ver --strip-components=1 -xzf - && \
