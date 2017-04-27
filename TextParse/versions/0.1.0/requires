@@ -1,5 +1,5 @@
 julia 0.5
 Compat 0.17
 NullableArrays
-PooledArrays
+PooledArrays 0.0.2
 WeakRefStrings
