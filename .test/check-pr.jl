@@ -72,7 +72,7 @@ changed = diff_list("CDMRTUXB")
 for file in changed
     if endswith(file, "sha1")
         # policy 8, do not modify existing published tag sha1's
-        error(string("Do not modify existing published tag sha1 files (policy 8).\n",
+        error(string("Do not modify existing published tag $file (policy 8).\n",
                      "Ask for an exception if absolutely necessary, but tag commits\n",
                      "should be immutable once published for reproducibility."))
     end
