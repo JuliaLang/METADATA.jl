@@ -1,0 +1,6 @@
+julia 0.5
+DataArrays
+DataFrames
+Dates
+PyCall 1.5
+Compat 0.9.5
