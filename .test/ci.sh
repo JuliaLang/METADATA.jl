@@ -12,10 +12,12 @@ git checkout -b localbranch
 
 mkdir -p $CI_TMP_DIR
 cd $CI_TMP_DIR
-for ver in 0.4 0.5 nightly; do # add 0.6 back after rc1
+for ver in 0.4 0.5 0.6 nightly; do
   if [ $ver = "nightly" ]; then
     url="julianightlies/bin/linux/x64/julia-latest-linux64"
-    ver=0.6 # fixme once release-0.6 branches
+    ver=0.7
+  elif [ $ver = "0.6" ]; then # delete this case once rc1 is available
+    url="julianightlies/bin/linux/x64/0.6/julia-0.6.0-609b3d12c7-linux64"
   else
     url="julialang/bin/linux/x64/$ver/julia-$ver-latest-linux-x86_64"
   fi
