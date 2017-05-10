@@ -1,0 +1,25 @@
+julia 0.5
+RoME 0.0.6
+IncrementalInference 0.2.8
+Graphs 0.7.1
+KernelDensityEstimate 0.2.4
+Distributions
+DrakeVisualizer 0.1.2
+TransformUtils 0.0.6
+CoordinateTransformations
+GeometryTypes
+Rotations
+Gadfly
+Colors
+ColorTypes
+JLD
+HDF5
+JSON
+MeshIO
+FileIO
+NLsolve
+PyLCM
+DataStructures
+ProgressMeter
+ImageMagick
+ImageCore
