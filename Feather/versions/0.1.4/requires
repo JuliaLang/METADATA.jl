@@ -1,5 +1,5 @@
 julia 0.4
-FlatBuffers 0.1.1
+FlatBuffers 0.1.1 0.2.0
 NullableArrays 0.0.8
 CategoricalArrays 0.0.4 0.0.5
 DataFrames

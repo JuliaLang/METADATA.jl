@@ -2,7 +2,7 @@ julia 0.3
 Compat
 ZipFile
 BinDeps 0.3.4
-Images 0.4.4
+Images 0.4.4 0.6
 ImageView 0.1.4
 @osx Homebrew
 @linux Glob

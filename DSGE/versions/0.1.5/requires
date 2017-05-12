@@ -1,0 +1,9 @@
+julia 0.4
+Calculus
+DataStructures
+Distributions
+FredData
+HDF5
+Optim 0.7
+QuantEcon
+Roots

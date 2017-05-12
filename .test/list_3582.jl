@@ -2,7 +2,7 @@
 # grandfathered list below are at least minpkgver and furthermore have a
 # requires file listing a minimum Julia version that is at least minjuliaver
 maxver_list_3582 = Dict([ # List of grandfathered packages
-    ("ACME", v"0.1.1"),
+    ("ACME", v"0.1.2"),
     ("ASCIIPlots", v"0.0.3"),
     ("AWS", v"0.1.13"),
     ("AbstractDomains", v"0.0.3"),
@@ -260,7 +260,7 @@ maxver_list_3582 = Dict([ # List of grandfathered packages
     ("GraphLayout", v"0.2.0"),
     ("GraphMatrices", v"0.1.0"),
     ("GraphViz", v"0.0.4"),
-    ("Graphics", v"0.1.3"),
+    ("Graphics", v"0.1.5"),
     ("Graphs", v"0.6.0"),
     ("GreatCircle", v"0.0.1"),
     ("Grid", v"0.4.0"),

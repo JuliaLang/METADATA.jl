@@ -1,4 +1,4 @@
 julia 0.4
 Combinatorics
 StatsBase
-Images
+Images 0.0- 0.6

@@ -1,4 +1,4 @@
-This is the official METADATA repo for the Julia package manager. See [manual section](http://docs.julialang.org/en/latest/manual/packages/) on packages for how to use the package manager to install and develop packages.
+This is the official METADATA repo for the Julia package manager. See [manual section](http://docs.julialang.org/en/latest/manual/packages) on packages for how to use the package manager to install and develop packages.
 
 
 Please note our current policies for accepting entries into METADATA.jl:

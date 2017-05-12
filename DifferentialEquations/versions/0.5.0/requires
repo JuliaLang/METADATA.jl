@@ -10,3 +10,6 @@ InplaceOps 0.0.5
 NLsolve 0.7.3
 Sundials 0.3.0
 Ranges 0.0.1
+OrdinaryDiffEq 0.0.0 1.2.0
+StochasticDiffEq 0.0.0 1.0.0
+DiffEqBase 0.0.0 0.15.0

@@ -4,3 +4,4 @@ Calculus
 ForwardDiff 0.1.4 0.2
 Distances
 Compat 0.7.16
+LineSearches 0.0.1 1.0.0-

@@ -1,6 +1,6 @@
 julia 0.3-
 Compat
-JSON
+JSON 0.0 0.9
 Requires
 Markdown
 Reactive

@@ -1,0 +1,6 @@
+julia 0.5
+LsqFit
+PyCall
+PyPlot
+DataFrames
+DataArrays

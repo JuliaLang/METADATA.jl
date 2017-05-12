@@ -1,0 +1,5 @@
+julia 0.5
+DataFrames
+Plots
+GLM
+Coverage

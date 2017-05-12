@@ -2,7 +2,7 @@ julia 0.4
 MathProgBase
 Clp
 Distributions
-JuMP
+JuMP 0.0 0.16
 FactCheck
 ProgressMeter
 Interpolations

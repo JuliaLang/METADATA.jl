@@ -2,6 +2,8 @@ if VERSION < v"0.4-"
     startswith = beginswith
 end
 
+cd(Pkg.dir()) # Required by some Pkg functions
+
 const url_reg = r"^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
 const gh_path_reg_git=r"^/(.*)?/(.*)?.git$"
 
@@ -164,7 +166,7 @@ for (pkg, versions) in Pkg.Read.available()
                             "but version $first_same_minor of $pkg requires julia ",
                             "$juliaver_prev. Use a new minor package version when support ",
                             "for an old version of Julia is dropped. Re-tag the package ",
-                            "as $nextminor using `Pkg.tag(\"$pkg\", :minor)`.")
+                            "as $nextminor using `PkgDev.tag(\"$pkg\", :minor)`.")
                     end
                 end
             catch err
@@ -234,7 +236,7 @@ for pkg in readdir("METADATA")
     end
 end
 
-if haskey(ENV, "TRAVIS_PULL_REQUEST") && ENV["TRAVIS_PULL_REQUEST"] != "false"
+if get(ENV, "PULL_REQUEST", "false") != "false"
     info("Checking repository tags...")
     include("check-pr.jl")
 end

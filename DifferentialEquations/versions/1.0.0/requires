@@ -1,12 +1,12 @@
 julia 0.5
 Reexport
-DiffEqBase
-StochasticDiffEq
+DiffEqBase 0.0.0 0.15.0
 FiniteElementDiffEq
 DiffEqDevTools
-OrdinaryDiffEq
 AlgebraicDiffEq
 StokesDiffEq
 DiffEqParamEstim
 DiffEqSensitivity
 Sundials
+OrdinaryDiffEq 0.0.0 1.2.0
+StochasticDiffEq 0.0.0 1.0.0
