@@ -1,4 +1,4 @@
 julia 0.5
-IterativeSolvers
+IterativeSolvers 0.0- 0.3
 RobustPmap
 Grid
