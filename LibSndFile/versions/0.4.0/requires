@@ -1,4 +1,4 @@
-julia 0.4
+julia 0.4 0.6.0-rc1
 BinDeps
 FileIO 0.1.1
 FixedPointNumbers
