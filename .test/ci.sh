@@ -14,15 +14,14 @@ mkdir -p $CI_TMP_DIR
 cd $CI_TMP_DIR
 for ver in 0.4 0.5 0.6 nightly; do
   if [ $ver = "nightly" ]; then
-    url="julianightlies/bin/linux/x64/julia-latest-linux64"
+    url="https://julialangnightlies-s3.julialang.org/bin/linux/x64/julia-latest-linux64.tar.gz"
     ver=0.7
   else
-    url="julialang/bin/linux/x64/$ver/julia-$ver-latest-linux-x86_64"
+    url="https://julialang-s3.julialang.org/bin/linux/x64/$ver/julia-$ver-latest-linux-x86_64.tar.gz"
   fi
   mkdir -p $JULIA_PKGDIR/v$ver/.cache julia-$ver
   ln -s $BUILD_DIR $JULIA_PKGDIR/v$ver/METADATA
-  curl -A "$CI_NAME for METADATA tests $(curl --version | head -n 1)" \
-    -L --retry 5 https://s3.amazonaws.com/$url.tar.gz | \
+  curl -A "$CI_NAME for METADATA tests $(curl --version | head -n 1)" -L --retry 5 $url | \
     tar -C julia-$ver --strip-components=1 -xzf - && \
     julia-$ver/bin/julia -e 'versioninfo(); include("$(ENV["BUILD_DIR"])/.test/METADATA.jl")' && \
     touch success-$ver &
