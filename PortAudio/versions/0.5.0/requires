@@ -3,6 +3,6 @@ Compat 0.8.8
 BinDeps
 Devectorize
 SampledSignals 0.3.0
-RingBuffers 0.1.0
+RingBuffers 0.1.0 1.0.0
 @osx Homebrew
 @windows WinRPM
