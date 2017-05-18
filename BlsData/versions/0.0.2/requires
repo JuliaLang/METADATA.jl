@@ -3,3 +3,4 @@ Requests
 DataFrames
 JSON
 HttpCommon
+Compat 0.7.9
