@@ -3,12 +3,18 @@
 
 using JSON
 
-# little bit of type piracy here to output Pkg.Types.Available compactly
-JSON.lower(avail::Pkg.Types.Available) =
-    (avail.sha1, sprint(io -> Pkg.Reqs.write(io, avail.requires)))
-# translate from String=>Tuple{String,String} to VersionNumber=>Pkg.Types.Available
-versavail(va) = VersionNumber(first(va)) =>
-    Pkg.Types.Available(last(va)[1], Pkg.Reqs.parse(IOBuffer(last(va)[2])))
+type TagInfo
+    sha1::String
+    requires::String
+    testrequires::String
+end
+function taginfo(tags::Dict)
+    if haskey(tags, "sha1")
+        return TagInfo(tags["sha1"], tags["requires"], tags["testrequires"])
+    else
+        return map(kv -> first(kv) => taginfo(last(kv)), tags)
+    end
+end
 
 # wrapper around a Dict that iterates over keys in sorted order
 immutable SortedDictWrapper{K,V} <: Associative{K,V}
@@ -16,8 +22,6 @@ immutable SortedDictWrapper{K,V} <: Associative{K,V}
     sortedkeys::Vector{K}
 end
 SortedDictWrapper(d) = SortedDictWrapper(d, sort!(collect(keys(d))))
-Base.length(sd::SortedDictWrapper) = length(sd.d)
-Base.eltype(sd::SortedDictWrapper) = eltype(sd.d)
 Base.get(sd::SortedDictWrapper, key, default) = get(sd.d, key, default)
 Base.start(sd::SortedDictWrapper) = 1
 function Base.next(sd::SortedDictWrapper, i)
@@ -27,25 +31,22 @@ end
 Base.done(sd::SortedDictWrapper, i) = (i == length(sd.sortedkeys)+1)
 
 # standard dependencies from REQUIRE, already saved in METADATA
-stdreqs = cd(Pkg.dir()) do
-    Pkg.Read.available()
+# TODO: can skip reading requires files here, this version
+# drops OS annotations which we want to keep
+stdreqs = Pkg.cd(Pkg.Read.available)
+
+if isfile(Pkg.dir("METADATA", ".test", "allreqs.json"))
+    # load requirements from existing saved json file, if any
+    allreqs = taginfo(JSON.parsefile(Pkg.dir("METADATA", ".test", "allreqs.json")))
+else
+    allreqs = Dict{String, Any}()
 end
 
-testreqs = cd(Pkg.dir("METADATA")) do
-    empty_version(sha) = Pkg.Types.Available(sha, Dict())
-
-    if isfile(Pkg.dir("METADATA",".test","testreqs.json"))
-        # load testreqs from existing saved json file, if any
-        testreqs = map(pv -> first(pv) => map(versavail, last(pv)),
-            JSON.parsefile(Pkg.dir("METADATA",".test","testreqs.json")))
-    else
-        testreqs = Dict{String, Dict{VersionNumber, Pkg.Types.Available}}()
-    end
-
+cd(Pkg.dir("METADATA")) do
     ghpkgs = String[]
     nonghpkgs = String[]
     for pkg in keys(stdreqs)
-        haskey(testreqs, pkg) || (testreqs[pkg] = Dict())
+        haskey(allreqs, pkg) || (allreqs[pkg] = Dict())
         if ismatch(Pkg.Cache.GITHUB_REGEX, Pkg.Read.url(pkg))
             push!(ghpkgs, pkg)
         else
@@ -53,18 +54,23 @@ testreqs = cd(Pkg.dir("METADATA")) do
         end
     end
 
-    asyncmap((pkg, ver) for pkg in ghpkgs for ver in keys(stdreqs[pkg])) do pv
+    asyncmap((pkg, vn) for pkg in ghpkgs for vn in keys(stdreqs[pkg])) do pv
         # use curl for github packages
-        pkg, ver = pv
+        pkg, vn = pv
+        ver = string(vn)
         url = Pkg.Cache.normalize_url(Pkg.Read.url(pkg)) # normalize to https
         if endswith(url, ".git")
             url = url[1:end-4]
         end
-        tagsha = stdreqs[pkg][ver].sha1
+        tagsha = stdreqs[pkg][vn].sha1
         @assert tagsha != ""
-        testvers = testreqs[pkg]
-        if get(testvers, ver, empty_version("")).sha1 == tagsha
+        reqfile = Pkg.dir("METADATA", pkg, "versions", ver, "requires")
+        requires = isfile(reqfile) ? readstring(reqfile) : ""
+        allvers = allreqs[pkg]
+        if get(allvers, ver, TagInfo("", "", "")).sha1 == tagsha
             # no change in sha since saved version
+            # but metadata requires may have changed, so update just in case
+            allvers[ver].requires = requires
             return
         end
         # else, new tag or changed sha, update test reqs
@@ -74,18 +80,17 @@ testreqs = cd(Pkg.dir("METADATA")) do
         #if status != "200"
         #    warn("$pkg v$ver at $url/tree/$tagsha returned status $status")
         #end
-        content = readlines(`curl -s -L $url/raw/$tagsha/test/REQUIRE`)
-        if length(content) != 1 || chomp(content[1]) != "Not Found"
-            parsedreqs = Pkg.Reqs.parse(content)
-            testvers[ver] = Pkg.Types.Available(tagsha, parsedreqs)
-            if !isempty(parsedreqs) && isempty(stdreqs[pkg][ver].requires)
+        testrequires = readstring(`curl -s -L $url/raw/$tagsha/test/REQUIRE`)
+        if !startswith(testrequires, "Not Found")
+            allvers[ver] = TagInfo(tagsha, requires, testrequires)
+            if !isempty(testrequires) && isempty(requires)
                 warn("$pkg v$ver has a test/REQUIRE but no REQUIRE")
             end
         else
-            if !isempty(get(testvers, ver, empty_version("")).requires)
+            if !isempty(get(allvers, ver, TagInfo("", "", "")).testrequires)
                 warn("$pkg v$ver previously had a nonempty test/REQUIRE but sha changed?")
             end
-            testvers[ver] = empty_version(tagsha)
+            allvers[ver] = TagInfo(tagsha, requires, "")
         end
     end
 
@@ -93,12 +98,17 @@ testreqs = cd(Pkg.dir("METADATA")) do
     for pkg in nonghpkgs
         url = Pkg.Read.url(pkg)
         stdvers = stdreqs[pkg]
-        testvers = testreqs[pkg]
-        for ver in keys(stdvers)
-            tagsha = stdvers[ver].sha1
+        allvers = allreqs[pkg]
+        for vn in keys(stdvers)
+            ver = string(vn)
+            tagsha = stdvers[vn].sha1
             @assert tagsha != ""
-            if get(testvers, ver, empty_version("")).sha1 == tagsha
+            reqfile = Pkg.dir("METADATA", pkg, "versions", ver, "requires")
+            requires = isfile(reqfile) ? readstring(reqfile) : ""
+            if get(allvers, ver, TagInfo("", "", "")).sha1 == tagsha
                 # no change in sha since saved version
+                # but metadata requires may have changed, so update just in case
+                allvers[ver].requires = requires
                 continue
             end
             # else, new tag or changed sha, update test reqs
@@ -106,25 +116,24 @@ testreqs = cd(Pkg.dir("METADATA")) do
             cd("$pkg-tmp") do
                 run(`git checkout -q $tagsha`)
                 if isfile("test/REQUIRE")
-                    parsedreqs = Pkg.Reqs.parse("test/REQUIRE")
-                    testvers[ver] = Pkg.Types.Available(tagsha, parsedreqs)
-                    if !isempty(parsedreqs) && isempty(stdvers[ver].requires)
+                    testrequires = readstring("test/REQUIRE")
+                    allvers[ver] = TagInfo(tagsha, requires, testrequires)
+                    if !isempty(testrequires) && isempty(requires)
                         warn("$pkg v$ver has a test/REQUIRE but no REQUIRE")
                     end
                 else
-                    if !isempty(get(testvers, ver, empty_version("")).requires)
+                    if !isempty(get(allvers, ver, TagInfo("", "", "")).testrequires)
                         warn("$pkg v$ver previously had a nonempty test/REQUIRE but sha changed?")
                     end
-                    testvers[ver] = empty_version(tagsha)
+                    allvers[ver] = TagInfo(tagsha, requires, "")
                 end
             end
         end
         isdir("$pkg-tmp") && rm("$pkg-tmp", recursive=true)
     end
 
-    sortversions = map(pv -> first(pv) => SortedDictWrapper(last(pv)), testreqs)
-    open(Pkg.dir("METADATA",".test","testreqs.json"), "w") do f
+    sortversions = map(pv -> first(pv) => SortedDictWrapper(last(pv)), allreqs)
+    open(Pkg.dir("METADATA", ".test", "allreqs.json"), "w") do f
         JSON.print(f, SortedDictWrapper(sortversions), 1)
     end
-    return testreqs
 end
