@@ -9,7 +9,6 @@ immutable SortedDictWrapper{K,V} <: Associative{K,V}
     sortedkeys::Vector{K}
 end
 SortedDictWrapper(d) = SortedDictWrapper(d, sort!(collect(keys(d))))
-Base.get(sd::SortedDictWrapper, key, default) = get(sd.d, key, default)
 Base.start(sd::SortedDictWrapper) = 1
 function Base.next(sd::SortedDictWrapper, i)
     key = sd.sortedkeys[i]
@@ -22,24 +21,13 @@ type TagInfo
     requires::String
     testrequires::String
 end
-function taginfo(json::Dict)
-    if haskey(json, "sha1")
-        return TagInfo(json["sha1"], json["requires"], json["testrequires"])
-    else
-        return map(kv -> VersionNumber(first(kv)) => taginfo(last(kv)), json)
-    end
-end
+TagInfo(d::Dict) = TagInfo(d["sha1"], d["requires"], d["testrequires"])
 type PkgInfo
     url::String
     versions::Associative{VersionNumber, TagInfo}
 end
-function pkginfo(json::Dict)
-    if haskey(json, "url")
-        return PkgInfo(json["url"], taginfo(json["versions"]))
-    else
-        return map(kv -> first(kv) => pkginfo(last(kv)), json)
-    end
-end
+PkgInfo(d::Dict) = PkgInfo(d["url"],
+    map(kv -> VersionNumber(first(kv)) => TagInfo(last(kv)), d["versions"]))
 Base.sort(p::PkgInfo) = PkgInfo(p.url, SortedDictWrapper(p.versions))
 
 # standard dependencies from REQUIRE, already saved in METADATA
@@ -49,7 +37,8 @@ stdreqs = Pkg.cd(Pkg.Read.available)
 
 if isfile(Pkg.dir("METADATA", ".test", "allreqs.json"))
     # load requirements from existing saved json file, if any
-    allreqs = pkginfo(JSON.parsefile(Pkg.dir("METADATA", ".test", "allreqs.json")))
+    allreqs = map(kv -> first(kv) => PkgInfo(last(kv)),
+        JSON.parsefile(Pkg.dir("METADATA", ".test", "allreqs.json")))
 else
     allreqs = Dict{String, PkgInfo}()
 end
@@ -149,6 +138,6 @@ cd(Pkg.dir("METADATA")) do
 
     sortversions = map(pv -> first(pv) => sort(last(pv)), allreqs)
     open(Pkg.dir("METADATA", ".test", "allreqs.json"), "w") do f
-        JSON.print(f, SortedDictWrapper(sortversions), 1)
+        JSON.print(f, SortedDictWrapper(sortversions), 1) # also sort by pkg name
     end
 end
