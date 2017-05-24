@@ -1,0 +1,4 @@
+julia 0.6-rc1
+Weber 0.5
+PyCall
+Conda

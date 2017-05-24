@@ -1,0 +1,6 @@
+julia 0.4
+Requests
+DataFrames
+JSON
+HttpCommon
+Compat 0.7.9
