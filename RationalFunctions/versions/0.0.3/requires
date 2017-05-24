@@ -1,4 +1,4 @@
 julia 0.4
 Compat 0.8.0
-Polynomials 0.1.2
+Polynomials 0.1.2 0.1.4
 RecipesBase
