@@ -55,9 +55,7 @@ allreqs = cd(Pkg.dir("METADATA")) do
         end
     end
 
-    ntasks = haskey(ENV, "CI") ? 20 : 100
-    asyncmap((pkg, ver) for pkg in ghpkgs
-            for ver in readdir(joinpath(pkg, "versions")), ntasks=ntasks) do pv
+    asyncmap((pkg, ver) for pkg in ghpkgs for ver in readdir(joinpath(pkg, "versions"))) do pv
         # use curl for github packages
         pkg, ver = pv
         ismatch(Base.VERSION_REGEX, ver) || return
@@ -84,7 +82,7 @@ allreqs = cd(Pkg.dir("METADATA")) do
         #if status != "200"
         #    warn("$pkg v$ver at $url/tree/$tagsha returned status $status")
         #end
-        testrequires = readstring(`curl -s -L $url/raw/$tagsha/test/REQUIRE`)
+        testrequires = readstring(`curl -s --retry 4 -L $url/raw/$tagsha/test/REQUIRE`)
         if !startswith(testrequires, "Not Found")
             if !isempty(testrequires) && isempty(requires)
                 warn("$pkg v$ver has a test/REQUIRE but no REQUIRE")
