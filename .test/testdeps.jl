@@ -30,29 +30,24 @@ PkgInfo(d::Dict) = PkgInfo(d["url"],
     map(kv -> VersionNumber(first(kv)) => TagInfo(last(kv)), d["versions"]))
 Base.sort(p::PkgInfo) = PkgInfo(p.url, SortedDictWrapper(p.versions))
 
-# standard dependencies from REQUIRE, already saved in METADATA
-# TODO: can skip reading requires files here, this version
-# drops OS annotations which we want to keep
-stdreqs = Pkg.cd(Pkg.Read.available)
-
-if isfile(Pkg.dir("METADATA", ".test", "allreqs.json"))
+allreqs = cd(Pkg.dir("METADATA")) do
+    jsonfile = joinpath(".test", "allreqs.json")
     # load requirements from existing saved json file, if any
-    allreqs = map(kv -> first(kv) => PkgInfo(last(kv)),
-        JSON.parsefile(Pkg.dir("METADATA", ".test", "allreqs.json")))
-else
-    allreqs = Dict{String, PkgInfo}()
-end
+    allreqs = isfile(jsonfile) ?
+        map(kv -> first(kv) => PkgInfo(last(kv)), JSON.parsefile(jsonfile)) :
+        Dict{String, PkgInfo}()
 
-cd(Pkg.dir("METADATA")) do
     ghpkgs = String[]
     nonghpkgs = String[]
-    for pkg in keys(stdreqs)
-        url = Pkg.Read.url(pkg)
+    for pkg in readdir()
+        isfile(pkg, "url") || continue
+        url = strip(readstring(joinpath(pkg, "url")))
         if haskey(allreqs, pkg)
             allreqs[pkg].url = url # update in case METADATA url has changed
         else
             allreqs[pkg] = PkgInfo(url, Dict{VersionNumber, TagInfo}())
         end
+        isdir(pkg, "versions") || continue # if no tagged versions, save url only
         if ismatch(Pkg.Cache.GITHUB_REGEX, url)
             push!(ghpkgs, pkg)
         else
@@ -60,22 +55,26 @@ cd(Pkg.dir("METADATA")) do
         end
     end
 
-    asyncmap((pkg, ver) for pkg in ghpkgs for ver in keys(stdreqs[pkg])) do pv
+    ntasks = haskey(ENV, "CI") ? 20 : 100
+    asyncmap((pkg, ver) for pkg in ghpkgs
+            for ver in readdir(joinpath(pkg, "versions")), ntasks=ntasks) do pv
         # use curl for github packages
         pkg, ver = pv
-        url = Pkg.Cache.normalize_url(Pkg.Read.url(pkg)) # normalize to https
+        ismatch(Base.VERSION_REGEX, ver) || return
+        vn = VersionNumber(ver)
+        url = Pkg.Cache.normalize_url(allreqs[pkg].url) # normalize to https
         if endswith(url, ".git")
             url = url[1:end-4]
         end
-        tagsha = stdreqs[pkg][ver].sha1
+        tagsha = readchomp(joinpath(pkg, "versions", ver, "sha1"))
         @assert tagsha != ""
-        reqfile = Pkg.dir("METADATA", pkg, "versions", string(ver), "requires")
+        reqfile = joinpath(pkg, "versions", ver, "requires")
         requires = isfile(reqfile) ? readstring(reqfile) : ""
         allvers = allreqs[pkg].versions
-        if get(allvers, ver, TagInfo("", "", "")).sha1 == tagsha
+        if get(allvers, vn, TagInfo("", "", "")).sha1 == tagsha
             # no change in sha since saved version
             # but metadata requires may have changed, so update just in case
-            allvers[ver].requires = requires
+            allvers[vn].requires = requires
             return
         end
         # else, new tag or changed sha, update test reqs
@@ -87,49 +86,51 @@ cd(Pkg.dir("METADATA")) do
         #end
         testrequires = readstring(`curl -s -L $url/raw/$tagsha/test/REQUIRE`)
         if !startswith(testrequires, "Not Found")
-            allvers[ver] = TagInfo(tagsha, requires, testrequires)
             if !isempty(testrequires) && isempty(requires)
                 warn("$pkg v$ver has a test/REQUIRE but no REQUIRE")
             end
+            allvers[vn] = TagInfo(tagsha, requires, testrequires)
         else
-            if !isempty(get(allvers, ver, TagInfo("", "", "")).testrequires)
+            if !isempty(get(allvers, vn, TagInfo("", "", "")).testrequires)
                 warn("$pkg v$ver previously had a nonempty test/REQUIRE but sha changed?")
             end
-            allvers[ver] = TagInfo(tagsha, requires, "")
+            allvers[vn] = TagInfo(tagsha, requires, "")
         end
+        return
     end
 
     # for non-github packages, do the hard way with an actual clone
     for pkg in nonghpkgs
-        url = Pkg.Read.url(pkg)
-        stdvers = stdreqs[pkg]
+        url = allreqs[pkg].url
         allvers = allreqs[pkg].versions
-        for ver in keys(stdvers)
-            tagsha = stdvers[ver].sha1
+        for ver in readdir(joinpath(pkg, "versions"))
+            ismatch(Base.VERSION_REGEX, ver) || continue
+            vn = VersionNumber(ver)
+            tagsha = readchomp(joinpath(pkg, "versions", ver, "sha1"))
             @assert tagsha != ""
-            reqfile = Pkg.dir("METADATA", pkg, "versions", string(ver), "requires")
+            reqfile = joinpath(pkg, "versions", ver, "requires")
             requires = isfile(reqfile) ? readstring(reqfile) : ""
-            if get(allvers, ver, TagInfo("", "", "")).sha1 == tagsha
+            if get(allvers, vn, TagInfo("", "", "")).sha1 == tagsha
                 # no change in sha since saved version
                 # but metadata requires may have changed, so update just in case
-                allvers[ver].requires = requires
+                allvers[vn].requires = requires
                 continue
             end
             # else, new tag or changed sha, update test reqs
             isdir("$pkg-tmp") || run(`git clone $url $pkg-tmp`)
             cd("$pkg-tmp") do
                 run(`git checkout -q $tagsha`)
-                if isfile("test/REQUIRE")
-                    testrequires = readstring("test/REQUIRE")
-                    allvers[ver] = TagInfo(tagsha, requires, testrequires)
+                if isfile(joinpath("test", "REQUIRE"))
+                    testrequires = readstring(joinpath("test", "REQUIRE"))
                     if !isempty(testrequires) && isempty(requires)
                         warn("$pkg v$ver has a test/REQUIRE but no REQUIRE")
                     end
+                    allvers[vn] = TagInfo(tagsha, requires, testrequires)
                 else
-                    if !isempty(get(allvers, ver, TagInfo("", "", "")).testrequires)
+                    if !isempty(get(allvers, vn, TagInfo("", "", "")).testrequires)
                         warn("$pkg v$ver previously had a nonempty test/REQUIRE but sha changed?")
                     end
-                    allvers[ver] = TagInfo(tagsha, requires, "")
+                    allvers[vn] = TagInfo(tagsha, requires, "")
                 end
             end
         end
@@ -137,7 +138,8 @@ cd(Pkg.dir("METADATA")) do
     end
 
     sortversions = map(pv -> first(pv) => sort(last(pv)), allreqs)
-    open(Pkg.dir("METADATA", ".test", "allreqs.json"), "w") do f
+    open(jsonfile, "w") do f
         JSON.print(f, SortedDictWrapper(sortversions), 1) # also sort by pkg name
     end
+    return allreqs
 end
