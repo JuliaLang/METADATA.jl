@@ -3,19 +3,6 @@
 
 using JSON
 
-type TagInfo
-    sha1::String
-    requires::String
-    testrequires::String
-end
-function taginfo(tags::Dict)
-    if haskey(tags, "sha1")
-        return TagInfo(tags["sha1"], tags["requires"], tags["testrequires"])
-    else
-        return map(kv -> first(kv) => taginfo(last(kv)), tags)
-    end
-end
-
 # wrapper around a Dict that iterates over keys in sorted order
 immutable SortedDictWrapper{K,V} <: Associative{K,V}
     d::Dict{K,V}
@@ -30,6 +17,31 @@ function Base.next(sd::SortedDictWrapper, i)
 end
 Base.done(sd::SortedDictWrapper, i) = (i == length(sd.sortedkeys)+1)
 
+type TagInfo
+    sha1::String
+    requires::String
+    testrequires::String
+end
+function taginfo(json::Dict)
+    if haskey(json, "sha1")
+        return TagInfo(json["sha1"], json["requires"], json["testrequires"])
+    else
+        return map(kv -> VersionNumber(first(kv)) => taginfo(last(kv)), json)
+    end
+end
+type PkgInfo
+    url::String
+    versions::Associative{VersionNumber, TagInfo}
+end
+function pkginfo(json::Dict)
+    if haskey(json, "url")
+        return PkgInfo(json["url"], taginfo(json["versions"]))
+    else
+        return map(kv -> first(kv) => pkginfo(last(kv)), json)
+    end
+end
+Base.sort(p::PkgInfo) = PkgInfo(p.url, SortedDictWrapper(p.versions))
+
 # standard dependencies from REQUIRE, already saved in METADATA
 # TODO: can skip reading requires files here, this version
 # drops OS annotations which we want to keep
@@ -37,36 +49,40 @@ stdreqs = Pkg.cd(Pkg.Read.available)
 
 if isfile(Pkg.dir("METADATA", ".test", "allreqs.json"))
     # load requirements from existing saved json file, if any
-    allreqs = taginfo(JSON.parsefile(Pkg.dir("METADATA", ".test", "allreqs.json")))
+    allreqs = pkginfo(JSON.parsefile(Pkg.dir("METADATA", ".test", "allreqs.json")))
 else
-    allreqs = Dict{String, Any}()
+    allreqs = Dict{String, PkgInfo}()
 end
 
 cd(Pkg.dir("METADATA")) do
     ghpkgs = String[]
     nonghpkgs = String[]
     for pkg in keys(stdreqs)
-        haskey(allreqs, pkg) || (allreqs[pkg] = Dict())
-        if ismatch(Pkg.Cache.GITHUB_REGEX, Pkg.Read.url(pkg))
+        url = Pkg.Read.url(pkg)
+        if haskey(allreqs, pkg)
+            allreqs[pkg].url = url # update in case METADATA url has changed
+        else
+            allreqs[pkg] = PkgInfo(url, Dict{VersionNumber, TagInfo}())
+        end
+        if ismatch(Pkg.Cache.GITHUB_REGEX, url)
             push!(ghpkgs, pkg)
         else
             push!(nonghpkgs, pkg)
         end
     end
 
-    asyncmap((pkg, vn) for pkg in ghpkgs for vn in keys(stdreqs[pkg])) do pv
+    asyncmap((pkg, ver) for pkg in ghpkgs for ver in keys(stdreqs[pkg])) do pv
         # use curl for github packages
-        pkg, vn = pv
-        ver = string(vn)
+        pkg, ver = pv
         url = Pkg.Cache.normalize_url(Pkg.Read.url(pkg)) # normalize to https
         if endswith(url, ".git")
             url = url[1:end-4]
         end
-        tagsha = stdreqs[pkg][vn].sha1
+        tagsha = stdreqs[pkg][ver].sha1
         @assert tagsha != ""
-        reqfile = Pkg.dir("METADATA", pkg, "versions", ver, "requires")
+        reqfile = Pkg.dir("METADATA", pkg, "versions", string(ver), "requires")
         requires = isfile(reqfile) ? readstring(reqfile) : ""
-        allvers = allreqs[pkg]
+        allvers = allreqs[pkg].versions
         if get(allvers, ver, TagInfo("", "", "")).sha1 == tagsha
             # no change in sha since saved version
             # but metadata requires may have changed, so update just in case
@@ -98,12 +114,11 @@ cd(Pkg.dir("METADATA")) do
     for pkg in nonghpkgs
         url = Pkg.Read.url(pkg)
         stdvers = stdreqs[pkg]
-        allvers = allreqs[pkg]
-        for vn in keys(stdvers)
-            ver = string(vn)
-            tagsha = stdvers[vn].sha1
+        allvers = allreqs[pkg].versions
+        for ver in keys(stdvers)
+            tagsha = stdvers[ver].sha1
             @assert tagsha != ""
-            reqfile = Pkg.dir("METADATA", pkg, "versions", ver, "requires")
+            reqfile = Pkg.dir("METADATA", pkg, "versions", string(ver), "requires")
             requires = isfile(reqfile) ? readstring(reqfile) : ""
             if get(allvers, ver, TagInfo("", "", "")).sha1 == tagsha
                 # no change in sha since saved version
@@ -132,7 +147,7 @@ cd(Pkg.dir("METADATA")) do
         isdir("$pkg-tmp") && rm("$pkg-tmp", recursive=true)
     end
 
-    sortversions = map(pv -> first(pv) => SortedDictWrapper(last(pv)), allreqs)
+    sortversions = map(pv -> first(pv) => sort(last(pv)), allreqs)
     open(Pkg.dir("METADATA", ".test", "allreqs.json"), "w") do f
         JSON.print(f, SortedDictWrapper(sortversions), 1)
     end
