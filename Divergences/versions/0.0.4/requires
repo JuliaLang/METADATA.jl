@@ -1,0 +1,5 @@
+julia 0.4 0.6-
+ArrayViews
+Distances
+StatsFuns
+Calculus
