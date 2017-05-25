@@ -1,0 +1,4 @@
+julia 0.5
+StatsBase 
+GLM 0.6
+DataFrames
