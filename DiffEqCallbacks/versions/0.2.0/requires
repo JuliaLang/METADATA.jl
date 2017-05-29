@@ -1,4 +1,4 @@
-julia 0.6-
+julia 0.6.0-pre
 DiffEqBase 0.6.0
 NLsolve
 ForwardDiff 0.5.0

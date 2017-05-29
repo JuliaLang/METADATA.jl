@@ -1,4 +1,4 @@
-julia 0.6-
+julia 0.6.0-pre
 LightGraphs 0.8.0
 GZip 0.2.20
 EzXML 0.3.0
