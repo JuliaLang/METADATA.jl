@@ -1,0 +1,12 @@
+julia 0.5
+Compat 0.17
+Documenter
+LightXML
+#Plots
+#GR
+Codecs
+Interpolations
+DataTables
+WriteVTK
+OffsetArrays
+QuadGK
