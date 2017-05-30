@@ -1,0 +1,5 @@
+julia 0.6-
+StaticArrays
+ColorTypes
+Compat 0.18
+FixedPointNumbers
