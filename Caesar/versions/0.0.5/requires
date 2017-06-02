@@ -23,6 +23,7 @@ MeshIO
 FileIO
 NLsolve
 PyLCM
+PyCall
 DataStructures
 ProgressMeter
 ImageMagick
