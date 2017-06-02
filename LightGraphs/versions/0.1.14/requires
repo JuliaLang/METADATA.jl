@@ -1,4 +1,4 @@
-julia 0.3
+julia 0.3 0.4
 Compat 0.4
 GZip 0.2
 Distributions 0.6.6
