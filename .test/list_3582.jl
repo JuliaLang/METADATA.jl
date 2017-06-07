@@ -556,7 +556,7 @@ maxver_list_3582 = Dict([ # List of grandfathered packages
     ("PicoSAT", v"0.1.0"),
     ("PiecewiseAffineTransforms", v"0.2.0"),
     ("PiecewiseIncreasingRanges", v"0.0.4"),
-    ("Pipe", v"0.0.3"),
+    ("Pipe", v"1.0.0"),
     ("Playground", v"0.0.4"),
     ("Plotly", v"0.0.3"),
     ("Plots", v"0.4.2"),
