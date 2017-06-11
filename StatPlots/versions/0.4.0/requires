@@ -1,0 +1,9 @@
+julia 0.6-pre
+
+Reexport
+Plots 0.12.0
+StatsBase
+Distributions
+DataFrames
+KernelDensity
+Loess
