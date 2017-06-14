@@ -1,0 +1,12 @@
+julia 0.5
+Automa
+BioCore
+BioSymbols
+BufferedStreams
+Combinatorics
+Compat 0.18
+IndexableBitVectors
+Iterators
+IntervalTrees
+Twiddle
+DataStructures
