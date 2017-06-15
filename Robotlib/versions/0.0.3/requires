@@ -1,0 +1,9 @@
+julia 0.5
+MAT
+DataFrames
+DataArrays
+RecipesBase
+Plots
+StatsBase
+Quaternions
+FixedSizeArrays
