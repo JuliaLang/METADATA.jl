@@ -1,0 +1,5 @@
+julia 0.5
+GeoInterface 0.2.1
+BinDeps
+@osx Homebrew
+@windows WinRPM
