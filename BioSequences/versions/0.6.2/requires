@@ -6,7 +6,7 @@ BufferedStreams
 Combinatorics
 Compat 0.18
 IndexableBitVectors
-Iterators
+IterTools 0.1
 IntervalTrees
 Twiddle
 DataStructures
