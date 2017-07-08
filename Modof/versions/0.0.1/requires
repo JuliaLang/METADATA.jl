@@ -1,0 +1,7 @@
+julia 0.5.2
+Match 0.3.0
+DataFrames 0.9.0 0.9.1 0.10.0
+DataFramesMeta
+PyCall 1.13.0
+PyPlot 2.3.2
+Seaborn 0.2.0
