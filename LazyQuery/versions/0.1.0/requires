@@ -1,0 +1,7 @@
+julia 0.6
+LazyContext 0.1.1
+DataFrames
+MacroTools 0.3.3
+Query
+NamedTuples
+ChainRecursive 0.0.3
