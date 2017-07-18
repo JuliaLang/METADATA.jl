@@ -1,4 +1,4 @@
-julia 0.5-
+julia 0.5- 0.6
 DataFrames
 Distributions
 FITSIO 0.8.4
