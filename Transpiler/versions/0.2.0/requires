@@ -1,0 +1,10 @@
+julia 0.6
+Compat 0.17.0
+Sugar 0.3.0
+Matcha
+StaticArrays 0.3.0
+DataStructures
+OpenCL 0.5.2
+#ModernGL
+#GLAbstraction
+SpecialFunctions
