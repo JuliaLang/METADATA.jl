@@ -1,4 +1,4 @@
 julia 0.6-pre
 Requests
 DataTables
-IndexedTables
+IndexedTables 0.0.0 0.3.0
