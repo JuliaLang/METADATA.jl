@@ -1,0 +1,5 @@
+julia 0.5
+OpenCL 0.6 # pre compilation & refcount bug fix
+Primes
+BinDeps
+Compat 0.9.1
