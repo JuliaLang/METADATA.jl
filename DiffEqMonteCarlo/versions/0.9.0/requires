@@ -1,0 +1,4 @@
+julia 0.6
+DiffEqBase 1.18.0
+RecursiveArrayTools 0.6.0
+DistributedArrays
