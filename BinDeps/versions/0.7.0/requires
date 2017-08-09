@@ -1,4 +1,4 @@
-julia 0.5
+julia 0.7.0-DEV.1287
 URIParser
 SHA
 Compat 0.17.0
