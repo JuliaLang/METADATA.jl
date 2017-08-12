@@ -1,0 +1,7 @@
+julia 0.5
+QuadGK
+Distributions
+MetaProgTools
+JLD
+Compat 0.7.15
+DocumentFunction
