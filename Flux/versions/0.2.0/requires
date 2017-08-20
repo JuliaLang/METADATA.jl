@@ -1,5 +1,5 @@
 julia 0.6.0-pre
 Iterators
-DataFlow
+DataFlow 0.0 0.2.1
 Juno
 MacroTools  0.3.3
