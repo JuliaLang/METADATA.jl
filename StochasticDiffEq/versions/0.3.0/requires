@@ -5,4 +5,5 @@ DiffEqBase 0.2.0 0.8.0
 RecursiveArrayTools 0.0.2
 DataStructures
 ResettableStacks
+DiffEqNoiseProcess 0.0.0 0.5.0
 Juno
