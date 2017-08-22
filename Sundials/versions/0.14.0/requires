@@ -1,0 +1,4 @@
+julia 0.5
+BinDeps 0.4.3
+Compat 0.17.0
+DiffEqBase 1.5.1
