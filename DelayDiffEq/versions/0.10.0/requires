@@ -1,0 +1,9 @@
+julia 0.6
+DiffEqBase 1.21.0
+OrdinaryDiffEq 2.17.0
+DataStructures 0.4.6
+RecursiveArrayTools 0.2.0
+Combinatorics
+Compat 0.17.0
+Reexport
+MuladdMacro
