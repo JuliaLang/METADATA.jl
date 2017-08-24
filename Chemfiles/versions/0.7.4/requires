@@ -1,4 +1,3 @@
 julia 0.5
-BinDeps 0.4
-Compat 0.12
+BinDeps 0.3.19
 Conda 0.5
