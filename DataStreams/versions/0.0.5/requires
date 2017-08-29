@@ -1,4 +1,4 @@
-julia 0.4 0.5
+julia 0.4 0.6
 NullableArrays
 DataFrames
 CategoricalArrays 0.0.1 0.0.5
