@@ -8,5 +8,5 @@ NLopt 0.3
 Showoff
 StatsBase 0.11
 StatsFuns 0.3
-CategoricalArrays
+CategoricalArrays 0.0.1 0.2.0
 NullableArrays
