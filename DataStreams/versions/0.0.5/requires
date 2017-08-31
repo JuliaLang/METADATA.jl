@@ -2,3 +2,4 @@ julia 0.4
 NullableArrays
 DataFrames
 CategoricalArrays 0.0.1 0.0.5
+WeakRefStrings 0.0.0 0.3.0

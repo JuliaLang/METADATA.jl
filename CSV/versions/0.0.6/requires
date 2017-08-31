@@ -1,5 +1,5 @@
 julia 0.4.1
-DataStreams 0.0.1 0.0.13
+DataStreams 0.0.5 0.0.7
 DataFrames
 NullableArrays
-WeakRefStrings
+WeakRefStrings 0.0.0 0.3.0
