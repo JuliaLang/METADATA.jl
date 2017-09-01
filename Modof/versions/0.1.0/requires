@@ -1,0 +1,9 @@
+julia 0.6
+JuMP
+MathProgBase
+GLPK
+GLPKMathProgInterface
+Match
+DataFrames
+DataFramesMeta
+PyCall
