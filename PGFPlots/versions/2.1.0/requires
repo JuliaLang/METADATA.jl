@@ -1,0 +1,12 @@
+julia 0.6
+TikzPictures 1.1.0
+Images 0.11.0
+Colors 0.8.0
+ColorBrewer 0.3.0
+Contour 0.4.0
+ImageMagick 0.2.3
+Discretizers 2.0.0
+StatsBase 0.9.0
+DataFrames 0.9.0
+IndirectArrays 0.1.1
+
