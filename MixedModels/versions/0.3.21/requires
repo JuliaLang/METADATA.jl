@@ -1,4 +1,4 @@
-julia 0.3-
+julia 0.3- 0.6
 Compat
 DataFrames 0.6-
 Distributions 0.6-

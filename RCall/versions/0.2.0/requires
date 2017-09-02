@@ -1,3 +1,4 @@
+julia 0.1 0.6
 BinDeps
 Compat
 DataArrays

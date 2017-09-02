@@ -1,4 +1,4 @@
-julia 0.3-
+julia 0.3- 0.6
 GLM 0.3-
 NLopt 0.0.3-
 StatsBase 0 0.8.0
