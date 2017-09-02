@@ -1,6 +1,7 @@
-julia 0.4 0.6
+julia 0.4
 DataStructures
 DataArrays
 DataFrames
 Compat
 @windows WinReg
+CategoricalArrays 0.0.1 0.2.0
