@@ -1,0 +1,9 @@
+julia 0.6
+Reexport
+GeoStatsBase
+DataFrames
+Combinatorics
+SpecialFunctions
+Parameters
+NamedTuples
+RecipesBase
