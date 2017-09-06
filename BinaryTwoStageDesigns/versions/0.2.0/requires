@@ -1,0 +1,9 @@
+julia 0.5
+JuMP 0.17.1
+QuadGK 0.1.2
+Roots 0.3.1
+UnicodePlots 0.2.4
+Distributions 0.13.0
+DataFrames 0.9.1
+DataArrays 0.4.1
+MathProgBase 0.6.4
