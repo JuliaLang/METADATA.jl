@@ -2,8 +2,8 @@ julia 0.6
 StaticArrays
 ColorTypes
 
-Transpiler 0.3
-Sugar 0.3
+Transpiler 0.3 0.4
+Sugar 0.3 0.4
 Matcha 0.0.2
 
 CUDAnative 0.4.1 # llvm codegen fix
