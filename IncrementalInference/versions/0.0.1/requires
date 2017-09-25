@@ -1,0 +1,8 @@
+julia 0.4
+Graphs
+GraphViz
+Gadfly
+Colors
+NLsolve
+Distributions
+KernelDensityEstimate

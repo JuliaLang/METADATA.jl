@@ -1,0 +1,10 @@
+julia 0.5
+IncrementalInference
+Graphs
+TransformUtils
+KernelDensityEstimate
+Distributions
+Colors
+Gadfly
+JLD
+HDF5

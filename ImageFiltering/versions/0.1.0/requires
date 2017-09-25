@@ -1,0 +1,13 @@
+julia 0.5
+FixedPointNumbers 0.3.0
+Colors
+ColorVectorSpace
+ImageCore
+OffsetArrays
+CatIndices
+StaticArrays 0.0.5
+MappedArrays
+FFTViews
+ComputationalResources
+DataStructures 0.4.6
+TiledIteration

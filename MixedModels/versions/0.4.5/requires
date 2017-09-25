@@ -4,3 +4,4 @@ Distributions 0.8
 NLopt 0.2
 Showoff
 StatsBase 0.8.0
+CategoricalArrays 0.0.1 0.2.0

@@ -1,0 +1,4 @@
+julia 0.4
+StatsBase 0.6
+Distributions 0.5
+HDF5 0.4

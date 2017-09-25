@@ -1,0 +1,8 @@
+julia 0.4.5
+Compat 0.7.6
+IJulia 1.1.7
+PyPlot 2.1.1
+Distributions 0.9
+Sundials 0.1.3
+JLD 0.5.9
+PDMats

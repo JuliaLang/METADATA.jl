@@ -1,0 +1,4 @@
+julia 0.4
+GeometryTypes
+Compat 0.8.6
+FixedSizeArrays

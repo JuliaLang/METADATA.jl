@@ -1,4 +1,4 @@
-julia 0.2-
+julia 0.2- 0.5
 ArgParse
 Codecs
 Compose
@@ -8,3 +8,4 @@ Distributions
 Iterators
 JSON
 Loess
+Contour 0.0.0 0.2.0-

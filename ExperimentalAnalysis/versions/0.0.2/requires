@@ -1,5 +1,5 @@
 julia 0.4
 DataFrames
-Plots
+Plots 0.0 0.7
 PyPlot
 GLM

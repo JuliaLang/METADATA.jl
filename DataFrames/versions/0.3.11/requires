@@ -1,4 +1,4 @@
 julia 0.2-
 GZip
-StatsBase
+StatsBase 0.0.0 0.8.3
 Blocks

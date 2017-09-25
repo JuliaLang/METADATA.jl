@@ -1,0 +1,8 @@
+julia 0.4
+Gadfly
+Compose 0.3.19
+Measures
+Colors
+Gtk
+GtkUtilities 0.0.8
+Reexport

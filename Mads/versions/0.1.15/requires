@@ -1,0 +1,23 @@
+julia 0.4
+Anasol
+BIGUQ
+MetaProgTools
+ReusableFunctions
+RobustPmap
+Conda
+PyCall 1.6.2
+PyPlot
+Gadfly
+YAML
+JSON
+JLD
+ProgressMeter
+Distributions
+DataStructures
+DataFrames
+ODE
+Lora
+Optim
+BlackBoxOptim
+Docile
+Lexicon

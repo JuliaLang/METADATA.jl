@@ -1,0 +1,4 @@
+julia 0.4
+SPTK 0.1.1
+MelGeneralizedCepstrums 0.0.3
+Compat 0.8.4

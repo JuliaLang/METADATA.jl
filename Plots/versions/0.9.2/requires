@@ -1,0 +1,8 @@
+julia 0.5-
+RecipesBase
+PlotUtils
+Reexport
+Compat
+FixedSizeArrays
+Measures
+Showoff

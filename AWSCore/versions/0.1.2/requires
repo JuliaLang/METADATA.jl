@@ -1,0 +1,10 @@
+julia 0.5
+Retry
+SymDict
+XMLDict
+JSON
+IniFile
+URIParser 0.1.2
+Requests
+Nettle
+HttpCommon

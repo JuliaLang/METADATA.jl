@@ -1,0 +1,8 @@
+julia 0.4
+Compat
+StatsBase
+DataFrames
+NLopt
+ColorTypes
+Gadfly
+GLM

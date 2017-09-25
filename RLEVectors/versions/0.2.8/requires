@@ -1,0 +1,4 @@
+julia 0.4.0
+DataFrames 0.6.10
+Compat 0.7.20
+Reexport

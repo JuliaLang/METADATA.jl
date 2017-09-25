@@ -1,5 +1,5 @@
 julia 0.3
-Optim 0.3-
+Optim 0.3 0.5
 PDMats 0.3-
 Docile 0.4.5-
 Distances 0.2-

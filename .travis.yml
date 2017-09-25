@@ -1,10 +1,9 @@
-language: julia
-julia:
-    - 0.4
+language: generic
 sudo: false # use a docker worker for hopefully faster queue times
 notifications:
     email: false
+env:
+    - CI_NAME="Travis CI" PULL_REQUEST="$TRAVIS_PULL_REQUEST"
 script:
-    - cd ..
-    - ln -s METADATA.jl METADATA
-    - julia METADATA/.test/METADATA.jl
+    - sh .test/travis.sh
+    - sh .test/ci.sh

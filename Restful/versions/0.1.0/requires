@@ -1,5 +1,5 @@
 julia 0.4
 HttpServer
-JSON
+JSON 0.0 0.6
 Requests
 URIParser

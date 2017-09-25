@@ -1,0 +1,21 @@
+julia 0.4
+
+GLFW
+GLWindow
+GLAbstraction
+ModernGL
+FixedSizeArrays
+GeometryTypes
+ColorTypes
+Colors
+Reactive
+Quaternions
+Compat 0.7.15
+FixedPointNumbers
+FileIO
+Packing
+SignedDistanceFields
+Images
+FreeType
+MeshIO
+Compose

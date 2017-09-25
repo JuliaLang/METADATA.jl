@@ -1,4 +1,4 @@
-julia 0.2-
+julia 0.2- 0.5
 Codecs
 Color
 Compose
@@ -10,3 +10,4 @@ Iterators
 JSON
 Loess
 StatsBase
+Contour 0.0.0 0.2.0-

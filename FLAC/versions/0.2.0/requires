@@ -1,0 +1,5 @@
+julia 0.5
+BinDeps
+FileIO
+@osx Homebrew
+@windows WinRPM

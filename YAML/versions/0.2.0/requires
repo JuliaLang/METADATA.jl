@@ -1,0 +1,4 @@
+julia 0.5
+Codecs
+Compat 0.7.15
+Dates

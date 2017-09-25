@@ -1,0 +1,7 @@
+julia 0.3
+DSP
+Compat
+HDF5
+JLD
+WAV
+FileIO

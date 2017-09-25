@@ -1,3 +1,4 @@
 julia 0.4-
 FunctionalDataUtils
 ProgressMeter
+FunctionalData 0.0 0.1.2

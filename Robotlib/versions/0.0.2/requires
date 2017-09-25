@@ -1,0 +1,7 @@
+julia 0.4
+MAT
+DataFrames
+DataArrays
+Plots
+StatsBase
+Quaternions

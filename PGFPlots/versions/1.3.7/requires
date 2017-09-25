@@ -1,0 +1,9 @@
+julia 0.4
+TikzPictures 0.3.4
+Images
+Compat 0.8.0
+Colors
+ColorBrewer
+Contour 0.2.0
+ImageMagick
+Discretizers

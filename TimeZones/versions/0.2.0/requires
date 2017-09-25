@@ -1,0 +1,6 @@
+julia 0.4
+Compat
+Mocking 0.0 0.2  # Only required for `VERSION < v"0.5-"`
+
+# Only required for building
+@windows LightXML
