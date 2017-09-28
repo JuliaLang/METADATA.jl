@@ -1,0 +1,4 @@
+julia 0.6
+DataArrays 0.5
+BinDeps 0.4
+Conda 0.3
