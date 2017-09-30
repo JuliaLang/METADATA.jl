@@ -6,3 +6,4 @@ RecursiveArrayTools 0.0.2
 DataStructures
 ResettableStacks
 Juno
+ForwardDiff 0.0.0 0.5.0
