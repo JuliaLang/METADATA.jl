@@ -1,0 +1,9 @@
+julia 0.6
+Automa
+BGZFStreams
+BioCore 1.1.0
+BioSequences 0.8.0
+BufferedStreams
+Combinatorics
+Twiddle
+IntervalTrees
