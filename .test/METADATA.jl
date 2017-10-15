@@ -2,6 +2,8 @@ if VERSION < v"0.4-"
     startswith = beginswith
 end
 
+cd(Pkg.dir()) # Required by some Pkg functions
+
 const url_reg = r"^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
 const gh_path_reg_git=r"^/(.*)?/(.*)?.git$"
 
@@ -234,7 +236,7 @@ for pkg in readdir("METADATA")
     end
 end
 
-if haskey(ENV, "TRAVIS_PULL_REQUEST") && ENV["TRAVIS_PULL_REQUEST"] != "false"
+if get(ENV, "PULL_REQUEST", "false") != "false"
     info("Checking repository tags...")
     include("check-pr.jl")
 end

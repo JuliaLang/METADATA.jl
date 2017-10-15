@@ -1,4 +1,4 @@
 julia 0.5
-DiffEqBase
+DiffEqBase 0.0.0 1.0.0
 VectorizedRoutines 0.0.1
 Parameters 0.5.0

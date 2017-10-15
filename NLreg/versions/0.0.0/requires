@@ -1,4 +1,4 @@
-julia 0.2-
+julia 0.2- 0.6
 DataFrames 0.3.6-
 NumericExtensions 0.2.15-
 Distributions 0.2.9-

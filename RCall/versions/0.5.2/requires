@@ -4,3 +4,4 @@ DataArrays 0.3.8
 DataFrames 0.7.6
 Compat 0.8
 @windows WinReg
+CategoricalArrays 0.0.1 0.2.0

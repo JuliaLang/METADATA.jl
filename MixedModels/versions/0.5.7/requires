@@ -8,3 +8,4 @@ StatsBase 0.8.2
 StatsFuns 0.2.0
 Compat 0.8.4
 DataArrays
+CategoricalArrays 0.0.1 0.2.0

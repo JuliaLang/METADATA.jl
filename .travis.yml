@@ -2,5 +2,8 @@ language: generic
 sudo: false # use a docker worker for hopefully faster queue times
 notifications:
     email: false
+env:
+    - CI_NAME="Travis CI" PULL_REQUEST="$TRAVIS_PULL_REQUEST"
 script:
     - sh .test/travis.sh
+    - sh .test/ci.sh

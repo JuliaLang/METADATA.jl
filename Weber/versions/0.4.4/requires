@@ -1,0 +1,16 @@
+julia 0.5
+DSP
+SampledSignals
+FixedPointNumbers 0.3.0
+Lazy
+DataStructures
+Colors
+ArgParse
+FileIO
+Juno
+Images 0.6.0
+LibSndFile
+MacroTools
+Distributions
+LRUCache
+@osx Homebrew

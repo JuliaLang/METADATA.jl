@@ -4,4 +4,5 @@ OrdinaryDiffEq
 StochasticDiffEq
 FiniteElementDiffEq
 AlgebraicDiffEq
+DiffEqBase 0.0.0 0.15.0
 JLD 0.6.5

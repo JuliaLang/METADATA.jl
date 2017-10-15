@@ -1,0 +1,8 @@
+julia 0.5
+Cairo
+Fontconfig
+Gadfly
+Colors
+Compose
+Distributions
+Compat 0.18

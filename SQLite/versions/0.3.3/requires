@@ -4,6 +4,6 @@ CSV 0.0.8
 DataStreams 0.0.1 0.0.13
 DataFrames
 NullableArrays
-WeakRefStrings
+WeakRefStrings 0.0.0 0.3.0
 @osx Homebrew
 @windows WinRPM

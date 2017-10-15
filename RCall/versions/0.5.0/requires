@@ -4,3 +4,4 @@ DataArrays
 DataFrames
 Compat
 @windows WinReg
+CategoricalArrays 0.0.1 0.2.0

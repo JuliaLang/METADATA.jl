@@ -3,5 +3,5 @@ FlatBuffers 0.1.1 0.2.0
 DataStreams 0.0.10 0.0.13
 DataFrames
 NullableArrays
-WeakRefStrings 0.1.3
+WeakRefStrings 0.1.3 0.3.0
 CategoricalArrays 0.0.1 0.0.5

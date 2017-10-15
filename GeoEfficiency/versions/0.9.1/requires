@@ -1,0 +1,3 @@
+julia 0.6
+QuadGK 0.1.2
+Compat 0.32.0

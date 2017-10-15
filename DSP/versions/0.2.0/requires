@@ -1,0 +1,5 @@
+julia 0.5
+Polynomials 0.1.0
+Reexport
+SpecialFunctions
+Compat 0.18.0

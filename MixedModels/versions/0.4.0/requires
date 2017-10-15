@@ -1,4 +1,4 @@
-julia 0.4-
+julia 0.4- 0.6
 DataFrames 0.6+
 Distributions 0.6+
 NLopt 0.2+
