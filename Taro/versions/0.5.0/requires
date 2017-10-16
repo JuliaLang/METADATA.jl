@@ -1,0 +1,5 @@
+julia 0.5
+JavaCall
+DataFrames
+DataArrays
+Compat 0.8
