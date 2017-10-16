@@ -1,0 +1,7 @@
+julia 0.5
+ZMQ 0.3.3
+JSON
+Logging 0.3.1
+HttpCommon
+HttpServer 0.0.12
+Compat 0.17.0
