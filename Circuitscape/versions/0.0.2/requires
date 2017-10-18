@@ -1,0 +1,7 @@
+julia 0.6
+IterativeSolvers 0.4.1
+Logging
+SimpleWeightedGraphs 0.3.0
+LightGraphs 0.11.0
+AMG 0.0.2
+GZip
