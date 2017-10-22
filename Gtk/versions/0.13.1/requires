@@ -1,0 +1,7 @@
+julia 0.5
+Cairo 0.2.2
+Graphics 0.1
+BinDeps
+@windows WinRPM
+@osx Homebrew
+Compat 0.18
