@@ -1,0 +1,9 @@
+julia 0.6
+ImageCore 0.2
+AxisArrays
+MappedArrays
+SimpleTraits
+Reexport
+Colors
+FixedPointNumbers 0.3.0
+Compat 0.17
