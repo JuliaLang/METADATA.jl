@@ -9,3 +9,4 @@ Sundials 0.3.0
 Ranges 0.0.1
 RecipesBase 0.1.0
 DiffEqBase 0.0.0 0.7.0
+DiffEqDiffTools 0.0.0 0.1.0

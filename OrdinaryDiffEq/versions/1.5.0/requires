@@ -13,3 +13,4 @@ Roots 0.2.1
 DataStructures 0.4.6
 Iterators
 Compat 0.17.0
+DiffEqDiffTools 0.0.0 0.1.0

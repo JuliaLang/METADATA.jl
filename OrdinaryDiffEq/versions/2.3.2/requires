@@ -12,3 +12,4 @@ DataStructures 0.4.6
 Iterators
 Compat 0.18.0
 StaticArrays
+DiffEqDiffTools 0.0.0 0.1.0
