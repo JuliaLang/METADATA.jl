@@ -1,0 +1,6 @@
+julia 0.6
+DiffEqBase
+Reexport
+NLsolve
+DiffEqDiffTools 0.1.0
+BandedMatrices
