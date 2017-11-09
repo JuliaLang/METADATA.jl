@@ -13,3 +13,4 @@ Compat 0.18.0
 Reexport
 MuladdMacro 0.0.2
 StaticArrays
+DiffEqDiffTools 0.0.2 0.1.0
