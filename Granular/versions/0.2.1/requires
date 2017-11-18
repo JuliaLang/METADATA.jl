@@ -1,0 +1,8 @@
+julia 0.6
+WriteVTK
+NetCDF
+Documenter
+Compat 0.9.1
+BinDeps 0.3
+@osx Homebrew 0.0.4-
+@windows WinRPM
