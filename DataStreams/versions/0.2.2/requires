@@ -1,0 +1,4 @@
+julia 0.6
+WeakRefStrings 0.3.0
+Nulls 0.0.5
+NamedTuples 4.0

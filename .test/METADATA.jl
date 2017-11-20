@@ -1,14 +1,10 @@
-if VERSION < v"0.4-"
-    startswith = beginswith
-end
-
 cd(Pkg.dir()) # Required by some Pkg functions
 
 const url_reg = r"^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
 const gh_path_reg_git=r"^/(.*)?/(.*)?.git$"
 
-const releasejuliaver = v"0.4" # Current release version of Julia
-const minjuliaver = v"0.4.0" # Oldest Julia version allowed to be registered
+const releasejuliaver = v"0.6" # Current release version of Julia
+const minjuliaver = v"0.5.0" # Oldest Julia version allowed to be registered
 const minpkgver = v"0.0.1"   # Oldest package version allowed to be registered
 
 print_list_3582 = false # set this to true to generate the list of grandfathered
