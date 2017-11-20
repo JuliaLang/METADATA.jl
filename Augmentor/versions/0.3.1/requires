@@ -1,0 +1,17 @@
+julia 0.6
+MappedArrays 0.0.3
+ImageCore 0.5.0
+ImageTransformations 0.3.0
+ImageFiltering 0.1.4
+CoordinateTransformations 0.4.0
+Interpolations 0.6
+Rotations 0.6.1
+StaticArrays 0.6.5
+OffsetArrays
+IdentityRanges
+ColorTypes 0.6.6
+MLDataPattern 0.1.2
+ComputationalResources 0.0.2
+ShowItLikeYouBuildIt
+FileIO
+Compat 0.17
