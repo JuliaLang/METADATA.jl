@@ -2,7 +2,7 @@
 # grandfathered list below are at least minpkgver and furthermore have a
 # requires file listing a minimum Julia version that is at least minjuliaver
 maxver_list_3582 = Dict([ # List of grandfathered packages
-    ("ACME", v"0.4.2"),
+    ("ACME", v"0.5.0"),
     ("AMD", v"0.1.0"),
     ("ASCIIPlots", v"0.0.3"),
     ("ASTInterpreter", v"0.0.4"),
