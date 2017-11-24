@@ -6,4 +6,4 @@ Compat 0.8.4
 LaTeXStrings
 DocStringExtensions
 Juno
-DataFrames
+DataFrames 0.0.1 0.11.0

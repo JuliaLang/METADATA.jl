@@ -1,3 +1,3 @@
 julia 0.6
-DataFrames 0.10.1
+DataFrames 0.10.1 0.11.0
 Documenter 0.11.2

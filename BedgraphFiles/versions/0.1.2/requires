@@ -1,4 +1,4 @@
 julia 0.6
 IterableTables 0.4.2
 FileIO 0.5.1
-DataFrames 0.9.1
+DataFrames 0.9.1 0.11.0

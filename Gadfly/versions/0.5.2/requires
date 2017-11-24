@@ -3,7 +3,7 @@ Colors 0.3.4
 Compat 0.8.5
 Compose 0.4.4
 Contour 0.1.1
-DataFrames 0.4.2
+DataFrames 0.4.2 0.11.0
 DataStructures
 Distributions
 Hexagons

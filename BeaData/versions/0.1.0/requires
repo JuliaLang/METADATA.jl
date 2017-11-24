@@ -1,6 +1,6 @@
 julia 0.5
 HTTP
 JSON
-DataFrames
+DataFrames 0.0.1 0.11.0
 DataStructures
 DocStringExtensions

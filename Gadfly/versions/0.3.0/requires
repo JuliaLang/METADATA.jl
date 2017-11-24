@@ -2,7 +2,7 @@ julia 0.2- 0.5
 Codecs
 Color
 Compose 0.3.0
-DataFrames 0.4.2
+DataFrames 0.4.2 0.11.0
 DataStructures
 Datetime
 Distributions

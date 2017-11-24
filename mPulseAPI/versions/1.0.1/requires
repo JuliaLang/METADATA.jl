@@ -3,5 +3,5 @@ Requests
 LightXML
 HttpCommon
 JSON
-DataFrames
+DataFrames 0.0.1 0.11.0
 Formatting

@@ -1,5 +1,5 @@
 StatsBase
-DataFrames
+DataFrames 0.0.1 0.11.0
 Datetime
 TimeSeries
 Winston

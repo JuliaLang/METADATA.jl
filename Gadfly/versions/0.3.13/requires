@@ -4,7 +4,7 @@ Color 0.3.4
 Compat
 Compose 0.3.11
 Contour 0.0.0 0.2-
-DataFrames 0.4.2
+DataFrames 0.4.2 0.11.0
 DataStructures
 Dates
 Distributions

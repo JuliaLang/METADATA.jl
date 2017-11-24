@@ -1,7 +1,7 @@
 julia 0.5
 Compat 0.8
 StatsBase 0.11
-DataFrames 0.9
+DataFrames 0.9 0.11.0
 NLopt 0.3
 ColorTypes 0.2
 Gadfly 0.4

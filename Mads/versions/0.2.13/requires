@@ -15,7 +15,7 @@ JLD
 ProgressMeter
 Distributions
 DataStructures
-DataFrames
+DataFrames 0.0.1 0.11.0
 StatsBase
 ODE
 Klara 0.6

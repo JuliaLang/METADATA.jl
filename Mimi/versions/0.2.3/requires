@@ -1,6 +1,6 @@
 julia 0.4
 DataStructures
 Distributions
-DataFrames
+DataFrames 0.0.1 0.11.0
 Documenter
 Compat 0.8.6

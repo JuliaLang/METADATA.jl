@@ -4,5 +4,5 @@ LightXML
 HttpCommon
 HttpParser 0.2.0
 JSON
-DataFrames 0.7.3
+DataFrames 0.7.3 0.11.0
 Formatting
