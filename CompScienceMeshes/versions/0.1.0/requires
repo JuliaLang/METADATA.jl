@@ -1,0 +1,6 @@
+julia 0.6
+Compat 0.18
+CollisionDetection
+Combinatorics
+FastGaussQuadrature
+StaticArrays
