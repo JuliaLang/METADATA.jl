@@ -1,6 +1,6 @@
 julia 0.4
 DataStructures
-DataArrays 0.3.8
+DataArrays 0.3.8 0.7.0
 DataFrames 0.7.6 0.11.0
 Compat 0.8
 @windows WinReg

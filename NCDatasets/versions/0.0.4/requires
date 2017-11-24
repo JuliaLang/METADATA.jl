@@ -1,4 +1,4 @@
 julia 0.6
-DataArrays 0.5
+DataArrays 0.5 0.7.0
 BinDeps 0.4
 Conda 0.3

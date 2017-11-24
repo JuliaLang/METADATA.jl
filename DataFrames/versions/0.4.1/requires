@@ -3,4 +3,4 @@ StatsBase 0.0.0 0.8.3
 GZip
 Blocks
 SortingAlgorithms
-DataArrays
+DataArrays 0.0.1 0.7.0
