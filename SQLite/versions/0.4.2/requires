@@ -3,6 +3,6 @@ BinDeps
 @osx Homebrew
 @windows WinRPM
 DataStreams 0.1.0 0.2.0
-DataFrames
+DataFrames 0.0.1 0.11.0
 WeakRefStrings 0.1.3 0.3.0
 LegacyStrings

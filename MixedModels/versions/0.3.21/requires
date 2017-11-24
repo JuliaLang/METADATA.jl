@@ -1,6 +1,6 @@
 julia 0.3- 0.6
 Compat
-DataFrames 0.6-
+DataFrames 0.6- 0.11.0
 Distributions 0.6-
 Docile 0.4-
 NLopt 0.2-

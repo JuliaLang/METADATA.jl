@@ -2,7 +2,7 @@ julia 0.3
 DualNumbers
 FITSIO
 WCSLIB
-DataFrames
+DataFrames 0.0.1 0.11.0
 Docile
 Grid
 GaussianMixtures

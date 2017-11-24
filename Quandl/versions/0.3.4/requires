@@ -1,6 +1,6 @@
 julia 0.3-
 Datetime
 TimeSeries
-DataFrames
+DataFrames 0.0.1 0.11.0
 Requests
 JSON

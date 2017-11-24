@@ -1,5 +1,5 @@
 julia 0.4
-DataFrames 0.4
+DataFrames 0.4 0.11.0
 Distributions 0.2.0
 StatsBase 0.3
 Calculus 0.1.3
