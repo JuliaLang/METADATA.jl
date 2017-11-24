@@ -24,3 +24,4 @@ Please note our current policies for accepting entries into METADATA.jl:
 8. Do not modify the `sha1` files of existing tags after they have been published by merging to the `JuliaLang/metadata-v2` branch. Bounds can be modified in the `requires` files after the fact, but the code content should remain unchanged for reproducibility of past results.
 
 These policies have been the result of many months of discussion to improve the quality of registered packages and the overall user experience with Julia packages.
+
