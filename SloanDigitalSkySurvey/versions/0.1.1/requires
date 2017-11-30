@@ -3,5 +3,5 @@ FITSIO
 ForwardDiff
 Optim 0.4.6 0.4.7-
 WCS 0.1.1
-DataFrames 0.0.1 0.11.0
+DataFrames 0.0.0 0.11.0
 Grid

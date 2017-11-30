@@ -1,5 +1,5 @@
 julia 0.5
-DataFrames 0.0.1 0.11.0
+DataFrames 0.0.0 0.11.0
 MacroTools
 LazyContext 0.0.1 0.1.0
 Query 0.0.0 0.7.0

@@ -1,6 +1,6 @@
 julia 0.4
 GZip
 DataStructures
-DataFrames 0.0.1 0.11.0
+DataFrames 0.0.0 0.11.0
 SHA
 Compat
