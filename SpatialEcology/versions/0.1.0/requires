@@ -1,7 +1,7 @@
 julia 0.6-pre
 
 RecipesBase
-DataFrames 0.0.1 0.11.0
+DataFrames 0.0.0 0.11.0
 Reexport
 PlotUtils
 #RCall #this should be changed as this is heavy-handed - there is an issue for this on RCall

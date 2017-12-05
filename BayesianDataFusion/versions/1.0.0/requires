@@ -1,5 +1,5 @@
 julia 0.3
-DataFrames 0.0.1 0.11.0
+DataFrames 0.0.0 0.11.0
 Distributions 0.7.3
 Iterators
 Compat 0.4.4

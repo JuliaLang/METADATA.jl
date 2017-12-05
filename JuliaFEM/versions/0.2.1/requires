@@ -2,6 +2,6 @@ julia 0.5
 ForwardDiff
 LightXML 0.4
 HDF5 0.7
-DataFrames 0.0.1 0.11.0
+DataFrames 0.0.0 0.11.0
 Formatting
 Logging

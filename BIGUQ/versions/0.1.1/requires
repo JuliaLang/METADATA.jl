@@ -1,5 +1,5 @@
 julia 0.4
-DataFrames 0.0.1 0.11.0
+DataFrames 0.0.0 0.11.0
 Lora 0.4.4
 ForwardDiff
 BlackBoxOptim

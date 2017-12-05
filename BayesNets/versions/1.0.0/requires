@@ -4,7 +4,7 @@ Distributions
 Discretizers
 Iterators
 LightGraphs
-DataFrames 0.0.1 0.11.0
+DataFrames 0.0.0 0.11.0
 TikzGraphs
 LightXML
 Reexport
