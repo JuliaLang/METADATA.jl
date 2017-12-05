@@ -1,7 +1,7 @@
 julia 0.6.0-pre
 Distances  0.1.1
 StatsBase 0.7.1
-DataArrays 0.0.1 0.7.0
+DataArrays 0.0.0 0.7.0
 DataFrames 0.6 0.11.0
 LeastSquaresOptim 0.4.0
 Reexport

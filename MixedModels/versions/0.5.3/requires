@@ -6,5 +6,5 @@ NLopt 0.3
 Showoff
 StatsBase 0.8.0
 Compat 0.7.17
-DataArrays 0.0.1 0.7.0
+DataArrays 0.0.0 0.7.0
 CategoricalArrays 0.0.1 0.2.0

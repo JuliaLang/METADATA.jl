@@ -6,4 +6,4 @@ Query 0.0.0 0.8.0
 NamedTuples
 ChainRecursive 0.0.3
 LazyCall 0.1.1
-DataArrays 0.0.1 0.7.0
+DataArrays 0.0.0 0.7.0
