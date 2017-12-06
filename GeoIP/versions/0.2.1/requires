@@ -1,4 +1,5 @@
 IPNets
 DataFrames 0.0.0 0.11.0
+DataArrays 0.0.0 0.7.0
 ZipFile 0.2.4
 Requests

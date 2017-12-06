@@ -6,3 +6,4 @@ NumericExtensions 0.6-
 NumericFuns 0.2-
 PDMats 0.2.3-
 StatsBase 0 0.8.0
+DataArrays 0.0.0 0.7.0

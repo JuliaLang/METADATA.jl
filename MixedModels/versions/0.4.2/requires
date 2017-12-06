@@ -5,3 +5,4 @@ NLopt 0.2
 Showoff
 StatsBase 0 0.8.0
 CategoricalArrays 0.0.1 0.2.0
+DataArrays 0.0.0 0.7.0

@@ -2,6 +2,6 @@ julia 0.3
 Distributions 0.4.6
 Distances 0.1.1
 StatsBase 0.3
-DataArrays 0.0.1 0.7.0
+DataArrays 0.0.0 0.7.0
 DataFrames 0.6 0.7.7
 GLM

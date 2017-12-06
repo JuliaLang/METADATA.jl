@@ -2,3 +2,4 @@ julia 0.3- 0.6
 GLM 0.3-
 NLopt 0.0.3-
 StatsBase 0 0.8.0
+DataArrays 0.0.0 0.7.0

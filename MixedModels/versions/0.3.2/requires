@@ -4,3 +4,4 @@ NLopt 0.0.3-
 NumericExtensions 0.6-
 NumericFuns 0.2-
 StatsBase 0 0.8.0
+DataArrays 0.0.0 0.7.0
