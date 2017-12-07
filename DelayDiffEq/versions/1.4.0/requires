@@ -1,6 +1,6 @@
 julia 0.6
 DiffEqBase 2.0.0
-OrdinaryDiffEq 2.24.0
+OrdinaryDiffEq 2.24.0 2.30.0
 DataStructures 0.4.6
 RecursiveArrayTools 0.2.0
 Reexport

@@ -2,7 +2,7 @@ julia 0.5
 Parameters 0.5.0
 ChunkedArrays 0.1.0
 DiffEqBase 0.2.0 0.8.0
-RecursiveArrayTools 0.0.2
+RecursiveArrayTools 0.0.2 0.13.0
 DataStructures
 ResettableStacks
 Juno
