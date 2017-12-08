@@ -1,0 +1,17 @@
+julia 0.5
+MacroTools
+YAML 0.2.1
+DataStructures
+AxisArrays
+NLsolve
+Optim
+Requests
+QuantEcon 0.10.1
+Distributions
+Compat 0.17.0
+Dolang
+BasisMatrices 0.3.0
+StringDistances
+StaticArrays
+Iterators
+IterativeSolvers
