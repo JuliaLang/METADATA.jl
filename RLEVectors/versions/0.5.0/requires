@@ -1,0 +1,6 @@
+julia 0.6
+DataFrames 0.0.1
+DataTables 0.0.1
+StatsBase 0.6.0
+AxisArrays 0.1.0
+RCall 0.7.4
