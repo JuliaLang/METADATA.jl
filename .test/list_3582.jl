@@ -44,7 +44,7 @@ maxver_list_3582 = Dict([ # List of grandfathered packages
     ("Atom", v"0.6.5"),
     ("AudioIO", v"0.1.1"),
     ("Augur", v"0.1.1"),
-    ("AutoGrad", v"0.0.9"),
+    ("AutoGrad", v"0.0.10"),
     ("AutoHashEquals", v"0.0.10"),
     ("AutoTypeParameters", v"0.0.3"),
     ("Autoreload", v"0.2.0"),
