@@ -1,0 +1,4 @@
+julia 0.6
+BinDeps 0.4
+Parameters 0.5
+Compat 0.33

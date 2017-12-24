@@ -1,0 +1,7 @@
+julia 0.6
+MathProgBase
+FastGaussQuadrature
+JuMP
+DataFrames 0.0.0 0.11.0
+Ranges
+Ipopt

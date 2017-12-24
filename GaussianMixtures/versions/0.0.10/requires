@@ -1,6 +1,6 @@
 julia 0.3 
 Clustering
-Distributions
+Distributions 0.0 0.10
 PDMats
 Compat
 JLD

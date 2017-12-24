@@ -1,0 +1,6 @@
+julia 0.5-
+LightGraphs 0.7.2
+JuMP 0.13.2
+MatrixDepot
+Clustering
+BlossomV 0.1

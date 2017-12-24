@@ -1,0 +1,11 @@
+julia 0.4
+Lazy
+LNR
+JSON
+CodeTools
+Hiccup
+Media
+Blink
+Reexport
+MacroTools
+Requires

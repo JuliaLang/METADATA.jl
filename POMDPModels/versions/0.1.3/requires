@@ -1,0 +1,8 @@
+julia 0.5
+Distributions
+POMDPs
+TikzPictures
+POMDPToolbox
+AutoHashEquals
+StaticArrays
+StatsBase 0.15

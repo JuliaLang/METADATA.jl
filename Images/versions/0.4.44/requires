@@ -1,4 +1,4 @@
-julia 0.3
+julia 0.3 0.5
 Compat 0.4
 Colors
 BinDeps
@@ -6,3 +6,4 @@ BinDeps
 SIUnits
 Zlib
 Graphics 0.1
+FixedPointNumbers 0.0- 0.3

@@ -1,0 +1,6 @@
+julia 0.5
+OrdinaryDiffEq 0.1.1
+LsqFit 0.0.2
+DiffEqBase 0.1.2 0.14.0
+LossFunctions 0.0.2
+RecursiveArrayTools 0.0.2

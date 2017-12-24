@@ -1,0 +1,7 @@
+julia 0.5
+Graphs 0.7.1
+Neo4j 1.0.0
+Mongo
+LibBSON
+ProtoBuf
+JSON

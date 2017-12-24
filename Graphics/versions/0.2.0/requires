@@ -1,0 +1,4 @@
+julia 0.5
+Colors
+Compat 0.17.0
+NaNMath 0.2.4

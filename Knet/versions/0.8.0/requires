@@ -1,0 +1,11 @@
+# These are required, the rest is optional.
+julia 0.4
+AutoGrad 0.0.3
+
+# We need these for some examples:
+# ArgParse
+# JLD
+# GZip
+
+# We will need this for 0.6 compat:
+# Compat 0.7.15 # for sin.(x) etc.

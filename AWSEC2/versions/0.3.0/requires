@@ -1,0 +1,5 @@
+julia 0.6
+AWSCore 0.3
+AWSIAM
+SymDict 0.1.2
+Retry

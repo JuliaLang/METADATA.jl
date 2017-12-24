@@ -1,4 +1,4 @@
-julia 0.3
+julia 0.3 0.5
 Compat 0.2
 FixedPointNumbers 0 0.1
 Graphics 0.1

@@ -3,3 +3,4 @@ HttpParser
 URIParser
 GnuTLS
 Codecs
+JSON 0.0 0.6

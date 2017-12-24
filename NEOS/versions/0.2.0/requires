@@ -1,0 +1,7 @@
+julia 0.5
+Codecs
+LightXML
+MathProgBase 0.5 0.7
+Requests
+Libz
+Compat 0.9.5

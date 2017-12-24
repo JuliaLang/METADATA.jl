@@ -1,0 +1,5 @@
+julia 0.4
+Combinatorics
+StatsBase
+Images 0.0- 0.6
+LightGraphs 0.6.1

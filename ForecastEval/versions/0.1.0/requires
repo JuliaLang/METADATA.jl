@@ -1,0 +1,4 @@
+julia 0.6
+StatsBase 0.11.0
+Distributions 0.11.0
+DependentBootstrap 0.1.0

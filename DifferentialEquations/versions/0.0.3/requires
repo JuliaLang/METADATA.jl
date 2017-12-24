@@ -1,0 +1,10 @@
+julia 0.4 0.5
+Parameters
+GrowableArrays
+ChunkedArrays
+EllipsisNotation
+NLsolve
+Plots
+JLD
+ForwardDiff
+IterativeSolvers

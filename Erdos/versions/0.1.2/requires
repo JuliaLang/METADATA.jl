@@ -1,0 +1,9 @@
+julia 0.5
+GZip 0.2.20
+EzXML 0.4.0
+ParserCombinator 1.7.11
+StatsFuns
+BlossomV 0.2
+Clustering
+DataStructures 0.5.0
+Compat 0.18

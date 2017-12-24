@@ -2,4 +2,4 @@ OpenGL
 BinDeps
 @osx Homebrew
 @windows WinRPM
-julia 0.2-
+julia 0.2- 0.6

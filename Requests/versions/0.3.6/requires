@@ -4,6 +4,6 @@ HttpParser
 URIParser 0.1.1
 MbedTLS 0.2.1
 Codecs
-JSON
+JSON 0.0 0.6
 Libz
 Compat 0.7.9

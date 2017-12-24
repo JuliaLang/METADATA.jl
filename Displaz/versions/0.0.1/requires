@@ -1,0 +1,4 @@
+julia 0.4
+Compat
+FixedSizeArrays 0.0.8
+Colors

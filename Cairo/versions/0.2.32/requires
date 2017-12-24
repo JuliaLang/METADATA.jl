@@ -1,0 +1,7 @@
+julia 0.3
+Compat 0.7.16
+Colors
+BinDeps
+Graphics 0.1
+@osx Homebrew
+@windows WinRPM

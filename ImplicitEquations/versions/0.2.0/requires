@@ -1,0 +1,4 @@
+julia 0.4
+ValidatedNumerics 0.1.0
+RecipesBase 0.0.6
+Compat

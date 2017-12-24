@@ -1,0 +1,9 @@
+julia 0.6-
+Documenter
+DocStringExtensions
+Interpolations
+Reexport
+MacroTools
+ForwardDiff
+MappedArrays
+RecipesBase

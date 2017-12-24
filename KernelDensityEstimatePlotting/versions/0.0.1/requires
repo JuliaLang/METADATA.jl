@@ -1,0 +1,7 @@
+julia 0.6
+KernelDensityEstimate
+Cairo
+Fontconfig
+Gadfly
+Colors
+Compose

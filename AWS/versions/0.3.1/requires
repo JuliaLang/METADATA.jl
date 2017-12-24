@@ -1,0 +1,7 @@
+julia 0.5
+LightXML
+Requests
+JSON
+URIParser
+MbedTLS
+Compat 0.17.0

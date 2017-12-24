@@ -1,0 +1,6 @@
+julia 0.4
+StatsBase
+Distributions
+Optim
+Interpolations
+Compat 0.7.0

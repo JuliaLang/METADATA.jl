@@ -5,7 +5,7 @@ MetaProgTools
 BIGUQ
 Lora 0.4.4
 HDF5
-Optim
+Optim 0.0 0.5
 NLopt
 BlackBoxOptim
 Distributions
@@ -22,4 +22,4 @@ YAML
 JSON
 JLD
 Gadfly
-DataFrames
+DataFrames 0.0.0 0.11.0

@@ -1,0 +1,9 @@
+julia 0.5.0
+
+Compat 0.17.0
+JSON 0.7.0
+MbedTLS 0.3.1
+Requests
+Libz
+MsgPack
+URIParser

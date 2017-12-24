@@ -1,0 +1,9 @@
+julia 0.4
+
+RecipesBase
+Colors
+Reexport
+Compat
+FixedSizeArrays
+Measures
+JSON 0.0 0.9
