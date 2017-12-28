@@ -1,0 +1,6 @@
+julia 0.6.0
+BinDeps 0.4.3
+DiffEqBase 2.8.0
+Reexport
+DataStructures
+Roots
