@@ -6,7 +6,7 @@ Distributions
 FredData
 HDF5
 JLD
-Optim 0.7
+Optim 0.7 0.12
 QuantEcon
 Plots
 Roots
