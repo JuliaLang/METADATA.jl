@@ -1,0 +1,7 @@
+julia 0.6
+Thrift 0.0.1
+ProtoBuf 0.0.1
+Snappy 0.2.0
+Libz 0.2.4
+MemPool 0.0.1
+Compat 0.17.0
