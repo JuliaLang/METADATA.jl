@@ -69,6 +69,7 @@ diff_list(x) = split(readchomp(`git -C $BUILD_DIR diff --name-only
     --diff-filter=$x origin/HEAD HEAD`), "\n")
 
 changed = diff_list("CDMRTUXB")
+info("Files changes in this PR: $changed")
 for file in changed
     if endswith(file, "sha1")
         # policy 8, do not modify existing published tag sha1's
