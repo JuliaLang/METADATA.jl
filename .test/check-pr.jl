@@ -1,4 +1,5 @@
 const BUILD_DIR = ENV["BUILD_DIR"]
+const PR_COMMIT_SHA = ENV["TRAVIS_PULL_REQUEST_SHA"]
 
 function get_remote_tags(url)
     ls = try
@@ -63,29 +64,45 @@ function get_local_tags(dir)
     return localtags
 end
 
-# Get files modified in the PR as a diff against origin
-# Note: origin/HEAD is equivalent to origin/metadata-v2 in the JuliaLang/METADATA.jl repo
-diff_list(x) = split(readchomp(`git -C $BUILD_DIR diff --name-only
-    --diff-filter=$x origin/HEAD HEAD`), "\n")
+filter_diff(commit1, commit2, filt) =
+    readchomp(`git diff --name-only --diff-filter=$filt $commit1 $commit2`)
 
-changed = diff_list("CDMRTUXB")
-info("Files changes in this PR: $changed")
-for file in changed
-    if endswith(file, "sha1")
-        # policy 8, do not modify existing published tag sha1's
-        error(string("Do not modify existing published tag sha1 files (policy 8).\n",
-                     "Ask for an exception if absolutely necessary, but tag commits\n",
-                     "should be immutable once published for reproducibility."))
+changed, added = cd(ENV["TRAVIS_BUILD_DIR"]) do
+    # Ensure that JuliaLang/METADATA.jl is a registered remote by adding it
+    # explicitly (this is okay even if it's the same as an existing remote)
+    run(`git remote add _upstream https://github.com/JuliaLang/METADATA.jl.git`)
+    run(`git fetch _upstream`)
+    upstream_commit = readchomp(`git rev-parse _upstream/metadata-v2`)
+
+    # Compare the current commit with the default branch upstream, returning
+    # a string containing a newline-delimited list of files changed. We only
+    # care about additions (A) and modifications (M).
+    _changed = filter_diff(PR_COMMIT_SHA, upstream_commit, "AM")
+    _added = filter_diff(PR_COMMIT_SHA, upstream_commit, "A")
+
+    # Separate each list into a vector and return both changed and added
+    (split(_changed, '\n'), split(_added, '\n'))
+end
+
+if isempty(changed) && ENV["TRAVIS_EVENT_TYPE"] == "pull_request"
+    warn("No changes between the PR and the base branch have been detected, which is " *
+         "probably wrong.")
+else
+    info("Files changes in this PR: $changed")
+    info("Files added in this PR: $added")
+    for file in changed
+        if endswith(file, "sha1")
+            # policy 8, do not modify existing published tag sha1's
+            error(string("Do not modify existing published tag sha1 files (policy 8).\n",
+                         "Ask for an exception if absolutely necessary, but tag commits\n",
+                         "should be immutable once published for reproducibility."))
+        end
     end
 end
 
-# Get files added in the PR as a diff against origin
-# (only check tags match for newly-added files)
-added = diff_list("A")
-
 const RGX = r"^[^/]+/versions/([\d.]+)"
 
-# Get the associated package and version for each affected file
+# Get the associated package and version for each added file
 modified = Dict{AbstractString,Vector{VersionNumber}}() # package => [versions...]
 for file in added
     pkg = split(file, "/")[1]
