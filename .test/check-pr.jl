@@ -77,8 +77,8 @@ changed, added = cd(ENV["TRAVIS_BUILD_DIR"]) do
     # Compare the current commit with the default branch upstream, returning
     # a string containing a newline-delimited list of files changed. We only
     # care about additions (A) and modifications (M).
-    _changed = filter_diff(PR_COMMIT_SHA, upstream_commit, "AM")
-    _added = filter_diff(PR_COMMIT_SHA, upstream_commit, "A")
+    _changed = filter_diff(upstream_commit, PR_COMMIT_SHA, "AM")
+    _added = filter_diff(upstream_commit, PR_COMMIT_SHA, "A")
 
     # Separate each list into a vector and return both changed and added
     (split(_changed, '\n'), split(_added, '\n'))
