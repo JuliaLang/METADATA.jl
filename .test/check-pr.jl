@@ -77,18 +77,18 @@ changed, added = cd(ENV["TRAVIS_BUILD_DIR"]) do
     # Compare the current commit with the default branch upstream, returning
     # a string containing a newline-delimited list of files changed. We only
     # care about additions (A) and modifications (M).
-    _changed = filter_diff(upstream_commit, PR_COMMIT_SHA, "AM")
+    _changed = filter_diff(upstream_commit, PR_COMMIT_SHA, "M")
     _added = filter_diff(upstream_commit, PR_COMMIT_SHA, "A")
 
     # Separate each list into a vector and return both changed and added
     (split(_changed, '\n'), split(_added, '\n'))
 end
 
-if isempty(changed) && ENV["TRAVIS_EVENT_TYPE"] == "pull_request"
+if isempty(changed) && isempty(added) && ENV["TRAVIS_EVENT_TYPE"] == "pull_request"
     warn("No changes between the PR and the base branch have been detected, which is " *
          "probably wrong.")
 else
-    info("Files changes in this PR: $changed")
+    info("Files modified in this PR: $changed")
     info("Files added in this PR: $added")
     for file in changed
         if endswith(file, "sha1")
