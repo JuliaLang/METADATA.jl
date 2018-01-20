@@ -5,7 +5,7 @@ DualNumbers
 ForwardDiff 0.0.2
 JuMP
 MathProgBase
-NLsolve
+NLsolve 0.1 0.14
 Optim 0.0 0.5
 ReverseDiffSparse
 

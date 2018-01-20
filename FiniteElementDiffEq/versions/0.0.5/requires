@@ -5,7 +5,7 @@ Parameters 0.5.0
 RecipesBase 0.1.0
 GenericSVD 0.0.2
 ForwardDiff 0.2.4
-NLsolve 0.7.3
+NLsolve 0.7.3 0.14
 ChunkedArrays 0.1.0
 VectorizedRoutines 0.0.2
 Juno 0.2.4

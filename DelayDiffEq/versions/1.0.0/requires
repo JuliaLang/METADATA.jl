@@ -6,5 +6,5 @@ RecursiveArrayTools 0.2.0
 Reexport
 MuladdMacro
 ForwardDiff
-NLsolve
+NLsolve 0.1 0.14
 Roots

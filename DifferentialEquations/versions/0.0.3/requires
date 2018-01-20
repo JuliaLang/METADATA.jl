@@ -3,7 +3,7 @@ Parameters
 GrowableArrays
 ChunkedArrays
 EllipsisNotation
-NLsolve
+NLsolve 0.1 0.14
 Plots
 JLD
 ForwardDiff
