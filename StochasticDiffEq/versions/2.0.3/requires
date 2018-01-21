@@ -8,5 +8,5 @@ Roots
 Iterators
 Compat 0.17.0
 DiffEqNoiseProcess
-NLsolve
+NLsolve 0.1 0.14
 ForwardDiff 0.0.1 0.5.0

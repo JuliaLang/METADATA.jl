@@ -3,7 +3,7 @@ Graphs 0.8.0
 GraphViz
 Gadfly
 Colors
-NLsolve
+NLsolve 0.1 0.14
 Optim
 Distributions
 KernelDensityEstimate 0.2.6

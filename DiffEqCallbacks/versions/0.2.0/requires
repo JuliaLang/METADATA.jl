@@ -1,5 +1,5 @@
 julia 0.6.0-pre
 DiffEqBase 0.6.0
-NLsolve
+NLsolve 0.1 0.14
 ForwardDiff 0.5.0 0.6.0
 DiffBase
