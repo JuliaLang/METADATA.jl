@@ -64,8 +64,9 @@ function get_local_tags(dir)
     return localtags
 end
 
-filter_diff(commit1, commit2, filt) =
-    readchomp(`git diff --name-only --diff-filter=$filt $commit1 $commit2`)
+function filter_diff(commit1, commit2, filt)
+    split(readchomp(`git diff --name-only --diff-filter=$filt $commit1 $commit2`), '\n')
+end
 
 changed, added = cd(ENV["TRAVIS_BUILD_DIR"]) do
     # Ensure that JuliaLang/METADATA.jl is a registered remote by adding it
@@ -80,8 +81,7 @@ changed, added = cd(ENV["TRAVIS_BUILD_DIR"]) do
     _changed = filter_diff(upstream_commit, PR_COMMIT_SHA, "M")
     _added = filter_diff(upstream_commit, PR_COMMIT_SHA, "A")
 
-    # Separate each list into a vector and return both changed and added
-    (split(_changed, '\n'), split(_added, '\n'))
+    (_changed, _added)
 end
 
 if isempty(changed) && isempty(added) && ENV["TRAVIS_EVENT_TYPE"] == "pull_request"
