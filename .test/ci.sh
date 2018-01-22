@@ -6,6 +6,9 @@ BUILD_DIR=$PWD
 [ -z "$JULIA_PKGDIR" ] && JULIA_PKGDIR=$HOME/.julia
 export BUILD_DIR JULIA_PKGDIR
 
+# Ensure that "origin/HEAD" is present (typically set to "origin/metadata-v2")
+git fetch origin +:refs/remotes/origin/HEAD
+
 # Need to be on a local or remote branch for check_metadata
 git checkout -q --detach HEAD && git branch -D localbranch 2>/dev/null || true
 git checkout -b localbranch

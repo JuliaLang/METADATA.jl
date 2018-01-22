@@ -1,8 +1,6 @@
 # The full path where the repository is cloned and where the job is run
 const BUILD_DIR = ENV["BUILD_DIR"]
 
-const PR_COMMIT_SHA = ENV["TRAVIS_PULL_REQUEST_SHA"]
-
 function get_remote_tags(url)
     ls = try
         readchomp(`git ls-remote --tags -q $url`)
@@ -66,24 +64,14 @@ function get_local_tags(dir)
     return localtags
 end
 
-function filter_diff(commit1, commit2, filt)
+function filter_diff(filt, commit1="origin/HEAD", commit2="HEAD")
     split(readchomp(`git diff --name-only --diff-filter=$filt $commit1 $commit2`), '\n')
 end
 
+# Compare the current commit with the default branch upstream, returning a list of files
+# changed. We only care about additions (A) and modifications (M).
 changed, added = cd(BUILD_DIR) do
-    # Ensure that JuliaLang/METADATA.jl is a registered remote by adding it
-    # explicitly (this is okay even if it's the same as an existing remote)
-    run(`git remote add _upstream https://github.com/JuliaLang/METADATA.jl.git`)
-    run(`git fetch _upstream`)
-    upstream_commit = readchomp(`git rev-parse _upstream/metadata-v2`)
-
-    # Compare the current commit with the default branch upstream, returning
-    # a string containing a newline-delimited list of files changed. We only
-    # care about additions (A) and modifications (M).
-    _changed = filter_diff(upstream_commit, PR_COMMIT_SHA, "M")
-    _added = filter_diff(upstream_commit, PR_COMMIT_SHA, "A")
-
-    (_changed, _added)
+    (filter_diff("M"), filter_diff("A"))
 end
 
 if isempty(changed) && isempty(added) && ENV["TRAVIS_EVENT_TYPE"] == "pull_request"
