@@ -5,3 +5,4 @@ ChunkedArrays
 EllipsisNotation
 IterativeSolvers
 Plots
+DiffEqBase 0.0.1 3.0.0

@@ -1,4 +1,4 @@
 julia 0.5
 Polynomials
 Compat 0.9
-DiffEqBase 0.15.0
+DiffEqBase 0.15.0 3.0.0
