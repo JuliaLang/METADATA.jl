@@ -74,7 +74,7 @@ changed, added = cd(BUILD_DIR) do
     (filter_diff("M"), filter_diff("A"))
 end
 
-if isempty(changed) && isempty(added) && ENV["TRAVIS_EVENT_TYPE"] == "pull_request"
+if isempty(changed) && isempty(added) && get(ENV, "TRAVIS_EVENT_TYPE", "unknown") == "pull_request"
     warn("No changes between the PR and the base branch have been detected, which is " *
          "probably wrong.")
 else
