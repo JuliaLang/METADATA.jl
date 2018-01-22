@@ -1,4 +1,6 @@
+# The full path where the repository is cloned and where the job is run
 const BUILD_DIR = ENV["BUILD_DIR"]
+
 const PR_COMMIT_SHA = ENV["TRAVIS_PULL_REQUEST_SHA"]
 
 function get_remote_tags(url)
@@ -68,7 +70,7 @@ function filter_diff(commit1, commit2, filt)
     split(readchomp(`git diff --name-only --diff-filter=$filt $commit1 $commit2`), '\n')
 end
 
-changed, added = cd(ENV["TRAVIS_BUILD_DIR"]) do
+changed, added = cd(BUILD_DIR) do
     # Ensure that JuliaLang/METADATA.jl is a registered remote by adding it
     # explicitly (this is okay even if it's the same as an existing remote)
     run(`git remote add _upstream https://github.com/JuliaLang/METADATA.jl.git`)
