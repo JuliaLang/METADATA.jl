@@ -1,4 +1,4 @@
 julia 0.5
-DiffEqBase 1.0.2
+DiffEqBase 1.0.2 3.0.0
 NLsolve 0.1 0.14
 Compat 0.17.0
