@@ -1,6 +1,10 @@
 # The full path where the repository is cloned and where the job is run
 const BUILD_DIR = ENV["BUILD_DIR"]
 
+# Avoid using the merge commit when checking for changes as sometimes this can result
+# in extra changes being found during the diff.
+const HEAD = get(ENV, "TRAVIS_PULL_REQUEST_SHA", "HEAD")
+
 function get_remote_tags(url)
     ls = try
         readchomp(`git ls-remote --tags -q $url`)
@@ -64,7 +68,7 @@ function get_local_tags(dir)
     return localtags
 end
 
-function filter_diff(filt, commit1="origin/HEAD", commit2="HEAD")
+function filter_diff(filt, commit1="origin/HEAD", commit2=HEAD)
     split(readchomp(`git diff --name-only --diff-filter=$filt $commit1 $commit2`), '\n')
 end
 
