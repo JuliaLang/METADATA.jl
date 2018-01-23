@@ -25,3 +25,4 @@ Optim 0.7
 BlackBoxOptim
 Documenter 0.8.10
 Compat 0.12
+OrdinaryDiffEq 0.0.1 3.0.0

@@ -3,3 +3,4 @@ Distributions
 GSL
 julia 0.2.0-
 ODE
+OrdinaryDiffEq 0.0.1 3.0.0

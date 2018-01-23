@@ -6,3 +6,4 @@ RecursiveArrayTools 0.2.0
 Combinatorics
 Compat 0.17.0
 Reexport
+DiffEqDiffTools 0.0.1 0.3.0
