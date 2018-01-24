@@ -1,5 +1,9 @@
+# The full path where the repository is cloned and where the job is run
 const BUILD_DIR = ENV["BUILD_DIR"]
-const PR_COMMIT_SHA = ENV["TRAVIS_PULL_REQUEST_SHA"]
+
+# Avoid using the merge commit when checking for changes as sometimes this can result
+# in extra changes being found during the diff.
+const HEAD = get(ENV, "TRAVIS_PULL_REQUEST_SHA", "HEAD")
 
 function get_remote_tags(url)
     ls = try
@@ -64,32 +68,22 @@ function get_local_tags(dir)
     return localtags
 end
 
-filter_diff(commit1, commit2, filt) =
-    readchomp(`git diff --name-only --diff-filter=$filt $commit1 $commit2`)
-
-changed, added = cd(ENV["TRAVIS_BUILD_DIR"]) do
-    # Ensure that JuliaLang/METADATA.jl is a registered remote by adding it
-    # explicitly (this is okay even if it's the same as an existing remote)
-    run(`git remote add _upstream https://github.com/JuliaLang/METADATA.jl.git`)
-    run(`git fetch _upstream`)
-    upstream_commit = readchomp(`git rev-parse _upstream/metadata-v2`)
-
-    # Compare the current commit with the default branch upstream, returning
-    # a string containing a newline-delimited list of files changed. We only
-    # care about additions (A) and modifications (M).
-    _changed = filter_diff(upstream_commit, PR_COMMIT_SHA, "M")
-    _added = filter_diff(upstream_commit, PR_COMMIT_SHA, "A")
-
-    # Separate each list into a vector and return both changed and added
-    (split(_changed, '\n'), split(_added, '\n'))
+function filter_diff(filt, commit1="origin/HEAD", commit2=HEAD)
+    split(readchomp(`git diff --name-only --diff-filter=$filt $commit1 $commit2`), '\n')
 end
 
-if isempty(changed) && isempty(added) && ENV["TRAVIS_EVENT_TYPE"] == "pull_request"
+# Compare the current commit with the default branch upstream, returning a list of files
+# changed. We only care about additions (A) and modifications (M).
+changed, added = cd(BUILD_DIR) do
+    (filter_diff("M"), filter_diff("A"))
+end
+
+if isempty(changed) && isempty(added) && get(ENV, "TRAVIS_EVENT_TYPE", "unknown") == "pull_request"
     warn("No changes between the PR and the base branch have been detected, which is " *
          "probably wrong.")
 else
-    info("Files modified in this PR: $changed")
-    info("Files added in this PR: $added")
+    info("Files modified in this PR:\n$(join(changed, '\n'))")
+    info("Files added in this PR:\n$(join(added, '\n'))")
     for file in changed
         if endswith(file, "sha1")
             # policy 8, do not modify existing published tag sha1's
