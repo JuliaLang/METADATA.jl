@@ -68,37 +68,14 @@ function get_local_tags(dir)
     return localtags
 end
 
-function filter_diff(filt, commit1="origin/HEAD", commit2=HEAD)
-    split(readchomp(`git diff --name-only --diff-filter=$filt $commit1 $commit2`), '\n')
-end
-
-# Compare the current commit with the default branch upstream, returning a list of files
-# changed. We only care about additions (A) and modifications (M).
-changed, added = cd(BUILD_DIR) do
-    (filter_diff("M"), filter_diff("A"))
-end
-
-if isempty(changed) && isempty(added) && get(ENV, "TRAVIS_EVENT_TYPE", "unknown") == "pull_request"
-    warn("No changes between the PR and the base branch have been detected, which is " *
-         "probably wrong.")
-else
-    info("Files modified in this PR:\n$(join(changed, '\n'))")
-    info("Files added in this PR:\n$(join(added, '\n'))")
-    for file in changed
-        if endswith(file, "sha1")
-            # policy 8, do not modify existing published tag sha1's
-            error(string("Do not modify existing published tag sha1 files (policy 8).\n",
-                         "Ask for an exception if absolutely necessary, but tag commits\n",
-                         "should be immutable once published for reproducibility."))
-        end
-    end
-end
+# Get files modified in the PR as a diff against origin
+changed = split(readchomp(`git -C $BUILD_DIR diff --name-only origin/metadata-v2 HEAD`), "\n")
 
 const RGX = r"^[^/]+/versions/([\d.]+)"
 
 # Get the associated package and version for each added file
 modified = Dict{AbstractString,Vector{VersionNumber}}() # package => [versions...]
-for file in added
+for file in changed
     pkg = split(file, "/")[1]
     # Only look at changes to tagged versions
     if isdir(joinpath(BUILD_DIR, pkg)) && pkg != ".test" && ismatch(RGX, file) && endswith(file, "sha1")
@@ -134,6 +111,11 @@ for pkg in keys(modified)
             end
         end
     elseif !isempty(getmad) # just those added in this PR
+        if getmad == [v"0.0.0"]
+            # since this version is no longer allowed for new tags, it can only happen when
+            # modifying bounds for old packages, in which case don't worry about the tags
+            continue
+        end
         msg = string("The following tags for $pkg have not been pushed to upstream ",
                      "repository: ", join(getmad, ", "), ".\nTo fix this, navigate to ",
                      "the package directory and run `git push --tags`.\nAfterward, ",
