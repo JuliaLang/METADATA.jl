@@ -68,15 +68,15 @@ function get_local_tags(dir)
     return localtags
 end
 
+function filter_diff(filt, commit1="origin/HEAD", commit2=HEAD)
+    split(readchomp(`git diff --name-only --diff-filter=$filt $commit1 $commit2`), '\n')
+end
+
 # NOTE: As currently written, these checks almost never correctly identify modified
 # files, which can cause spurious CI failures. Policy 8 is easy enough to verify
 # manually, plus it isn't possible for Attobot to violate it. These checks can be
 # revisited should someone come up with reliable way of doing it.
-#
-#function filter_diff(filt, commit1="origin/HEAD", commit2=HEAD)
-#    split(readchomp(`git diff --name-only --diff-filter=$filt $commit1 $commit2`), '\n')
-#end
-#
+
 ## Compare the current commit with the default branch upstream, returning a list of files
 ## changed. We only care about additions (A) and modifications (M).
 #changed, added = cd(BUILD_DIR) do
@@ -103,7 +103,7 @@ const RGX = r"^[^/]+/versions/([\d.]+)"
 
 # Get the associated package and version for each added file
 modified = Dict{AbstractString,Vector{VersionNumber}}() # package => [versions...]
-for file in added
+for file in filter_diff("A")
     pkg = split(file, "/")[1]
     # Only look at changes to tagged versions
     if isdir(joinpath(BUILD_DIR, pkg)) && pkg != ".test" && ismatch(RGX, file) && endswith(file, "sha1")
