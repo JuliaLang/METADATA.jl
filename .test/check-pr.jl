@@ -68,31 +68,36 @@ function get_local_tags(dir)
     return localtags
 end
 
-function filter_diff(filt, commit1="origin/HEAD", commit2=HEAD)
-    split(readchomp(`git diff --name-only --diff-filter=$filt $commit1 $commit2`), '\n')
-end
-
-# Compare the current commit with the default branch upstream, returning a list of files
-# changed. We only care about additions (A) and modifications (M).
-changed, added = cd(BUILD_DIR) do
-    (filter_diff("M"), filter_diff("A"))
-end
-
-if isempty(changed) && isempty(added) && get(ENV, "TRAVIS_EVENT_TYPE", "unknown") == "pull_request"
-    warn("No changes between the PR and the base branch have been detected, which is " *
-         "probably wrong.")
-else
-    info("Files modified in this PR:\n$(join(changed, '\n'))")
-    info("Files added in this PR:\n$(join(added, '\n'))")
-    for file in changed
-        if endswith(file, "sha1")
-            # policy 8, do not modify existing published tag sha1's
-            error(string("Do not modify existing published tag sha1 files (policy 8).\n",
-                         "Ask for an exception if absolutely necessary, but tag commits\n",
-                         "should be immutable once published for reproducibility."))
-        end
-    end
-end
+# NOTE: As currently written, these checks almost never correctly identify modified
+# files, which can cause spurious CI failures. Policy 8 is easy enough to verify
+# manually, plus it isn't possible for Attobot to violate it. These checks can be
+# revisited should someone come up with reliable way of doing it.
+#
+#function filter_diff(filt, commit1="origin/HEAD", commit2=HEAD)
+#    split(readchomp(`git diff --name-only --diff-filter=$filt $commit1 $commit2`), '\n')
+#end
+#
+## Compare the current commit with the default branch upstream, returning a list of files
+## changed. We only care about additions (A) and modifications (M).
+#changed, added = cd(BUILD_DIR) do
+#    (filter_diff("M"), filter_diff("A"))
+#end
+#
+#if isempty(changed) && isempty(added) && get(ENV, "TRAVIS_EVENT_TYPE", "unknown") == "pull_request"
+#    warn("No changes between the PR and the base branch have been detected, which is " *
+#         "probably wrong.")
+#else
+#    info("Files modified in this PR:\n$(join(changed, '\n'))")
+#    info("Files added in this PR:\n$(join(added, '\n'))")
+#    for file in changed
+#        if endswith(file, "sha1")
+#            # policy 8, do not modify existing published tag sha1's
+#            error(string("Do not modify existing published tag sha1 files (policy 8).\n",
+#                         "Ask for an exception if absolutely necessary, but tag commits\n",
+#                         "should be immutable once published for reproducibility."))
+#        end
+#    end
+#end
 
 const RGX = r"^[^/]+/versions/([\d.]+)"
 
