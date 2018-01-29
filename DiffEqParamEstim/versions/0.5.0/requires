@@ -1,6 +1,6 @@
 julia 0.6-pre
 LsqFit 0.0.2
-DiffEqBase 1.7.0
+DiffEqBase 1.7.0 3.0.0
 LossFunctions 0.0.2
 RecursiveArrayTools 0.0.2
 ForwardDiff

@@ -1,5 +1,5 @@
 julia 0.6
 MathProgBase
-DiffEqBase
-OrdinaryDiffEq
+DiffEqBase 0.0.1 3.0.0
+OrdinaryDiffEq 0.0.1 3.0.0
 Ipopt

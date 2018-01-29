@@ -1,4 +1,9 @@
+# The full path where the repository is cloned and where the job is run
 const BUILD_DIR = ENV["BUILD_DIR"]
+
+# Avoid using the merge commit when checking for changes as sometimes this can result
+# in extra changes being found during the diff.
+const DIFF_HEAD = get(ENV, "TRAVIS_PULL_REQUEST_SHA", "HEAD")
 
 function get_remote_tags(url)
     ls = try
@@ -63,29 +68,39 @@ function get_local_tags(dir)
     return localtags
 end
 
-# Get files modified in the PR as a diff against origin
-# Note: origin/HEAD is equivalent to origin/metadata-v2 in the JuliaLang/METADATA.jl repo
-diff_list(x) = split(readchomp(`git -C $BUILD_DIR diff --name-only
-    --diff-filter=$x origin/HEAD HEAD`), "\n")
+function filter_diff(filt, commit1="origin/HEAD", commit2=DIFF_HEAD)
+    # Determine what files have changed between `commit2` and the common ancestor of
+    # `commit1` and `commit2`. The common ancestor is used avoid returning extra files
+    # when `commit1` is ahead of `commit2`.
+    # See: https://git-scm.com/docs/git-diff#git-diff-emgitdiffem--optionsltcommitgtltcommitgt--ltpathgt82308203
+    split(readchomp(`git diff --name-only --diff-filter=$filt $commit1...$commit2`), '\n')
+end
 
-changed = diff_list("CDMRTUXB")
-info("Files changes in this PR: $changed")
-for file in changed
-    if endswith(file, "sha1")
-        # policy 8, do not modify existing published tag sha1's
-        error(string("Do not modify existing published tag sha1 files (policy 8).\n",
-                     "Ask for an exception if absolutely necessary, but tag commits\n",
-                     "should be immutable once published for reproducibility."))
+# Compare the current commit with the default branch upstream, returning a list of files
+# changed. We only care about additions (A) and modifications (M).
+changed, added = cd(BUILD_DIR) do
+    (filter_diff("M"), filter_diff("A"))
+end
+
+if isempty(changed) && isempty(added) && get(ENV, "TRAVIS_EVENT_TYPE", "unknown") == "pull_request"
+    warn("No changes between the PR and the base branch have been detected, which is " *
+         "probably wrong.")
+else
+    info("Files modified in this PR:\n$(join(changed, '\n'))")
+    info("Files added in this PR:\n$(join(added, '\n'))")
+    for file in changed
+        if endswith(file, "sha1")
+            # policy 8, do not modify existing published tag sha1's
+            error(string("Do not modify existing published tag sha1 files (policy 8).\n",
+                         "Ask for an exception if absolutely necessary, but tag commits\n",
+                         "should be immutable once published for reproducibility."))
+        end
     end
 end
 
-# Get files added in the PR as a diff against origin
-# (only check tags match for newly-added files)
-added = diff_list("A")
-
 const RGX = r"^[^/]+/versions/([\d.]+)"
 
-# Get the associated package and version for each affected file
+# Get the associated package and version for each added file
 modified = Dict{AbstractString,Vector{VersionNumber}}() # package => [versions...]
 for file in added
     pkg = split(file, "/")[1]

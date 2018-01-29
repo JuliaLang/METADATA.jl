@@ -3,7 +3,7 @@ MacroTools
 YAML 0.2.1
 DataStructures
 AxisArrays
-NLsolve
+NLsolve 0.1 0.14
 Optim
 Requests
 QuantEcon 0.10.1

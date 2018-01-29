@@ -5,3 +5,4 @@ DataStructures 0.4.6
 RecursiveArrayTools 0.2.0
 Combinatorics
 Compat 0.17.0
+DiffEqDiffTools 0.0.1 0.3.0
