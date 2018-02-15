@@ -1,3 +1,9 @@
+@static if VERSION < v"0.7.0-DEV.3656"
+    const Pkg = Base.Pkg
+else
+    import Pkg
+end
+
 cd(Pkg.dir()) # Required by some Pkg functions
 
 const url_reg = r"^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
