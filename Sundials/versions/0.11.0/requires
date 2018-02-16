@@ -1,4 +1,4 @@
 julia 0.5
 BinDeps 0.4.3
 Compat 0.9.0
-DiffEqBase 1.0.0 3.0.0
+DiffEqBase 1.0.0

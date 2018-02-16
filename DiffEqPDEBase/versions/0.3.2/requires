@@ -2,5 +2,5 @@ julia 0.5
 RecipesBase
 VectorizedRoutines
 ChunkedArrays
-DiffEqBase 1.0.0 3.0.0
+DiffEqBase 1.0.0
 Compat 0.17.0

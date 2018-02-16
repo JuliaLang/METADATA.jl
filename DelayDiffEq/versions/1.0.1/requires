@@ -8,4 +8,4 @@ MuladdMacro
 ForwardDiff
 NLsolve 0.1 0.14
 Roots
-DiffEqDiffTools 0.0.1 0.3.0
+DiffEqDiffTools 0.0.1

@@ -4,7 +4,7 @@ DiffEqBase 0.8.0 0.15.0
 StochasticDiffEq 1.0.0
 FiniteElementDiffEq 0.0.5
 DiffEqDevTools 0.2.0
-OrdinaryDiffEq 1.2.0 3.0.0
+OrdinaryDiffEq 1.2.0
 AlgebraicDiffEq 0.0.2
 StokesDiffEq 0.0.2
 DiffEqParamEstim 0.0.2
