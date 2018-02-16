@@ -5,5 +5,5 @@ IterativeSolvers
 PyPlot
 Atom
 NLsolve 0.1 0.14
-DiffEqBase 0.0.1 3.0.0
-OrdinaryDiffEq 0.0.1 3.0.0
+DiffEqBase 0.0.1
+OrdinaryDiffEq 0.0.1

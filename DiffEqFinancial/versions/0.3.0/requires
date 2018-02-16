@@ -1,4 +1,4 @@
 julia 0.6
-DiffEqBase 1.14.0 3.0.0
+DiffEqBase 1.14.0
 DiffEqNoiseProcess 0.3.1
 RandomNumbers

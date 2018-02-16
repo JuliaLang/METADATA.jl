@@ -30,4 +30,4 @@ JuMP 0.15
 MathProgBase 0.5.10
 Ipopt 0.2.6
 Colors
-OrdinaryDiffEq 0.0.1 3.0.0
+OrdinaryDiffEq 0.0.1

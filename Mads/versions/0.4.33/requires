@@ -25,7 +25,7 @@ ProgressMeter
 Distributions
 DataStructures
 DataFrames
-OrdinaryDiffEq 0.0.1 3.0.0
+OrdinaryDiffEq 0.0.1
 NMF
 BlackBoxOptim
 Klara 0.8.6

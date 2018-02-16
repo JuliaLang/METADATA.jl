@@ -1,7 +1,7 @@
 julia 0.6
-DiffEqBase 0.15.0 3.0.0
+DiffEqBase 0.15.0
 Compat 0.17.0
 ForwardDiff
-DiffEqDiffTools 0.0.1 0.3.0
+DiffEqDiffTools 0.0.1
 DiffEqCallbacks
 QuadGK
