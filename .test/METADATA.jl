@@ -1,3 +1,9 @@
+@static if VERSION < v"0.7.0-DEV.3656"
+    const Pkg = Base.Pkg
+else
+    import Pkg
+end
+
 cd(Pkg.dir()) # Required by some Pkg functions
 
 const url_reg = r"^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
@@ -153,7 +159,9 @@ for (pkg, versions) in Pkg.Read.available()
                     same_minor(x::VersionNumber) = (majmin(x) == majmin(ver) &&
                         juliaver_in_require(pkg, x; check=false) < juliaver)
                     ind_same_minor = findfirst(same_minor, sortedversions)
-                    ind_same_minor == 0 && continue
+                    if ind_same_minor == (VERSION < v"0.7.0-DEV.3399" ? 0 : nothing)
+                        continue
+                    end
                     first_same_minor = sortedversions[ind_same_minor]
                     juliaver_prev = juliaver_in_require(pkg, first_same_minor; check=false)
                     if majmin(juliaver) > majmin(juliaver_prev)
