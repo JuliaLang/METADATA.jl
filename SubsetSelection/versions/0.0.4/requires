@@ -1,4 +1,4 @@
 julia 0.5 0.7-
 Compat 0.17
 ProgressMeter 0.4
-LIBLINEAR 0.3.0
+LIBLINEAR 0.2.1
