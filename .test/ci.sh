@@ -15,7 +15,7 @@ git checkout -b localbranch
 
 mkdir -p $CI_TMP_DIR
 cd $CI_TMP_DIR
-for ver in 0.5 0.6 nightly; do
+for ver in 0.6 nightly; do
   if [ $ver = "nightly" ]; then
     url="https://julialangnightlies-s3.julialang.org/bin/linux/x64/julia-latest-linux64.tar.gz"
     ver=0.7
@@ -30,6 +30,6 @@ for ver in 0.5 0.6 nightly; do
     touch success-$ver
 done
 wait
-if ! [ -e success-0.5 -a -e success-0.6 ]; then # nightly allowed to fail
+if ! [ -e success-0.6 ]; then # nightly allowed to fail
   exit 1
 fi
