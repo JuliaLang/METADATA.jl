@@ -25,9 +25,9 @@ function get_remote_tags(url)
 
     n = length(lines)
 
-    tags = Vector{VersionNumber}(n)
-    shas = Vector{AbstractString}(n)
-    peel = Vector{Bool}(n)
+    tags = fill(VersionNumber(0), n)
+    shas = fill("", n)
+    peel = fill(false, n)
 
     for (i, line) in enumerate(lines)
         sha, tag = split(line, "\trefs/tags/")
@@ -86,8 +86,8 @@ if isempty(changed) && isempty(added) && get(ENV, "TRAVIS_EVENT_TYPE", "unknown"
     warn("No changes between the PR and the base branch have been detected, which is " *
          "probably wrong.")
 else
-    info("Files modified in this PR:\n$(join(changed, '\n'))")
-    info("Files added in this PR:\n$(join(added, '\n'))")
+    println("INFO: Files modified in this PR:\n$(join(changed, '\n'))")
+    println("INFO: Files added in this PR:\n$(join(added, '\n'))")
     for file in changed
         if endswith(file, "sha1")
             # policy 8, do not modify existing published tag sha1's
