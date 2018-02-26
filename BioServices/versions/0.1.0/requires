@@ -1,0 +1,6 @@
+julia 0.6
+EzXML 0.5
+JSON
+Requests
+Gumbo 0.4.0 
+HttpCommon 0.3.0

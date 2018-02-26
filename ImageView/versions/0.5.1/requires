@@ -1,0 +1,15 @@
+julia 0.5
+Images 0.6.0
+GtkReactive 0.2
+FixedPointNumbers 0.3
+Colors
+ColorVectorSpace
+Gtk 0.11
+Cairo
+Graphics 0.2
+FileIO
+MappedArrays
+AxisArrays
+StatsBase
+RoundingIntegers
+Compat 0.18

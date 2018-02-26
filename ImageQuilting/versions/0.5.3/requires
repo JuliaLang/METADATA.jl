@@ -1,0 +1,10 @@
+julia 0.6
+Combinatorics
+StatsBase
+Primes
+ImageFiltering
+ImageMorphology
+LightGraphs 0.6.1
+RecipesBase
+ProgressMeter
+Hwloc

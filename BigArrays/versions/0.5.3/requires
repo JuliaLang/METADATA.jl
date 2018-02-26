@@ -1,0 +1,8 @@
+julia 0.5
+JSON
+HDF5
+Memoize
+#ImageMagick
+Blosc
+Libz
+EMIRT

@@ -1,0 +1,7 @@
+julia 0.5
+ArgParse
+YAML
+FilePaths 0.2.0
+Mocking
+Compat 0.17.0
+Memento

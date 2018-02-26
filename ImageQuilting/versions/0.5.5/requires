@@ -1,0 +1,12 @@
+julia 0.6
+GeoStatsBase
+GeoStatsDevTools
+Combinatorics
+StatsBase
+Primes
+ImageFiltering
+ImageMorphology
+LightGraphs 0.6.1
+RecipesBase
+ProgressMeter
+Hwloc

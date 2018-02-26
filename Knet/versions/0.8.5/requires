@@ -1,0 +1,10 @@
+julia 0.4
+AutoGrad 0.0.9
+
+# We need these for some examples. They get automatically installed when needed.
+# ArgParse
+# JLD
+# GZip    # for mnist
+# Images  # for vgg
+# MAT     # for vgg
+# Compat  # for mnist,vgg,charlm

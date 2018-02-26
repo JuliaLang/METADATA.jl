@@ -1,0 +1,11 @@
+julia 0.5
+SymmetricTensors
+NullableArrays
+Iterators
+Combinatorics
+Distributions
+FactCheck
+NPZ
+PyPlot
+PyCall
+ArgParse

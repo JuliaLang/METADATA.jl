@@ -1,4 +1,4 @@
-julia 0.6-
+julia 0.6.0-pre
 Compat 0.8.6
 StatsBase 0.14.0
 Reexport

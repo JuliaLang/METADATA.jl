@@ -1,0 +1,4 @@
+julia 0.6
+BioSequences
+GeneticVariation 0.3.1
+PairwiseListMatrices

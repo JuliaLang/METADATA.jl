@@ -1,0 +1,8 @@
+julia 0.6
+PyCall 1.7.2
+PyPlot 2.2.4
+Lazy 0.11.4
+Compat 0.17
+TableTraits 0.0.1
+TableTraitsUtils 0.0.1
+DataValues 0.0.1
