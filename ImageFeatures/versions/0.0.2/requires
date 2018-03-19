@@ -1,0 +1,6 @@
+julia 0.6
+ColorTypes
+Images 0.6
+Distributions 0.12
+FixedPointNumbers 0.3
+Compat 0.17
