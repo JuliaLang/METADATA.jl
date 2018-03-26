@@ -1,0 +1,6 @@
+julia 0.6 0.7-
+PyCall
+JuLIP 0.4.0
+NeighbourLists
+Reexport
+Parameters
