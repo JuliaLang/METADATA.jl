@@ -1,10 +1,16 @@
+@static if VERSION < v"0.7.0-DEV.3656"
+    const Pkg = Base.Pkg
+else
+    import Pkg
+end
+
 cd(Pkg.dir()) # Required by some Pkg functions
 
 const url_reg = r"^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
 const gh_path_reg_git=r"^/(.*)?/(.*)?.git$"
 
 const releasejuliaver = v"0.6" # Current release version of Julia
-const minjuliaver = v"0.5.0" # Oldest Julia version allowed to be registered
+const minjuliaver = v"0.6.0" # Oldest Julia version allowed to be registered
 const minpkgver = v"0.0.1"   # Oldest package version allowed to be registered
 
 print_list_3582 = false # set this to true to generate the list of grandfathered
@@ -63,7 +69,7 @@ function juliaver_in_require(pkg, version; check=true)
                         error("$requires_file: oldest allowed julia version not specified (>= $minjuliaver needed)")
                     end
                 else
-                    juliaver = max(juliaver, convert(VersionNumber, tokens[2]))
+                    juliaver = max(juliaver, VersionNumber(tokens[2]))
                     hasjuliaver = true
                 end
                 if check && juliaver < minjuliaver
@@ -153,7 +159,9 @@ for (pkg, versions) in Pkg.Read.available()
                     same_minor(x::VersionNumber) = (majmin(x) == majmin(ver) &&
                         juliaver_in_require(pkg, x; check=false) < juliaver)
                     ind_same_minor = findfirst(same_minor, sortedversions)
-                    ind_same_minor == 0 && continue
+                    if ind_same_minor == (VERSION < v"0.7.0-DEV.3399" ? 0 : nothing)
+                        continue
+                    end
                     first_same_minor = sortedversions[ind_same_minor]
                     juliaver_prev = juliaver_in_require(pkg, first_same_minor; check=false)
                     if majmin(juliaver) > majmin(juliaver_prev)
@@ -196,7 +204,7 @@ maxver_list_3582 = Dict([ # List of grandfathered packages""")
     end
 end
 
-info("Checking that all entries in METADATA are recognized packages...")
+println("INFO: Checking that all entries in METADATA are recognized packages...")
 
 # Scan all entries in METADATA for possibly unrecognized packages
 const pkgs = [pkg for (pkg, versions) in Pkg.Read.available()]
@@ -212,7 +220,7 @@ for pkg in readdir("METADATA")
 
     for verdir in readdir(verinfodir)
         version = try
-            convert(VersionNumber, verdir)
+            VersionNumber(verdir)
         catch ArgumentError
             error("Invalid version number $verdir found in $verinfodir")
         end
@@ -233,11 +241,11 @@ for pkg in readdir("METADATA")
 end
 
 if get(ENV, "PULL_REQUEST", "false") != "false"
-    info("Checking repository tags...")
+    println("INFO: Checking repository tags...")
     include("check-pr.jl")
 end
 
-info("Verifying METADATA...")
+println("INFO: Verifying METADATA...")
 if isdefined(Pkg.Entry, :check_metadata)
     Pkg.Entry.check_metadata()
 else

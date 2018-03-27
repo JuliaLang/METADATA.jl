@@ -1,0 +1,4 @@
+julia 0.6
+URIParser
+Compat 0.44.0
+Nullables

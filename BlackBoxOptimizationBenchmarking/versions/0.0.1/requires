@@ -2,4 +2,4 @@ julia 0.6
 Compat
 Memoize
 Distributions
-Optim
+Optim 0.11.0 0.12.0

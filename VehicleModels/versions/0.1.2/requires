@@ -3,6 +3,6 @@ NLOptControl
 Parameters
 JuMP
 Interpolations
-OrdinaryDiffEq
-DiffEqBase
+OrdinaryDiffEq 0.0.1
+DiffEqBase 0.0.1
 Ranges

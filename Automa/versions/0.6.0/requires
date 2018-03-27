@@ -1,0 +1,4 @@
+julia 0.6
+Compat 0.55
+DataStructures 0.5.1
+TranscodingStreams 0.5

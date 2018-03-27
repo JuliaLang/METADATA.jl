@@ -21,7 +21,7 @@ HDF5
 JSON
 MeshIO
 FileIO
-NLsolve
+NLsolve 0.1 0.14
 PyLCM
 PyCall
 DataStructures

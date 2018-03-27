@@ -5,7 +5,7 @@ ForwardDiff 0.2.4 0.5.0
 GenericSVD 0.0.2
 Compat 0.8.8
 InplaceOps 0.0.5
-NLsolve 0.7.3
+NLsolve 0.7.3 0.14
 Ranges 0.0.1
 RecipesBase 0.1.0
 RecursiveArrayTools 0.0.2 0.13.0

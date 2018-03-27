@@ -6,13 +6,16 @@ BUILD_DIR=$PWD
 [ -z "$JULIA_PKGDIR" ] && JULIA_PKGDIR=$HOME/.julia
 export BUILD_DIR JULIA_PKGDIR
 
+# Ensure that "origin/HEAD" is present (typically set to "origin/metadata-v2")
+git fetch origin +:refs/remotes/origin/HEAD
+
 # Need to be on a local or remote branch for check_metadata
 git checkout -q --detach HEAD && git branch -D localbranch 2>/dev/null || true
 git checkout -b localbranch
 
 mkdir -p $CI_TMP_DIR
 cd $CI_TMP_DIR
-for ver in 0.4 0.5 0.6 nightly; do
+for ver in 0.6 nightly; do
   if [ $ver = "nightly" ]; then
     url="https://julialangnightlies-s3.julialang.org/bin/linux/x64/julia-latest-linux64.tar.gz"
     ver=0.7
@@ -24,9 +27,9 @@ for ver in 0.4 0.5 0.6 nightly; do
   curl -A "$CI_NAME for METADATA tests $(curl --version | head -n 1)" -L --retry 5 $url | \
     tar -C julia-$ver --strip-components=1 -xzf - && \
     julia-$ver/bin/julia -e 'versioninfo(); include("$(ENV["BUILD_DIR"])/.test/METADATA.jl")' && \
-    touch success-$ver &
+    touch success-$ver
 done
 wait
-if ! [ -e success-0.4 -a -e success-0.5 -a -e success-0.6 ]; then # nightly allowed to fail
+if ! [ -e success-0.6 ]; then # nightly allowed to fail
   exit 1
 fi

@@ -1,6 +1,6 @@
 julia 0.6
 TableTraits 0.0.3
-ReadStat 0.2.0
+ReadStat 0.2.0 0.3.0
 IterableTables 0.5.0
 DataValues 0.3.0
 FileIO 0.4.0

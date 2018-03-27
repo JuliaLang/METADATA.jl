@@ -1,7 +1,6 @@
 julia 0.4
-DataFrames 0.0.0 0.11.0
+DataFrames 0.0.0 0.11.0 0.11.4
 Reexport
 Compat
 RData
 FileIO
-DataArrays 0.0.0 0.7.0
