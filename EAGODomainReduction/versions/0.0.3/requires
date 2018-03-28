@@ -1,0 +1,6 @@
+julia 0.6
+MathProgBase 0.6.0
+EAGOSmoothMcCormickGrad 0.0.1
+IntervalArithmetic 0.9.1
+IntervalContractors 0.1.0
+Clp 0.3.1
