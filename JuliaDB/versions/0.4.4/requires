@@ -5,8 +5,8 @@ TextParse 0.3.0
 MemPool
 Dagger 0.5.1
 Glob 1.1.1
-OnlineStats 0.13.0
+OnlineStats 0.13.0 v0.17.0
 PooledArrays 0.0.2
-OnlineStats v0.13.0
+OnlineStats v0.13.0 v0.17.0
 StatsBase
 DataValues
