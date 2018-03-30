@@ -1,0 +1,7 @@
+julia 0.6
+Colors
+Compat 0.52.0
+DataStructures
+IterTools
+JSON
+Measures
