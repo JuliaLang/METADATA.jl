@@ -1,0 +1,4 @@
+julia 0.6
+Compat 0.59.0
+Polynomials
+IterTools
