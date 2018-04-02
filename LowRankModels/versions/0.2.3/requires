@@ -1,0 +1,10 @@
+julia 0.6
+DataFrames
+StatsBase
+Optim
+NMF
+Compat
+ScikitLearnBase
+DataArrays
+FactCheck
+Missings
