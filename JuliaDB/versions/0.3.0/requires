@@ -5,5 +5,5 @@ TextParse 0.3.0
 Dagger 0.4.0
 MemPool
 Glob 1.1.1
-PooledArrays 0.0.2
+PooledArrays 0.0.2 0.2.0
 DataValues
