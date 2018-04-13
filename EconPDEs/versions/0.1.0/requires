@@ -1,0 +1,8 @@
+julia 0.6-
+NamedTuples 2.1
+NLsolve 0.14
+Combinatorics
+Interpolations
+Distributions
+DataStructures
+BandedMatrices
