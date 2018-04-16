@@ -1,0 +1,9 @@
+julia 0.6
+Mustache
+EnglishText
+PkgDev
+DocOpt
+Documenter
+TestSetExtensions
+DataStructures
+Revise

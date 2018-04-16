@@ -14,10 +14,10 @@ asyncmap(readdir(Pkg.dir("METADATA"))) do pkg
             warn("Unexpected end of url for $pkg: $url")
         end
         if statuscode(req) == 404
-            info("$pkg Not Found")
+            println("INFO: $pkg Not Found")
             push!(tofix, (pkg, urlfile, url, req))
         elseif statuscode(req) == 301
-            info("$pkg relocated from $url to $(req.headers["Location"])")
+            println("INFO: $pkg relocated from $url to $(req.headers["Location"])")
             push!(tofix, (pkg, urlfile, url, req))
         elseif statuscode(req) != 200
             warn("$pkg unexpected status: $req")
@@ -27,7 +27,7 @@ asyncmap(readdir(Pkg.dir("METADATA"))) do pkg
     end
 end
 if fix
-    info("Fixing redirects")
+    println("INFO: Fixing redirects")
     for (pkg, urlfile, url, req) in tofix
         uri = URI(url)
         if uri.host != "github.com"
@@ -54,7 +54,7 @@ if fix
             newreq = get(replace(replace(newurl, "git://", "https://"),
                 ".jl.git", ".jl"); allow_redirects = false)
             if statuscode(newreq) == 200
-                info("Replacing $url with $newurl")
+                println("INFO: Replacing $url with $newurl")
                 open(urlfile, "w") do f
                     println(f, newurl)
                 end

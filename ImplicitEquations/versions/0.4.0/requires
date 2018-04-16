@@ -1,0 +1,5 @@
+julia 0.6
+ForwardDiff 0.3.0
+ValidatedNumerics 0.5.0
+RecipesBase 0.0.6
+Compat 0.8.6

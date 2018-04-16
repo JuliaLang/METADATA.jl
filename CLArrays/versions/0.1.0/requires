@@ -1,0 +1,14 @@
+julia 0.6
+
+GPUArrays 0.2.0
+
+StaticArrays
+ColorTypes
+
+Transpiler 0.4.1
+Sugar 0.4.1
+Matcha 0.1.1
+
+OpenCL 0.6.1 #proper packed pointer free
+CLBLAS 1.1.0
+CLFFT 0.4.0 # 0.5.0

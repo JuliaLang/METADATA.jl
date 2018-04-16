@@ -19,7 +19,7 @@ JLD
 ProgressMeter
 Distributions
 DataStructures
-DataFrames
+DataFrames 0.0.0 0.11.0
 StatsBase
 ODE
 Klara 0.7
@@ -30,3 +30,4 @@ JuMP 0.15
 MathProgBase 0.5.10
 Ipopt 0.2.6
 Colors
+OrdinaryDiffEq 0.0.1

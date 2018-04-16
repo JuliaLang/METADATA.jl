@@ -2,3 +2,4 @@ julia 0.4
 Compat
 Calculus
 NaNMath
+DiffBase 0.0- 0.3
