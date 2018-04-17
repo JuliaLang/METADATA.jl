@@ -1,0 +1,4 @@
+julia 0.5
+JSON
+URIParser
+Compat 0.9.5
