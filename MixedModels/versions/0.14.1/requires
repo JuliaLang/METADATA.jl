@@ -11,4 +11,4 @@ Showoff
 StaticArrays 0.6
 StatsBase 0.19
 StatsFuns 0.5
-StatsModels 0.1
+StatsModels 0.1 0.2.4
