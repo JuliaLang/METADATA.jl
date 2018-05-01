@@ -1,0 +1,3 @@
+julia v0.0.7-
+DataFrames v0.11.6
+TimeSeries v0.11.1
