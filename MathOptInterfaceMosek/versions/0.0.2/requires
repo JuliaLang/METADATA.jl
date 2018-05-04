@@ -1,3 +1,0 @@
-julia 0.6
-MathOptInterface 0.2 0.3
-Mosek 0.8.3
