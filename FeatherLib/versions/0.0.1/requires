@@ -1,0 +1,5 @@
+julia 0.6
+Arrow
+FlatBuffers 0.3.0
+CategoricalArrays 0.3.0
+Compat 0.63.0
