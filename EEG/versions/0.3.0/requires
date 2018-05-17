@@ -1,0 +1,16 @@
+julia 0.6 0.7-
+
+AWS
+DSP
+BDF
+DataFrames
+SIUnits
+ProgressMeter
+Distributions
+Distances
+Logging
+Synchrony
+FileFind
+Images
+MAT
+Plots
