@@ -1,0 +1,7 @@
+julia 0.6
+LearnBase
+MLDataPattern
+MLLabelUtils
+LightGraphs
+SimpleWeightedGraphs
+Distances
