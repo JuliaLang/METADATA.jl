@@ -1521,5 +1521,5 @@ maxver_list_3582 = Dict([ # List of grandfathered packages
     ("ZipFile", v"0.5.0"),
     ("Zlib", v"0.1.12"),
     ("kNN", v"0.0.0"),
-    ("mPulseAPI", v"1.0.6"),
+    ("mPulseAPI", v"1.0.7"),
     ])
