@@ -1,0 +1,6 @@
+julia 0.6
+LaTeX_Entities
+HTML_Entities
+Unicode_Entities
+Emoji_Entities
+StrLiterals
