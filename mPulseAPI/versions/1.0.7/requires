@@ -1,0 +1,9 @@
+julia 0.4
+Requests 0.3.9
+LightXML
+HttpCommon
+HttpParser 0.2.0
+JSON
+DataFrames 0.7.3
+DataArrays
+Formatting
