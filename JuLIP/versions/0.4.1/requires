@@ -1,0 +1,13 @@
+julia 0.6 0.7-
+StaticArrays
+Optim 0.14
+Calculus 0.2 0.3-
+AMG
+JSON
+Reexport
+FunctionWrappers
+Dierckx 0.3 0.4-
+ForwardDiff 0.4
+Parameters
+NeighbourLists 0.2
+MacroTools
