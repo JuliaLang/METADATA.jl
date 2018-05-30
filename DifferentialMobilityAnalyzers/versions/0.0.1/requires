@@ -1,0 +1,12 @@
+julia 0.6
+Plots
+Rsvg
+Calculus
+DataFrames
+ProgressMeter
+Distributions
+LambertW
+Interpolations
+LsqFit
+SpecialFunctions
+IJulia
