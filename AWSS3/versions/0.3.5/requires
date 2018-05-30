@@ -1,0 +1,9 @@
+julia 0.6
+AWSCore 0.3.4
+HTTP
+SymDict
+Retry
+XMLDict
+LightXML
+MbedTLS
+DataStructures

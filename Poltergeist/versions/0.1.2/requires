@@ -1,0 +1,7 @@
+julia 0.6
+ApproxFun 0.7
+BandedMatrices 0.2
+Compat 0.31.0
+DualNumbers 0.3.0
+StaticArrays 0.3
+IntervalSets 0.0.2

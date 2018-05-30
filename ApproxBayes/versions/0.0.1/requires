@@ -1,0 +1,10 @@
+julia 0.6
+Distributions
+ProgressMeter
+Compat
+StatsBase
+DataFrames
+Colors
+Plots
+#PyPlot
+Distances

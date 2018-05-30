@@ -1,5 +1,5 @@
 julia 0.6
-ApproxFun 0.7.1
+ApproxFun 0.7.1 0.8
 BandedMatrices 0.3 0.4
 Compat 0.18
 DualNumbers 0.2.3

@@ -1,0 +1,13 @@
+julia 0.6
+BinaryProvider 0.2.0
+ObjectFile
+Compat 0.55.0
+Reexport
+TerminalMenus
+MbedTLS
+GitHub
+PkgDev
+JSON
+HTTP 0.6.0
+ProgressMeter
+Nullables

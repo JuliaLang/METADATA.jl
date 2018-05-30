@@ -1,9 +1,12 @@
 language: generic
-sudo: false # use a docker worker for hopefully faster queue times
+sudo: false
 notifications:
-    email: false
+  email: false
+  slack:
+    secure: nl9G13v6n9gXKkeyjDlJ5aDrs2KOAvLkzKUtvYEgFURImXkz4gyfY+l52UUbJhQOduPkxuJVdCBTNjT5mMMm1HmLlFA59IcNGpfDCUOOtuhEBgLq2rjYlBC70Hr2+dY4c3ncHgOXSSyKiRto8QvbKMs3+Lh4Hh8PiDYCACSFAvI=
+  on_success: change
 env:
-    - CI_NAME="Travis CI" PULL_REQUEST="$TRAVIS_PULL_REQUEST"
+- CI_NAME="Travis CI" PULL_REQUEST="$TRAVIS_PULL_REQUEST"
 script:
-    - sh .test/travis.sh
-    - sh .test/ci.sh
+- sh .test/travis.sh
+- sh .test/ci.sh

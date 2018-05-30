@@ -1,0 +1,4 @@
+julia 0.6
+ImageMorphology 0.0.2
+ImageFiltering 0.2.3
+Hwloc 0.6.2
