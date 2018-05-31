@@ -1,0 +1,12 @@
+julia 0.6
+Plots
+PlotlyJS
+Calculus
+DataFrames
+ProgressMeter
+Distributions
+LambertW
+Interpolations
+LsqFit
+SpecialFunctions
+IJulia
