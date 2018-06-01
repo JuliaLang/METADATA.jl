@@ -12,6 +12,6 @@ Optim 0.14
 QuantEcon
 Plots
 Roots
-StateSpaceRoutines
+StateSpaceRoutines 0.0.1 0.1.0
 StatPlots
 StatsBase
