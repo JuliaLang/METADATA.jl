@@ -1,0 +1,13 @@
+julia 0.7-
+Compat 0.17
+Documenter
+Interpolations
+OffsetArrays
+QuadGK
+SuiteSparse
+SparseArrays
+LinearAlgebra
+DataFrames
+Printf
+Plots
+GR
