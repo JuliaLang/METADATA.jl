@@ -4,10 +4,6 @@ Documenter
 Interpolations
 OffsetArrays
 QuadGK
-SuiteSparse
-SparseArrays
-LinearAlgebra
 DataFrames
-Printf
 Plots
 GR
