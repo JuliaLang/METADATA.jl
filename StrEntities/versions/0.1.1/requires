@@ -1,0 +1,13 @@
+julia 0.6
+ModuleInterfaceTools 0.1.2
+StrTables 0.2.4
+LaTeX_Entities 0.2.4
+HTML_Entities 0.2.4
+Unicode_Entities 0.2.4
+Emoji_Entities 0.2.4
+StrAPI 0.1.2
+CharSetEncodings 0.1.2
+ChrBase 0.1.2
+MurmurHash3 0.1.2
+StrBase 0.1.2
+StrLiterals 0.1.1
