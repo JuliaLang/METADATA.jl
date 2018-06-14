@@ -1,0 +1,4 @@
+julia 0.6
+Distributions 0.15.0
+ConjugatePriors 0.2.2
+Suppressor 0.0.5
