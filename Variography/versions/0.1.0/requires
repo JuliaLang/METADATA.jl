@@ -1,6 +1,6 @@
 julia 0.6
 GeoStatsBase 0.0.5
-Optim 0.14.1
+Optim 0.14.1 0.15.0
 Distances 0.5.0
 SpecialFunctions 0.3.8
 StaticArrays 0.7.0
