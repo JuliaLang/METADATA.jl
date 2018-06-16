@@ -1,0 +1,10 @@
+julia 0.7
+Compat 0.68.0
+Documenter
+Interpolations
+OffsetArrays
+QuadGK
+DataFrames
+Plots
+GR
+CustomUnitRanges
