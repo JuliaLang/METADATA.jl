@@ -1,0 +1,10 @@
+julia 0.6
+HttpCommon 0.4.0
+HttpServer 0.3.1
+URIParser 0.3.1
+Mustache 0.3.2
+JSON 0.16.1
+Requests 0.5.1
+MbedTLS 0.5.11
+Libz 0.2.4
+Compat 0.54.0
