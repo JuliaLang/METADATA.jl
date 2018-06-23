@@ -1,0 +1,7 @@
+julia 0.6
+DiffEqBase 1.7.0
+Mamba
+Stan
+Distributions
+Turing
+MacroTools

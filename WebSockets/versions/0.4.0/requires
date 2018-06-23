@@ -1,0 +1,6 @@
+julia 0.5
+Compat 0.28.0
+HttpCommon
+HttpServer
+Codecs
+MbedTLS

@@ -1,4 +1,5 @@
 julia 0.3
-DataFrames
+DataFrames 0.0.0 0.11.0
 Reexport
 Compat
+DataArrays 0.0.0 0.7.0

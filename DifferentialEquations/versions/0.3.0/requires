@@ -1,4 +1,4 @@
-julia 0.4
+julia 0.4 0.5
 Parameters
 ForwardDiff
 GrowableArrays
@@ -9,3 +9,5 @@ GenericSVD
 Compat
 Plots
 InplaceOps
+DiffEqBase 0.0.1
+OrdinaryDiffEq 0.0.1

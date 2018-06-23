@@ -1,0 +1,12 @@
+julia 0.5
+IncrementalInference 0.2.7
+Graphs 0.7.1
+TransformUtils 0.0.5
+KernelDensityEstimate 0.2.3
+Distributions
+Colors
+Gadfly
+JLD
+HDF5
+Optim
+ProgressMeter

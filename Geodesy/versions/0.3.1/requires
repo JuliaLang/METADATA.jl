@@ -1,0 +1,8 @@
+julia 0.5
+Compat 0.17.0
+CoordinateTransformations 0.3.0
+
+# Enforce that:
+# - Julia 0.6 only using StaticArrays 0.5.0 and up
+# - Julia 0.5 uses StaticArrays between 0.0.4 and 0.4.0-
+StaticArrays 0.0.4 0.4.0- 0.5.0

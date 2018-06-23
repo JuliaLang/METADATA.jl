@@ -1,0 +1,5 @@
+julia 0.5
+BinDeps
+Compat 0.17.0
+@windows WinRPM
+LegacyStrings 0.1.1

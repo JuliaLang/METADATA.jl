@@ -1,0 +1,11 @@
+julia 0.5
+Images 0.6.0
+Colors
+Tk
+Winston
+Graphics 0.1
+Cairo
+Graphics
+FileIO
+AxisArrays
+StatsBase

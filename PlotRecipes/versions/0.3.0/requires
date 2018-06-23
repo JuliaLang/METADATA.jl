@@ -1,0 +1,7 @@
+julia 0.6
+
+Reexport
+RecipesBase
+Plots 0.13
+StatPlots
+NetworkLayout

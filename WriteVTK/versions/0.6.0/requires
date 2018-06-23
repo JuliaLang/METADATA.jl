@@ -1,0 +1,5 @@
+julia 0.5
+LightXML 0.4.0
+Libz 0.2.1
+BufferedStreams 0.2.0
+Compat 0.17.0

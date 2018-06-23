@@ -6,3 +6,4 @@ Colors
 ColorBrewer
 Contour 0.0.0 0.2-
 ImageMagick
+DataFrames 0.0.0 0.11.0

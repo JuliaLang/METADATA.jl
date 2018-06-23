@@ -1,0 +1,12 @@
+julia 0.6
+
+StatsBase
+KernelDensity
+Loess
+IndexedTables 0.4.1
+IterableTables 0.5.1
+TableTraitsUtils 0.1.0
+TableTraits
+MacroTools
+Lazy
+ShiftedArrays 0.2.0

@@ -1,0 +1,7 @@
+julia 0.5
+Gtk
+Cairo
+Graphics
+Colors
+Images 0.6.0
+FixedPointNumbers 0.3.0

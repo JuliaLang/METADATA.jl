@@ -1,0 +1,4 @@
+julia 0.5
+DocStringExtensions 0.2
+Compat 0.17
+MathProgBase 0.6 0.7

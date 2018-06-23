@@ -1,0 +1,5 @@
+julia 0.6
+MacroTools
+TypedBools
+RecurUnroll
+MappedArrays

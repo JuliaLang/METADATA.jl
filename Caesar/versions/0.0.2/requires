@@ -1,0 +1,19 @@
+julia 0.5
+RoME
+IncrementalInference
+Graphs
+KernelDensityEstimate
+DrakeVisualizer
+TransformUtils
+CoordinateTransformations
+GeometryTypes
+Rotations
+Gadfly
+Colors
+ColorTypes
+JLD
+HDF5
+JSON
+MeshIO
+FileIO
+NLsolve 0.1 0.14

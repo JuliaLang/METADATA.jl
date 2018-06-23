@@ -1,0 +1,4 @@
+julia 0.6
+LightGraphs 0.12
+SimpleTraits 0.6
+MathProgBase 0.7

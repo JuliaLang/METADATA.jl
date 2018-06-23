@@ -1,0 +1,5 @@
+julia 0.6
+Combinatorics 0.2
+Distributions 0.8.10
+OrdinaryDiffEq 2.19.1
+GSL 0.3.1

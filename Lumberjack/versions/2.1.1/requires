@@ -1,0 +1,5 @@
+julia 0.4
+JSON
+Compat 0.17
+StackTraces 0.1
+Mocking

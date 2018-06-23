@@ -1,0 +1,9 @@
+julia 0.6
+FastGaussQuadrature
+JuMP
+DataFrames
+Ranges
+Ipopt
+KNITRO
+Interpolations
+MathProgBase

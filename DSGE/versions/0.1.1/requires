@@ -6,3 +6,4 @@ HDF5
 Optim 0.0 0.5
 QuantEcon
 Roots
+DataFrames 0.0.0 0.11.0

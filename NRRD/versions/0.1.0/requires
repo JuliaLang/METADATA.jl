@@ -1,7 +1,7 @@
 julia 0.4
-Images
+Images 0.0.0- 0.6.0
 SIUnits
 Compat 0.8.7
 Libz
-FixedPointNumbers
+FixedPointNumbers 0.0.0- 0.3.0
 FileIO

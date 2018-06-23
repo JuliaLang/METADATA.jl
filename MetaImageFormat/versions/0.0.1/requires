@@ -1,0 +1,7 @@
+julia 0.6
+FixedPointNumbers
+Colors
+ColorVectorSpace
+AxisArrays
+MappedArrays
+FileIO

@@ -1,0 +1,4 @@
+julia 0.6
+BinDeps 0.4.3
+DiffEqBase 1.5.1
+Reexport

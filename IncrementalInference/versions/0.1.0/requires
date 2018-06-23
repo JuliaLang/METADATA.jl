@@ -1,0 +1,11 @@
+julia 0.4
+Graphs
+GraphViz
+Gadfly
+Colors
+NLsolve 0.1 0.14
+Distributions
+KernelDensityEstimate
+TransformUtils
+#CloudGraphs
+#Neo4j

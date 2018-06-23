@@ -1,0 +1,4 @@
+julia 0.6
+WriteVTK
+Documenter
+Compat 0.63.0

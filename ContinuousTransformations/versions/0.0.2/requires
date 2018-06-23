@@ -1,0 +1,10 @@
+julia 0.6
+ArgCheck
+AutoHashEquals
+Distributions
+DocStringExtensions
+MacroTools
+Lazy
+Parameters
+StatsFuns
+Unrolled

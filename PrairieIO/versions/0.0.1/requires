@@ -1,0 +1,7 @@
+julia 0.6
+LightXML
+Images
+FileIO
+FixedPointNumbers
+Compat
+Unitful

@@ -1,0 +1,7 @@
+julia 0.6
+BinDeps 0.6.0
+DataStructures 0.6.1
+Distributions 0.14.2
+MathProgBase 0.6.4
+JuMP 0.18.0
+Clp 0.3.1

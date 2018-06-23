@@ -1,8 +1,8 @@
-julia 0.3-
+julia 0.3- 0.5
 Codecs
 Color
 Compose
-DataFrames
+DataFrames 0.0.0 0.11.0
 Datetime
 Distributions
 Hexagons
@@ -11,3 +11,4 @@ JSON
 Loess
 StatsBase
 Contour 0.0.0 0.2.0-
+DataArrays 0.0.0 0.7.0

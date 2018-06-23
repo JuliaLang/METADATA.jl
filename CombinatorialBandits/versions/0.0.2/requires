@@ -1,0 +1,4 @@
+julia 0.6
+Distributions 0.8
+JuMP 0.16
+DataStructures 0.7

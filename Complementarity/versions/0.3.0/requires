@@ -1,0 +1,4 @@
+julia 0.6
+JuMP 0.14.0
+PATHSolver 0.3.0
+NLsolve 1.0

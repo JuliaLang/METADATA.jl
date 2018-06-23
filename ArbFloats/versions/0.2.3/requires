@@ -1,0 +1,5 @@
+julia 0.6.0 0.7.0-DEV-
+BinDeps 0.4.5
+Compat 0.9.5
+Nemo 0.6.0
+ReadableNumbers 0.0.3

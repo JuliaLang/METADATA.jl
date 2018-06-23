@@ -1,0 +1,5 @@
+julia 0.4
+LibBSON 0.2.8
+BinDeps 0.4
+Compat 0.9
+@osx Homebrew

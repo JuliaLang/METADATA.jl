@@ -1,2 +1,2 @@
 julia 0.3
-DataArrays 0.2.16
+DataArrays 0.2.16 0.7.0

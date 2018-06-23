@@ -1,0 +1,4 @@
+julia 0.4
+Compat 0.23
+Mocking 0.2
+@windows LightXML

@@ -1,0 +1,4 @@
+julia 0.5
+BinDeps
+Compat 0.27.0
+JSON

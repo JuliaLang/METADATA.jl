@@ -1,6 +1,6 @@
 julia 0.3.2-
-DataArrays 0.2-
-DataFrames 0.5.8-
+DataArrays 0.2- 0.7.0
+DataFrames 0.5.8- 0.11.0
 Dates 0.3.2-
 Gumbo 0.1.0-
 TimeSeries 0.4.3-

@@ -1,0 +1,8 @@
+julia 0.6
+
+JSON 0.7.0
+MbedTLS 0.3.1
+Requests
+Libz
+MsgPack
+URIParser

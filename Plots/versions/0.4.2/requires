@@ -3,3 +3,4 @@ julia 0.3
 Colors
 Reexport
 Compat
+JSON 0.0 0.9

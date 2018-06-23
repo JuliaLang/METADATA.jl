@@ -1,0 +1,8 @@
+julia 0.5
+Compat
+Distributions
+Polynomials
+QuadGK
+ProgressMeter
+Klara
+ApproxFun
