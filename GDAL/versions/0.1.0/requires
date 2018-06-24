@@ -1,0 +1,5 @@
+julia 0.6.3
+BinaryProvider 0.3.0
+CodecZlib 0.4.3
+Proj4 0.3.0
+LibGEOS 0.3.0
