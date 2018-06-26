@@ -1,0 +1,2 @@
+julia 0.7.0-DEV.5190 # for cholesky function
+Arpack 0.1
