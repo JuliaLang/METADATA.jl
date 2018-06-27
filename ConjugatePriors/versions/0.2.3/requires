@@ -1,0 +1,4 @@
+julia 0.6
+PDMats 0.6.0
+Distributions 0.14.0
+StatsFuns 0.6.0
