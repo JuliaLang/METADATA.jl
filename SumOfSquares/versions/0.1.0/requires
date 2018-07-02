@@ -3,4 +3,4 @@ MultivariatePolynomials 0.1.1
 SemialgebraicSets 0.0.2
 MultivariateMoments 0.0.1 0.1.0
 JuMP
-PolyJuMP 0.1.0
+PolyJuMP 0.1.0 0.2
