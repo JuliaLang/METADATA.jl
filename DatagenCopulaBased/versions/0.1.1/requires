@@ -1,0 +1,8 @@
+julia 0.6
+HypothesisTests
+Distributions
+QuadGK
+Roots
+Combinatorics
+StatsBase
+Cubature
