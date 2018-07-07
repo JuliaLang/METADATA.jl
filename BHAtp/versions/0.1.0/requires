@@ -1,0 +1,5 @@
+julia 0.7-beta
+Compat 0.69
+Interpolations
+Reexport
+PtFEM
