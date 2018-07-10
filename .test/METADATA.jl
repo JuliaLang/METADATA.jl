@@ -1,7 +1,11 @@
 @static if VERSION < v"0.7.0-DEV.3656"
     const Pkg = Base.Pkg
-else
+elseif VERSION < v"0.7.0-DEV.5183"
     import Pkg
+else
+    import OldPkg
+    const Pkg = OldPkg
+    pushfirst!(LOAD_PATH, Pkg.dir())
 end
 
 cd(Pkg.dir()) # Required by some Pkg functions
