@@ -5,6 +5,7 @@ elseif VERSION < v"0.7.0-DEV.5183"
 else
     import OldPkg
     const Pkg = OldPkg
+    pushfirst!(LOAD_PATH, Pkg.dir())
 end
 
 cd(Pkg.dir()) # Required by some Pkg functions
