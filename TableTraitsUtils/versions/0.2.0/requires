@@ -1,0 +1,5 @@
+julia 0.7-
+DataValues 0.4.1
+TableTraits 0.3.0
+IteratorInterfaceExtensions 0.1.0
+Missings 0.2.10
