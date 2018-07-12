@@ -1,0 +1,5 @@
+julia 0.6
+
+JuMP v0.17
+Memento 0.8
+Compat 0.26.0
