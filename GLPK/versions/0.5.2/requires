@@ -1,4 +1,4 @@
-julia 0.6
+julia 1000
 BinDeps
 @osx Homebrew
 Compat 0.66
