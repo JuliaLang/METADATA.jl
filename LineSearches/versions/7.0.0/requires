@@ -1,0 +1,4 @@
+julia 0.7-beta2
+NLSolversBase 7.0
+Parameters
+NaNMath
