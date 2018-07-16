@@ -1,0 +1,3 @@
+julia 0.7-beta
+StatsBase 0.24.0
+Reexport 0.1.0
