@@ -1,0 +1,10 @@
+julia 0.6
+ArgCheck
+Compat
+DataStructures
+DocStringExtensions
+MacroTools
+Missings
+Parameters
+Requires
+Crayons
