@@ -1,0 +1,7 @@
+julia 0.7-beta2
+DiffEqBase
+Reexport
+NLsolve 0.14.0
+DiffEqDiffTools 0.2.0
+BandedMatrices 0.4
+ForwardDiff
