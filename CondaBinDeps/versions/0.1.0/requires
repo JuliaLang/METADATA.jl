@@ -1,0 +1,4 @@
+julia 0.6
+BinDeps
+Compat 0.55.0
+Conda
