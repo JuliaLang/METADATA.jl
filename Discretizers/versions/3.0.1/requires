@@ -1,0 +1,4 @@
+julia 0.7
+StatsBase 0.24.0
+DataStructures 0.10.0
+SpecialFunctions 0.6.0
