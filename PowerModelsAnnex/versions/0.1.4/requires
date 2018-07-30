@@ -1,0 +1,11 @@
+julia 0.6
+
+JuMP 0.17 0.19-
+InfrastructureModels 0.0.6 0.2-
+PowerModels 0.8.1 0.9-
+Compat 0.17
+
+DataFrames 0.11
+Memento 0.1.1
+Unitful 0.7.0
+Missings 0.2.6
