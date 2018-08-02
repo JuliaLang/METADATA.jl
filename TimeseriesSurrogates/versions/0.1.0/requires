@@ -1,0 +1,9 @@
+julia 0.6
+InplaceOps
+Distributions
+StatsBase
+DSP
+Interpolations
+Wavelets
+Requires
+Plots
