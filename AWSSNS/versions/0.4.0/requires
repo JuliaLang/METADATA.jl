@@ -1,0 +1,6 @@
+julia 0.7.0-beta2
+AWSCore 0.3
+AWSSQS
+AWSLambda
+SymDict 0.1.2
+Retry
