@@ -1,0 +1,4 @@
+julia 0.7.0-beta
+StatsBase 0.24.0
+LearnBase 0.2.0 0.3.0
+RecipesBase
