@@ -1,0 +1,10 @@
+julia 0.7-
+TextParse 0.6.0
+IteratorInterfaceExtensions 0.1.0
+TableTraits 0.3.0
+TableTraitsUtils 0.2.0
+DataValues 0.4.2
+FileIO 1.0.0
+HTTP 0.6.0
+IterableTables 0.8.1
+TableShowUtils 0.1.0
