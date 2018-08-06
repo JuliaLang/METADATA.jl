@@ -1,0 +1,11 @@
+julia 0.7-
+TextParse 0.6.0
+JSON
+DataValues
+TableShowUtils
+DataStructures
+IteratorInterfaceExtensions
+TableTraits
+TableTraitsUtils
+IterableTables
+FilePaths
