@@ -1,0 +1,6 @@
+julia 0.6
+
+JuMP 0.17 0.19-
+PowerModels 0.8.2 0.9-
+InfrastructureModels 0.0.4 0.2-
+Memento 0.8
