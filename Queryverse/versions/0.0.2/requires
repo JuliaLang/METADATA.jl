@@ -1,0 +1,22 @@
+julia 0.6
+
+Reexport
+
+DataValues
+
+IterableTables
+
+Query
+
+VegaLite
+
+FileIO
+ExcelFiles
+StatFiles
+CSVFiles
+FeatherFiles
+ParquetFiles
+
+DataFrames
+
+DataVoyager
