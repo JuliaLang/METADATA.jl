@@ -1,0 +1,14 @@
+julia 0.6
+Compat
+Reexport
+Graphics
+HTTP
+HDF5
+ProgressMeter
+Images
+Unitful
+Interpolations
+ImageAxes
+ImageMetadata
+FileIO
+FFTW
