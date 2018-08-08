@@ -1,0 +1,4 @@
+julia 0.7
+StatsBase 0.24.0
+Distributions 0.16.1
+SpecialFunctions 0.3.8
