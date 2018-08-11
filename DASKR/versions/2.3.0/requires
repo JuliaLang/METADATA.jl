@@ -1,0 +1,4 @@
+julia 1.0
+DiffEqBase 3.0.0
+Compat 0.17.0
+Reexport
