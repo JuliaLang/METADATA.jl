@@ -1,0 +1,4 @@
+julia 0.7-beta2
+StatsBase 0.24.0
+LearnBase 0.2.0 0.3.0
+MappedArrays 0.2.0
