@@ -1,4 +1,4 @@
-julia 0.6
+julia 0.6 0.7
 ApproxFun 0.8
 BandedMatrices 0.4 0.5
 BlockBandedMatrices 0.0.1 0.1
