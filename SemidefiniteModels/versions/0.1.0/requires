@@ -1,0 +1,4 @@
+julia 0.6
+MathProgBase
+GZip
+Compat 0.17
