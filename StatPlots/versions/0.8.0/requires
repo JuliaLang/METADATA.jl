@@ -1,0 +1,15 @@
+julia 0.7
+
+Reexport
+Plots 0.14
+StatsBase
+Distributions
+KernelDensity
+IterableTables 0.5
+TableTraitsUtils 0.1
+TableTraits
+DataValues
+#Widgets
+#Observables
+DataStructures
+Clustering
