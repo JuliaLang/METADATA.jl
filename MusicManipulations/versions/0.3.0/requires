@@ -1,0 +1,5 @@
+julia 0.7-beta
+MIDI 0.8
+Reexport
+MotifSequenceGenerator
+DefaultApplication
