@@ -1,0 +1,7 @@
+julia 0.7
+Distributions
+DocStringExtensions
+HDF5
+QuadGK
+Roots
+
