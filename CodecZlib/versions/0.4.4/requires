@@ -1,0 +1,4 @@
+julia 0.6.0
+BinaryProvider 0.3
+Compat 0.62
+TranscodingStreams 0.5
