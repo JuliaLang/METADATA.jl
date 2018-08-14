@@ -1,0 +1,10 @@
+julia 0.6
+Reexport
+Levenshtein
+BioSequences
+Distributions
+StatsBase
+Distances
+JuMP
+Clp
+NextGenSeqUtils
