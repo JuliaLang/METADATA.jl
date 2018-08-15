@@ -1,0 +1,7 @@
+julia 0.6
+Compat 0.41.0 # for AbstractDict
+WebIO 0.2.6
+Observables
+JSExpr
+JSON
+Widgets 0.2.0
