@@ -1,0 +1,6 @@
+julia 0.6
+Compat 0.61.0 # for uppercasefirst
+Measures
+Colors
+WebIO 0.2.6 # for node
+JSON
