@@ -1,0 +1,8 @@
+julia 0.7
+DiffRules
+ForwardDiff
+MacroTools
+NNlib
+NaNMath
+Requires
+SpecialFunctions
