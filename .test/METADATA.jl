@@ -11,6 +11,11 @@ else
     import OldPkg
 end
 
+# occursin used to be ismatch
+if VERSION < v"0.7"
+    const occursin = ismatch
+end
+
 cd(OldPkg.dir()) # Required by some OldPkg functions
 
 const url_reg = r"^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
@@ -123,16 +128,10 @@ for (pkg, versions) in OldPkg.Read.available()
         error("Invalid url $url for package $pkg. Cannot extract path")
     end
     scheme = m.captures[2]
-    if VERSION < v"0.7"
-        if !(ismatch(r"git", scheme) || ismatch(r"https", scheme))
+    if !(occursin(r"git", scheme) || occursin(r"https", scheme))
             error("Invalid url scheme $scheme for package $pkg. Should be 'git' or 'https'")
-        end
-    else
-        if !(occursin(r"git", scheme) || occursin(r"https", scheme))
-            error("Invalid url scheme $scheme for package $pkg. Should be 'git' or 'https'")
-        end
     end
-    if (VERSION < v"0.7" ? ismatch(r"github\.com", host) : occursin(r"github\.com", host))
+    if occursin(r"github\.com", host)
         m2 = match(gh_path_reg_git, path)
         if m2 == nothing
             error("Invalid GitHub url pattern $url for package $pkg. Should satisfy $gh_path_reg_git")
