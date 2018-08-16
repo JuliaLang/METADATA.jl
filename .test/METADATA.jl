@@ -1,17 +1,17 @@
 @static if VERSION < v"0.7.0-DEV.3656"
-    const Pkg = Base.Pkg
+    const OldPkg = Base.Pkg
 elseif VERSION < v"0.7.0-DEV.5183"
     import Pkg
+    const OldPkg = Pkg
 else
     if VERSION >= v"1.0"
-        Pkg.add(PackageSpec(url="https://github.com/JuliaArchive/OldPkg.jl"))
+        import Pkg
+        Pkg.add(Pkg.PackageSpec(url="https://github.com/JuliaArchive/OldPkg.jl"))
     end
     import OldPkg
-    const Pkg = OldPkg
-    pushfirst!(LOAD_PATH, Pkg.dir())
 end
 
-cd(Pkg.dir()) # Required by some Pkg functions
+cd(OldPkg.dir()) # Required by some OldPkg functions
 
 const url_reg = r"^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
 const gh_path_reg_git=r"^/(.*)?/(.*)?.git$"
@@ -98,12 +98,12 @@ end
 
 majmin(x::VersionNumber) = VersionNumber(x.major, x.minor, 0)
 
-for (pkg, versions) in Pkg.Read.available()
+for (pkg, versions) in OldPkg.Read.available()
     # Issue #2057 - naming convention check
     if endswith(pkg, ".jl")
         error("Package name $pkg should not end in .jl")
     end
-    url = Pkg.Read.url(pkg)
+    url = OldPkg.Read.url(pkg)
     if length(versions) <= 0
         error("Package $pkg has no tagged versions.")
     end
@@ -213,7 +213,7 @@ end
 println("INFO: Checking that all entries in METADATA are recognized packages...")
 
 # Scan all entries in METADATA for possibly unrecognized packages
-const pkgs = [pkg for (pkg, versions) in Pkg.Read.available()]
+const pkgs = [pkg for (pkg, versions) in OldPkg.Read.available()]
 
 for pkg in readdir("METADATA")
     # Traverse the 'versions' directory and make sure that we understand its contents
@@ -231,7 +231,7 @@ for pkg in readdir("METADATA")
             error("Invalid version number $verdir found in $verinfodir")
         end
 
-        versions = Pkg.Read.available(pkg)
+        versions = OldPkg.Read.available(pkg)
         if version in keys(versions)
            for filename in readdir(joinpath(verinfodir, verdir))
                if !(filename=="sha1" || filename=="requires")
@@ -254,20 +254,20 @@ end
 println("INFO: Verifying METADATA...")
 # The lines below are taken from PkgDev.check_metadata()
 function check_metadata(pkgs::Set{String} = Set{String}())
-    avail = Pkg.cd(Pkg.Read.available)
-    deps, conflicts = Pkg.Query.dependencies(avail)
+    avail = OldPkg.cd(OldPkg.Read.available)
+    deps, conflicts = OldPkg.Query.dependencies(avail)
 
     for (dp,dv) in deps, (v,a) in dv, p in keys(a.requires)
-        haskey(deps, p) || throw(Pkg.PkgError("package $dp v$v requires a non-registered package: $p"))
+        haskey(deps, p) || throw(OldPkg.PkgError("package $dp v$v requires a non-registered package: $p"))
     end
 
-    problematic = Pkg.Resolve.sanity_check(deps, pkgs)
+    problematic = OldPkg.Resolve.sanity_check(deps, pkgs)
     if !isempty(problematic)
         msg = "packages with unsatisfiable requirements found:\n"
         for (p, vn, rp) in problematic
             msg *= "    $p v$vn – no valid versions exist for package $rp\n"
         end
-        throw(Pkg.PkgError(msg))
+        throw(OldPkg.PkgError(msg))
     end
     return nothing
 end
