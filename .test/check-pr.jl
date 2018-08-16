@@ -46,9 +46,9 @@ function get_remote_tags(url)
         ispeeled = map((t, p) -> t == tag && p, tags, peel)
 
         sha = if count(identity, ispeeled) == 1
-            shas[findfirst(ispeeled)]
+            shas[findfirst(t -> t != 0, ispeeled)]
         elseif count(t -> t == tag, tags) == 1
-            shas[findfirst(tags, tag)]
+            shas[findfirst(t -> t == tag, tags)]
         else
             error("Upstream tag $tag is possibly malformed.\nRemote tags:\n$ls")
         end
