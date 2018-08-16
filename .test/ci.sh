@@ -38,7 +38,7 @@ for ver in 0.6 0.7 1.0 nightly; do
   fi
 done
 wait
-if ! [[ -e success-0.6 && -e success-0.7 && -e success-1.0 && -e success-1.1 ]]; then # currently no versions are allowed to fail
+if ! [ -e success-0.6 -a -e success-0.7 -a -e success-1.0 -a -e success-1.1 ]; then # currently no versions are allowed to fail
   echo success-0.6 ${success-0.6}
   echo success-0.7 ${success-0.7}
   exit 1
