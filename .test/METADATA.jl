@@ -3,6 +3,9 @@
 elseif VERSION < v"0.7.0-DEV.5183"
     import Pkg
 else
+    if VERSION >= v"1.0"
+        Pkg.add(PackageSpec(url="https://github.com/JuliaArchive/OldPkg.jl"))
+    end
     import OldPkg
     const Pkg = OldPkg
     pushfirst!(LOAD_PATH, Pkg.dir())
@@ -173,8 +176,7 @@ for (pkg, versions) in Pkg.Read.available()
                         error("New tag $ver of package $pkg requires julia $juliaver, ",
                             "but version $first_same_minor of $pkg requires julia ",
                             "$juliaver_prev. Use a new minor package version when support ",
-                            "for an old version of Julia is dropped. Re-tag the package ",
-                            "as $nextminor using `PkgDev.tag(\"$pkg\", :minor)`.")
+                            "for an old version of Julia is dropped.")
                     end
                 end
             catch err
@@ -250,10 +252,23 @@ if get(ENV, "PULL_REQUEST", "false") != "false"
 end
 
 println("INFO: Verifying METADATA...")
-if isdefined(Pkg.Entry, :check_metadata)
-    Pkg.Entry.check_metadata()
-else
-    Pkg.add("PkgDev")
-    import PkgDev
-    PkgDev.Entry.check_metadata()
+# The lines below are taken from PkgDev.check_metadata()
+function check_metadata(pkgs::Set{String} = Set{String}())
+    avail = Pkg.cd(Pkg.Read.available)
+    deps, conflicts = Pkg.Query.dependencies(avail)
+
+    for (dp,dv) in deps, (v,a) in dv, p in keys(a.requires)
+        haskey(deps, p) || throw(Pkg.PkgError("package $dp v$v requires a non-registered package: $p"))
+    end
+
+    problematic = Pkg.Resolve.sanity_check(deps, pkgs)
+    if !isempty(problematic)
+        msg = "packages with unsatisfiable requirements found:\n"
+        for (p, vn, rp) in problematic
+            msg *= "    $p v$vn – no valid versions exist for package $rp\n"
+        end
+        throw(Pkg.PkgError(msg))
+    end
+    return nothing
 end
+check_metadata()

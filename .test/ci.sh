@@ -15,21 +15,31 @@ git checkout -b localbranch
 
 mkdir -p $CI_TMP_DIR
 cd $CI_TMP_DIR
-for ver in 0.6 nightly; do
+
+for ver in 0.6 0.7 1.0 nightly; do
   if [ $ver = "nightly" ]; then
     url="https://julialangnightlies-s3.julialang.org/bin/linux/x64/julia-latest-linux64.tar.gz"
-    ver=0.7
+    ver=1.1
   else
     url="https://julialang-s3.julialang.org/bin/linux/x64/$ver/julia-$ver-latest-linux-x86_64.tar.gz"
   fi
   mkdir -p $JULIA_PKGDIR/v$ver/.cache julia-$ver
   ln -s $BUILD_DIR $JULIA_PKGDIR/v$ver/METADATA
-  curl -A "$CI_NAME for METADATA tests $(curl --version | head -n 1)" -L --retry 5 $url | \
-    tar -C julia-$ver --strip-components=1 -xzf - && \
-    julia-$ver/bin/julia -e 'versioninfo(); include("$(ENV["BUILD_DIR"])/.test/METADATA.jl")' && \
-    touch success-$ver
+  if [ $ver = "0.6" ]; then
+    curl -A "$CI_NAME for METADATA tests $(curl --version | head -n 1)" -L --retry 5 $url | \
+      tar -C julia-$ver --strip-components=1 -xzf - && \
+      julia-$ver/bin/julia -e 'versioninfo(); include("$(ENV["BUILD_DIR"])/.test/METADATA.jl")' && \
+      touch success-$ver
+  else
+    curl -A "$CI_NAME for METADATA tests $(curl --version | head -n 1)" -L --retry 5 $url | \
+      tar -C julia-$ver --strip-components=1 -xzf - && \
+      julia-$ver/bin/julia -e 'using InteractiveUtils; versioninfo(); include("$(ENV["BUILD_DIR"])/.test/METADATA.jl")' && \
+      touch success-$ver
+  fi
 done
 wait
-if ! [ -e success-0.6 ]; then # nightly allowed to fail
+if ! [[ -e success-0.6 && -e success-0.7 && -e success-1.0 && -e success-1.1 ]]; then # currently no versions are allowed to fail
+  echo success-0.6 ${success-0.6}
+  echo success-0.7 ${success-0.7}
   exit 1
 fi
