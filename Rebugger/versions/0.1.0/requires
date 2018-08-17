@@ -1,0 +1,6 @@
+julia 0.7
+Test
+UUIDs
+REPL
+Revise 0.6.9
+HeaderREPLs 0.2
