@@ -1,0 +1,4 @@
+julia 0.7
+BinDeps
+TranscodingStreams 0.5
+@windows WinRPM
