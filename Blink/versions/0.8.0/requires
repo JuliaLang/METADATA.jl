@@ -1,0 +1,11 @@
+julia 0.7
+WebSockets 0.2.3
+Lazy 0.11.3
+JSON
+Reexport
+Mustache
+MacroTools
+Mux
+BinDeps
+WebIO 0.3
+JSExpr 0.3
