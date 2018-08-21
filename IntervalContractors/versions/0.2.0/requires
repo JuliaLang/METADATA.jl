@@ -1,2 +1,2 @@
 julia 0.6
-IntervalArithmetic 0.12
+IntervalArithmetic 0.12 0.14
