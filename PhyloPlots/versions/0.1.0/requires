@@ -1,0 +1,7 @@
+julia 0.6
+Missings
+DataFrames 0.11
+PhyloNetworks 0.7
+Colors
+# Gadfly 0.7
+RCall 0.6.1

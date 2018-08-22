@@ -1,0 +1,7 @@
+julia 0.4 
+Compat 0.7.18
+Distributions
+DocStringExtensions
+HDF5
+Roots
+

@@ -1,0 +1,6 @@
+julia 0.5
+AWSCore 0.2
+AWSSQS
+AWSLambda
+SymDict 0.1.2
+Retry

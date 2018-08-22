@@ -1,0 +1,3 @@
+julia 0.4 0.7.0-DEV.3220
+Compat 0.9.0
+ProgressMeter 0.2.1

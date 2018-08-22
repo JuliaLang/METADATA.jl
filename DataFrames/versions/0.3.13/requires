@@ -1,4 +1,4 @@
-julia 0.2-
+julia 0.2- 0.6
 GZip
 StatsBase 0.0.0 0.8.3
 Blocks

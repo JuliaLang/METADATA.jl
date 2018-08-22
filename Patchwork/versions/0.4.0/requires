@@ -1,0 +1,4 @@
+julia 0.5
+JSON
+FunctionalCollections
+Compat 0.17.0

@@ -1,0 +1,6 @@
+julia 0.6
+BinDeps
+Cairo
+ColorTypes
+Compat
+@osx Homebrew

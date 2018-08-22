@@ -1,0 +1,6 @@
+julia 0.6
+HttpServer
+WebSockets
+JSON
+HTTP
+Mustache

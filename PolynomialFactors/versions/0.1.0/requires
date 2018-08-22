@@ -1,0 +1,5 @@
+julia 0.6
+Polynomials 0.1.1
+Compat 0.17.0
+Combinatorics 0.4.1
+Primes 0.1.1

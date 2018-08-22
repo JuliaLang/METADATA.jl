@@ -1,0 +1,11 @@
+julia 0.7
+WebIO 0.3.0
+JSExpr 0.3.0
+DataStructures
+Observables 0.2.2
+CSSUtil
+Colors
+NodeJS
+JSON
+Knockout 0.1.4
+Widgets 0.4.0

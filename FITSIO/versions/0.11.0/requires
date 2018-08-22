@@ -1,0 +1,4 @@
+julia 0.5
+BinDeps 0.3.12
+Compat 0.29.0
+@osx Homebrew

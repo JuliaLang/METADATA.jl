@@ -1,0 +1,9 @@
+julia 0.7.0-beta
+Retry 0.3.0
+SymDict 0.1.2
+XMLDict 0.2.0
+JSON 0.5
+IniFile
+HTTP 0.6.3
+MbedTLS 0.5.5
+DataStructures 0.7.4

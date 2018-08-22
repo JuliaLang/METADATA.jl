@@ -1,0 +1,12 @@
+julia 0.5
+MacroTools 0.3.3
+YAML 0.2.1
+DataStructures
+AxisArrays
+NLsolve 0.1 0.14
+Optim
+Requests
+QuantEcon 0.10.1
+Distributions
+Compat 0.17.0
+Dolang

@@ -1,0 +1,8 @@
+julia 0.4
+FixedPointNumbers 0.1.8 0.3.0
+ColorTypes 0.2.7
+FileIO
+Images 0.0.0- 0.6.0
+Compat 0.8.4
+@osx Homebrew
+BinDeps

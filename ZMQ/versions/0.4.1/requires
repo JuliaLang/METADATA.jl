@@ -1,0 +1,5 @@
+julia 0.4
+BinDeps 0.3.21
+@osx Homebrew
+Compat 0.8.0
+@windows WinRPM

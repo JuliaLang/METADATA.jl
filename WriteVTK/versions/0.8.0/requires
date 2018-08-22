@@ -1,0 +1,5 @@
+julia 0.6
+LightXML 0.4.0
+CodecZlib 0.4.2
+Compat 0.59.0  # undef: 0.59.0
+TranscodingStreams 0.5.2

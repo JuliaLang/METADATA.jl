@@ -1,9 +1,9 @@
-julia 0.3-
+julia 0.3- 0.5
 Codecs
 Color
 Compose 0.3.6
 Contour 0.0.0 0.2-
-DataFrames 0.4.2
+DataFrames 0.4.2 0.11.0
 DataStructures
 Datetime
 Distributions
@@ -13,3 +13,4 @@ JSON
 KernelDensity
 Loess
 StatsBase
+DataArrays 0.0.0 0.7.0

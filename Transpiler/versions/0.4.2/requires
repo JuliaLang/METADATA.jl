@@ -1,0 +1,8 @@
+julia 0.6
+Compat 0.17.0
+Sugar 0.4.1
+Matcha
+StaticArrays 0.3.0
+DataStructures
+SpecialFunctions
+MacroTools

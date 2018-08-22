@@ -1,0 +1,9 @@
+julia 0.6
+MeshCat 0.0.1
+ColorTypes 0.2.0
+CoordinateTransformations 0.4.1
+Interpolations 0.3.6
+LoopThrottle 0.0.1
+MechanismGeometries
+MeshCat 0.0.1
+RigidBodyDynamics 0.4

@@ -1,0 +1,6 @@
+julia 0.6
+MacroTools
+Matcha 0.1.1 # for fixing matchreplace
+DataStructures
+Compat 0.17.0
+StaticArrays 0.3.0

@@ -1,0 +1,4 @@
+julia 0.5
+IntervalSets
+RangeArrays
+Compat 0.19

@@ -1,0 +1,5 @@
+julia 0.4
+Reexport
+StatsBase 0.6.9-
+Iterators
+Compat 0.8.7

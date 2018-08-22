@@ -2,8 +2,7 @@ julia 0.4
 ArgParse
 Colors
 Compat
-Dates
-JSON
+JSON 0.0 0.9
 Markdown
 Mux 0.1.0
 Reactive 0.3.0

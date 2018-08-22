@@ -1,0 +1,4 @@
+julia 0.6
+PyCall 1.7
+DataFrames 0.11.3
+DataStructures 0.7.4

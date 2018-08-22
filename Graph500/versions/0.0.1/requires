@@ -1,0 +1,4 @@
+julia 0.6
+LightGraphs v0.10.0
+SimpleWeightedGraphs v0.0.1
+StatsBase v0.17.0

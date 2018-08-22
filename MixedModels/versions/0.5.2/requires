@@ -1,9 +1,10 @@
 julia 0.4
-DataFrames 0.7
+DataFrames 0.7 0.11.0
 Distributions 0.8
 GLM 0.5
 NLopt 0.3
 Showoff
 StatsBase 0.8.0
 Compat 0.7.17
-DataArrays
+DataArrays 0.0.0 0.7.0
+CategoricalArrays 0.0.1 0.2.0

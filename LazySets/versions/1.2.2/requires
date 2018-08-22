@@ -1,0 +1,13 @@
+julia 0.6
+IterTools
+RecipesBase
+Plots
+GR
+Expokit
+MathProgBase
+GLPKMathProgInterface
+Requires
+Polyhedra
+CDDLib
+IntervalArithmetic
+Compat

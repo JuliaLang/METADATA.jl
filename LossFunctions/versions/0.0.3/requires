@@ -1,0 +1,4 @@
+julia 0.5
+StatsBase 0.8.0
+LearnBase 0.1.2 0.2.0
+RecipesBase

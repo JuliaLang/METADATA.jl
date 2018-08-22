@@ -1,0 +1,15 @@
+julia 0.5
+StaticArrays
+Compat 0.19.0
+
+Transpiler 0.0.1 0.4
+Sugar 0.0.3 0.4
+Matcha
+
+CUDArt
+CUBLAS
+CUFFT
+
+OpenCL 0.5.2
+CLBLAS 1.1.0
+CLFFT 0.4.0

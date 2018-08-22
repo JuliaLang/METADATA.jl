@@ -1,0 +1,5 @@
+julia 0.4.0
+MathProgBase 0.5 0.7
+BinDeps
+Compat 0.8.6
+@osx Homebrew

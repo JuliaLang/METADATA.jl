@@ -1,0 +1,11 @@
+julia 0.6.0
+FixedPointNumbers 0.3.0
+ColorTypes 0.4
+Colors
+MappedArrays 0.0.3
+PaddedViews 0.0.2
+Graphics
+ShowItLikeYouBuildIt 0.1
+OffsetArrays
+Compat 0.19
+FFTW

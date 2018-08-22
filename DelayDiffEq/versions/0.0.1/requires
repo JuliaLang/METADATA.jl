@@ -1,0 +1,7 @@
+julia 0.5
+DiffEqBase 0.5.0 0.7.0
+OrdinaryDiffEq 1.0.0 1.2.0
+DataStructures 0.4.6
+RecursiveArrayTools 0.1.2
+Combinatorics
+DiffEqDiffTools 0.0.1

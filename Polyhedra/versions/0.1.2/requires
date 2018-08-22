@@ -1,0 +1,6 @@
+julia 0.5
+FixedSizeArrays
+GeometryTypes
+DataStructures
+MathProgBase
+JuMP

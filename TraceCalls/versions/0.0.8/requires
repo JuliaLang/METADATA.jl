@@ -1,0 +1,8 @@
+julia 0.6
+MacroTools 0.3.3
+Memoize 0.1.0
+ClobberingReload 0.2.1
+DataStructures
+Requires
+Revise 0.0.9
+Crayons
