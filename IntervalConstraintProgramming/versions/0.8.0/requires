@@ -1,0 +1,6 @@
+julia 0.6 0.7
+IntervalArithmetic 0.9 0.14
+IntervalRootFinding 0.2 0.3
+IntervalContractors 0.2 0.3
+MacroTools 0.3
+
