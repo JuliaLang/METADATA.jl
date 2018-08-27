@@ -6,7 +6,7 @@ elseif VERSION < v"0.7.0-DEV.5183"
 else
     if VERSION >= v"1.0"
         import Pkg
-        Pkg.add(Pkg.PackageSpec(url="https://github.com/JuliaArchive/OldPkg.jl"))
+        Pkg.add(Pkg.PackageSpec(url="https://github.com/JuliaAttic/OldPkg.jl"))
     end
     import OldPkg
 end
