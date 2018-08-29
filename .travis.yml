@@ -1,12 +1,24 @@
-language: generic
+language: julia
+
 sudo: false
+
 notifications:
   email: false
   slack:
     secure: nl9G13v6n9gXKkeyjDlJ5aDrs2KOAvLkzKUtvYEgFURImXkz4gyfY+l52UUbJhQOduPkxuJVdCBTNjT5mMMm1HmLlFA59IcNGpfDCUOOtuhEBgLq2rjYlBC70Hr2+dY4c3ncHgOXSSyKiRto8QvbKMs3+Lh4Hh8PiDYCACSFAvI=
   on_success: change
-env:
-- CI_NAME="Travis CI" PULL_REQUEST="$TRAVIS_PULL_REQUEST"
+
+julia:
+  - 0.6
+  - 0.7
+  - 1.0
+  - nightly
+
+before_script:
+  - export CI_NAME="Travis CI"
+  - export CI_JULIA_VERSION=$TRAVIS_JULIA_VERSION
+  - export PULL_REQUEST="$TRAVIS_PULL_REQUEST"
+
 script:
 - sh .test/travis.sh
 - sh .test/ci.sh
