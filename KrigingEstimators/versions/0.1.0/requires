@@ -1,0 +1,4 @@
+julia 0.7
+Reexport 0.2.0
+Variography 0.2.0
+Combinatorics 0.7.0
