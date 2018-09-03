@@ -1,0 +1,8 @@
+julia 0.6
+NCDatasets
+HTTP
+Gumbo
+Glob
+Compat
+AbstractTrees
+Missings
