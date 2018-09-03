@@ -1,4 +1,4 @@
-julia 0.5
+julia 0.5.0 0.7.0
 Images 0.6.0
 GtkReactive 0.2
 FixedPointNumbers 0.3
