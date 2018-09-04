@@ -1,4 +1,4 @@
-julia 0.6
+julia 0.6 0.7
 FEMBase 0.1 0.2-
 ForwardDiff
 LightXML 0.4
