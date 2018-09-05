@@ -1,0 +1,6 @@
+julia 0.5
+Calculus
+DataStructures
+MathProgBase
+NaNMath 0.2.1
+ForwardDiff 0.3 0.5

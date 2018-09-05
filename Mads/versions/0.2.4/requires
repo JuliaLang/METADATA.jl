@@ -14,10 +14,11 @@ JLD
 ProgressMeter
 Distributions
 DataStructures
-DataFrames
+DataFrames 0.0.0 0.11.0
 StatsBase
 ODE
 Klara 0.6
 Optim 0.5
 BlackBoxOptim
 Documenter
+OrdinaryDiffEq 0.0.1

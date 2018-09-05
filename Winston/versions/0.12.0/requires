@@ -1,0 +1,7 @@
+julia 0.4
+Cairo
+Colors
+IniFile
+Tk
+Compat 0.7.16
+Graphics 0.1

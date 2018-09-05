@@ -1,0 +1,9 @@
+julia 0.7
+FileIO 1.0.1
+ColorTypes 0.7.4
+ColorVectorSpace 0.6.1
+ImageFiltering 0.4.1
+@windows ImageMagick
+@linux ImageMagick
+@osx QuartzImageIO
+Requires

@@ -1,0 +1,8 @@
+julia 0.6
+JSON
+ColorBrewer
+KernelDensity
+NoveltyColors
+StatsBase
+Parameters
+Missings

@@ -1,0 +1,9 @@
+julia 0.7-beta2
+DiffEqBase 3.0.0
+OrdinaryDiffEq 3.0.0
+Reexport
+StaticArrays
+RecursiveArrayTools
+RecipesBase
+DiffEqCallbacks
+FileIO

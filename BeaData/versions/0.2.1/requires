@@ -1,0 +1,6 @@
+julia 0.6
+HTTP
+JSON
+DataFrames
+DataStructures
+DocStringExtensions

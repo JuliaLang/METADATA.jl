@@ -1,0 +1,4 @@
+julia 0.5
+ForwardDiff 0.2
+BinDeps
+FunctionWrappers 0.1

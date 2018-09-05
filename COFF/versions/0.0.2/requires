@@ -1,4 +1,4 @@
 julia 0.5-
 ObjFileBase
-StructIO
+StructIO 0.0.1 0.1.0
 DWARF

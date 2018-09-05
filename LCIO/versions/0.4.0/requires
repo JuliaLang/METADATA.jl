@@ -1,2 +1,2 @@
-julia 0.4
-CxxWrap 0.1.6
+julia 0.4 0.5
+CxxWrap 0.1.6 0.1.7

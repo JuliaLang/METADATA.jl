@@ -1,4 +1,4 @@
-julia 0.4
+julia 0.4.0 0.7.0
 TikzPictures 0.3.2
 Images
 Compat
@@ -6,3 +6,4 @@ Colors
 ColorBrewer
 Contour 0.0.0 0.2-
 ImageMagick
+DataFrames 0.0.0 0.11.0

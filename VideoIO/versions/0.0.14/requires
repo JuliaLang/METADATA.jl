@@ -1,8 +1,8 @@
-julia v0.3
+julia 0.3.0 0.7.0
 Compat
 ZipFile
 BinDeps v0.3.4
-Images v0.4.4
+Images v0.4.4 0.6
 ImageView v0.1.4
 @osx Homebrew
 @linux Glob

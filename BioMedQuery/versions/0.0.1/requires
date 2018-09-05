@@ -1,4 +1,4 @@
-julia 0.4.1
+julia 0.4.1 0.5
 ArgParse 0.3.0
 DataStreams 0.0.6 0.0.7
 Gumbo 0.2.0

@@ -1,0 +1,11 @@
+julia 0.5
+AWSCore 0.2
+HttpCommon
+Requests
+SymDict
+Retry
+XMLDict
+LightXML
+MbedTLS
+DataStructures
+URIParser

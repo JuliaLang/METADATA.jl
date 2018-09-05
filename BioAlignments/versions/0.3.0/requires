@@ -1,0 +1,9 @@
+julia 0.6
+Automa 0.6.1
+BGZFStreams 0.1.4
+BioCore 1.4
+BioSequences 0.8.3
+BioSymbols 2.0
+BufferedStreams 0.4
+GenomicFeatures 0.2.1
+IntervalTrees 0.4.1

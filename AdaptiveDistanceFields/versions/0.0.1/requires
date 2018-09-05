@@ -1,0 +1,4 @@
+julia 0.5
+StaticArrays 0.3
+Interpolations 0.3
+RegionTrees 0.0.3

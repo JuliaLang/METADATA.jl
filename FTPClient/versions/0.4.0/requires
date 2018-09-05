@@ -1,0 +1,4 @@
+julia 0.6
+LibCURL 0.2.2
+URIParser
+Compat 0.59

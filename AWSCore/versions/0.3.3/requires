@@ -1,0 +1,9 @@
+julia 0.6
+Retry 0.2.0
+SymDict 0.1.2
+XMLDict
+JSON 0.5
+IniFile
+HTTP 0.6.2
+MbedTLS
+DataStructures 0.2.9

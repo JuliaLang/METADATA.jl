@@ -1,0 +1,7 @@
+julia 0.6
+Compat 0.17
+DataValues
+PooledArrays 0.2.0
+DataStructures
+WeakRefStrings 0.4.4
+CodecZlib

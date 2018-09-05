@@ -1,0 +1,5 @@
+julia 0.6
+CoordinateTransformations
+StaticArrays
+OffsetArrays
+Rotations

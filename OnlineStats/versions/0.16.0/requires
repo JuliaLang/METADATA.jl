@@ -1,0 +1,7 @@
+julia 0.6.0 0.7
+OnlineStatsBase 0.6 0.7
+SweepOperator
+LossFunctions
+PenaltyFunctions
+RecipesBase
+Reexport

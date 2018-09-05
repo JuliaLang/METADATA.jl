@@ -1,0 +1,6 @@
+julia 0.4
+ValidatedNumerics 0.5
+MacroTools 0.3
+Compat 0.7.14
+FixedSizeArrays 0.1.2
+

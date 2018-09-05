@@ -1,0 +1,19 @@
+julia 0.6
+LightXML
+CodecZlib
+TranscodingStreams
+AutoHashEquals
+DataStructures
+Formatting 0.3.1
+PairwiseListMatrices
+ArgParse
+ROCAnalysis
+Clustering
+StaticArrays
+FastaIO
+FTPClient
+Requests
+PkgBenchmark
+NamedArrays
+RecipesBase
+ProgressMeter

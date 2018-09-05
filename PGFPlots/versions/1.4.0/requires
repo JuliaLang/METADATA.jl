@@ -1,0 +1,11 @@
+julia 0.4.0 0.7.0
+TikzPictures 0.3.4
+Images 0.5.2
+Compat 0.8.0
+Colors 0.6.7
+ColorBrewer 0.3.0
+Contour 0.2.0
+ImageMagick
+Discretizers
+StatsBase 0.9.0
+DataFrames 0.0.0 0.11.0

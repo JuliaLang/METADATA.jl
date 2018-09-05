@@ -1,4 +1,6 @@
+julia 0.0- 0.7-
 Mustache
-DataFrames
+DataFrames 0.0.0 0.11.0
 Calendar 
 JSON
+DataArrays 0.0.0 0.7.0

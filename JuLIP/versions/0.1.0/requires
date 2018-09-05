@@ -1,0 +1,11 @@
+julia 0.5
+PyCall
+StaticArrays
+Optim 0.7.5
+LineSearches
+Calculus
+PyAMG
+JSON
+Reexport
+FunctionWrappers
+Dierckx

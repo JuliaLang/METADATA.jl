@@ -1,0 +1,9 @@
+julia 0.6
+Format 0.6.4
+ModuleInterfaceTools 0.1.2
+StrAPI 0.1.2
+CharSetEncodings 0.1.3
+ChrBase 0.1.2
+MurmurHash3 0.1.3
+StrBase 0.1.3
+StrLiterals 0.1.2

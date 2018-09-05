@@ -1,0 +1,4 @@
+julia 0.6
+DataStructures 0.5
+RecipesBase 0.2.3
+Compat 0.17

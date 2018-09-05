@@ -1,0 +1,17 @@
+julia 0.5
+Colors 0.3.4
+Compat 0.18.0
+Compose 0.5
+Contour 0.1.1
+DataFrames 0.4.2 0.11.0
+DataStructures
+Distributions
+Hexagons
+Iterators 0.1.5
+JSON
+KernelDensity
+Loess
+Showoff 0.0.3
+StatsBase
+Juno
+DataArrays 0.0.0 0.7.0

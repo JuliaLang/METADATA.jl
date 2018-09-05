@@ -1,0 +1,4 @@
+julia 0.6
+DataFrames
+Distributions
+JWAS 0.3.1

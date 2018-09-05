@@ -1,0 +1,14 @@
+julia 0.7.0-beta2
+DynamicalSystemsBase 0.11
+StaticArrays 0.8
+Distances 0.7
+NearestNeighbors 0.4
+DiffEqBase 4.10
+OrdinaryDiffEq 4.8
+ForwardDiff 0.8
+Roots 0.7
+Combinatorics 0.6.0
+Reexport 0.1.0
+SpecialFunctions 0.6.0
+StatsBase 0.24
+LsqFit 0.6

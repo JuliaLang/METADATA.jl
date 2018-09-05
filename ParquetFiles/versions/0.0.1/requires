@@ -1,0 +1,7 @@
+julia 0.6
+Parquet 0.1.0
+IteratorInterfaceExtensions 0.0.2
+TableTraits 0.0.3
+NamedTuples 4.0.0
+FileIO 0.6.1
+IterableTables 0.6.0

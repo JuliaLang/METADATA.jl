@@ -1,0 +1,4 @@
+julia 0.6
+Reexport 0.0.3
+DSP 0.3.4
+Compat 0.65

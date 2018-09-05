@@ -1,0 +1,17 @@
+julia 0.5
+LightXML
+GZip
+AutoHashEquals
+DataStructures
+Formatting
+PairwiseListMatrices
+ArgParse
+ROCAnalysis
+Clustering
+FixedSizeArrays 0.2.3
+FastaIO
+Requests
+PkgBenchmark
+NamedArrays
+JLD
+RecipesBase

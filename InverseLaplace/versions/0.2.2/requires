@@ -1,0 +1,5 @@
+julia 0.7-beta
+SpecialFunctions 0.6.0
+# Optim
+AbstractFFTs 0.3.2
+FFTW 0.2.3

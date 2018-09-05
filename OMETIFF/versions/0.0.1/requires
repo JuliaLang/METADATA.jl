@@ -1,0 +1,7 @@
+julia 0.6
+EzXML 0.4.2
+Unitful
+FixedPointNumbers
+FileIO
+Colors
+AxisArrays

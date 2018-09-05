@@ -1,0 +1,5 @@
+julia 0.6
+JSON
+HTTP
+Git
+Compat 0.44.0

@@ -1,0 +1,7 @@
+julia 0.5
+ImageCore
+AxisArrays
+SimpleTraits
+Reexport
+Colors
+FixedPointNumbers 0.3.0

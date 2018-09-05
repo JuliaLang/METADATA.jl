@@ -1,7 +1,8 @@
-julia 0.3-
+julia 0.3- 0.5
 Compat 0.2.2
 Color
 BinDeps
 @osx Homebrew
 SIUnits
 Zlib
+FixedPointNumbers 0.0- 0.3

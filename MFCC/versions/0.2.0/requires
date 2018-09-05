@@ -1,0 +1,7 @@
+julia 0.6
+DSP
+HDF5
+JLD
+WAV
+FileIO
+SpecialFunctions

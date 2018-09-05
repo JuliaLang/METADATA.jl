@@ -1,0 +1,4 @@
+julia 0.7
+GeoStatsBase 0.2.2
+GeoStatsDevTools 0.2.0
+Variography 0.2.0
