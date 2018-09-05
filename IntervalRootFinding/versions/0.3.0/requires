@@ -1,0 +1,5 @@
+julia 0.6 0.7
+IntervalArithmetic 0.14 0.15
+ForwardDiff 0.7.5
+StaticArrays 0.7.1
+Polynomials
