@@ -1,0 +1,17 @@
+julia 0.6 0.7
+LightXML
+CodecZlib
+TranscodingStreams
+AutoHashEquals
+DataStructures
+Format
+PairwiseListMatrices
+ArgParse
+Clustering
+StaticArrays
+FastaIO
+HTTP
+NamedArrays
+RecipesBase
+ProgressMeter
+Requires
