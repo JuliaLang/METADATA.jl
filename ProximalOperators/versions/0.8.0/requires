@@ -1,0 +1,4 @@
+julia 0.7
+IterativeSolvers 0.4.0
+TSVD 0.3.0
+OSQP 0.1.4
