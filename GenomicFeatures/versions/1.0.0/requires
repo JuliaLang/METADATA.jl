@@ -1,0 +1,12 @@
+julia 0.7
+Automa 0.7
+BioCore 2.0.2
+BioSequences 1.0
+BufferedStreams 1.0.0
+BGZFStreams 0.3
+ColorTypes 0.7.4
+DataStructures 0.11.0
+FixedPointNumbers 0.5.2
+IntervalTrees 1.0
+Libz 1.0
+URIParser 0.4
