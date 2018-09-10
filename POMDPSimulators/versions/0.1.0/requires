@@ -1,0 +1,7 @@
+julia 0.7
+BeliefUpdaters
+DataFrames
+POMDPModelTools
+POMDPPolicies
+POMDPs
+ProgressMeter
