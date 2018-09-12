@@ -1,5 +1,2 @@
-julia 0.6
-TypedBools
-RecurUnroll
-Compat
+julia 0.7
 MacroTools
