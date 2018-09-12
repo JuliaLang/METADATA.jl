@@ -1,0 +1,13 @@
+julia 0.7
+ColorTypes 0.2.0
+CoordinateTransformations 0.4.1
+DrakeVisualizer 0.4.0
+GeometryTypes 0.4.0
+InteractBase 0.7
+Interpolations 0.3.6
+LoopThrottle 0.0.1
+MechanismGeometries 0.0.2
+RigidBodyDynamics 1.0
+Rotations 0.5
+StaticArrays 0.5
+DataStructures
