@@ -1,0 +1,12 @@
+julia 0.7
+StatsBase 0.25.0
+JSON 0.19.0
+Parameters 0.10.1
+ColorBrewer 0.3.1
+NoveltyColors 0.4.0
+Blink 0.8
+DataFrames 0.13.1
+KernelDensity 0.5.0
+Distributions 0.16.3
+WebIO 0.3.2
+JSExpr 0.3.1
