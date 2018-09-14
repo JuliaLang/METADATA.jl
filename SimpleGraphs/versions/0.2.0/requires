@@ -1,0 +1,11 @@
+julia 0.7
+DataStructures
+SimpleRandom
+Primes
+Polynomials
+SimplePartitions
+Graphs
+IterTools
+Iterators
+Optim
+LightXML
