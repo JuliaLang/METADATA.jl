@@ -1,5 +1,5 @@
 julia 0.6
-Interpolations
+Interpolations 0.0.0 0.9.0
 NCDatasets
 SpecialFunctions
 DataStructures
