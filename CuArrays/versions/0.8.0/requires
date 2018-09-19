@@ -1,0 +1,11 @@
+julia 0.7-beta2
+CUDAnative 0.8
+CUDAdrv 0.8
+CUDAapi 0.4
+NNlib
+GPUArrays 0.4
+Adapt
+AbstractFFTs
+MacroTools
+ForwardDiff
+DiffRules
