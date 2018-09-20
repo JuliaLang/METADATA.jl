@@ -1,0 +1,6 @@
+julia 0.7 1.0-
+SymmetricTensors 
+Cumulants
+StatsBase
+FileIO
+JLD2
