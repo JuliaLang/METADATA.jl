@@ -1,4 +1,4 @@
-julia 0.6
+julia 0.6.0 0.7.0
 TikzPictures 1.1.0
 Images 0.11.0
 Colors 0.8.0

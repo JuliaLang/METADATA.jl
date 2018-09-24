@@ -1,0 +1,5 @@
+julia 0.7-beta2
+AbstractTrees 0.2
+StatsBase 0.24
+Nullables 0.0.5
+TreeView

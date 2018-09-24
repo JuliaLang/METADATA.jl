@@ -1,0 +1,16 @@
+julia 0.6 0.7
+FastGaussQuadrature 0.2.1
+FastTransforms 0.4.1
+RecipesBase 0.1
+DualNumbers 0.2.2
+BandedMatrices 0.4 0.6
+ToeplitzMatrices 0.2
+Calculus 0.1.15
+IntervalSets 0.0.2 0.3.0
+StaticArrays 0.3
+Compat 0.39
+BlockArrays 0.3.1 0.5
+BlockBandedMatrices 0.1
+AbstractFFTs 0.3.1
+FFTW 0.0.4
+SpecialFunctions 0.5

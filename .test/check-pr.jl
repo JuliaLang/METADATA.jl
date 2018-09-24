@@ -19,7 +19,7 @@ function get_remote_tags(url)
             return false
         else
             tag = m.captures[1]
-            return ismatch(Base.VERSION_REGEX, tag)
+            return occursin(Base.VERSION_REGEX, tag)
         end
     end
 
@@ -46,9 +46,9 @@ function get_remote_tags(url)
         ispeeled = map((t, p) -> t == tag && p, tags, peel)
 
         sha = if count(identity, ispeeled) == 1
-            shas[findfirst(ispeeled)]
+            shas[findfirst(t -> t != 0, ispeeled)]
         elseif count(t -> t == tag, tags) == 1
-            shas[findfirst(tags, tag)]
+            shas[findfirst(t -> t == tag, tags)]
         else
             error("Upstream tag $tag is possibly malformed.\nRemote tags:\n$ls")
         end
@@ -105,7 +105,7 @@ modified = Dict{AbstractString,Vector{VersionNumber}}() # package => [versions..
 for file in added
     pkg = split(file, "/")[1]
     # Only look at changes to tagged versions
-    if isdir(joinpath(BUILD_DIR, pkg)) && pkg != ".test" && ismatch(RGX, file) && endswith(file, "sha1")
+    if isdir(joinpath(BUILD_DIR, pkg)) && pkg != ".test" && occursin(RGX, file) && endswith(file, "sha1")
         v = VersionNumber(match(RGX, file).captures[1])
         if haskey(modified, pkg)
             in(v, modified[pkg]) || push!(modified[pkg], v)

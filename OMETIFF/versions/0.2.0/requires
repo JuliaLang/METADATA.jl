@@ -1,0 +1,11 @@
+julia 0.7
+EzXML 0.8
+Unitful
+FixedPointNumbers
+FileIO
+Colors
+AxisArrays
+DataStructures
+Images
+ImageMetadata
+JSON

@@ -1,0 +1,10 @@
+julia 0.7
+Automa 0.7
+BioCore 2.0.2
+BioSymbols 3.1.0
+BufferedStreams
+Combinatorics
+IndexableBitVectors 1.0.0
+IntervalTrees
+Twiddle 1.0.0
+DataStructures

@@ -1,0 +1,8 @@
+julia 0.6
+WiltonInts84 0.1.0
+CollisionDetection
+Compat
+CompScienceMeshes 0.1.2
+IterativeSolvers
+SauterSchwabQuadrature
+StaticArrays

@@ -1,10 +1,22 @@
 @static if VERSION < v"0.7.0-DEV.3656"
-    const Pkg = Base.Pkg
-else
+    const OldPkg = Base.Pkg
+elseif VERSION < v"0.7.0-DEV.5183"
     import Pkg
+    const OldPkg = Pkg
+else
+    if VERSION >= v"1.0"
+        import Pkg
+        Pkg.add(Pkg.PackageSpec(url="https://github.com/JuliaAttic/OldPkg.jl"))
+    end
+    import OldPkg
 end
 
-cd(Pkg.dir()) # Required by some Pkg functions
+# occursin used to be ismatch
+if VERSION < v"0.7"
+    const occursin = ismatch
+end
+
+cd(OldPkg.dir()) # Required by some OldPkg functions
 
 const url_reg = r"^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
 const gh_path_reg_git=r"^/(.*)?/(.*)?.git$"
@@ -91,12 +103,12 @@ end
 
 majmin(x::VersionNumber) = VersionNumber(x.major, x.minor, 0)
 
-for (pkg, versions) in Pkg.Read.available()
+for (pkg, versions) in OldPkg.Read.available()
     # Issue #2057 - naming convention check
     if endswith(pkg, ".jl")
         error("Package name $pkg should not end in .jl")
     end
-    url = Pkg.Read.url(pkg)
+    url = OldPkg.Read.url(pkg)
     if length(versions) <= 0
         error("Package $pkg has no tagged versions.")
     end
@@ -116,10 +128,10 @@ for (pkg, versions) in Pkg.Read.available()
         error("Invalid url $url for package $pkg. Cannot extract path")
     end
     scheme = m.captures[2]
-    if !(ismatch(r"git", scheme) || ismatch(r"https", scheme))
-        error("Invalid url scheme $scheme for package $pkg. Should be 'git' or 'https'")
+    if !(occursin(r"git", scheme) || occursin(r"https", scheme))
+            error("Invalid url scheme $scheme for package $pkg. Should be 'git' or 'https'")
     end
-    if ismatch(r"github\.com", host)
+    if occursin(r"github\.com", host)
         m2 = match(gh_path_reg_git, path)
         if m2 == nothing
             error("Invalid GitHub url pattern $url for package $pkg. Should satisfy $gh_path_reg_git")
@@ -169,8 +181,7 @@ for (pkg, versions) in Pkg.Read.available()
                         error("New tag $ver of package $pkg requires julia $juliaver, ",
                             "but version $first_same_minor of $pkg requires julia ",
                             "$juliaver_prev. Use a new minor package version when support ",
-                            "for an old version of Julia is dropped. Re-tag the package ",
-                            "as $nextminor using `PkgDev.tag(\"$pkg\", :minor)`.")
+                            "for an old version of Julia is dropped.")
                     end
                 end
             catch err
@@ -207,7 +218,7 @@ end
 println("INFO: Checking that all entries in METADATA are recognized packages...")
 
 # Scan all entries in METADATA for possibly unrecognized packages
-const pkgs = [pkg for (pkg, versions) in Pkg.Read.available()]
+const pkgs = [pkg for (pkg, versions) in OldPkg.Read.available()]
 
 for pkg in readdir("METADATA")
     # Traverse the 'versions' directory and make sure that we understand its contents
@@ -225,7 +236,7 @@ for pkg in readdir("METADATA")
             error("Invalid version number $verdir found in $verinfodir")
         end
 
-        versions = Pkg.Read.available(pkg)
+        versions = OldPkg.Read.available(pkg)
         if version in keys(versions)
            for filename in readdir(joinpath(verinfodir, verdir))
                if !(filename=="sha1" || filename=="requires")
@@ -246,10 +257,23 @@ if get(ENV, "PULL_REQUEST", "false") != "false"
 end
 
 println("INFO: Verifying METADATA...")
-if isdefined(Pkg.Entry, :check_metadata)
-    Pkg.Entry.check_metadata()
-else
-    Pkg.add("PkgDev")
-    import PkgDev
-    PkgDev.Entry.check_metadata()
+# The lines below are taken from PkgDev.check_metadata()
+function check_metadata(pkgs::Set{String} = Set{String}())
+    avail = OldPkg.cd(OldPkg.Read.available)
+    deps, conflicts = OldPkg.Query.dependencies(avail)
+
+    for (dp,dv) in deps, (v,a) in dv, p in keys(a.requires)
+        haskey(deps, p) || throw(OldPkg.PkgError("package $dp v$v requires a non-registered package: $p"))
+    end
+
+    problematic = OldPkg.Resolve.sanity_check(deps, pkgs)
+    if !isempty(problematic)
+        msg = "packages with unsatisfiable requirements found:\n"
+        for (p, vn, rp) in problematic
+            msg *= "    $p v$vn – no valid versions exist for package $rp\n"
+        end
+        throw(OldPkg.PkgError(msg))
+    end
+    return nothing
 end
+check_metadata()

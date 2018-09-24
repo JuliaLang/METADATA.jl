@@ -1,0 +1,7 @@
+julia 0.7
+BinDeps 0.8
+@osx Homebrew 0.3.0
+CMakeWrapper 0.2
+StaticArrays 0.5
+FastIOBuffers 0.0.1
+UnsafeArrays 0.2.0

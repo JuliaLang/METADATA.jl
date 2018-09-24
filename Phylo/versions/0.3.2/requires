@@ -1,0 +1,9 @@
+julia 0.6
+Distributions 0.12.2
+DataStructures 0.4.3
+Tokenize 0.1.0
+Compat 0.61.0
+Missings
+IterableTables
+Requires
+DataFrames

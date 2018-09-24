@@ -1,4 +1,4 @@
-julia 0.6.0-pre
+julia 0.6.0-pre 1.0.0
 DiffEqBase 1.10.0 1.15.0
 Parameters 0.5.0
 ForwardDiff 0.5.0 0.6.0

@@ -1,0 +1,16 @@
+julia 0.7
+
+CacheServers
+Compat
+DataStructures
+Expokit
+FFTW
+IterTools
+Lazy
+LinearMaps
+LuxurySparse
+MacroTools
+Reexport
+StaticArrays
+StatsBase
+LinearMaps

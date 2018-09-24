@@ -1,0 +1,7 @@
+julia 0.6
+BinDeps
+CxxWrap 0.6 0.7
+MathOptInterface 0.3 0.4
+SemidefiniteOptInterface 0.0.1 0.1
+MathProgBase 0.7 0.8
+SemidefiniteModels 0.0.3 0.1

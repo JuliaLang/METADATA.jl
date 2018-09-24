@@ -1,0 +1,8 @@
+julia 0.7
+DataFrames
+Distances
+Distributions
+OnlineStats
+ProgressMeter
+RecipesBase
+StatsBase

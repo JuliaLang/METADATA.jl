@@ -1,0 +1,10 @@
+julia 0.7-beta
+ArgCheck
+DataStructures
+DocStringExtensions
+MacroTools
+Missings
+Parameters
+Requires 0.5.2
+StatsBase 0.24
+Crayons

@@ -1,0 +1,8 @@
+julia 0.7
+DecisionTree 0.7
+MLBase 0.6
+StatsBase 0.15
+PyCall 1.10
+MultivariateStats 0.6.0
+IterTools 1.0.0
+ArrayViews 0.6
