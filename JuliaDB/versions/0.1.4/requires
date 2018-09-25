@@ -1,4 +1,4 @@
-julia 0.6
+julia 0.6 0.7-
 IndexedTables 0.2.1 0.3.0
 NamedTuples 4.0.0
 TextParse 0.1.6 0.3.0
