@@ -1,0 +1,6 @@
+julia 0.7
+Arrow 0.1.1
+FlatBuffers 0.3.0
+CategoricalArrays 0.3.0
+DataFrames 0.11.0
+Tables
