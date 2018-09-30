@@ -1,0 +1,6 @@
+julia 0.7
+FixedPointNumbers 0.3.0
+ColorTypes
+ColorVectorSpace
+FileIO
+ImageCore
