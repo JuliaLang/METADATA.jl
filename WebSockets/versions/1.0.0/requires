@@ -1,3 +1,3 @@
-julia 0.7
+julia 0.7 2.0-
 MbedTLS
-HTTP
+HTTP 0.6.14 0.6.15-
