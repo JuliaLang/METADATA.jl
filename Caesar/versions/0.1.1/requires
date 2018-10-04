@@ -1,0 +1,25 @@
+julia 0.6 0.7
+RoME 0.1.8 0.2.0
+IncrementalInference 0.3.9 0.4.0
+Graphs 0.9.0 0.10.0
+KernelDensityEstimate 0.3.1 0.4.0
+Distributions 0.14.2 0.16.0
+CloudGraphs 0.0.2
+Neo4j 1.0.0
+LibBSON 0.3.0 0.5.0
+Mongo 0.3.0 0.5.0
+TransformUtils 0.1.0 0.2.0
+Rotations 0.7.0 0.8.0
+CoordinateTransformations 0.4.0 0.6.0
+JLD 0.8.0
+HDF5 0.9.0 0.10.0
+JSON 0.16.0 0.18.0
+FileIO 0.4.2 1.0.0
+NLsolve 0.14.0 2.0.0
+LCMCore 0.1.1 0.4.0
+DataStructures 0.7.0 0.9.0
+ProgressMeter 0.5.0 0.6.0
+ImageMagick 0.5.0 0.7.0
+ImageCore 0.5.0 0.7.0
+DocStringExtensions 0.4.1 0.5.0
+Reexport 0.1.0 0.2.0
