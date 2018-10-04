@@ -1,0 +1,15 @@
+julia 0.7
+JSON
+Memoize
+Blosc
+TranscodingStreams
+CodecZlib
+CodecZstd
+OffsetArrays
+JSON
+
+
+#GoogleCloud
+#AWSCore
+#AWSSDK
+
