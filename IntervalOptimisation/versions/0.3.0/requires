@@ -1,0 +1,7 @@
+julia 0.7
+
+IntervalArithmetic 0.15
+IntervalRootFinding 0.4
+IntervalConstraintProgramming 0.9
+DataStructures 0.9
+ForwardDiff 0.8
