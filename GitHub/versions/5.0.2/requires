@@ -1,0 +1,7 @@
+julia 0.7.0-rc3
+
+Compat 0.62
+JSON
+MbedTLS
+HTTP 0.6.3
+
