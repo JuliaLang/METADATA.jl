@@ -1,0 +1,9 @@
+julia 1.0
+Flux
+Distributions
+PDMats
+ProgressMeter
+Spec
+
+# Will probably remove
+UnicodePlots
