@@ -1,0 +1,6 @@
+BinDeps
+julia 0.7 2.0
+@osx Homebrew 0.4.0
+NLPModels 0.6.0
+JSON 0.8.0
+DataStructures
