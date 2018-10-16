@@ -1,0 +1,9 @@
+julia 0.6 0.7
+
+Reexport 0.1 0.2
+
+IntervalArithmetic 0.13 0.14
+IntervalRootFinding 0.2 0.3
+IntervalContractors 0.2 0.3
+IntervalConstraintProgramming 0.8 0.9
+IntervalOptimisation 0.2 0.3
