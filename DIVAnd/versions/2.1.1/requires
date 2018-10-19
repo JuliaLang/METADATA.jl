@@ -1,0 +1,12 @@
+julia 0.6
+Interpolations
+NCDatasets
+SpecialFunctions
+DataStructures
+HTTP
+EzXML 0.7.3
+Mustache 0.3.2
+ZipFile
+Missings
+StatsBase
+Compat
