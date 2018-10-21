@@ -1,0 +1,19 @@
+julia 0.6 2-
+InternedStrings 0.6.2
+PCRE2 0.1.2
+StrTables 0.2.6
+LaTeX_Entities 0.2.6
+HTML_Entities 0.2.6
+Unicode_Entities 0.2.8
+Emoji_Entities 0.2.6
+Format 0.7.2
+ModuleInterfaceTools 0.1.7
+StrAPI 0.1.8
+CharSetEncodings 0.1.8
+ChrBase 0.1.10
+MurmurHash3 0.1.5
+StrLiterals 0.1.6
+StrBase 0.1.10
+StrRegex 0.1.7
+StrFormat 0.1.5
+StrEntities 0.1.3
