@@ -1,0 +1,4 @@
+julia 0.6
+MathProgBase 0.7 0.8
+JuMP 0.18 0.19
+Compat 1.0
