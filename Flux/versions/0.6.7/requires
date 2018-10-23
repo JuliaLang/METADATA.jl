@@ -3,7 +3,7 @@ Juno
 MacroTools 0.3.3
 NNlib
 Requires
-Adapt
+Adapt 0.1.0 0.4.0
 CodecZlib
 Colors
 ZipFile
