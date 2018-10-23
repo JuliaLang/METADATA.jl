@@ -1,0 +1,6 @@
+julia 0.7
+SimplePosets
+SimpleGraphs
+SimpleGraphAlgorithms
+JuMP
+Cbc
