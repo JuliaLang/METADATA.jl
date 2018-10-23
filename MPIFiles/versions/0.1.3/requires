@@ -1,0 +1,13 @@
+julia 0.7
+AxisArrays
+Compat
+FFTW
+FileIO
+Graphics
+HDF5
+HTTP
+ImageAxes
+ImageMetadata
+Interpolations
+Reexport
+Unitful
