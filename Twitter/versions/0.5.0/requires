@@ -1,0 +1,4 @@
+julia 0.7-alpha
+DataFrames 0.14.1
+OAuth 0.7.1
+JSON
