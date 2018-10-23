@@ -1,0 +1,15 @@
+julia 0.7
+
+Distances
+EllipsisNotation
+JSON
+Lazy
+MultivariateStats
+Parameters
+RecipesBase
+Requires
+Setfield
+Sobol
+SpecialFunctions
+StaticArrays
+StatsBase
