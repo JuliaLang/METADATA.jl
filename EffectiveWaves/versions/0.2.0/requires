@@ -1,0 +1,6 @@
+julia 1.0
+OffsetArrays
+RecipesBase
+SpecialFunctions
+Optim 0.16.0
+ApproxFun 0.9
