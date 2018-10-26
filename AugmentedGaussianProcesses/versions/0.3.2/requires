@@ -1,0 +1,15 @@
+julia 0.7
+
+Clustering
+Dates
+Distances
+Distributions
+FileIO
+JLD2
+LaTeXStrings
+QuadGK
+SparseArrays
+SpecialFunctions
+Statistics
+StatsBase
+ValueHistories
