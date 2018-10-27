@@ -2,4 +2,4 @@ julia 0.4
 DataStructures
 Distributions
 DataFrames 0.0.0 0.11.0
-Documenter
+Documenter 0.1 0.20
