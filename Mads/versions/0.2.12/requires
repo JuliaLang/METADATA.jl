@@ -21,6 +21,6 @@ ODE
 Klara 0.6
 Optim 0.5
 BlackBoxOptim
-Documenter
+Documenter 0.1 0.20
 Compat 0.7.15
 OrdinaryDiffEq 0.0.1

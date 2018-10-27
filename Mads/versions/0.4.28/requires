@@ -10,7 +10,7 @@ ReusableFunctions 0.2.6
 RobustPmap
 SVR 0.2.3
 DocumentFunction
-Documenter 0.8.10
+Documenter 0.8.10 0.20
 Conda 0.4
 PyCall 1.8
 PyPlot 2.2

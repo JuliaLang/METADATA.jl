@@ -2,6 +2,6 @@ julia 0.6.1
 DataStructures 0.4.6
 Distributions 0.11.0
 DataFrames 0.8.4
-Documenter 0.9.0
+Documenter 0.9.0 0.20
 NamedArrays 0.5.3
 Plots 0.9.4
