@@ -1,0 +1,14 @@
+julia 1.0
+Parameters 0.5.0
+DiffEqBase 4.29.0
+RecursiveArrayTools 0.13.0
+DataStructures 0.4.6
+DiffEqNoiseProcess
+NLsolve 0.14.1
+ForwardDiff 0.7.0
+StaticArrays
+Reexport
+RandomNumbers
+MuladdMacro
+DiffEqDiffTools 0.3.0
+DiffEqOperators 3.1.0
