@@ -1,0 +1,4 @@
+julia 0.7
+TimeSeries 0.14.0
+HTTP 0.6.12
+Reexport
