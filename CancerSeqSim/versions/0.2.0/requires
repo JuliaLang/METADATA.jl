@@ -1,0 +1,8 @@
+julia 0.7
+Distributions
+ProgressMeter
+DataFrames
+GLM
+StatsBase
+HypothesisTests
+RecipesBase
