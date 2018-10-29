@@ -1,0 +1,5 @@
+julia 0.7-beta2
+StaticArrays 0.8.2
+Requires 0.5.2
+MuladdMacro 0.2.0
+Elliptic 0.5.0
