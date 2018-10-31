@@ -1,0 +1,2 @@
+julia 0.7
+DistributedArrays 0.5
