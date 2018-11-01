@@ -1,0 +1,7 @@
+julia 1.0
+Combinatorics
+DataStructures
+Documenter
+NearestNeighbors
+Reexport
+StaticArrays
