@@ -1,0 +1,5 @@
+julia 0.7
+MathProgBase
+Polyhedra 0.4.3 0.5
+StructDualDynProg 0.2 0.3
+CutPruners
