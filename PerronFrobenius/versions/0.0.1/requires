@@ -1,0 +1,8 @@
+julia 0.6 0.7-
+RecipesBase
+Reexport
+StaticArrays
+InplaceOps
+Parameters
+Simplices
+StateSpaceReconstruction
