@@ -1,0 +1,12 @@
+julia 0.6 0.7-
+Interpolations
+Cubature
+Reexport
+Distributions
+GroupSlices
+Distances
+NearestNeighbors
+SpecialFunctions
+Simplices
+StateSpaceReconstruction
+PerronFrobenius
