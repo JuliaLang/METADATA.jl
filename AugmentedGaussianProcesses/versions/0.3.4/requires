@@ -1,0 +1,12 @@
+julia 0.7
+
+Clustering
+Distances
+Distributions
+Expectations
+FileIO
+JLD2
+LaTeXStrings
+SpecialFunctions
+StatsBase
+ValueHistories
