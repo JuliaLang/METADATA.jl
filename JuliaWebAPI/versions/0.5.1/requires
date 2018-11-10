@@ -1,0 +1,4 @@
+julia 0.7
+ZMQ 0.3.3
+JSON
+HTTP 0.6.12
