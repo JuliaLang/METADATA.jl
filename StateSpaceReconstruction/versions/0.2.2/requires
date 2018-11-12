@@ -1,0 +1,11 @@
+julia 0.7
+Conda
+Distributions
+DynamicalSystems
+DynamicalSystemsBase
+Parameters
+PyCall
+RecipesBase
+Reexport
+StaticArrays
+Simplices 0.2.1
