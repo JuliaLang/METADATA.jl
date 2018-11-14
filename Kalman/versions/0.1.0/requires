@@ -1,0 +1,6 @@
+julia 0.7
+
+Distributions
+GaussianDistributions 0.3.0
+Trajectories
+DynamicIterators 0.2.1
