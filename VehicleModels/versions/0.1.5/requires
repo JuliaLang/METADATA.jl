@@ -1,0 +1,7 @@
+julia 0.6-
+NLOptControl 0.1.7
+Parameters
+JuMP
+Interpolations
+OrdinaryDiffEq
+DiffEqBase
