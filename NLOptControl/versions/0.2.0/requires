@@ -1,0 +1,14 @@
+julia 0.6-
+FastGaussQuadrature
+JuMP
+DataFrames 0.11
+Ipopt
+KNITRO 0.4
+Interpolations
+MathProgBase
+CSV 0.2.4
+OrdinaryDiffEq
+DiffEqBase
+Colors
+Plots
+GR
