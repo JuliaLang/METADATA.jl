@@ -1,0 +1,4 @@
+julia 0.7
+HTTP 0.7.1
+MbedTLS 0.6.6
+SHA 0.5.7
