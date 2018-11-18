@@ -1,0 +1,9 @@
+julia 0.7.0-beta2
+Compat
+BinDeps
+RecipesBase
+GeometryTypes
+Parameters
+Conda
+Nullables
+Media
