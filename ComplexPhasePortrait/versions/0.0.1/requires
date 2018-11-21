@@ -1,0 +1,7 @@
+julia 0.7
+Images 0.16.1
+Colors 0.9.5
+AbstractPlotting 0.9
+IntervalSets 0.3.1
+Reactive 0.8.2
+RecipesBase 0.5
