@@ -9,4 +9,4 @@ FFTW 0.2.3
 IterativeSolvers 0.7.0
 SauterSchwabQuadrature 2.1.0
 SpecialFunctions 0.7.0
-StaticArrays 0.8.3
+StaticArrays 0.8.3 0.10
