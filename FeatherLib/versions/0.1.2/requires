@@ -1,0 +1,4 @@
+julia 0.7
+Arrow 0.2.1
+FlatBuffers 0.4.0
+CategoricalArrays 0.3.13
