@@ -1,0 +1,15 @@
+julia 1.0
+InplaceOps
+DynamicalSystemsBase
+DynamicalSystems
+Distributions
+Distances
+RecipesBase
+Reexport
+Plots
+DifferentialEquations
+TimeseriesSurrogates 0.2.1
+Simplices 0.2.1
+StateSpaceReconstruction 0.3.0
+PerronFrobenius 0.2.0
+TransferEntropy 0.3.1
