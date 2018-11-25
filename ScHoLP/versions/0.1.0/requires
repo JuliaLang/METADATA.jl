@@ -1,0 +1,7 @@
+julia 1.0
+Arpack
+Combinatorics
+DataStructures
+IterativeSolvers
+LinearOperators
+StatsBase
