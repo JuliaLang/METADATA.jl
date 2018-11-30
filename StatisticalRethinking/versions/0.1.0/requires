@@ -1,0 +1,13 @@
+julia 1.0
+Distributions
+DataFrames
+RDatasets
+GLM
+Plots
+StatPlots
+StatsBase
+Reexport
+GR
+CSV
+Turing
+Optim
