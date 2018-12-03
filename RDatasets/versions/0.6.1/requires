@@ -1,0 +1,7 @@
+julia 0.7
+Reexport
+DataFrames 0.13
+RData 0.5
+CodecZlib 0.4
+CSV 0.3
+FileIO 1.0.0

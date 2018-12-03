@@ -1,0 +1,6 @@
+julia 0.7.0-
+Requires 0.5.2
+DataValues 0.4.1
+IteratorInterfaceExtensions 0.1.0
+TableTraits 0.3.0
+TableTraitsUtils 0.2.0

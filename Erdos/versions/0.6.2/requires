@@ -1,0 +1,6 @@
+julia 0.6
+GZip 0.2.20
+EzXML 0.5.0
+StatsFuns
+Clustering
+DataStructures 0.7.0

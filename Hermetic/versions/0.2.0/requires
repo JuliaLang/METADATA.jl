@@ -1,0 +1,5 @@
+julia 0.7
+Compat 0.17
+Calculus
+Combinatorics 0.2.2
+Documenter

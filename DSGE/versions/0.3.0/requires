@@ -9,4 +9,4 @@ JLD
 Optim 0.7 0.12
 QuantEcon
 Roots
-StateSpaceRoutines
+StateSpaceRoutines 0.0.1 0.1.0

@@ -1,0 +1,7 @@
+julia 0.7
+JuMP 0.17.1
+Ipopt
+Combinatorics
+RecipesBase
+LaTeXStrings
+MathProgBase

@@ -1,0 +1,5 @@
+julia 0.7
+JuMP 0.18.0
+PATHSolver 0.4
+NLsolve 2.1
+MathProgBase 0.7.6

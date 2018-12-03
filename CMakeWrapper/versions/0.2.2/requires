@@ -1,0 +1,4 @@
+julia 0.7-alpha
+BinDeps 0.4
+Parameters 0.5
+CMake

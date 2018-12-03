@@ -1,0 +1,23 @@
+julia 1.0
+ColorTypes
+ColorVectorSpace
+Distributions
+Documenter
+FFTW
+FileIO
+Graphics
+HDF5
+HTTP
+ImageMagick
+Images
+LightXML
+LinearOperators
+NFFT
+NIfTI
+ProgressMeter
+QuartzImageIO
+Reexport
+RegularizedLeastSquares
+StatsBase
+Unitful
+Wavelets

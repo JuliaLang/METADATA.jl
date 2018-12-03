@@ -1,0 +1,13 @@
+julia 0.6
+BioServices 0.1.2
+CSV
+DataFrames
+DataStreams
+FTPClient
+HTTP
+LightXML
+Missings
+MySQL
+SQLite
+XMLDict
+ZipFile

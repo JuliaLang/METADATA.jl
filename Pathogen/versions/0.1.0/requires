@@ -1,0 +1,10 @@
+julia 0.7
+DataFrames
+Distributed
+Distributions
+LinearAlgebra
+Logging
+ProgressMeter
+Random
+RecipesBase
+StatsBase

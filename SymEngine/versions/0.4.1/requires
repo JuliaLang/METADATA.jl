@@ -1,0 +1,4 @@
+julia 0.6
+Compat 0.63.0
+RecipesBase 0.0.6
+BinaryProvider 0.3.0

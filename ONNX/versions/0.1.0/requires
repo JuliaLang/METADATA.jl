@@ -1,0 +1,7 @@
+julia 1.0
+ProtoBuf
+BSON
+Flux
+MacroTools
+DataFlow
+Compat

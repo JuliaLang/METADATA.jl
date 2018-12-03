@@ -1,0 +1,10 @@
+julia 0.6
+
+HTTP
+JSON
+
+WebIO
+JSExpr
+
+DataStructures
+CodecZlib

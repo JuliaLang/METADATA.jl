@@ -1,0 +1,16 @@
+julia 0.7
+
+Reactive
+StaticArrays
+GeometryTypes 0.4.5
+ColorTypes
+Colors
+ColorBrewer
+IntervalSets
+FreeType
+UnicodeFun
+FreeTypeAbstraction
+Packing
+SignedDistanceFields
+PlotUtils
+Showoff

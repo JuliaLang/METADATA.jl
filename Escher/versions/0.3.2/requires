@@ -2,7 +2,6 @@ julia 0.4
 ArgParse
 Colors
 Compat
-Dates
 JSON 0.0 0.9
 Markdown
 Mux 0.1.0

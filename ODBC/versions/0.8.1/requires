@@ -1,0 +1,6 @@
+julia 0.7
+DataFrames 0.14.0
+CategoricalArrays 0.2
+WeakRefStrings 0.4.1
+DecFP 0.3.0
+Tables

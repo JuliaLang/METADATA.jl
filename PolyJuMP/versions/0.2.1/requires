@@ -1,0 +1,6 @@
+julia 0.6
+MultivariatePolynomials 0.1.0
+MultivariateMoments 0.1.0
+SemialgebraicSets 0.0.1
+JuMP 0.18.3 0.19 # JuMP v0.18.2 does not support Julia v1.0 and JuMP v0.19 API will completely change
+Compat 1

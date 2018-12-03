@@ -1,4 +1,4 @@
-julia 0.5
+julia 0.5.0 0.7.0
 TikzPictures 0.3.4
 Images 0.6.0
 Compat 0.17.0

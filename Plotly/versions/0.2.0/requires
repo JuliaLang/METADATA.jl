@@ -1,0 +1,5 @@
+julia 0.7
+HTTP
+JSON
+PlotlyJS 0.2.0
+Reexport

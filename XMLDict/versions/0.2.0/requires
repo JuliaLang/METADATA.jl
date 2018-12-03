@@ -1,0 +1,5 @@
+julia 0.7-DEV.1393
+Compat 0.60.0
+EzXML
+DataStructures
+IterTools

@@ -1,0 +1,21 @@
+julia 0.7
+
+Reexport 0.2.0
+
+DataValues 0.4.4
+
+IterableTables 0.8.3
+
+Query 0.10.0
+
+VegaLite 0.4.0
+
+FileIO 1.0.0
+ExcelFiles 0.6.0
+StatFiles 0.6.1
+CSVFiles 0.9.1
+FeatherFiles 0.5.1
+
+DataFrames 0.13.1
+
+DataVoyager 0.3.0

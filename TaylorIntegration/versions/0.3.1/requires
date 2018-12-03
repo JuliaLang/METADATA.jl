@@ -1,0 +1,4 @@
+julia 0.6 0.7
+TaylorSeries 0.7.2 0.8.0
+Reexport
+DiffEqBase 3.8.0

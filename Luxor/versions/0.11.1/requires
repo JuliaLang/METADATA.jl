@@ -1,0 +1,9 @@
+julia 0.7
+Cairo
+Colors
+Dates
+FileIO
+Hiccup
+Juno
+@linux ImageMagick
+@mac QuartzImageIO

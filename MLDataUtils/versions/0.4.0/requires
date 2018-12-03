@@ -1,0 +1,6 @@
+julia 0.7
+StatsBase 0.13
+LearnBase 0.2.0 0.3.0
+MLLabelUtils 0.4.0
+MLDataPattern 0.5.0
+DataFrames 0.11

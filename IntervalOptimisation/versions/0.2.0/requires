@@ -1,0 +1,4 @@
+julia 0.6 0.7
+
+IntervalArithmetic 0.13.0 0.14.0
+IntervalRootFinding 0.2.0 0.2.1

@@ -1,0 +1,6 @@
+julia 0.7
+StatsBase
+Distributions
+Optim 0.16
+Interpolations 0.9
+FFTW

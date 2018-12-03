@@ -1,0 +1,13 @@
+julia 0.7
+FixedPointNumbers 0.3.0
+Colors
+ColorVectorSpace
+StaticArrays
+Quaternions
+ImageCore
+Unitful
+Libz
+FileIO
+AxisArrays
+ImageAxes
+MappedArrays

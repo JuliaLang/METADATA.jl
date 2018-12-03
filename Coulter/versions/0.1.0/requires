@@ -1,0 +1,7 @@
+julia 0.7
+FileIO
+KernelDensity
+Distributions
+DataStructures
+Gadfly
+StatsBase

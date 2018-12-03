@@ -1,0 +1,10 @@
+julia 0.7
+InplaceOps
+Distributions
+StatsBase
+DSP
+Interpolations
+Wavelets
+Requires
+Plots
+AbstractFFTs

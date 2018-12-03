@@ -1,0 +1,8 @@
+julia 0.6 1.0
+RobustPmap
+AffineInvariantMCMC
+DataFrames
+ForwardDiff
+BlackBoxOptim
+Klara 0.8.6
+Distributions

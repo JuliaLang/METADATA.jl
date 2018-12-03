@@ -1,0 +1,21 @@
+julia 1.0
+AbstractFFTs
+Conda
+InplaceOps
+DifferentialEquations
+Distances
+Distributions
+DynamicalSystemsBase
+DynamicalSystems
+NearestNeighbors
+Interpolations
+PerronFrobenius 0.2.0
+PyCall
+RecipesBase
+Reexport
+Simplices 0.2.1
+StaticArrays
+StateSpaceReconstruction 0.3.0 0.3.2
+TimeseriesSurrogates 0.2.1
+TransferEntropy 0.3.1
+Measures

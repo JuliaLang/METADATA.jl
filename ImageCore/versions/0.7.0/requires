@@ -1,0 +1,9 @@
+julia 0.7.0-beta.283
+FixedPointNumbers 0.3.0
+ColorTypes 0.4
+Colors
+MappedArrays 0.2
+PaddedViews 0.4.1
+Graphics
+OffsetArrays 0.8
+FFTW

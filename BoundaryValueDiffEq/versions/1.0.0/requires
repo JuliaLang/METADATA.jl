@@ -3,4 +3,4 @@ DiffEqBase
 Reexport
 NLsolve 0.14.0
 DiffEqDiffTools 0.2.0
-BandedMatrices
+BandedMatrices 0.3 0.5

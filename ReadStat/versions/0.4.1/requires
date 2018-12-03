@@ -1,0 +1,4 @@
+julia 0.7
+DataValues 0.4.4
+BinaryProvider 0.4.2
+StringEncodings 0.3.1

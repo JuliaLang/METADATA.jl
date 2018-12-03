@@ -1,9 +1,9 @@
-julia 0.5
+julia 0.5 1.0
 ArgParse
 JLD
 JSON
 Highlights
 Mustache
-Documenter
+Documenter 0.1 0.20
 YAML
 Compat 0.25.0

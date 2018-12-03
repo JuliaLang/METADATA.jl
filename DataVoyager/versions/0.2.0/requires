@@ -1,0 +1,9 @@
+julia 0.6 0.7
+Electron 0.1.1
+IteratorInterfaceExtensions 0.0.2
+TableTraits 0.0.3
+IterableTables 0.6.1
+DataValues 0.3.0
+JSON 0.9.1
+URIParser
+VegaLite 0.3.0

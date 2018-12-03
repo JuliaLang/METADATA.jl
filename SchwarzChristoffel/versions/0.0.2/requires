@@ -1,0 +1,8 @@
+julia 0.6 1.0
+Documenter 0.1 0.20
+DocStringExtensions
+FastGaussQuadrature
+NLsolve
+DifferentialEquations
+RecipesBase
+ColorTypes

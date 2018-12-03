@@ -1,0 +1,9 @@
+julia 0.7
+LsqFit 0.6.0
+DiffEqBase 4.21.0
+RecursiveArrayTools 0.17.0
+ForwardDiff 0.8.5
+Calculus 0.4.1
+Optim 0.16.0
+PenaltyFunctions 0.1.0
+Distributions 0.16.0

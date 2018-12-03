@@ -1,0 +1,10 @@
+julia 0.6
+Clustering 0.6.0
+Distributions
+PDMats
+Compat
+JLD
+FileIO
+ScikitLearnBase 0.0.2
+Logging
+SpecialFunctions

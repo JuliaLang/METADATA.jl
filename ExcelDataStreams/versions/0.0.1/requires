@@ -1,0 +1,5 @@
+julia 0.6 1.0
+DataStreams
+Taro
+DataFrames
+Documenter 0.1 0.20

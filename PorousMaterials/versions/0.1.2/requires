@@ -1,0 +1,10 @@
+julia 0.7
+SpecialFunctions
+OffsetArrays
+Roots
+Polynomials
+DataFrames
+CSV
+StatsBase
+ProgressMeter
+JLD2

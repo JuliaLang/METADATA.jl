@@ -1,0 +1,8 @@
+julia 0.6
+BinDeps
+Glob
+MathOptInterface 0.6 0.7
+SemidefiniteOptInterface 0.3 0.4
+MathProgBase 0.7 0.8
+SemidefiniteModels 0.1 0.2
+Compat 1.0

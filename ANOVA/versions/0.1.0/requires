@@ -1,0 +1,8 @@
+julia 0.7
+GLM
+DataFrames
+Distributions
+CategoricalArrays
+ArgCheck
+StatsModels
+StatsBase

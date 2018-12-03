@@ -1,0 +1,8 @@
+julia 0.7
+
+Markdown
+JSON 
+MbedTLS
+HTTP
+Libz
+MsgPack

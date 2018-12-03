@@ -1,0 +1,10 @@
+julia 0.7
+DataFrames
+Distances
+Distributions
+ProgressMeter
+StatsBase
+PyCall
+PyPlot
+RDatasets
+TensorToolbox

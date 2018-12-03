@@ -1,0 +1,8 @@
+julia 0.7
+IndirectArrays
+FixedPointNumbers 0.3.0
+Colors
+ColorVectorSpace 0.1.11
+ImageCore 0.7
+ImageAxes
+AxisArrays 0.3

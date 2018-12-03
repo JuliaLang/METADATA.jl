@@ -1,0 +1,2 @@
+julia 0.7-alpha
+Compat 0.33 # for Compat.Test

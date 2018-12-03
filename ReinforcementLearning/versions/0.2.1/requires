@@ -1,0 +1,13 @@
+julia 0.6
+Requires
+Flux
+Compat
+Parameters
+PGFPlotsX
+DataStructures
+JLD2
+StatsBase
+DataFrames
+Colors
+FileIO
+PyCall

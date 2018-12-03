@@ -1,0 +1,8 @@
+julia 0.7
+OnlineStats 0.17
+PooledArrays 0.4.1
+WeakRefStrings 0.4.4
+TableTraits 0.3.0
+TableTraitsUtils 0.2.0
+IteratorInterfaceExtensions 0.1.0
+DataValues

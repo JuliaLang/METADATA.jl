@@ -1,0 +1,15 @@
+julia 0.7
+Compat
+Distributions
+PDMats
+Distances
+DistributedArrays
+StatsBase
+MultivariateStats
+Documenter
+# New requirements for 0.7, andreasnoack says they're "special" and shouldn't be included.
+# Random
+# Statistics
+# Distributed
+
+

@@ -1,9 +1,9 @@
-julia 0.6
+julia 0.6 1.0
 Mustache
 EnglishText
 PkgDev
 DocOpt
-Documenter
+Documenter 0.1 0.20
 TestSetExtensions
 DataStructures
 Revise

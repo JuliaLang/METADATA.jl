@@ -1,0 +1,10 @@
+julia 0.7-
+IteratorInterfaceExtensions 0.1.0
+TableTraits 0.3.0
+IterableTables 0.8.0
+DataValues 0.4.1
+FileIO
+TableTraitsUtils 0.2.0
+FeatherLib 0.1.0
+Arrow 0.1.1
+TableShowUtils 0.1.0

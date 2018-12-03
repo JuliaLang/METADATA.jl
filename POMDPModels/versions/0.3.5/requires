@@ -1,0 +1,10 @@
+julia 0.7
+Distributions
+Parameters
+POMDPModelTools
+BeliefUpdaters
+POMDPs
+StatsBase
+StaticArrays
+Compose
+ColorSchemes

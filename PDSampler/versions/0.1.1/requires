@@ -1,0 +1,9 @@
+julia 0.7
+Compat
+Distributions
+Polynomials
+QuadGK
+ProgressMeter
+ApproxFun
+StatsBase
+DataStructures

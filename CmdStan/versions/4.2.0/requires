@@ -1,0 +1,5 @@
+julia 0.7-beta
+Compat 0.69
+Documenter 0.10.0
+BinDeps 0.4.3
+@osx Homebrew 0.4.0

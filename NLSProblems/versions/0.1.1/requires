@@ -1,0 +1,5 @@
+julia 0.6 2.0
+NLPModels 0.5.0
+NLPModelsJuMP 0.1.1 0.2.0
+JuMP 0.18.3 0.19
+Compat

@@ -1,0 +1,4 @@
+julia 1.0
+EzXML
+DataStructures 0.10.0
+IterTools

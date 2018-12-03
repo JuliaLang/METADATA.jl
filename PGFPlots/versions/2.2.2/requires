@@ -1,4 +1,4 @@
-julia 0.6
+julia 0.6 0.7
 TikzPictures 1.1.0
 Images 0.11.0
 Colors 0.8.0
@@ -9,4 +9,3 @@ Discretizers 2.0.0
 StatsBase 0.9.0
 DataFrames 0.11.2
 IndirectArrays 0.1.1
-

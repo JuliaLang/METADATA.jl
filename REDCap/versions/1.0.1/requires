@@ -1,0 +1,8 @@
+julia 0.7
+
+HTTP
+JSON
+LightXML
+CSV
+DataStructures
+DataFrames

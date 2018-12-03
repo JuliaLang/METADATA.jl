@@ -1,0 +1,10 @@
+julia 0.7 2
+Formatting 0.3.3
+Parameters
+DataStructures
+DataFrames
+StatsBase
+StatsModels
+GLM 1.0
+Distributions
+Compat

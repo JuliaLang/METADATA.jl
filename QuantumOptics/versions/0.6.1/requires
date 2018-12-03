@@ -1,0 +1,8 @@
+julia 0.7
+OrdinaryDiffEq 4.8.0
+DiffEqCallbacks 2.1
+StochasticDiffEq 5.6.0
+RecursiveArrayTools 0.17.2
+WignerSymbols 0.2.0
+FFTW
+Arpack

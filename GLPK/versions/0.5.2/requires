@@ -1,0 +1,6 @@
+julia 1000
+BinDeps
+@osx Homebrew
+Compat 0.66
+LinQuadOptInterface 0.1 0.3
+Nullables
