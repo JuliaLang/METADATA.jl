@@ -1,6 +1,6 @@
 julia 0.5-
 LightGraphs 0.7.2
 JuMP 0.13.2
-MatrixDepot
+MatrixDepot 0.0 0.8
 Clustering
 BlossomV 0.1
