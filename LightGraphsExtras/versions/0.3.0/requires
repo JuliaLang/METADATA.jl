@@ -1,7 +1,7 @@
 julia 0.7
 LightGraphs 1.1.0
 JuMP 0.18.3
-MatrixDepot
+MatrixDepot 0.0 0.8
 GLPKMathProgInterface 0.4.4
 MathProgBase 0.7.6
 LightGraphsFlows
