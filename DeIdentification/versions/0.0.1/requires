@@ -1,0 +1,9 @@
+julia 0.7 1.1
+CSV
+DataFrames
+Dates
+JSON
+Memento
+Random
+SHA
+YAML
