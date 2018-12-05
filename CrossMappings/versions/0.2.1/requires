@@ -1,0 +1,9 @@
+julia 1.0
+Distances
+DynamicalSystems
+NearestNeighbors
+StateSpaceReconstruction
+TimeseriesSurrogates
+StateSpaceReconstruction 0.3.0
+Conda
+PyCall
