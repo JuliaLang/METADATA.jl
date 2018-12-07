@@ -1,0 +1,14 @@
+julia 1.0
+LightGraphs
+MetaGraphs
+DataFrames
+CSV
+BigArrays
+DataStructures
+LsqFit
+OffsetArrays
+ImageFiltering
+Query
+JSON
+NearestNeighbors
+ProgressMeter
