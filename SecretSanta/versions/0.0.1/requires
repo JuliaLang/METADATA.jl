@@ -1,0 +1,7 @@
+julia 0.7
+Combinatorics
+Dates
+GLPKMathProgInterface
+JSON
+JuMP
+SMTPClient
