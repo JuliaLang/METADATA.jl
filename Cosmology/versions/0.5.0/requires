@@ -1,0 +1,4 @@
+julia 0.7
+QuadGK 0.1.1
+Unitful 0.9.0
+UnitfulAstro 0.1.1
