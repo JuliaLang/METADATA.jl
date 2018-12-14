@@ -19,7 +19,7 @@ cd $CI_TMP_DIR
 ver=$CI_JULIA_VERSION
 if [ $ver = "nightly" ]; then
   url="https://julialangnightlies-s3.julialang.org/bin/linux/x64/julia-latest-linux64.tar.gz"
-  ver=1.1
+  ver=1.2
 else
   url="https://julialang-s3.julialang.org/bin/linux/x64/$ver/julia-$ver-latest-linux-x86_64.tar.gz"
 fi
