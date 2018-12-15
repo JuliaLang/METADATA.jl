@@ -1,0 +1,17 @@
+julia 1.0
+DiffEqBase 4.28.1
+#Mamba
+Stan
+Distributions
+Turing 0.5.0
+MacroTools
+Optim
+RecursiveArrayTools
+ParameterizedFunctions
+OrdinaryDiffEq
+Parameters
+DynamicHMC
+Distances
+ApproxBayes
+TransformVariables
+LogDensityProblems
