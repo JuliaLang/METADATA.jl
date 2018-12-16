@@ -1,0 +1,16 @@
+julia 0.7
+Reexport
+Bootstrap
+CategoricalArrays
+Clustering
+CSV
+DataFrames
+Distances
+Distributions
+GLM
+HypothesisTests
+KernelDensity
+Loess
+MultivariateStats
+StatsBase
+TimeSeries
