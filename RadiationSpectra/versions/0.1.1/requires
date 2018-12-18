@@ -1,0 +1,7 @@
+julia 1.0
+Distributions
+LsqFit
+Optim
+RecipesBase
+SpecialFunctions
+StatsBase
