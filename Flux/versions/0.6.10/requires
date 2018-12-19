@@ -1,0 +1,18 @@
+julia 0.7
+Juno
+MacroTools 0.3.3
+NNlib
+Requires
+Adapt
+CodecZlib
+Colors
+ZipFile
+AbstractTrees
+Reexport
+StatsBase
+
+# AD
+ForwardDiff 0.5.0
+DiffRules
+SpecialFunctions
+NaNMath
