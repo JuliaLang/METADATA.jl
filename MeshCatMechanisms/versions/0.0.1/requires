@@ -1,5 +1,5 @@
 julia 0.6
-MeshCat 0.0.1
+MeshCat 0.0.1 0.6
 
 ColorTypes 0.2.0
 CoordinateTransformations 0.4.1
