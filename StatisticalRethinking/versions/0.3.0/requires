@@ -1,0 +1,21 @@
+julia 1.0
+Distributions
+DataFrames
+RDatasets
+GLM
+Plots
+StatPlots
+StatsBase
+Reexport
+GR
+CSV
+Turing
+Optim
+JLD
+CmdStan
+StanMCMCChain
+Mamba
+Gadfly
+Literate
+StatsFuns
+MCMCChain
