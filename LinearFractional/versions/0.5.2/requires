@@ -1,0 +1,4 @@
+julia 0.7.0
+JuMP 0.18.3
+MathProgBase 0.7.6
+Parameters 0.10.1
