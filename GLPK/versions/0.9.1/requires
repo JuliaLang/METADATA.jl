@@ -1,0 +1,4 @@
+julia 0.6
+BinaryProvider 0.3
+Compat 0.66
+LinQuadOptInterface 0.6 0.7
