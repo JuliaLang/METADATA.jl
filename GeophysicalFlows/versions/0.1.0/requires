@@ -1,7 +1,7 @@
 julia 0.7
 
 FFTW
-FourierFlows
+FourierFlows 0.2.2
 JLD2
 PyPlot
 Reexport
