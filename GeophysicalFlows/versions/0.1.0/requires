@@ -1,7 +1,7 @@
 julia 0.7
 
 FFTW
- FourierFlows 0.0 0.3
+FourierFlows 0.0 0.3
 JLD2
 PyPlot
 Reexport
