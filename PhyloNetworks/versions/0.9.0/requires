@@ -1,0 +1,14 @@
+julia 0.7
+BioSequences 1.0
+BioSymbols 3.0
+Combinatorics 0.7
+CSV 0.4
+DataFrames 0.13
+DataStructures 0.9
+GLM 1.0
+NLopt 0.5.1
+SpecialFunctions 0.7
+StaticArrays 0.8.3
+StatsBase 0.26
+StatsFuns 0.7
+StatsModels 0.3
