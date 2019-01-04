@@ -1,0 +1,10 @@
+julia 0.6
+Compat
+Documenter
+DocStringExtensions
+FastGaussQuadrature
+NLsolve
+DifferentialEquations
+RecipesBase
+ColorTypes
+Reexport
