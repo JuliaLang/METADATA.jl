@@ -1,0 +1,4 @@
+julia 1.0
+RecipesBase 0.6.0
+OffsetArrays 0.6.0
+Plots
