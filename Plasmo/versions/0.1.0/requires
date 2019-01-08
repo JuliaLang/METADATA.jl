@@ -1,0 +1,9 @@
+julia 0.7
+JuMP 0.18
+MathProgBase
+Ipopt
+LightGraphs
+Reexport
+Requires
+DataStructures
+Compat
