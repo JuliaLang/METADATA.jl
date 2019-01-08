@@ -1,0 +1,13 @@
+julia 1.0
+Blink 0.8.1
+CSV 0.4.2
+DataFrames 0.14.1
+DataStructures 0.14.0
+Documenter 0.20.0
+HTTP 0.7.1
+JSON 0.19.0
+LightGraphs 1.2.0
+WebIO 0.6.0
+Markdown
+Printf
+Test
