@@ -146,3 +146,28 @@ for pkg in keys(modified)
         error(msg)
     end
 end
+
+if VERSION >= v"0.7.0"
+    using Pkg.Types: read_project
+    for pkg in keys(modified)
+        url = readchomp(joinpath(BUILD_DIR, pkg, "url"))
+        for tag in modified[pkg]
+            mktempdir() do d
+                run(`git clone $url $d --quiet --depth 1 --branch v$tag`)
+                if isfile(joinpath(d, "Project.toml"))
+                    proj = read_project(joinpath(d, "Project.toml"))
+                elseif isfile(joinpath(d, "JuliaProject.toml"))
+                    proj = read_project(joinpath(d, "JuliaProject.toml"))
+                else
+                    return
+                end
+                haskey(proj, "version") || return
+                v = VersionNumber(proj["version"])
+                if v != tag
+                    error("Tagged version $tag of $pkg lists version $v in its Project file.\n",
+                          "The versions must match.")
+                end
+            end
+        end
+    end
+end
