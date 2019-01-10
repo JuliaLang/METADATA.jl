@@ -1,0 +1,5 @@
+julia 0.7
+LightGraphs 1.0
+DataFrames 0.13
+MetaGraphs
+
