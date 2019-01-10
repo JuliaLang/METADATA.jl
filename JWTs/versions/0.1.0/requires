@@ -1,0 +1,4 @@
+julia 1.0
+MbedTLS
+JSON
+HTTP
