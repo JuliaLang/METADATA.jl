@@ -1,0 +1,7 @@
+julia 1.0
+
+FFTW
+FourierFlows 0.3.0
+JLD2
+PyPlot
+Reexport
