@@ -1,0 +1,12 @@
+julia 0.7
+Knet 1.0.1
+
+# The following are used by the build script if installed.
+# Documenter
+
+# We need the following for some examples.  They get automatically installed when needed.
+# ArgParse, JLD, JLD2, Images, CodecZlib, MAT, PyCall, JSON, IJulia, BenchmarkTools, Distributions
+
+# ProgressMeter 0.6.0
+# ProgressMeter = "92933f4c-e287-5a05-a399-4b506db050ca"
+# ProgressMeter = "0.6.0"
