@@ -1,0 +1,7 @@
+julia 1.0
+SortingAlgorithms
+DataFrames
+IndexedTables
+PooledArrays
+CategoricalArrays
+SortingLab
