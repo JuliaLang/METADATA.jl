@@ -1,0 +1,7 @@
+julia 0.7-
+Distributions
+FileIO
+JLD2
+CSV
+DataFrames
+GZip
