@@ -1,0 +1,7 @@
+julia 1.0
+DiffEqBase 4.29.0
+OrdinaryDiffEq 3.0.0
+RecursiveArrayTools
+DataStructures 0.15.0
+RecipesBase
+StaticArrays
