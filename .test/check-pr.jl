@@ -161,6 +161,20 @@ if VERSION >= v"0.7.0"
                 else
                     return
                 end
+                compatible = Pkg.METADATA_compatible_uuid(pkg)
+                if haskey(proj, "uuid")
+                    declared = proj["uuid"]
+                    if declared != compatible
+                        error("Tagged version $tag of $pkg declares the package UUID to be ",
+                              "\"$declared\" in its Project file, which does not match the ",
+                              "package's METADATA-compatible UUID \"$compatible\".\nTo fix ",
+                              "this error, change the UUID to be \"$compatible\" and retag.")
+                    end
+                else
+                    error("Tagged version $tag of $pkg has a Project file with no UUID for ",
+                          "the package.\nAdd a line `uuid = \"$compatible\"` near the top ",
+                          "of the Project file and retag.")
+                end
                 haskey(proj, "version") || return
                 v = VersionNumber(proj["version"])
                 if v != tag
