@@ -161,7 +161,7 @@ if VERSION >= v"0.7.0"
                 else
                     return
                 end
-                compatible = Pkg.METADATA_compatible_uuid(pkg)
+                compatible = Pkg.METADATA_compatible_uuid(String(pkg))
                 if haskey(proj, "uuid")
                     declared = proj["uuid"]
                     if declared != compatible
