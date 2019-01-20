@@ -163,7 +163,7 @@ if VERSION >= v"0.7.0"
                 end
                 compatible = Pkg.METADATA_compatible_uuid(String(pkg))
                 if haskey(proj, "uuid")
-                    declared = proj["uuid"]
+                    declared = Base.UUID(proj["uuid"])
                     if declared != compatible
                         error("Tagged version $tag of $pkg declares the package UUID to be ",
                               "\"$declared\" in its Project file, which does not match the ",
