@@ -9,9 +9,9 @@ notifications:
   on_success: change
 
 julia:
-  - 0.6
   - 0.7
   - 1.0
+  - 1.1
   - nightly
 
 matrix:

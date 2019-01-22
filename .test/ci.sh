@@ -25,12 +25,6 @@ else
 fi
 mkdir -p $JULIA_PKGDIR/v$ver/.cache julia-$ver
 ln -s $BUILD_DIR $JULIA_PKGDIR/v$ver/METADATA
-if [ $ver = "0.6" ]; then
-  curl -A "$CI_NAME for METADATA tests $(curl --version | head -n 1)" -L --retry 5 $url | \
-    tar -C julia-$ver --strip-components=1 -xzf - && \
-    julia-$ver/bin/julia -e 'versioninfo(); include("$(ENV["BUILD_DIR"])/.test/METADATA.jl")'
-else
-  curl -A "$CI_NAME for METADATA tests $(curl --version | head -n 1)" -L --retry 5 $url | \
-    tar -C julia-$ver --strip-components=1 -xzf - && \
-    julia-$ver/bin/julia -e 'using InteractiveUtils; versioninfo(); include("$(ENV["BUILD_DIR"])/.test/METADATA.jl")'
-fi
+curl -A "$CI_NAME for METADATA tests $(curl --version | head -n 1)" -L --retry 5 $url | \
+  tar -C julia-$ver --strip-components=1 -xzf - && \
+  julia-$ver/bin/julia -e 'using InteractiveUtils; versioninfo(); include("$(ENV["BUILD_DIR"])/.test/METADATA.jl")'

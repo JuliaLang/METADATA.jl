@@ -1,28 +1,16 @@
-@static if VERSION < v"0.7.0-DEV.3656"
-    const OldPkg = Base.Pkg
-elseif VERSION < v"0.7.0-DEV.5183"
+if VERSION >= v"1.0"
     import Pkg
-    const OldPkg = Pkg
-else
-    if VERSION >= v"1.0"
-        import Pkg
-        Pkg.add(Pkg.PackageSpec(url="https://github.com/JuliaAttic/OldPkg.jl"))
-    end
-    import OldPkg
+    Pkg.add(Pkg.PackageSpec(url="https://github.com/JuliaAttic/OldPkg.jl"))
 end
-
-# occursin used to be ismatch
-if VERSION < v"0.7"
-    const occursin = ismatch
-end
+import OldPkg
 
 cd(OldPkg.dir()) # Required by some OldPkg functions
 
 const url_reg = r"^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
 const gh_path_reg_git=r"^/(.*)?/(.*)?.git$"
 
-const releasejuliaver = v"0.6" # Current release version of Julia
-const minjuliaver = v"0.6.0" # Oldest Julia version allowed to be registered
+const releasejuliaver = v"1.1" # Current release version of Julia
+const minjuliaver = v"0.7.0" # Oldest Julia version allowed to be registered
 const minpkgver = v"0.0.1"   # Oldest package version allowed to be registered
 
 print_list_3582 = false # set this to true to generate the list of grandfathered
@@ -171,7 +159,7 @@ for (pkg, versions) in OldPkg.Read.available()
                     same_minor(x::VersionNumber) = (majmin(x) == majmin(ver) &&
                         juliaver_in_require(pkg, x; check=false) < juliaver)
                     ind_same_minor = findfirst(same_minor, sortedversions)
-                    if ind_same_minor == (VERSION < v"0.7.0-DEV.3399" ? 0 : nothing)
+                    if ind_same_minor === nothing
                         continue
                     end
                     first_same_minor = sortedversions[ind_same_minor]
