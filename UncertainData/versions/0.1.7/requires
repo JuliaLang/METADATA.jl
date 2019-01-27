@@ -1,0 +1,9 @@
+julia 1.0
+StaticArrays
+Distributions
+IntervalArithmetic
+StatsBase
+HypothesisTests
+RecipesBase
+Combinatorics
+Interpolations
