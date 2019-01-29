@@ -148,16 +148,20 @@ for pkg in keys(modified)
 end
 
 if VERSION >= v"0.7.0"
-    using Pkg.Types: read_project
+    if VERSION < v"1.1.0-DEV.857"
+        using Pkg.Types: read_project
+    else
+        read_project(x) = Pkg.Types.read_project(x).other
+    end
     for pkg in keys(modified)
         url = readchomp(joinpath(BUILD_DIR, pkg, "url"))
         for tag in modified[pkg]
             mktempdir() do d
                 run(`git clone $url $d --quiet --depth 1 --branch v$tag`)
-                if isfile(joinpath(d, "Project.toml"))
-                    proj = read_project(joinpath(d, "Project.toml"))
-                elseif isfile(joinpath(d, "JuliaProject.toml"))
+                if isfile(joinpath(d, "JuliaProject.toml"))
                     proj = read_project(joinpath(d, "JuliaProject.toml"))
+                elseif isfile(joinpath(d, "Project.toml"))
+                    proj = read_project(joinpath(d, "Project.toml"))
                 else
                     return
                 end
