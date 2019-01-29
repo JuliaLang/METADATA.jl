@@ -1,0 +1,12 @@
+julia 1.0
+StaticArrays
+Bootstrap
+Distributions
+IntervalArithmetic
+StatsBase
+KernelDensity
+HypothesisTests
+RecipesBase
+Combinatorics
+Interpolations
+Reexport
