@@ -1,0 +1,5 @@
+julia 1.0
+Arpack 0.3
+NearestNeighborDescent 0.2
+Distances 0.7
+LsqFit 0.6
