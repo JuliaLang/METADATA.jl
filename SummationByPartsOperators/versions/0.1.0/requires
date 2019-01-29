@@ -1,0 +1,13 @@
+julia 1.0
+
+FFTW
+ArgCheck
+Requires
+Reexport
+Unrolled
+Parameters
+StaticArrays
+PolynomialBases 0.4.1
+
+DiffEqBase
+DiffEqCallbacks
