@@ -1,0 +1,6 @@
+julia 0.6.1
+Tokenize 0.4.2
+FastaIO 0.3.0
+JSON 0.16.4
+BioTools
+BioSequences
