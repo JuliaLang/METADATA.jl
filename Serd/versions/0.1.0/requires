@@ -1,0 +1,7 @@
+julia 0.7
+
+BinDeps
+@osx Homebrew
+
+AutoHashEquals
+Nullables
