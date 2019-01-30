@@ -1,0 +1,7 @@
+julia 1
+Distributions 
+StatsBase 
+DocStringExtensions 
+TensorOperations 
+Convex 
+SCS 
