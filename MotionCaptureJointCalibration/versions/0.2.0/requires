@@ -1,0 +1,7 @@
+julia 0.7
+RigidBodyDynamics 0.6
+JuMP 0.18 0.19-
+Parameters
+Requires 0.5.2 # for optional visualization stuff
+StaticArrays
+MathProgBase
