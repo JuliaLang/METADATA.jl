@@ -1,0 +1,10 @@
+julia 1.0
+Retry
+SymDict
+XMLDict
+JSON
+IniFile
+HTTP 0.6.3
+MbedTLS 0.6
+DataStructures
+LazyJSON
