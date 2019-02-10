@@ -1,0 +1,11 @@
+julia 0.7
+DataFrames
+Gadfly
+Compose
+Measures
+Compat
+Graphics
+Colors
+Gtk
+GtkUtilities
+Reexport
