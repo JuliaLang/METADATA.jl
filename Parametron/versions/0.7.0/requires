@@ -1,0 +1,5 @@
+julia 0.7
+MathOptInterface 0.6 0.7
+MacroTools
+FunctionWrappers 0.1.0
+DocStringExtensions
