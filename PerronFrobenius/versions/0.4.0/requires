@@ -1,0 +1,12 @@
+julia 1.0
+CausalityToolsBase 0.3.1
+Conda
+InplaceOps
+Parameters
+PyCall
+RecipesBase
+Reexport
+Simplices 0.4.0
+StateSpaceReconstruction 0.4.0
+StaticArrays
+DelayEmbeddings
