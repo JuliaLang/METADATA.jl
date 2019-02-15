@@ -1,0 +1,11 @@
+julia 0.7
+ColorTypes 0.2.0
+CoordinateTransformations 0.4.1
+OrderedCollections 1.0
+GeometryTypes 0.4
+Interpolations 0.9
+InteractBase 0.8
+LoopThrottle 0.0.1
+MechanismGeometries 0.2
+MeshCat 0.6
+RigidBodyDynamics 0.4
