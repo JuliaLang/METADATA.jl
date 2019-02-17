@@ -1,0 +1,7 @@
+julia 0.7
+Lasso
+StatsBase
+StatsModels
+DataFrames
+LambertW
+GLM
