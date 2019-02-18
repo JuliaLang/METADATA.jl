@@ -189,3 +189,33 @@ if VERSION >= v"0.7.0"
         end
     end
 end
+
+# Ensure no stdlibs are listed in REQUIRE
+if VERSION >= v"0.7.0"
+    const STDLIBS = readdir(Pkg.Types.stdlib_dir())
+    for (pkg, versions) in modified, ver in versions
+        reqs = joinpath(BUILD_DIR, pkg, "versions", string(ver), "requires")
+        # Do a first pass over the file to get the Julia version. We'll do this as two
+        # separate loops just in case things are listed in a weird order (e.g. Julia
+        # listed after the things we want to detect)
+        jlver = v"0.0.0"
+        for line in eachline(reqs)
+            if startswith(line, "julia")
+                _, ver, = split(line, ' ')
+                jlver = VersionNumber(ver)
+            end
+        end
+        for line in eachline(reqs)
+            dep = first(split(line, ' '))
+            # It's okay to list SHA as a requirement iff Julia versions before SHA was
+            # added as a stdlib are allowed
+            if jlver < v"0.7.0-DEV.3861" && dep == "SHA"
+                continue
+            elseif dep in STDLIBS
+                error("Tagged version $ver of $pkg lists the standard library module $dep in ",
+                      "its REQUIRE file. Stdlibs should not be listed in REQUIRE, only in ",
+                      "Project.toml.\nRemove $dep from REQUIRE and retag.")
+            end
+        end
+    end
+end
