@@ -1,0 +1,7 @@
+julia 0.6
+DataFrames 0.9.0
+Missings
+Compat 0.59.0
+Requires
+RecipesBase
+EcoBase 0.0.6
