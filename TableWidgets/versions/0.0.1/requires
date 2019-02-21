@@ -1,0 +1,12 @@
+julia 0.7
+InteractBase 0.6.1
+InteractBulma
+Widgets 0.2.4
+CSSUtil
+Observables
+MacroTools
+WebIO 0.2.5
+Compat
+DataStructures
+Tables
+IterTools
