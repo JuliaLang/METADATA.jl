@@ -1,0 +1,7 @@
+julia 1.0
+DataFrames
+DataStructures
+Requires
+StaticArrays
+Sundials
+Unitful
