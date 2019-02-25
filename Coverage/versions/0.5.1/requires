@@ -1,5 +1,5 @@
 julia 0.6
 JSON
-HTTP
+HTTP 0.4 0.8.0
 Git
 Compat 0.44.0

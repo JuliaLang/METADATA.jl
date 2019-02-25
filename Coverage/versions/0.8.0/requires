@@ -1,4 +1,4 @@
 julia 1.0
 JSON
-HTTP
+HTTP 0.6.10 0.8.0
 MbedTLS
