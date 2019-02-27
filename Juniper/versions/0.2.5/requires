@@ -1,0 +1,5 @@
+julia 0.6
+
+MathProgBase 0.6 0.8-
+JuMP 0.18 0.19-
+JSON 0.16
