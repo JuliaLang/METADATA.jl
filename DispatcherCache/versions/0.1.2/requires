@@ -1,0 +1,8 @@
+julia 1.0
+Dispatcher
+Memento
+IterTools
+JSON
+TranscodingStreams
+CodecBzip2
+CodecZlib
