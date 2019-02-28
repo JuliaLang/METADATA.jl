@@ -1,0 +1,7 @@
+julia 1.0
+BinaryProvider
+Languages
+WordTokenizers
+TSVD
+DataStructures
+AutoHashEquals
