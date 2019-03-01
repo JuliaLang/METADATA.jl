@@ -1,0 +1,10 @@
+julia 1.1
+DynamicalSystems 1.2
+AbstractPlotting
+Interact
+Blink
+Colors
+Reexport
+Observables
+StatsBase
+StatsMakie

@@ -1,0 +1,6 @@
+julia 0.7.0-beta2
+StaticArrays 0.8
+Distances 0.7
+NearestNeighbors 0.4
+StatsBase 0.24
+

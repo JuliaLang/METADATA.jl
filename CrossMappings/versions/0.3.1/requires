@@ -1,0 +1,11 @@
+julia 1.0
+Conda
+DelayEmbeddings
+Distances
+DynamicalSystems
+NearestNeighbors
+PyCall
+StateSpaceReconstruction 0.4.0
+TimeseriesSurrogates
+StatsBase
+UncertainData
