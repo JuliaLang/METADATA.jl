@@ -1,0 +1,6 @@
+julia 0.7
+WebIO
+JSExpr
+Tables
+JSON
+Observables

@@ -1,0 +1,5 @@
+julia 0.7
+BoltzmannMachines
+Compose 0.7
+DataFrames
+Gadfly 1.0

@@ -1,0 +1,7 @@
+julia 1.0
+BinaryProvider 0.5.3
+CxxWrap 0.8 0.9
+MathOptInterface 0.8 0.9
+SemidefiniteOptInterface 0.5 0.6
+MathProgBase 0.7 0.8
+SemidefiniteModels 0.1.1 0.2

@@ -1,0 +1,11 @@
+julia 1.0
+Colors
+Contour
+DataStructures
+MultivariatePolynomials
+DynamicPolynomials
+PlotUtils
+PyCall
+RecipesBase
+StaticArrays
+StaticPolynomials
