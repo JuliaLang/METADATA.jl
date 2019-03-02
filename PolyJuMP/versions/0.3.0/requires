@@ -1,0 +1,6 @@
+julia 1.0
+MultivariatePolynomials 0.2.7
+MultivariateMoments 0.2.0
+SemialgebraicSets 0.1.0
+MathOptInterface 0.8.2
+JuMP 0.19
