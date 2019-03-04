@@ -1,0 +1,12 @@
+julia 0.7 2.0-
+Conda
+DataFrames
+DecisionTree
+IterTools
+MLBase
+MultivariateStats
+PyCall
+RCall
+RDatasets
+ScikitLearn
+StatsBase
