@@ -1,0 +1,17 @@
+julia 1.0
+MacroTools
+YAML
+DataStructures
+AxisArrays
+NLsolve
+Optim
+QuantEcon
+Distributions
+Dolang
+BasisMatrices
+StringDistances
+StaticArrays
+IterativeSolvers
+IterTools
+Compat
+HTTP
