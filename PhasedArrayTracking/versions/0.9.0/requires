@@ -1,0 +1,4 @@
+julia 0.7
+DocStringExtensions
+StaticArrays
+Tracking
