@@ -1,0 +1,9 @@
+julia 0.7
+Combinatorics
+StaticArrays
+ComputedFieldTypes
+Requires
+DirectSum 0.1 0.2-
+AbstractTensors
+AbstractLattices
+Reduce
