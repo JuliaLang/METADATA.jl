@@ -1,0 +1,21 @@
+julia 1.0
+StatisticalRethinking
+Distributions
+DataFrames
+RDatasets
+GLM
+Plots
+StatsPlots
+StatsBase
+Reexport
+GR
+CSV
+Turing
+Flux
+Optim
+Literate
+StatsFuns
+MCMCChains
+DataStructures
+JLD
+Documenter
