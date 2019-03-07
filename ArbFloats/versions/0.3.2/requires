@@ -1,0 +1,5 @@
+julia 0.7
+BinDeps 0.7
+Compat 1.5
+ReadableNumbers 0.2
+SpecialFunctions 0.7
