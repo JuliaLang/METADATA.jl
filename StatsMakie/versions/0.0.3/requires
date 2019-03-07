@@ -1,0 +1,15 @@
+julia 1.0
+AbstractPlotting 0.9.1
+KernelDensity
+StatsBase
+Observables
+Distributions
+Tables
+StructArrays 0.2.0
+IntervalSets
+Loess
+NamedArrays
+FreqTables 0.3.1
+Widgets 0.5.0
+OrderedCollections
+FileIO
