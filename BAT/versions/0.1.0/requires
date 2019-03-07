@@ -1,0 +1,22 @@
+julia 1.0
+ArgCheck
+ArraysOfArrays
+Clustering
+Colors
+DataStructures
+Distributions
+DoubleFloats 0.3.4
+ElasticArrays
+FunctionWrappers
+IntervalSets
+LaTeXStrings
+ParallelProcessingTools
+Parameters
+PDMats
+ProgressMeter
+Random123
+RecipesBase
+StaticArrays
+StatsBase
+TypedTables
+UnsafeArrays
