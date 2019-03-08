@@ -1,0 +1,19 @@
+julia 0.7
+Juno 0.5.4
+Lazy 0.11.3
+TreeViews 0.3
+LNR
+JSON
+CodeTools
+Hiccup
+Media
+Reexport
+MacroTools
+DocSeeker
+ASTInterpreter2
+DebuggerFramework
+WebIO 0.6.0
+Requires
+HTTP
+WebSockets
+Traceur
