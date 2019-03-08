@@ -1,0 +1,5 @@
+julia 1.0
+BinaryProvider
+DiffEqBase 5.5.0
+Reexport
+DataStructures 0.15.0
