@@ -1,0 +1,4 @@
+julia 0.7
+RecursiveArrayTools 0.17.0
+AbstractOperators 0.1.0
+ProximalOperators 0.8.0
