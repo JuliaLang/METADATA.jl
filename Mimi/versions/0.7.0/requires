@@ -1,0 +1,24 @@
+julia 1.1
+Compose
+CSVFiles
+DataFrames
+DataStructures
+Distributions
+Electron
+ExcelFiles
+IterTools
+IterableTables
+FileIO
+GraphPlot 0.3.0
+JSON
+LightGraphs
+MacroTools
+MetaGraphs
+NamedArrays
+StatsBase
+StringBuilders
+TableTraits
+ProgressMeter
+Query
+VegaLite
+FilePaths
