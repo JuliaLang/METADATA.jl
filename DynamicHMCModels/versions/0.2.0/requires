@@ -1,0 +1,23 @@
+julia 1.0
+StatisticalRethinking
+Distributions
+DataFrames
+StatsPlots
+StatsBase
+Reexport
+GR
+CSV
+Literate
+StatsFuns
+MCMCChains
+DataStructures
+JLD
+TransformVariables
+LogDensityProblems
+DynamicHMC
+MCMCDiagnostics
+Parameters
+ForwardDiff
+Plots
+Optim
+Documenter
