@@ -1,0 +1,42 @@
+julia 1.0
+Compat 0.13
+Anasol 0.3.1
+AffineInvariantMCMC
+Kriging
+MetaProgTools
+ReusableFunctions 0.2.6
+RobustPmap
+SVR 0.2.3
+DocumentFunction
+Documenter 0.8.10
+DocumenterMarkdown
+Conda 0.4
+PyCall 1.8
+PyPlot 2.2
+Gadfly 0.6.5
+Compose 0.5.2
+Cairo
+Fontconfig
+Colors
+Measures
+Images
+QuartzImageIO
+YAML
+JSON
+JLD2
+FileIO
+ProgressMeter
+Suppressor
+Distributions
+OrderedCollections
+DataStructures
+DataFrames
+OrdinaryDiffEq
+NMF
+BlackBoxOptim
+Optim
+LsqFit 0.3.0
+StatsBase 0.15
+JuMP 0.19
+MathProgBase 0.7
+Ipopt 0.5
