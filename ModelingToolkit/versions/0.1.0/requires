@@ -1,0 +1,7 @@
+julia 1.0
+MacroTools
+DiffEqBase
+DiffRules
+SpecialFunctions
+NaNMath
+StaticArrays
