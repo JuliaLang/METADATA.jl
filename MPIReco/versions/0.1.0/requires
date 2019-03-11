@@ -1,0 +1,13 @@
+julia 1.0
+AxisArrays
+FileIO
+HTTP
+ImageMagick
+Images
+MPIFiles
+ProgressMeter
+QuartzImageIO
+Reexport
+RegularizedLeastSquares
+Unitful
+Winston
