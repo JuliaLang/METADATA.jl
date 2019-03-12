@@ -1,0 +1,4 @@
+julia 0.6
+Compat
+Conda
+PyCall 1.16
