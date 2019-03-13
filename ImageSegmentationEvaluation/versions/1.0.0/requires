@@ -1,0 +1,10 @@
+julia 0.7
+Clustering
+ColorTypes
+ColorVectorSpace
+Colors
+Distances
+ImageSegmentation
+Images
+MLBase
+MatrixNetworks
