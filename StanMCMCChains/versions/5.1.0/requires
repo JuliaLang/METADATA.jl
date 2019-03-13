@@ -1,0 +1,7 @@
+julia 1.0
+CmdStan
+MCMCChains
+Plots
+JLD
+Reexport
+CSV
