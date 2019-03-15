@@ -1,0 +1,8 @@
+julia 1.0
+Nuklear 0.1.1
+GLFW
+ModernGL
+Images
+ProgressMeter
+Colors
+Jive
