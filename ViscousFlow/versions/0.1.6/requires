@@ -1,0 +1,14 @@
+julia 0.6
+FastGaussQuadrature
+Interpolations
+Reexport
+Compat
+FFTW
+SpecialFunctions
+DocStringExtensions
+ForwardDiff
+LinearMaps
+IterativeSolvers
+RecipesBase
+ColorTypes
+PlotUtils
