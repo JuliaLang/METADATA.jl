@@ -1,5 +1,5 @@
 julia 0.7
 BandedMatrices 0.8.2
-BlockArrays 0.7
+BlockArrays 0.7 0.8
 FillArrays 0.3
 LazyArrays 0.6
