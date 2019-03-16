@@ -1,0 +1,8 @@
+julia 1.0
+DataStructures
+Documenter
+Formatting
+MacroTools
+NearestNeighbors
+Reexport
+StaticArrays
