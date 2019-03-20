@@ -1,0 +1,18 @@
+julia 1.1
+
+Clustering
+Colors
+DataFrames
+Distances
+Distributions
+Expectations
+FileIO
+GradDescent
+JLD2
+LaTeXStrings
+Makie
+MLKernels
+SpecialFunctions
+StatsBase
+StatsFuns
+ValueHistories
