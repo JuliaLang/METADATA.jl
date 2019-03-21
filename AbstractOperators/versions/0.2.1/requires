@@ -1,0 +1,5 @@
+julia 1.0
+AbstractFFTs v0.3
+FFTW 0.2
+DSP 0.5
+RecursiveArrayTools 0.18
