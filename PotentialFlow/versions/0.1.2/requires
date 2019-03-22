@@ -1,0 +1,13 @@
+julia 0.7
+Documenter
+DocStringExtensions
+Interpolations
+Reexport
+MacroTools
+ForwardDiff
+MappedArrays
+RecipesBase
+ColorTypes
+PlotUtils
+SchwarzChristoffel
+FFTW
