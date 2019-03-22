@@ -1,4 +1,4 @@
 julia 1.0
 CUDAnative 0.1 2.0
-CuArrays
+CuArrays 0.1 1.0
 LLVM
