@@ -1,0 +1,6 @@
+julia 0.7-
+GeometricIntegrators
+ApproxFun
+HDF5
+ProgressMeter
+SymPy
