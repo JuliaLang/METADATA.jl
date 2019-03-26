@@ -1,0 +1,7 @@
+julia 0.7
+PooledArrays 0.2.0
+Nullables
+DataStructures
+WeakRefStrings 0.5.4
+CodecZlib
+DoubleFloats
