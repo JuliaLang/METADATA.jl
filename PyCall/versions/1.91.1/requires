@@ -1,0 +1,4 @@
+julia 0.7
+Conda 0.2
+MacroTools 0.3
+VersionParsing
