@@ -1,0 +1,8 @@
+julia 0.7
+PyCall 1.90.0
+Lazy 0.11.4
+Compat 0.17
+IteratorInterfaceExtensions 0.1.1
+TableTraits 0.3.1
+TableTraitsUtils 0.3.0
+DataValues 0.4.4
