@@ -1,0 +1,7 @@
+julia 1.0
+BenchmarkTools
+CSV
+Compose
+Distributions
+LightGraphs
+Optim
