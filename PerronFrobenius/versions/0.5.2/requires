@@ -1,0 +1,15 @@
+julia 1.0
+CausalityToolsBase 0.3.4
+Conda
+DelayEmbeddings
+InplaceOps
+IntervalArithmetic
+LaTeXStrings
+Parameters
+PyCall
+RecipesBase
+Reexport
+Simplices 0.4.0
+StateSpaceReconstruction 0.4.1
+StaticArrays
+
