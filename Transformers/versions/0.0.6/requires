@@ -1,0 +1,13 @@
+julia 1.0
+Adapt
+ArgParse
+BytePairEncoding
+DataDeps
+Flux
+HTTP # Requires master
+InternedStrings
+JSON
+LightXML
+NPZ
+Requires
+WordTokenizers
