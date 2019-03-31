@@ -1,0 +1,16 @@
+julia 1.0.0
+CSV
+Cassette
+Colors
+Distributions
+Documenter
+LightGraphs
+MetaGraphs
+DataFrames
+DataFramesMeta
+GraphDataFrameBridge
+GLM
+JSON
+Latexify
+Unitful
+Plots
