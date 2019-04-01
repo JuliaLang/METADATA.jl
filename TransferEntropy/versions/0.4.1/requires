@@ -1,0 +1,15 @@
+julia 1.0
+CausalityToolsBase 0.4.1
+Conda
+DelayEmbeddings
+Distances
+Distributions
+NearestNeighbors
+PerronFrobenius 0.5.3
+PyCall
+Reexport
+Simplices 0.4.1
+SpecialFunctions
+StateSpaceReconstruction 0.4.2
+StaticArrays
+StatsBase
