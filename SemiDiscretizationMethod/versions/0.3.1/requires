@@ -1,0 +1,8 @@
+julia 1.0
+Reexport
+LinearAlgebra
+SparseArrays
+StaticArrays
+Arpack
+QuadGK
+Lazy
