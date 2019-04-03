@@ -1,0 +1,3 @@
+julia 0.7.0-beta
+BinDeps
+Compat 0.66
