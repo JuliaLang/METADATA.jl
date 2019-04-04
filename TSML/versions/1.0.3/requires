@@ -1,0 +1,13 @@
+julia 0.7 2.0-
+Conda
+DataFrames
+PyCall
+RCall
+RDatasets
+Reexport
+StatsBase
+MLDataUtils
+RDatasets
+DecisionTree
+MLBase
+MultivariateStats
