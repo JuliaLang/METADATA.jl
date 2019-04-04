@@ -1,0 +1,7 @@
+julia 1.0
+
+MacroTools
+Requires
+
+LazyArrays
+RecursiveArrayTools 0.18.6
