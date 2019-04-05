@@ -1,0 +1,4 @@
+julia 0.7
+MathOptInterface 0.8.3 0.9
+Mosek 0.9.11
+Compat 1
