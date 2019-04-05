@@ -1,0 +1,9 @@
+julia 1.0
+DiffEqBase
+DifferentialEquations 5
+Lazy
+NLsolve
+Parameters
+PowerDynBase
+PowerDynOperationPoint 0.2 
+RecipesBase
