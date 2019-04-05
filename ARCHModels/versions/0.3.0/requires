@@ -1,0 +1,12 @@
+julia 0.7
+DataStructures
+Distributions
+ForwardDiff
+HypothesisTests
+Optim
+Reexport
+Requires
+Roots
+SpecialFunctions
+StatsBase
+StatsFuns
