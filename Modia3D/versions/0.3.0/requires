@@ -1,0 +1,7 @@
+julia 1.0
+ModiaMath 0.5.0
+StaticArrays
+DataFrames
+DataStructures
+Unitful
+JSON
