@@ -1,0 +1,26 @@
+julia 0.7
+GeometryTypes 0.7.2
+ImageCore
+ImageTransformations
+@windows ImageMagick
+@linux ImageMagick
+@osx QuartzImageIO
+AbstractPlotting 0.9.1
+ColorTypes
+Colors
+ColorVectorSpace
+FixedPointNumbers
+Documenter
+ModernGL
+MeshIO
+ImageMagick
+ImageTransformations
+GDAL
+FileIO
+ImageFiltering
+DataFrames
+RDatasets
+BinaryProvider
+StatsMakie
+ZipFile
+ColorSchemes
