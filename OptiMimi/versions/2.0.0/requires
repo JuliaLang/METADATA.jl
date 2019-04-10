@@ -1,0 +1,11 @@
+julia 0.7+
+Mimi
+NLopt
+ForwardDiff 0.2.5
+DiffRules
+DiffResults
+MathProgBase
+DataFrames
+Clp
+Distributions
+BlackBoxOptim
