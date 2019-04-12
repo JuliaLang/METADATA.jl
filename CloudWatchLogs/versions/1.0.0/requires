@@ -1,0 +1,6 @@
+julia 0.7
+AWSCore 0.3
+MbedTLS
+Memento 0.9
+Mocking 0.5.3
+TimeZones 0.5
