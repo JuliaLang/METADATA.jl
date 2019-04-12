@@ -1,0 +1,9 @@
+julia 0.7
+CSV
+DataFrames
+DataStructures
+Glob
+JSON
+Memento
+Tables
+YAML
