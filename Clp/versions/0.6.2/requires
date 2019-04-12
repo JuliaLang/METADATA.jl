@@ -1,0 +1,6 @@
+julia 0.7
+Compat 0.59
+BinaryProvider 0.5.3
+MathProgBase 0.5 0.8
+LinQuadOptInterface 0.6 0.7
+MathOptInterface 0.8.3
