@@ -1,0 +1,10 @@
+julia 0.6
+Clustering
+CSVFiles
+Compose
+DataFrames
+Distributions
+Gadfly
+Iterators
+NonUniformRandomVariateGeneration
+StatsBase
