@@ -1,6 +1,10 @@
 # METADATA
 
-This is the official METADATA repo for the Julia package manager. See [manual section](https://docs.julialang.org/en/latest/stdlib/Pkg/) on packages for how to use the package manager to install and develop packages.
+This used to be the official METADATA repo for the Julia package manager, upto and including Julia `v0.6`. From Julia `v0.7` (July 2018) onwards, the package registry has moved to the https://github.com/JuliaRegistries/General. This repo is therefore frozen and no longer maintained. All users are urged to migrate to Julia 1.0 or later. There is no support for earlier versions. 
+
+# Historical README
+
+See [manual section](https://docs.julialang.org/en/latest/stdlib/Pkg/) on packages for how to use the package manager to install and develop packages.
 
 
 Please note our current policies for accepting entries into METADATA.jl:
