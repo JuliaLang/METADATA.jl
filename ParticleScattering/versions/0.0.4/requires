@@ -1,0 +1,10 @@
+julia 0.6
+
+IterativeSolvers 0.5.0
+LinearMaps
+Optim 0.14.0
+PyPlot
+DataFrames
+CSV
+PGFPlotsX 0.2.1
+JLD
